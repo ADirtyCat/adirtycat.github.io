@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>在windows 环境中搭建linux的学习环境！！！（对新手很重要） | i-cooltea的博客</title>
+    <meta property="og:title" content="在windows 环境中搭建linux的学习环境！！！（对新手很重要） - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-02-24T07:08:00&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-02-24T07:08:00&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="在windows 环境中搭建linux的学习环境！！！（对新手很重要）">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/%E5%9C%A8windows-%E7%8E%AF%E5%A2%83%E4%B8%AD%E6%90%AD%E5%BB%BAlinux%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E5%AF%B9%E6%96%B0%E6%89%8B%E5%BE%88%E9%87%8D%E8%A6%81/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">在windows 环境中搭建linux的学习环境！！！（对新手很重要）</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年2月24日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            <p><span style="color:#454545;"><span style="font-family:&quot;Microsoft YaHei&quot;;"><span style="margin:0px;padding:0px;font-size:18px;font-weight:400;box-sizing:border-box;">首先为什么要用虚拟机来搭建Linux的学习环境？？？<br style="box-sizing:border-box;" />
+</span></span></span> <p style="margin:0px 0px 16px;padding:0px;text-align:justify;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <strong style="font-weight:700;box-sizing:border-box;"><span style="margin:0px;padding:0px;font-size:18px;font-weight:400;box-sizing:border-box;">因为如果在真实机来搭建Linux学习环境，一旦Linux出现了无法解决问题我将要花费大量的时间来解决（对于我们新手来说），而在虚拟机中出现无法解决的问题时，只需简单的重装比在真实机中更容易处理。（这是无数次痛苦的教训让我明白的）。其实虚拟机中学习与真实机中学习Linux是一样，对于我们新手不能将大量的时间来用来解决Linux中一些对新手来说比较难的问题。</span></strong> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <strong style="font-weight:700;box-sizing:border-box;"><span style="margin:0px;padding:0px;font-size:18px;font-weight:400;box-sizing:border-box;"><br style="box-sizing:border-box;" />
+</span></strong> </p>
+<strong style="color:#454545;text-transform:none;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:700;word-spacing:0px;white-space:normal;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;"><span style="margin:0px;padding:0px;font-size:18px;font-weight:400;box-sizing:border-box;">比如之前我的真实机Linux出现了这样一个问题：<br style="box-sizing:border-box;" />
+实然Linux无法进入系统了，而且无法进入Linux的恢复模式，命令行模式。开机后光标一直在左上角闪个不停。百度等等两天无果。这样对于我们新手来说，不仅耽误Linux基础的学习，还会打击新手的学习信心。所以对新手来说，还是用虚拟机来学习Linux比较好，一旦遇到无法解决的问题，就放弃解决，重装系统吧！<br style="box-sizing:border-box;" />
+<br style="box-sizing:border-box;" />
+<br style="box-sizing:border-box;" />
+环境的搭建（windows中，毕竟对国人来说这个比较熟悉）<br style="box-sizing:border-box;" />
+1：在windows中安装好virtualbox,然后安装centos(也可以是其它linux)<br style="box-sizing:border-box;" />
+2：在windows中安装SecureCRT，这个软件是一个远程登录程序（具体介绍<a href="http://baike.so.com/doc/5411484.html）">http://baike.so.com/doc/5411484.html）</a><br style="box-sizing:border-box;" />
+（对我来说是学习linux shell的神器，用过你就会知道的！）<br style="box-sizing:border-box;" />
+3：网络设置（让真实机与虚拟能同时上网），<span style="margin:0px;padding:0px;color:#FF0000;font-weight:400;box-sizing:border-box;">给虚拟机添加两个网卡。一个为nat网络，一个为仅主机网络（T）（一个用于上网，一个用于SecureCRT的连接）</span><br style="box-sizing:border-box;" />
+</span></strong> <p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <strong style="font-weight:700;box-sizing:border-box;"><em style="font-style:italic;box-sizing:border-box;"><span style="margin:0px;padding:0px;font-size:18px;font-weight:400;box-sizing:border-box;">直接上图。。。</span></em></strong> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <img class="img-responsive" style="margin:0px;outline:0px;border:0px currentColor;border-image:none;max-width:100%;box-sizing:border-box;" alt="" src="http://img.blog.csdn.net/20140606165825359?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnNsbDIwMTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" /> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <img class="img-responsive" style="margin:0px;outline:0px;border:0px currentColor;border-image:none;max-width:100%;box-sizing:border-box;" alt="" src="http://img.blog.csdn.net/20140606165831156?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnNsbDIwMTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" /> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <strong style="font-weight:700;box-sizing:border-box;"><span style="margin:0px;padding:0px;font-size:18px;font-weight:400;box-sizing:border-box;">这个用于securecrt的远程连接<span style="margin:0px;padding:0px;color:#FF0000;font-weight:400;box-sizing:border-box;">192.168.x.1</span>（当然也可以是其它的网段）</span></strong> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <img class="img-responsive" style="margin:0px;outline:0px;border:0px currentColor;border-image:none;max-width:100%;box-sizing:border-box;" alt="" src="http://img.blog.csdn.net/20140606165836093?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnNsbDIwMTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" /> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <span style="margin:0px;padding:0px;font-size:18px;font-weight:400;box-sizing:border-box;"><strong style="font-weight:700;box-sizing:border-box;">设置虚拟机的ip地址 记住是设置eth1 （eth0用第一个网卡用的是nat方式连接的，eth1是第二个网卡用的是仅主机方式连接）</strong></span> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <span style="margin:0px;padding:0px;font-size:18px;font-weight:400;box-sizing:border-box;"><strong style="font-weight:700;box-sizing:border-box;">把虚拟机设置为192.168.59.x (<span style="margin:0px;padding:0px;color:#FF0000;font-weight:400;box-sizing:border-box;">同一网段59)</span></strong></span> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <img class="img-responsive" style="margin:0px;outline:0px;border:0px currentColor;border-image:none;max-width:100%;box-sizing:border-box;" alt="" src="http://img.blog.csdn.net/20140606165848031?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnNsbDIwMTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" /> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <span style="margin:0px;padding:0px;font-size:18px;font-weight:400;box-sizing:border-box;"><strong style="font-weight:700;box-sizing:border-box;">查看ip配置</strong></span> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <img class="img-responsive" style="margin:0px;outline:0px;border:0px currentColor;border-image:none;max-width:100%;box-sizing:border-box;" alt="" src="http://img.blog.csdn.net/20140606165842312?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnNsbDIwMTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" /> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <span style="margin:0px;padding:0px;font-size:18px;font-weight:400;box-sizing:border-box;"><strong style="font-weight:700;box-sizing:border-box;">用securecrt 来连接虚拟机中的linux 点击Quick Connect.</strong></span> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <img class="img-responsive" style="margin:0px;outline:0px;border:0px currentColor;border-image:none;max-width:100%;box-sizing:border-box;" alt="" src="http://img.blog.csdn.net/20140606165858578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnNsbDIwMTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" /> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <strong style="font-weight:700;box-sizing:border-box;"><span style="margin:0px;padding:0px;font-size:18px;font-weight:400;box-sizing:border-box;">输入host name （<span style="margin:0px;padding:0px;color:#FF0000;font-weight:400;box-sizing:border-box;">虚拟机中linux的ip地址</span>）username(用户名)</span></strong> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <img class="img-responsive" style="margin:0px;outline:0px;border:0px currentColor;border-image:none;max-width:100%;box-sizing:border-box;" alt="" src="http://img.blog.csdn.net/20140606170658046?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnNsbDIwMTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" /> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <strong style="font-weight:700;box-sizing:border-box;"><span style="margin:0px;padding:0px;font-size:18px;font-weight:400;box-sizing:border-box;">输入密码就可以登录了</span></strong> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <img class="img-responsive" style="margin:0px;outline:0px;border:0px currentColor;border-image:none;max-width:100%;box-sizing:border-box;" alt="" src="http://img.blog.csdn.net/20140606165904125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnNsbDIwMTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" /> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <strong style="font-weight:700;box-sizing:border-box;"><span style="margin:0px;padding:0px;font-size:18px;font-weight:400;box-sizing:border-box;">登录后的画面：</span></strong> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <img class="img-responsive" style="margin:0px;outline:0px;border:0px currentColor;border-image:none;max-width:100%;box-sizing:border-box;" alt="" src="http://img.blog.csdn.net/20140606165912453?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnNsbDIwMTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" /> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <span style="margin:0px;padding:0px;color:#FF0000;font-size:18px;font-weight:400;box-sizing:border-box;"><strong style="font-weight:700;box-sizing:border-box;">如果按上面的设置不能成功登录系统则可能的原因是虚拟机中的Linux没有开启sshd 服务 （sudo service sshd start 即可）</strong></span> </p>
+<p style="margin:0px 0px 16px;padding:0px;text-align:justify;color:#4F4F4F;text-transform:none;line-height:26px;text-indent:0px;letter-spacing:normal;font-family:&quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, SimHei, Arial,simsun;font-size:16px;font-style:normal;font-weight:normal;word-spacing:0px;white-space:normal;min-height:26px;box-sizing:border-box;orphans:2;widows:2;background-color:#FFFFFF;font-variant-ligatures:normal;font-variant-caps:normal;-webkit-text-stroke-width:0px;">
+    <span style="margin:0px;padding:0px;color:#FF0000;font-size:18px;font-weight:400;box-sizing:border-box;"><strong style="font-weight:700;box-sizing:border-box;">2014年6月6日亲测有效</strong></span> </p></p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/-%E4%BD%BF%E7%A8%8B%E5%BA%8F%E5%9C%A8linux%E4%B8%8B%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-%E5%85%B3%E6%8E%89%E7%BB%88%E7%AB%AF%E7%BB%A7%E7%BB%AD%E8%AE%A9%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/"> 使程序在Linux下后台运行 （关掉终端继续让程序运行的方法）</a></li>
+        
+        <li><a href="/posts/php%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">PHP常用正则表达式</a></li>
+        
+        <li><a href="/posts/%E6%AD%A3%E5%88%99-%E5%85%83%E5%AD%97%E7%AC%A6/">正则 - 元字符</a></li>
+        
+        <li><a href="/posts/%E6%AD%A3%E5%88%99-%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99/">正则 - 匹配规则</a></li>
+        
+        <li><a href="/posts/%E6%AD%A3%E5%88%99-%E8%AF%AD%E6%B3%95/">正则 - 语法</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/linux">linux</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

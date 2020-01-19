@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on i-cooltea的博客</title>
+    <link>http://i-cooltea.github.io/tags/vim/</link>
+    <description>Recent content in vim on i-cooltea的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 19 Jul 2019 06:31:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://i-cooltea.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vim 插件管理神器 vundle</title>
+      <link>http://i-cooltea.github.io/posts/vim-%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E7%A5%9E%E5%99%A8-vundle/</link>
+      <pubDate>Fri, 19 Jul 2019 06:31:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/vim-%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E7%A5%9E%E5%99%A8-vundle/</guid>
+      <description>一、 Vim 的配置文件 在用户目录里面，有一个 .vimrc 文件。vim 在启动的时候会按照这个文件的内容来配置 vim。 通过执行 cd ~ 进入用户目录； 通过执行 ls -a 查看是否存在该文件，如果没有则通过 touch .vimrc 创建。 在以下内容中，我们会多次编辑这个文件。  二、 让装插件简单一点 其实本来装和管理 Vim 的插件是比较的，但 Vundle 使其变得简单。简单到什么程度呢？ 在 Vim 里面运行命令 PluginSearch 插件名称 ，按 Enter ； 在弹出的列表中选中某个搜索结果，按 i 就能安装 PS ： 不过下面会使用复制到配置文件的方式 它在 GitHub 的地址为：https://github.com/VundleVim/Vundle.vim  三、 Vundle 的下载、安装 虽然按照官方的说法用 Git 来安装 Vundle 看起来好像比较麻烦，但其实更简单些。
+（1）安装 Git
+可以点击 这里 查看如何安装。 通常用的系统有两个： Ubuntu ：在命令行（terminal 终端）上执行 sudo apt-get install git； CentOS ：执行 sudo yum install git 。 实在不行，还能按照教程通过源码安装。  （2）安装 Vundle</description>
+    </item>
+    
+    <item>
+      <title>Vim 搜索模式</title>
+      <link>http://i-cooltea.github.io/posts/vim-%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Fri, 24 May 2019 08:15:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/vim-%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%BC%8F/</guid>
+      <description>本文介绍如何使用Vim的搜索模式。
+&amp;nbsp;
+搜索单词 Vim中使用 &amp;amp;lt; 和 &amp;amp;gt; 分别表示单词的开头和结尾，例如查找单词 i 而不是字母 i ，在正常模式下，按下 / 启动搜索模式，输入 &amp;amp;lt;i&amp;amp;gt; ，敲击回车即可。
+要查找当前光标覆盖的单词，敲击 * ，Vim会自动启动搜索模式，光标移动到该单词下一个现身位置。
+&amp;nbsp;
+搜索当前单词并连续修改 假定当前光标覆盖的单词为 foo，按下 * 键，Vim 会搜索并跳转到下一个 foo 的位置，按下 ciw 组合键，意思是 change inner word ，此时 foo 会被删除，在原位置输入 bar ，然后按下 Escape 键。这就完成了一次搜索并修改，接下来按 n 键继续搜索，如果还需要修改，则按下 . 键表示重复修改动作，如此反复完成连续搜索与修改。
+&amp;nbsp;
+搜索连续重复单词 有时你可能会连续重复输入同一个单词而不自知，例如以下文本：
+1 hello hello 2 world world 3 thank 4 thank 搜索模式：
+\(\&amp;lt;\w\+\&amp;gt;\)\_s*\1  以上搜索模式会匹配文本中的1-4行。在Vim中，使用 ( 和 ) 包括的部分视为一个原子，其中 (&amp;amp;lt;\w+&amp;amp;gt;) 匹配一个单词原子，\s 匹配空格符和tab符， _s 匹配空格符、tab符和换行符， _s* 匹配0次或多次。</description>
+    </item>
+    
+    <item>
+      <title>vim 搜索模式</title>
+      <link>http://i-cooltea.github.io/posts/vim-%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Fri, 24 May 2019 08:15:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/vim-%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%BC%8F/</guid>
+      <description>本文介绍如何使用Vim的搜索模式。
+&amp;nbsp;
+搜索单词 Vim中使用 &amp;amp;lt; 和 &amp;amp;gt; 分别表示单词的开头和结尾，例如查找单词 i 而不是字母 i ，在正常模式下，按下 / 启动搜索模式，输入 &amp;amp;lt;i&amp;amp;gt; ，敲击回车即可。
+要查找当前光标覆盖的单词，敲击 * ，Vim会自动启动搜索模式，光标移动到该单词下一个现身位置。
+&amp;nbsp;
+搜索当前单词并连续修改 假定当前光标覆盖的单词为 foo，按下 * 键，Vim 会搜索并跳转到下一个 foo 的位置，按下 ciw 组合键，意思是 change inner word ，此时 foo 会被删除，在原位置输入 bar ，然后按下 Escape 键。这就完成了一次搜索并修改，接下来按 n 键继续搜索，如果还需要修改，则按下 . 键表示重复修改动作，如此反复完成连续搜索与修改。
+&amp;nbsp;
+搜索连续重复单词 有时你可能会连续重复输入同一个单词而不自知，例如以下文本：
+1 hello hello 2 world world 3 thank 4 thank 搜索模式：
+\(\&amp;lt;\w\+\&amp;gt;\)\_s*\1  以上搜索模式会匹配文本中的1-4行。在Vim中，使用 ( 和 ) 包括的部分视为一个原子，其中 (&amp;amp;lt;\w+&amp;amp;gt;) 匹配一个单词原子，\s 匹配空格符和tab符， _s 匹配空格符、tab符和换行符， _s* 匹配0次或多次。</description>
+    </item>
+    
+    <item>
+      <title>vim插件  目录插件NERDTree安装 </title>
+      <link>http://i-cooltea.github.io/posts/vim%E6%8F%92%E4%BB%B6-%E7%9B%AE%E5%BD%95%E6%8F%92%E4%BB%B6nerdtree%E5%AE%89%E8%A3%85-/</link>
+      <pubDate>Fri, 24 Aug 2018 06:51:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/vim%E6%8F%92%E4%BB%B6-%E7%9B%AE%E5%BD%95%E6%8F%92%E4%BB%B6nerdtree%E5%AE%89%E8%A3%85-/</guid>
+      <description>引用链接: CSDN vim插件 NERDTree安装 和 使用
+vim 插件管理神器 vundle
+安装 NERDTree插件的官方地址如下，可以从这里获取最新的版本 https://github.com/scrooloose/nerdtree 下载zip安装包 或者使用下面官网源文件安装方法
+安装方法很简单，先把压缩文件下载下来，解压后 将plugin目录下的NERD_tree.vim 拷贝~/.vim/plugin 以及doc目录下的NERD_tree.txt拷贝到~/.vim/doc.
+## NERDTree 5.0 wget https://www.vim.org/scripts/download_script.php?src_id=23731 -O NERDTree.zip  wget https://www.vim.org/scripts/download_script.php?src_id=17123 -O NERDTree.zip unzip NERDTree.zip -d NERDTree mkdir -p ~/.vim/{plugin,doc} cp plugin/NERD_tree.vim ~/.vim/plugin/ cp doc/NERD_tree.txt ~/.vim/doc/  安装好后，命令行中输入vim，打开vim后，在vim中输入:NERDTree，你就可以看到NERDTree的效果了。
+为了方便起见，我们设置一下快捷键， 在~/.vimrc 文件中添加下面内容，只要按键盘上的F10就可以显示和隐藏NERDTree。
+配置文件 set nu set ruler set autoindent set cursorline set paste set ts=4 set tabstop=4 set expandtab set smartindent set shiftwidth=4 set softtabstop=4 let NERDTreeAutoCenter=1 let NERDTreeBookmarksFile=$VIM.</description>
+    </item>
+    
+  </channel>
+</rss>

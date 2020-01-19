@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chrome on i-cooltea的博客</title>
+    <link>http://i-cooltea.github.io/tags/chrome/</link>
+    <description>Recent content in chrome on i-cooltea的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 27 May 2019 10:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://i-cooltea.github.io/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>chrome插件逆天神器-cvim功能介绍</title>
+      <link>http://i-cooltea.github.io/posts/chrome%E6%8F%92%E4%BB%B6%E9%80%86%E5%A4%A9%E7%A5%9E%E5%99%A8-cvim%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Mon, 27 May 2019 10:00:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/chrome%E6%8F%92%E4%BB%B6%E9%80%86%E5%A4%A9%E7%A5%9E%E5%99%A8-cvim%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D/</guid>
+      <description>cVim是一款类似Vimium的插件，让你能够使用键盘控制你的浏览器。 下载路径
+快捷键介绍 内容导航 | 按键 | 作用 | | :-: | :- | | j,s | 向下滚动 | | k,w | 向上滚动| |h|向左滚动| |l|向右滚动| |d|向下滚动半页| |u,e|向上滚动半页| |gg|滚动到页面顶部| |G|滚动到页面底部| |0|滚动到页面最左侧| |$|滚动到页面最右侧| |gi|将焦点移动到第一个输入框| |gI|将焦点移动到最后一个输入框|
+链接提示 | 按键 | 作用 | | :-: | :- | |f|在当前标签页打开链接| |F|在新的标签页打开链接| |W|在新的窗口打开链接| |mr|使用google图片检索引擎检索图片| |gr|使用google图片检索引擎检索图片|
+快速标记 | 按键 | 作用 | | :-: | :- | | M&amp;lt;&amp;gt; |创建&amp;lt;&amp;gt;标记| |go&amp;lt;&amp;gt;|在当前标签页打开&amp;lt;&amp;gt;标记 |gn&amp;lt;&amp;gt; |在新的标签页打开&amp;lt;&amp;gt;标记 |gw&amp;lt;&amp;gt; |在新的窗口打开&amp;lt;&amp;gt;标记
+杂项 | 按键 | 作用 | | :-: | :- | |a|&amp;rdquo;:tabnew google&amp;rdquo;的别名 |.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on i-cooltea的博客</title>
+    <link>http://i-cooltea.github.io/tags/</link>
+    <description>Recent content in Tags on i-cooltea的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 15 Jan 2020 02:28:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://i-cooltea.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>项目管理</title>
+      <link>http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Wed, 15 Jan 2020 02:28:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>http://i-cooltea.github.io/tags/docker/</link>
+      <pubDate>Mon, 30 Dec 2019 09:02:50 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://i-cooltea.github.io/tags/linux/</link>
+      <pubDate>Mon, 30 Dec 2019 02:28:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssr</title>
+      <link>http://i-cooltea.github.io/tags/ssr/</link>
+      <pubDate>Mon, 30 Dec 2019 02:28:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/ssr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>随笔</title>
+      <link>http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/</link>
+      <pubDate>Tue, 19 Nov 2019 13:32:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>php</title>
+      <link>http://i-cooltea.github.io/tags/php/</link>
+      <pubDate>Tue, 20 Aug 2019 10:04:37 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>http://i-cooltea.github.io/tags/mysql/</link>
+      <pubDate>Mon, 29 Jul 2019 07:01:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>汇总</title>
+      <link>http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Mon, 29 Jul 2019 07:01:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>http://i-cooltea.github.io/tags/vim/</link>
+      <pubDate>Fri, 19 Jul 2019 06:31:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chrome</title>
+      <link>http://i-cooltea.github.io/tags/chrome/</link>
+      <pubDate>Mon, 27 May 2019 10:00:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>软件</title>
+      <link>http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Wed, 17 Oct 2018 09:31:53 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>http://i-cooltea.github.io/tags/git/</link>
+      <pubDate>Sun, 02 Sep 2018 03:48:25 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>虚拟机</title>
+      <link>http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
+      <pubDate>Tue, 17 Jul 2018 02:12:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yii2</title>
+      <link>http://i-cooltea.github.io/tags/yii2/</link>
+      <pubDate>Wed, 04 Jul 2018 15:13:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/yii2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nginx</title>
+      <link>http://i-cooltea.github.io/tags/nginx/</link>
+      <pubDate>Fri, 01 Jun 2018 14:51:38 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>数据库</title>
+      <link>http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Tue, 20 Mar 2018 10:41:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>服务器</title>
+      <link>http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Thu, 08 Mar 2018 02:43:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>http</title>
+      <link>http://i-cooltea.github.io/tags/http/</link>
+      <pubDate>Wed, 07 Mar 2018 11:12:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/http/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>thinkphp</title>
+      <link>http://i-cooltea.github.io/tags/thinkphp/</link>
+      <pubDate>Sun, 04 Mar 2018 13:36:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/thinkphp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>html/css</title>
+      <link>http://i-cooltea.github.io/tags/html/css/</link>
+      <pubDate>Sun, 04 Mar 2018 13:08:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/html/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>composer</title>
+      <link>http://i-cooltea.github.io/tags/composer/</link>
+      <pubDate>Mon, 26 Feb 2018 11:59:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/composer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>正则表达式</title>
+      <link>http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+      <pubDate>Sat, 24 Feb 2018 14:39:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>http://i-cooltea.github.io/tags/python/</link>
+      <pubDate>Sat, 24 Feb 2018 10:11:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>软件设计</title>
+      <link>http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Tue, 24 Oct 2017 15:28:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

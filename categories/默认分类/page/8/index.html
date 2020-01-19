@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>默认分类 | i-cooltea的博客</title>
+    <meta property="og:title" content="默认分类 - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="默认分类">
+        
+    <meta name="author" content="i-cooltea">
+    <meta property="og:url" content="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="alternate" type="application/rss+xml+xml" href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/index.xml" title="i-cooltea的博客" />
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    
+                    <h3 class="archive-title">
+                        分类
+                        <span class="keyword">默认分类</span>
+                        中的文章
+                    </h3>
+                    
+
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">MySQL学习笔记</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年3月4日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                零散知识点   ACID：原子性、一致性、隔离性、持久性  事务的隔离级别，四种：（1）未提交读（可能出现脏读）；（2）提交读（可能出现不可重复读）；（3）可重复读（可能出现幻读，但mysql的innodb通过mvcc解决了这个问题）；（4）可串行化读（行行加锁，太重了，一般不用）     索引篇   索引主要分为B+树索引和Hash索引。  索引的最左匹配原则：比如设定一个索引为(col1,col2,col3)，那么必须在where子句中含有最左边的列col1的时候，索引才会起作用。其他如where col2=val and col3= val。。。。都是不使用索引的。  聚集索引定义：一种逻辑索引和物理索引相同的索引。一张表只能有一个聚集索引，因为物理索引只有一种。根据这个特性，适用于范围查找。主键列默认是聚集索引。  聚集索引的优点：（1）适合范围查找&nbsp; 缺点：（1）对于数据更新开销大  非聚集索引与聚集索引的区别：（1）叶子节点并非数据节点&nbsp; &nbsp; （2）叶子节点为每一个真正的数据行存储一个“键-指针对&nbsp; &nbsp; &nbsp;（3）叶子节点中还存储了一个指针偏移量，根据页指针及指针偏移可以定位到具体的数据行。&nbsp; （4）在除叶节点外的其他索引节点，存储的是类似内容，只不过是指向下一级索引页。 自适应hash索引：对某些多次访问的列，自动加上hash索引方便查询。   聚集索引   InnoDB的聚集索引实际上在同样的结构中保存了B-树索引和数据行  数据行实际保存在索引的叶子页。（B-树特性）  “聚集”的定义：指实际的数据行和相关的键值都保存在一起  优点：（1）适合范围查找，比如可以按照学号聚集，查出一个学生所有的成绩。（2）数据访问快，因为是聚集的，所以索引和数据都保存到了同一颗B树上。（3）使用覆盖索引的查询可以使用包含在叶子节点中的主键值  缺点：（1）聚集索引适合I/O密集型，如果数据量很小，能够装入内存，那就没有太大的意义。（2）更新操作困难，插入依赖于插入顺序，最快就是按照主键插入。   B+树索引   特点：B+树和B树类似，都是平衡的M叉多路访问树。但B+树在叶子节点上增加了前后指针，方便快速访问叶节点。且B+树的非叶节点是索引，叶节点才存储需要的关键字数据。  对于B树索引来说，索引的列顺序很重要，因为需要遵守最左匹配原则  优点：（1）是平衡树，从根节点到叶节点路径短，且同层级有指针方便快速移动（2）能够减少磁盘I/O次数，因为索引文件是也要占空间的，而B类树（B-/B+）有大量的非叶节点存储索引。且B+树中的非叶节点没有数据域，空间更大，存储的容量更多，即减少磁盘读写。  缺点：（1）对于重复性低的表查询速度没有hash快。（2）等值查询没有hash快     Hash索引   优点：我们知道hash索引在查找上性能非常好，在合理的碰撞情况下可以认为是O(1)；这样对于磁盘的I/O次数就相对更少，我们知道磁盘的I/O非常花时间。  缺点：（1）有利有弊，因为hash是通过散列值一次确定位置，所以无法使用于范围查找。（2）hash索引无法用来避免排序操作：我们知道在构建索引的时候可以顺便将索引的列进行排序，这样在后期使用的时候就不用再排序了，而hash索引做不到这点。（3）hash索引任何时候都无法避免表扫描，因为碰撞的存在。  特点：Hash索引不支持最左匹配原则   全文索引   出现在Myisam引擎中  它不是使用where子句来比较相等性，而是执行相关的关键字操作，是基于数据的关联性，而非比较。  在表中通过连接字符列构造索引，并把他们当成很长的字符串进行索引  数据结构是双重平衡B树，容易出现 碎片  全文索引的添加/删除/修改 都很慢    覆盖索引   定义：包含（覆盖）所有满足查询需要的数据的索引。   原理：索引中保存了它包含列的数据；因此hash索引、全文索引都不能满足，只有B-树索引能够支持。  想要创建一个覆盖索引，这个索引必须包含指定表上包括WHERE语句、ORDER BY语句、GROUP BY语句(如果有的话)以及SELECT语句中的所有列。    关于索引建立的方式   习惯性的想法是不要在选择性很差的列上建索引，比如sex，可选范围只有man/woman，因为这样会返回大量满足条件的记录。但也有特殊情况  针对上一条，如果这个列虽然选择性很差，但是很多查询的where子句中都会用到它，那么可以采取变通的方法：（1）将该列设为索引的最左，即引用最左前缀匹配，那么对于大多数查询来说是可以用的上索引的。 （2）其次，如果不使用这列，那么可以使用sex in(&lsquo;male&rsquo;,&lsquo;female&rsquo;)这样来过滤。它实际上不会过滤任何行，但我们依然能使用上索引。  将范围判据放到索引的最后，这样优化器就会尽可能多的使用索引。同时请注意不要忘记：B树索引只能优化第一个范围条件左边的列。比如 where last_name=&lsquo;Smith&rsquo; and first_name like &lsquo;J%&rsquo; and bir_day=&lsquo;1978-12-31&rsquo;，那么只能优化last_name和first_name列。  总结：（1）选择性低的一般不用作索引 （2）如果查询中经常用到选择性低的列，那就把它放在索引列的前面，使用In()替换 （3）对于范围判据，放在索引列的后面，因为范围后面的列不会被优化 （5）如果有多个范围，将其中可以的转换为In() （6）如果不能转换为In()，那么转换为一个等值性的判断。      关于索引的使用   如果在查询中没有隔离索引的列，MySQL通常不会使用索引。  隔离列：既不是表达式的一部分，也没有位于函数中。比如 select* &hellip;&hellip;where to_days(current_date)-to_days(date_col)&lt;=10,这个就不会使用索引，因为“-”既不是函数，也没有在表达式中。如果要使用索引应该是where date_col&gt;=date_sub(current_date,interval 10 days)  如果是bolb/text或者很长的varchar,必须定义前缀索引，因为不允许索引它们的全文  对于大的表，应当使它的前缀选择率接近它的全列选择性。  前缀索引不能用在order by和group by子句中   关于索引对排序的优化   我们知道，B-树索引可以帮助排序。而MySQL有两种排序方法：（1）文件排序（2）索引排序，而索引排序只有在满足条件的情况下才能使用；在其他不满足的情况下我们使用索引排序。  按理来说，索引排序的速度应该是比文件排序快的，但这建立在索引是可以被覆盖查询的情况下，否则就是得顺序查找，这就成了近似于随机I/O。  索引排序成立条件：（1）所有列排序方向一致（DESC,ASC）（2）索引中列的顺序和order by子句中的顺序一致 （3）满足最左前缀原则   举个反例：这个里面我定义了两个索引，一个id,一个stu_name，然后order by子句里面是按sex的，这个时候因为order by子句中不含有索引列，所以不满足，可以看到Extra中是Using filesort（文件排序）的。      引擎篇      MySQL中最常用的两种引擎分别是:MyISAM,InnoDB。MySQL5.……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/thinkphp5-%E5%BC%80%E5%8F%91%E7%9A%84%E9%82%A3%E7%82%B9%E4%BA%8B/">thinkphp5 开发的那点事</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年3月4日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                知识点1：* 应用程序的流程图。对于一般的框架是这样的。* index.php文件作为前端控制器，初始化运行CodeIgniter所需的基本资源；  Router检查http请求，以确定如何处理请求；  如果存在缓存文件，将直接输出到浏览器，不用走下面正常的系统流程；  在加载应用程序控制器之前，对http请求以及任何用户提交的数据进行安全检查；  控制器加载模型、核心类库、辅助函数以及其他所有处理请求所需的资源  最后一步，渲染视图并发送至浏览器，如果开启了缓存，视图会先被缓存起来用于后续请求。&nbsp;注释：前端控制器属于设计模式的一种，它用来提供一个集中的请求处理机制，所有的请求都将由一个单一的处理程序处理。该程序可以做认证/授权/记录日志，或者跟踪请求，然后把请求传给相应的处理程序。   知识点2：对MVC设计模式的思考&nbsp;MVC 是一种 用于将应用程序的逻辑层和表现层分离出来的软件方法。在实践中，由于这种分离 所以你的页面中只包含很少的 PHP 脚本。&nbsp;* 模型：代表数据结构。通常来说，模型类将包含帮助你对数据库进行增删改查的方法。可以说包含了DOA层和模型层。&nbsp;* 视图：是要展现给用户的信息。一个视图通常就是一个网页，但是在CI中，一个视图也可以是一部分页面(例如页头、页尾)，它也可以是一个RSS页面，或者其他任何类型的页面。(表现层中的模板层)&nbsp;* 控制器：是模型、视图以及其他任何处理http请求所必须的资源的中介，并生成网页。
+知识点3：tp5开发中的错误与调试、日志&nbsp;如果异步ajax访问tp5，不会返回trace信息。&nbsp;项目开发的时候，出现错误在所难免，最大的困惑在于发现问题所在，其次才是如何解决问题。因此懂得如何调试和跟踪问题非常之关键。&nbsp;总的来说有：trace信息（右下角）、错误页面（能解决80%的错误）、断点调试（dump，halt，trace控制台输出）、日志分析
+学习框架需要掌握的一些概念&nbsp;*&nbsp;LAMP是基于Linux、Apache、Mysql和php的开放资源网络开发平台，也就是web平台，其中的php有时候用Perl或Python去替换。Linux是开发系统，Apache是最通用的网络服务器，mysql是带有网络管理附加工具的关系型数据库，php是流行的对象脚本语言。php包含了多数其他语言的优秀特性来使得它的网络开发更加有效。&nbsp;我喜欢使用WAMPServer作为win7下的集成环境。&nbsp;*&nbsp;OOP，面向对象编程是一种计算机编程架构，OOP的一条基本原则是计算机程序是由单个能够起到子程序作用的单元或对象组合而成。OOP达到了软件工程的三个主要目标：重用性、灵活性和扩展性。&nbsp;为了实现整体运算，每个对象都能够接收信息、处理数据和向其他对象发送信息。OOP主要有以下的概念和组件：&nbsp;* 组件：数据和功能一起在运行着的计算机程序中形成的单元，也就是多个对象组合在一起，向外提供相同功能的组合体。组件在OOP计算机程序中是模块和结构化的基础。&nbsp;* 抽象性：对信息主要方面关注的能力。&nbsp;* 封装、继承和多态，这三种特性在书本上已经讲的不厌其烦了。[坏笑]&nbsp;* ORM：(object/relation mapping)对象-关系映射，是随着面向对象的软件开发方法发展而产生的。==面向对象的开发方法是当今企业级应用开发环境中的主流开发方法，关系数据库是企业级环境中永久存放数据的主流数据存储系统。对象和关系数据是也为视图的两种表现形式，业务在内存中表现为对象，在数据库中表现为关系数据库。内存中的对象之间存在关联和继承关系，而在数据库中，关系数据无法直接表达多对多关联和继承关系==，也就是代码中的对象和数据库中的数据之间，需要一个转化的桥梁，这个桥梁就是ORM。&nbsp;* CURD：它代表了对数据的基本原子操作：增、删、改、查。
+ActivRecord：可以简单理解为ORM层的一种实现方式，它遵循标准的ORM模型：表映射为记录，记录映射到对象，字段映射到对象的属性。它能够很大程度的快速实现模型的操作，而且简单易懂。 ActiveRecord的主要思想是： 每个数据库表对应创建一个类，类的每一个对象实例对应于数据库中表的一行记录，通常表的每个字段在类中都有对应的field(属性)  ActiveRecord同时负责把自己持久化，在ActiveRecord中封装了对数据库的访问，即CURD  ActiveRecord是一种领域模型(Domain Model),封装了部分业务逻辑   ActiveRecord比较适用于： 业务逻辑比较简单，当你的类基本上和数据库中的表一一对应时，ActiveRecord是非常方便的，即你的业务逻辑大多数是对表单操作  当发生跨表的操作时，往往会配合使用事务脚本，把跨表事务提升到事务脚本中  ActiveRecord最大优点是简单、直观。一个类包括数据访问和业务逻辑。如果配合代码生成器使用就更方便了。这些优点是ActiveRecord特别适合WEB快速开发。    CBD架构模式&nbsp;核心+行为+驱动 核心(Core)：就是框架的核心代码，不可缺少的东西，thinkphp这个框架就是基于MVC的开发框架。  行为(Bahevior)：行为在thinkphp架构中起到了去足轻重的作用，在系统核心之上，设置了很多标签扩展位，而每个标签位置可以依次执行各自的独立行为。行为扩展就此诞生，而且很多系统功能也是通过内置的行为扩展完成的，所有的行为扩展都是可替换和增加的，由此形成了底层框架的可组装的基础。  驱动(Driver)：数据库驱动、缓存驱动、标签库驱动和模板引擎驱动，以及外置的类扩展。    单一入口&nbsp;通常是指一个项目或者应用具有一个统一(但并不一定是唯一)的入口文件，也就是一个项目的所有功能操作都是通过这个入口文件进行的，并且入口文件是执行的第一步。&nbsp;单一入口的好处是控制比较灵活，因为拦截方便，类是如一些权限控制、用户登录方面的判断和操作可以统一处理了。 欢迎转载！！！……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/thinkphp5-%E5%BC%80%E5%8F%91%E7%9A%84%E9%82%A3%E7%82%B9%E4%BA%8B/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/xdebug%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">Xdebug安装教程</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年3月4日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                参考链接 : Xdebug+PhpStorm 远程调试
+在Ubuntu 14.04下的PhpStorm中配置xdebug调试环境
+PHPStorm Xdebug Remote 调试环境搭建（不依赖本地环境）
+1. 安装xdebug 得到本地phpinfo 配置信息
+将打印信息拷贝并复制到 http://xdebug.org/wizard.php 这个页面提供的一个textarea中. 然后点击下方的Analyze按钮, 它会自动帮你解析你本地的PHP环境信息从而 得到你需要下载的xdebug版本和相关配置指令.
+2. 得到需要下载的版本和相关指令 比如, 我得到的信息如下:
+下载 xdebug-2.3.2.tgz (下载地址直接点击生成的链接) 解压缩文件： tar -xvzf xdebug-2.3.2.tgz 运行: cd xdebug-2.3.2 运行: phpize (See the FAQ if you don’t have phpize. 部分输出如下所示: Configuring for: … Zend Module Api No: 20121212 Zend Extension Api No: 220121212 如果没有以上输出, 那么代表你的phpize有问题. 参考FAQ.
+运行: ./configure
+运行: make 运行: sudo cp modules/xdebug.so /usr/lib/php5/20121212 在php.……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/xdebug%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/php-%E9%9D%A2%E8%AF%95%E9%A2%98-/">php---面试题---</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年3月4日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                尽量涵盖，这里只写关于PHP的，基础肯定是各种字符串操作，数组操作，然后面向对象的理解。其实这里面好多好多东西都是平时用不到的，但这就是基础，面试官问到的东西只是你知道的很少很少一部分，但这就是你们交涉的全部所以还你是得让自己尽可能知道的多。写这些东西没有应试教育的意思，虽然有的东西平时不会用，但对你绝对都是有帮助的
+1 PHP是用什么语言编写的
+php是用c写的
+扩展：php3 php4 php5的主要区别是什么，php6的新特征有哪些？
+这个问题真恶心，等我以后心情好了在回答吧
+2 目前PHP的最高版本是
+2013.9.12现在应该是php5.5
+3 PHP的三种注释方式
+天啊，我竟然知道两种，太可怕了 # 竟然也是 好吧
+4 请列出PHP的8种数据类型
+字符串 数组 对象 数值类型 整型 xml 浮点 布尔值 特殊的有Null和resource(说实话我只用过前五种)
+5 PHP中有几种形式装载代码，并列举，以包含同目录下的Config.php文件为例？
+require include require_once include_once
+require一般用在文件的头部包含文件，执行php时包含这个文件使它成为php的一部分
+include一般用在流程控制中，用到时再包含
+区别是require遇到错误不会往下执行，而include会继续执行
+require_once和include_once的作用是避免重复包含，也就是说如果不小心包含了同一个文件，用这两个函数会只包含一次
+6 PHP中===表示什么意思，以及与==的区别，什么情况下==是true,===是false
+这个问题也是比较常见的，不过巨简单。==是比较表达式两边的值，而===会比较数据类型，比如a=1;b = ‘1’; ==的话就为true,但===就为false，因为数据类型不同
+7 header的作用是什么，以及它的限制
+sorry，这个需要先看http协议，等有功夫在回答这个问题，目前只知道这是做跳转用的
+8 strstr和stristr的区别
+这种字符串操作的方法但凡加了i的一般都是不区分大小写的意思。这里在普及一下strstr的做用吧，strstr默认返回从指定字符到该字符串结束的字符
+9 php如何获得浏览器信息
+看吧，php能做的事还是不少的，哎，我这么说会不会暴露了我的知识面比较窄的缺陷呢，哈哈
+$_SERVER[‘HTTP_USER_AGENT’];平时没用过这些东西
+10 什么是URLRewriteing
+说说我自己的理解吧，就是伪静态嘛！通过隐藏网页的访问地址以达到更好收录的的效果，可能有不对的地方，欢迎拍砖
+11 如何遍历一个文件夹下所有的内容（考中几率非常高）
+以前我都嫌麻烦，不去记这些东西，而且平时用的话我都是从网上搜索，但笔试的时候肯定不能让你从网上搜虽然这东西经常被考到，但我可以确定的是你写不出来对你影响不会很大，当然写出来了更好，之前我欧诺个的都是什么opendir 之类的这些傻×函数，刚才我知道了scandir这个函数，这是循环遍历文件夹的函数，非常实用奥
+[php] view plain copy&nbsp;在CODE上查看代码片派生到我的代码片
+&lt;?php $dir = "."; //当前目录 list_file($dir); function list_file($dir){ $list = scandir($dir); // 得到该文件下的所有文件和文件夹 foreach($list as $file){//遍历 $file_location=$dir.……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/php-%E9%9D%A2%E8%AF%95%E9%A2%98-/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/php%E7%9B%B8%E5%85%B3%E7%9A%84%E6%9C%89%E5%8F%82%E8%80%83%E4%BB%B7%E5%80%BC%E7%9A%84%E7%A4%BE%E5%8C%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%96%87%E7%AB%A0%E4%B9%A6%E7%B1%8D%E8%A7%86%E9%A2%91%E7%AD%89%E8%B5%84%E6%BA%90/">PHP相关的有参考价值的社区,博客,网站,文章,书籍,视频等资源</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年3月4日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                PHP相关的有参考价值的社区,博客,网站,文章,书籍,视频等资源  PHP网站(PHP Websites) PHP The Right Way&nbsp;- 一个PHP实践的快速参考指导  PHP Best Practices&nbsp;- 一个PHP最佳实践 &nbsp; &nbsp;-&nbsp;Clean Code PHP&nbsp;- 一个PHP 编码标准 &nbsp; &nbsp;-&nbsp;PHP Weekly News&nbsp;- 一个PHP 周刊  Securing PHP&nbsp;- 有关PHP安全相关  PHP FIG&nbsp;- PHP框架交互小组 PSR 中文翻译    PHP School&nbsp;- 一个开源的PHP学习资源  PHPTrends&nbsp;- 一些快速发展的PHP类库检索  PHP 开发者实践    其他网站(Other Websites) The Open Web Application Security Project (OWASP)&nbsp;- 一个开源软件安全社区  WebSec IO&nbsp;- 一个web 安全社区  Semantic Versioning&nbsp;- 语义化版本  Atlassian Git Tutorials&nbsp;- 一系列的Git教程  Servers for Hackers&nbsp;- 有关服务器运维相关  be-a-professional-programmer&nbsp;- 成为专业程序员路上用到的各种优秀资料、神器及框架    PHP书籍(PHP Books) Modern PHP&nbsp;- 作者是PHP 之道的发起人和Slim框架的作者 Modern PHP（中文版）    PHP Pandas  ppts_for_php2017&nbsp;- 2017 第三届PHP全球开发者大会PPT/Keynote    其他书籍(Other Books) The Linux Command Line&nbsp;- Linux 命令行教程     依赖管理( Dependency Management ) 用于依赖管理的包和框架  Composer&nbsp;/&nbsp;Packagist&nbsp;- 一个包和依赖管理器.……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/php%E7%9B%B8%E5%85%B3%E7%9A%84%E6%9C%89%E5%8F%82%E8%80%83%E4%BB%B7%E5%80%BC%E7%9A%84%E7%A4%BE%E5%8C%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%96%87%E7%AB%A0%E4%B9%A6%E7%B1%8D%E8%A7%86%E9%A2%91%E7%AD%89%E8%B5%84%E6%BA%90/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/20%E4%B8%AAcss%E9%AB%98%E7%BA%A7%E6%A0%B7%E5%BC%8F/">20个CSS高级样式</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年3月4日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1. 黑白图像 这段代码会让你的彩色照片显示为黑白照片，是不是很酷？
+ img.desaturate { filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); -ms-filter: grayscale(100%); -o-filter: grayscale(100%);}  &lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;&quot;&gt; 1 &lt;/li&gt; &lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt; 2 &lt;/li&gt;     2. 使用 :not() 在菜单上应用/取消应用边框 先给每一个菜单项添加边框
+/* add border */.nav li { border-right: 1px solid #666;}  &lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt; 1 &lt;/li&gt; &lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt; 2 &lt;/li&gt;     ……然后再除去最后一个元素……
+// remove border /.nav li:last-child { border-right: none; }  &lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt; 1 &lt;/li&gt; &lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt; 2 &lt;/li&gt;     ……可以直接使用 :not() 伪类来应用元素：……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/20%E4%B8%AAcss%E9%AB%98%E7%BA%A7%E6%A0%B7%E5%BC%8F/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/html5%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE%E6%B1%87%E9%9B%86/">html5常用标签汇集</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年3月4日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                文本标记语言，即HTML（Hypertext&nbsp;Markup&nbsp;Language），是用于描述网页文档的一种标记语言。 HTML之所以称为超文本标记语言，是因为文本中包含了所谓“超级链接”点。所谓超级链接，就是一种URL指针，通过激活（点击）它，可使浏览器方便地获取新的网页。这也是HTML获得广泛应用的最重要的原因之一。 &nbsp; HTML是一种规范，一种标准，它通过标记符号来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画面如何安排，图片如何显示等）。浏览器按顺序阅读网页文件，然后根据标记符解释和显示其标记的内容，对书写出错的标记将不指出其错误，且不停止其解释执行过程，编制者只能通过显示效果来分析出错原因和出错部位。但需要注意的是，对于不同的浏览器，对同一标记符可能会有不完全相同的解释，因而可能会有不同的显示效果。&nbsp; &nbsp; 注：HTML&nbsp;标签对大小写不敏感，但推荐使用小写！ 一、主体结构  header  页面头部，不同与&lt;head&gt;&lt;/head&gt;   aside  边栏   nav  外部链接集合   section  章节或段落   article  类似文章、摘要或留言POST等形式的记录（一般搭配内嵌头部、尾部、底部结构使用）   hggroup  类似子标题，标题信息、可选标题、TAG标签这样的数据，还是英文更好理解一些，heading of a section   address  联系信息，一般用在article或body锚元素周围   footer  页脚     二、HTML 5元素标记汇总表  文档类型宣告  &lt;!DOCTYPE html&gt;   根元素元素  html   META元素  head、 title、base、link、meta、style   部件元素  body、section、nav、article、aside、h1、 h2、 h3、h4、 h5、 h6、hgroup、header、footer、address   分组内容元素  p、hr、br、pre、blockquote、ol、ul、li、dl、dt、dd、figure、figcaption、div   文本层次语义元素  a、em、strong、small、cite、q、dfn、abbr、time、code、var、samp、kbd、sub、sups、i、b、mark、ruby、rt、rp、bdo、span   编辑元素  ins、del   嵌入内容元素  img、iframe、embed、object、param、video、audio、source、canvas、map、area   表格元素  table、caption、colgroup、col、tbody、thread、tfoot、tr、td、th   表单元素  form、fieldset、legend、label、button、select、datalist、optgroup、option、textarea、keygen、output、progress、meter   互动元素  details、summary、command、menu   脚本元素  script、noscript     三、HTML 5元素通用属性和事件句柄  HTML5元素通用属性表  accesskey、class、contenteditable、contextmenu、dir、 draggable、hidden、id、lang、spellcheck、style、tabindex、title   HTML5元素事件句柄属性  onabort、onblur*、oncanplay、oncanplaythrough、onchange、 onclick、 oncontextmenu、ondblclick、ondrag、ondragend、ondragenter、ondragleave、 ondragover、ondragstart、ondrop、ondurationchange、onemptied、onended、 onerror*、onfocus*、onformchange、onforminput、oninput、oninvalid、onkeydown、 onkeypress、onkeyup、onload*、onloadeddata、onloadedmetadata、onloadstart、 onmousedown、onmousemove、onmouseout、onmouseover、onmouseup、onmousewheel、 onpause、onplay、onplaying、onprogress、onratechange、onreadystatechange、 onscroll、onseeked、onseeking、onselect、onshow、onstalled、onsubmit、 onsuspend、ontimeupdate、onvolumechange、onwaiting。     四、HTML5元素标记释义  标记  类型  意义  介绍   文件标记   &lt;html&gt;  ●  根文件标记  让浏览器知道这是HTML 文件   META标记   &lt;head&gt;  ●  开头  提供文件整体信息   &lt;title&gt;  ●  标题  定义文件标题，显示于浏览器顶端   &lt;base&gt;  o  基准标记  可将相对URL转绝对及指定链接   &lt;link&gt;  o  外部资源连接  必须带rel属性描述   &lt;meta&gt;  o  其它META数据  不能被title, base, link, style, 和script元素描述的META数据   &lt;style&gt;  ●  嵌入文档风格信息     部件标记   &lt;body&gt;  ●  文档主体开始  文档内容容器   &lt;section&gt;  ●  代表通用文档或应用部件     &lt;nav&gt;  ●  导航链接  外部链接或文档内部链接   &lt;article&gt;  ●  页面模块  类似文章、摘要或留言POST等形式的记录   &lt;aside&gt;  ●  孤立模块  一般作为边栏广告、说明、引用、导航等，aside围堵部分一般与正文耦合较小   &lt;h1&gt;  ●  标题标记  此外还有h2, h3, h4, h5, h6   &lt;hgroup&gt;  ●  群组标题  用在一组h1-h6这样的元素集合时使用，用来区分主副标题？？   &lt;header&gt;  ●  组说明或组导航  也可叫页头标题   &lt;footer&gt;  ●  页脚标题  作用范围跟最近部件元素有关   &lt;address&gt;  ●  地址或联系信息     分组内容标记         &lt;p&gt;  ●  段落标记     &lt;hr&gt;  o  水平分割线     &lt;br&gt;  o  换行     &lt;pre&gt;  ●  预格式化分本块     &lt;blockquote&gt;  ●  块引用     &lt;ol&gt;  ●  编号列表     &lt;ul&gt;  ●  项目列表     &lt;li&gt;  ●  列表项     &lt;dl&gt;  ●  定义列表     &lt;dt&gt;  ●  定义名称     &lt;dd&gt;  ●  定义说明     &lt;figure&gt;  ●  流内容区块说明  多结合figcaption使用   &lt;figcaption&gt;  ●  figure内容属性     &lt;div&gt;  ●  定位标记  无实际意义            文本层次语义标记   &lt;a&gt;  ●  链接标记     &lt;em&gt;  ●  强调标记     &lt;strong&gt;  ●  加重标记     &lt;small&gt;  ●  字体缩小     &lt;cite&gt;  ●  斜体标记     &lt;q&gt;  ●  引用标记内容  原文是phrasing content，暂不清楚如何翻译   &lt;dfn&gt;  ●  术语定义     &lt;abbr&gt;  ●  缩略语     &lt;time&gt;  ●  日期时间     &lt;code&gt;  ●  程序代码     &lt;var&gt;  ●  变量     &lt;samp&gt;  ●  范例     &lt;kbd&gt;  ●  键盘字     &lt;sub&gt;&lt;sups&gt;  ●  上标字/下标字     &lt;i&gt;  ●  斜体标记     &lt;b&gt;  ●  粗体标记     &lt;mark&gt;  ●  标记或高亮     &lt;ruby&gt;  ●  注解标记     &lt;rt&gt;  ●  ruby子元素  结合ruby使用，比如:&lt;ruby&gt;天&lt;rt&gt;Tian&lt;/rt&gt;缘&lt;rt&gt;Yuan&lt;/rt&gt;&lt;/ruby&gt;   &lt;rp&gt;  ●  ruby子元素  一般做rt元素注释使用   &lt;bdo&gt;  ●       &lt;span&gt;  ●  自定义标记     编辑标记   &lt;ins&gt;  ●       &lt;del&gt;  ●       嵌入内容标记   &lt;img&gt;  ●  图片标记     &lt;iframe&gt;  ●  框架标记     &lt;embed&gt;  ●  嵌入标记     &lt;object&gt;  ●  对象标记     &lt;param&gt;  ●  参数标记     &lt;video&gt;  ●  视频标记     &lt;audio&gt;  ●  音频标记     &lt;source&gt;  ●  来源标记     &lt;canvas&gt;  ●  制图标记     &lt;map&gt;  ●  地图标记     &lt;area&gt;  ●  区域标记              表格标记   &lt;table&gt;  ●  表格标记  设定该表格的各项参数   &lt;caption&gt;  ●  表格标题  做成一打通列以填入表格标题   &lt;colgroup&gt;  ●       &lt;col&gt;  ●       &lt;tbody&gt;  ●       &lt;thread&gt;  ●       &lt;tfoot&gt;  ●       &lt;tr&gt;  ●  表格列  设定该表格的列   &lt;td&gt;  ●  表格栏  设定该表格的栏   &lt;th&gt;  ●  表格标头  相等于&lt;TD&gt;，但其内文字字体会变粗   表单标记   &lt;form&gt;  ●  表单标记  决定该表单的运作模式   &lt;fieldset&gt;  ●       &lt;legend&gt;  ●       &lt;input&gt;  ●  输入标记     &lt;label&gt;  ●       &lt;button&gt;  ●  按钮     &lt;select&gt;  ●  选择标记     &lt;datalist&gt;  ●       &lt;optgroup&gt;  ●       &lt;option&gt;  ●  选项     &lt;textarea&gt;  ●       &lt;keygen&gt;  ●       &lt;output&gt;  ●       &lt;progress&gt;  ●       &lt;meter&gt;  ●                互动元素   &lt;details&gt;  ●       &lt;summary&gt;  ●       &lt;command&gt;  ●       &lt;menu&gt;  ●       其他标记   &lt;script&gt;  ●       &lt;noscript&gt;  ●                  备注： 1、● 表示该标记属于围堵标记，需要结束标记&lt;/标记&gt;。 2、o 表示该标记属空标记，不需要结束标记。 &nbsp;基本概述：  基本 &lt;html&gt;…&lt;/html&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定义&nbsp;HTML&nbsp;文档&lt;head&gt;…&lt;/head&gt;&nbsp;&nbsp;&nbsp;文档的信息&lt;meta&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTML&nbsp;文档的元信息&lt;title&gt;…&lt;/title&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文档的标题&lt;link&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文档与外部资源的关系&lt;style&gt;…&lt;/style&gt;&nbsp;&nbsp;&nbsp;&nbsp;文档的样式信息&lt;body&gt;…&lt;/body&gt;&nbsp;&nbsp;&nbsp;可见的页面内容&lt;!……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/html5%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE%E6%B1%87%E9%9B%86/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux 常用命令</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年3月4日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1．echo命令 echo命令用于在终端输出字符串或变量提取后的值，格式为“echo [字符串&nbsp;|&nbsp;$变量]”。
+例如，把指定字符串“Linuxprobe.com”输出到终端屏幕的命令为：
+[root@linuxprobe ~]# echo Linuxprobe.Com 该命令会在终端屏幕上显示如下信息：
+Linuxprobe.Com 下面，我们使用$变量的方式提取变量SHELL的值，并将其输出到屏幕上：
+[root@linuxprobe ~]# echo $SHELL /bin/bash 2．date命令 date命令用于显示及设置系统的时间或日期，格式为“date [选项] [+指定的格式]”。
+只需在强大的date命令中输入以“+”号开头的参数，即可按照指定格式来输出系统的时间或日期，这样在日常工作时便可以把备份数据的命令与指定格式输出的时间信息结合到一起。例如，把打包后的文件自动按照“年-月-日”的格式打包成“backup-2017-9-1.tar.gz”，用户只需要看一眼文件名称就能大概了解到每个文件的备份时间了。date命令中常见的参数格式及作用如表2-4所示。
+表2-4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; date命令中的参数以及作用
+参数  作用   %t  跳格[Tab键]   %H  小时（00～23）   %I  小时（00～12）   %M  分钟（00～59）   %S  秒（00～59）   %j  今年中的第几天     按照默认格式查看当前系统时间的date命令如下所示：
+[root@linuxprobe ~]# date Mon&nbsp;Aug&nbsp;24&nbsp;16:11:23&nbsp;CST&nbsp;2017 按照“年-月-日 小时:分钟:秒”的格式查看当前系统时间的date命令如下所示：
+[root@linuxprobe ~]# date &ldquo;+%Y-%m-%d %H:%M:%S&rdquo; 2017-08-24 16:29:12 将系统的当前时间设置为2017年9月1日8点30分的date命令如下所示：……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcurl/">Linux命令之curl</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年3月4日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                curl命令是一个功能强大的网络工具，它能够通过http、ftp等方式下载文件，也能够上传文件。其实curl远不止前面所说的那些功能，大家可以通过man curl阅读手册页获取更多的信息   curl命令使用了libcurl库来实现，libcurl库常用在C程序中用来处理HTTP请求，curlpp是libcurl的一个C++封装，这几个东西可以用在抓取网页、网络监控等方面的开发，而curl命令可以帮助来解决开发过程中遇到的问题 -a/--append 上传文件时，附加到目标文件 -A/--user-agent &lt;string&gt;&nbsp; 设置用户代理发送给服务器 - anyauth&nbsp;&nbsp; 可以使用“任何”身份验证方法 -b/--cookie &lt;name=string/file&gt; cookie字符串或文件读取位置 - basic 使用HTTP基本验证 -B/--use-ascii 使用ASCII /文本传输 -c/--cookie-jar &lt;file&gt; 操作结束后把cookie写入到这个文件中 -C/--continue-at &lt;offset&gt;&nbsp; 断点续转 -d/--data &lt;data&gt;&nbsp;&nbsp; HTTP POST方式传送数据 --data-ascii &lt;data&gt;&nbsp; 以ascii的方式post数据 --data-binary &lt;data&gt; 以二进制的方式post数据 --negotiate&nbsp;&nbsp;&nbsp;&nbsp; 使用HTTP身份验证 --digest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 使用数字身份验证 --disable-eprt&nbsp; 禁止使用EPRT或LPRT --disable-epsv&nbsp; 禁止使用EPSV -D/--dump-header &lt;file&gt; 把header信息写入到该文件中 --egd-file &lt;file&gt; 为随机数据(SSL)设置EGD socket路径 --tcp-nodelay&nbsp;&nbsp; 使用TCP_NODELAY选项 -e/--referer 来源网址 -E/--cert &lt;cert[:passwd]&gt; 客户端证书文件和密码 (SSL) --cert-type &lt;type&gt; 证书文件类型 (DER/PEM/ENG) (SSL) --key &lt;key&gt;&nbsp;&nbsp;&nbsp;&nbsp; 私钥文件名 (SSL) --key-type &lt;type&gt; 私钥文件类型 (DER/PEM/ENG) (SSL) --pass&nbsp; &lt;pass&gt;&nbsp; 私钥密码 (SSL) --engine &lt;eng&gt;&nbsp; 加密引擎使用 (SSL).……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcurl/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/%E5%B7%A5%E4%BD%9C%E5%90%8E%E4%BD%A0%E6%82%9F%E5%87%BA%E4%BB%80%E4%B9%88%E8%81%8C%E5%9C%BA%E9%81%93%E7%90%86/">工作后，你悟出什么职场道理？</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年2月27日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1、第一份工作的选择很重要。不要想着我没有选择的机会，有份工作就不错了，现实情况是进了一行，想出来很难，想转行更难。这时候关于找工作：不要自乱阵脚，多找老师朋友及过来人：选对行业，选对职位。 2、禁止一份简历海投。简历不是投得越多越好，你要的是有效入职。所以在简历这方面一定要有针对性，展示你有解决问题的能力，和你有解决过问题的案例！这是真正让HR用你的地方。 3、个人形象要好。不要穿得好像圣诞树啊，衣服颜色不要超过3种，简单大方为主，一般建议的颜色就是黑、白、灰等，个人形象稳重，这样领导才敢用你和放心把工作交给你。 4、永远不要迟到早退。所有事项必须永远提前，比如上班提前15分钟坐在工位上，开会提前5分钟坐在会议室里，约了同事谈需求提前10分钟到场。有助于树立守时可靠的工作形象。 5、比上级要求的多做一点。上级要你提问题，你起码要附带3个及以上的解决方案，千万不要只提问题，就什么也不做了，领导更看重能够发现问题并解决问题的好员工。对于上级交待的工作一定要做好，而且要超出他们的期望，这样才会在以后的工作中继续委以重任。 6、站在上级的角度思考问题。对于自己完成的工作，最好跳出来站在上级或者上上级的角度重新审视一下，如果连自己都不满意，那就重新做。 7、不要只埋头苦干，无视他人存在。一天8小时，如果你一直工作，一句话也不说，很容易让同事们觉得你不合群，又难以接近，适当与同事们互动，团结协作，工作会更事半功倍。 8、不要斤斤计较，只做自己本职工作。领导又交待不是你“分内”的工作？不要拒绝，多锻炼自己挺好的，其实工作的前几年就是自己探索的时候，多学习各方面的技能，最终找到最适合自己发展的！所以，多做一些本职之外的工作，有助于全面发展。 9、认清你对谁负责。就是要知道谁决定你的绩效和晋升， 职场中跨级指挥的领导太多了，如果你的主管、经理意见不合？你要听谁？当然是听主管的啦，因为他是你的直接上级，决定你的绩效。 10、一天的工作要有计划。工作不要盲目做，早上来到工位上，先想想今天要做什么？列一个清单，一项项去完成，如果事情很多，多到你一天完不成，那么就分轻重缓急，先做着急的，重要的。 11、习惯于做工作总结。日总结、周总结、月总结，年度总结，都要认真思考，复盘自己的工作，想想自己的工作存在的问题，及改进的方法，及下一步的工作计划。有反馈才有调整，根据目标去执行。这样你才能快速成长。 12、不当办公室小透明。有很多很多人觉得只要努力工作就好，你的老板、领导、上级都会看到，其实是你想多了。工作完成得好，你要让他们知道，适当的“邀功”才会让别人看到你。如果你为了跟进某一个需求，每天加班，邮件抄送他们，工作汇报要提到，完成以后要告知。所以，不当小透明，职场中是一样需要找存在感的。 13、微信头像不要总是换，还有工作群不要发语音。频繁换头像很容易让别人以为你心思不在工作上，而不换头像是为了让领导快速找到你！不能发语音，是因为你还不是领导，因为发语音是领导的权利，在你是员工的群里，接收到领导的消息或语音，回复：好的，或者收到就可以。 14、建立良好的人际关系。适当的时候请同事们喝喝茶，吃吃点心，不要每次都不请，或者你总是被请的那一个，时间长了，你在同事眼里就是抠门又不合群的人，也许就因为这样，你有可能在某一刻被当成炮灰排挤出去。 15、不要横向比较薪水。不要四处打听别人的薪水，也不要在办公区域讨论。薪水都是保密的，要知道自己的薪水是不是合理，就设想一下：如果我现在找工作能不能找到比这个薪水高的， 或者更喜欢的，没有找不到，那么你现在的薪水就是合理的。 16、学会借力。如果你的工作需要跨部门交流，有些人情，资源，你出面不好使的时候，这时候需要你的上级或上上级出面，及时提出来，问题会更快得到解决。不要硬抗，你觉得你有能力解决，然而并没有，你的领导知道会更生气：批评你没有及时反馈给他，导致本来简单的工作拖到现在。 17、持续学习。你不会想在一家公司待一辈子的，即使你觉得目前不错，也不要忘记了学习，本部门的工作尽可能的掌握熟悉，其他部门的工作也可以多少了解些，业余时间横向纵向的领域多学习，为你以后的工作多争取一份机遇。 18、不要把负面情绪带到工作里。受委屈了，挨批评了也别在办公室里哭，也不要跟同事拍桌子，更不要跟领导大吵大闹，因为你这样同事看见只会把你当作茶余饭后的笑话来说。优雅、平静的处理问题，才是情商高的表现。 19、职场不做传话筒。所有好的不好的，到自己这儿就结束吧。没准这些话传到某领导的耳朵里，说你是起头人，那么你的形象还有你的前途可能就没了。 20、关于离职有3小点： （1）离职申请最好在周三、周四提出比较好。这样你可能周五前可以得到答复。如果你等到周五，那么周六、周日那些上级忙自己的事情，可能忘记了，周一上班第一天会会有很多总结要交，还有很多下周计划要做，你的离职申请说了等于白说。 （2）提前一个月报备离职，那么在你离开之前这一个月，尽可能做好自己所有的工作，还有交接。不要觉得走了，工作爱死不死，跟你没关系。不管在哪，好聚取散都是最漂亮的样子。之前公司有一同事离职，就什么也不管不问，走了我们还在给他擦屁股，这样就不好啦。 （3）离职前请同事们吃顿饭吧！不仅是告别，还为了保存你的人脉，没准下一份工作或者在你需要的时候，他们能帮助到你。多个朋友，多条路。一定没错哒！     ……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/%E5%B7%A5%E4%BD%9C%E5%90%8E%E4%BD%A0%E6%82%9F%E5%87%BA%E4%BB%80%E4%B9%88%E8%81%8C%E5%9C%BA%E9%81%93%E7%90%86/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+
+                    
+
+
+
+<ol class="page-navigator">
+    
+    <li class="prev">
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/7/">上一页</a>
+    </li>
+    
+
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">1</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/2/">2</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/3/">3</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/4/">4</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/5/">5</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/6/">6</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/7/">7</a>
+    </li>
+    
+    <li  class="current">
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/8/">8</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/9/">9</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/10/">10</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/9/">下一页</a>
+    </li>
+    
+</ol>
+
+
+
+                </div>
+            </div>
+
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+
+</body>
+</html>

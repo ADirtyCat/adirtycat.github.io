@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>虚拟机 on i-cooltea的博客</title>
+    <link>http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
+    <description>Recent content in 虚拟机 on i-cooltea的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 17 Jul 2018 02:12:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VirtualBox 共享文件夹</title>
+      <link>http://i-cooltea.github.io/posts/virtualbox-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</link>
+      <pubDate>Tue, 17 Jul 2018 02:12:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/virtualbox-%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</guid>
+      <description>参考来源
+在windows下新建一个文件夹，作为共享文件夹的windows端（尽量不要用中文）
+####设置共享文件夹 打开VirtualBOX 虚拟机的设置 共享文件夹
+选择固定分配，点击右边的添加按钮 共享文件夹路径是你刚刚新建的文件夹路径。 共享文件夹名称可以自定义一个，记住它，后面会用到。是否与新建的文件夹同名无所谓 不要点自动挂载，勾选固定分配即可 添加共享文件夹
+####挂载文件夹 进入linux，在挂载点目录mnt添加一个自定义的目录（同上，我这里叫myshare，你可以叫其他的名字）
+使用增强功能将共享名VMshare的文件映射到你自定义的目录 代码如下：
+mkdir /mnt/myshare mount -t vboxsf VMshare /mnt/myshare  大功告成，分别在宿主机和虚拟机中创建文件后，切换系统看看是否共享成功吧</description>
+    </item>
+    
+    <item>
+      <title>Vagrant box 增加磁盘容量方法</title>
+      <link>http://i-cooltea.github.io/posts/vagrant-box-%E5%A2%9E%E5%8A%A0%E7%A3%81%E7%9B%98%E5%AE%B9%E9%87%8F%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Tue, 10 Jul 2018 07:31:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/vagrant-box-%E5%A2%9E%E5%8A%A0%E7%A3%81%E7%9B%98%E5%AE%B9%E9%87%8F%E6%96%B9%E6%B3%95/</guid>
+      <description>来源 www.madcoder.cn
+一直以来都是以vagrant+docker作为开发环境，可是久而久之， 原Box自带的8G容量就捉襟见肘了。时不时需要手动删除一些东西。 Virtualbox 本身只支持vdi硬盘文件格式的扩容， 对vmdk 格式的却不支持。但是却提供vmdk到vdi格式的转化， 正好可以利用这一功能进行扩容。  1. 关闭虚拟机 从Virtualbox页面查看硬盘文件地址（选中虚拟机-&amp;gt;右键-&amp;gt;设置-&amp;gt;存储）。进到文件所在目录后执行：
+$ VBoxManage clonehd box-disk1.vmdk box-disk1.vdi --format VDI  2. 给vdi格式硬盘文件扩容 $ VBoxManage modifyhd box-disk1.vdi --resize 20480  3. 从Virutalbox存储界面删除原硬盘文件，然后再加入新的VDI格式硬盘文件 4. vagrant up启动虚拟机，然后vagrant ssh进入 5. 利用cfdisk工具创建主分区，谨记选择格式为Linux LVM (8e) $ sudo cfdisk /dev/sda cfdisk  cfdisk 分区方法
+6. 利用pvcreate命令给新的分区创建物理卷 $ sudo pvcreate /dev/sda3 successfully created  7. 查看VG Name，我自己的VG Name是centos $ sudo pvdisplay | grep &amp;quot;VG Name&amp;quot; VG Name centos  8.</description>
+    </item>
+    
+  </channel>
+</rss>

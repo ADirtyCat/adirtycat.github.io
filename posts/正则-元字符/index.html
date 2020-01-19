@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>正则 - 元字符 | i-cooltea的博客</title>
+    <meta property="og:title" content="正则 - 元字符 - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-01-05T08:02:12&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-01-05T08:02:12&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="正则 - 元字符">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E5%85%83%E5%AD%97%E7%AC%A6/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">正则 - 元字符</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年1月5日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            <p><p style="border:0px;margin:0px 0px 10px;padding:0px;">
+    <span style="font-size:18px;font-family:SimHei;"><strong>下表包含了元字符的完整列表以及它们在正</strong></span><span style="font-size:18px;font-family:SimHei;"><strong>则表达式上下文中的行为：</strong></span> </p>
+<table class="reference notranslate ke-zeroborder" style="border:0px;margin:4px 0px;padding:0px;width:729px;color:#333333;font-family:&quot;font-size:12px;background-color:#FFFFFF;">
+    <tbody style="border:0px;margin:0px;padding:0px;">
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <th width="20%" style="border:1px solid #555555;margin:0px;padding:3px;color:#FFFFFF;background-color:#555555;vertical-align:top;text-align:left;">
+                字符
+            </th>
+            <th width="80%" style="border:1px solid #555555;margin:0px;padding:3px;color:#FFFFFF;background-color:#555555;vertical-align:top;text-align:left;">
+                描述
+            </th>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                <br />
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    将下一个字符标记为一个特殊字符、或一个原义字符、或一个 向后引用、或一个八进制转义符。例如，&rsquo;n&rsquo; 匹配字符 &ldquo;n&rdquo;。&rsquo;\n&rsquo; 匹配一个换行符。序列 &lsquo;\&rsquo; 匹配 &ldquo;\&rdquo; 而 &ldquo;(&rdquo; 则匹配 &ldquo;(&ldquo;。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                ^
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配输入字符串的开始位置。如果设置了 RegExp 对象的 Multiline 属性，^ 也匹配 &lsquo;\n&rsquo; 或 &lsquo;\r&rsquo; 之后的位置。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                $
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配输入字符串的结束位置。如果设置了RegExp 对象的 Multiline 属性，$ 也匹配 &lsquo;\n&rsquo; 或 &lsquo;\r&rsquo; 之前的位置。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                *
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配前面的子表达式零次或多次。例如，zo* 能匹配 &ldquo;z&rdquo; 以及 &ldquo;zoo&rdquo;。* 等价于{0,}。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                +
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配前面的子表达式一次或多次。例如，&rsquo;zo+&rsquo; 能匹配 &ldquo;zo&rdquo; 以及 &ldquo;zoo&rdquo;，但不能匹配 &ldquo;z&rdquo;。+ 等价于 {1,}。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                ?
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配前面的子表达式零次或一次。例如，&rdquo;do(es)?&rdquo; 可以匹配 &ldquo;do&rdquo; 或 &ldquo;does&rdquo; 。? 等价于 {0,1}。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                {n}
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    n 是一个非负整数。匹配确定的 n 次。例如，&rsquo;o{2}&rsquo; 不能匹配 &ldquo;Bob&rdquo; 中的 &lsquo;o&rsquo;，但是能匹配 &ldquo;food&rdquo; 中的两个 o。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                {n,}
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    n 是一个非负整数。至少匹配n 次。例如，&rsquo;o{2,}&rsquo; 不能匹配 &ldquo;Bob&rdquo; 中的 &lsquo;o&rsquo;，但能匹配 &ldquo;foooood&rdquo; 中的所有 o。&rsquo;o{1,}&rsquo; 等价于 &lsquo;o+&lsquo;。&rsquo;o{0,}&rsquo; 则等价于 &lsquo;o<em>&lsquo;。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                {n,m}
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    m 和 n 均为非负整数，其中n &lt;= m。最少匹配 n 次且最多匹配 m 次。例如，&rdquo;o{1,3}&rdquo; 将匹配 &ldquo;fooooood&rdquo; 中的前三个 o。&rsquo;o{0,1}&rsquo; 等价于 &lsquo;o?&lsquo;。请注意在逗号和两个数之间不能有空格。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                ?
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    当该字符紧跟在任何一个其他限制符 (</em>, +, ?, {n}, {n,}, {n,m}) 后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串 &ldquo;oooo&rdquo;，&rsquo;o+?&rsquo; 将匹配单个 &ldquo;o&rdquo;，而 &lsquo;o+&rsquo; 将匹配所有 &lsquo;o&rsquo;。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                .
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配除换行符（\n、\r）之外的任何单个字符。要匹配包括 &lsquo;\n&rsquo; 在内的任何字符，请使用像&rdquo;<strong style="border:0px;margin:0px;padding:0px;">(.|\n)</strong>&ldquo;的模式。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                (pattern)
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配 pattern 并获取这一匹配。所获取的匹配可以从产生的 Matches 集合得到，在VBScript 中使用 SubMatches 集合，在JScript 中则使用 $0…$9 属性。要匹配圆括号字符，请使用 &lsquo;(&rsquo; 或 &lsquo;)&lsquo;。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                (?:pattern)
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配 pattern 但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。这在使用 &ldquo;或&rdquo; 字符 (|) 来组合一个模式的各个部分是很有用。例如， &lsquo;industr(?:y|ies) 就是一个比 &lsquo;industry|industries&rsquo; 更简略的表达式。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                (?=pattern)
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    正向肯定预查（look ahead positive assert），在任何匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如，&rdquo;Windows(?=95|98|NT|2000)&ldquo;能匹配&rdquo;Windows2000&rdquo;中的&rdquo;Windows&rdquo;，但不能匹配&rdquo;Windows3.1&rdquo;中的&rdquo;Windows&rdquo;。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                (?!pattern)
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    正向否定预查(negative assert)，在任何不匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如&rdquo;Windows(?!95|98|NT|2000)&ldquo;能匹配&rdquo;Windows3.1&rdquo;中的&rdquo;Windows&rdquo;，但不能匹配&rdquo;Windows2000&rdquo;中的&rdquo;Windows&rdquo;。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                (?&lt;=pattern)
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                反向(look behind)肯定预查，与正向肯定预查类似，只是方向相反。例如，&rdquo;<code style="border:0px;margin:0px;padding:0px;">(?&lt;=95|98|NT|2000)Windows</code>&ldquo;能匹配&rdquo;<code style="border:0px;margin:0px;padding:0px;">2000Windows</code>&ldquo;中的&rdquo;<code style="border:0px;margin:0px;padding:0px;">Windows</code>&ldquo;，但不能匹配&rdquo;<code style="border:0px;margin:0px;padding:0px;">3.1Windows</code>&ldquo;中的&rdquo;<code style="border:0px;margin:0px;padding:0px;">Windows</code>&ldquo;。
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                (?&lt;!pattern)
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                反向否定预查，与正向否定预查类似，只是方向相反。例如&rdquo;<code style="border:0px;margin:0px;padding:0px;">(?&lt;!95|98|NT|2000)Windows</code>&ldquo;能匹配&rdquo;<code style="border:0px;margin:0px;padding:0px;">3.1Windows</code>&ldquo;中的&rdquo;<code style="border:0px;margin:0px;padding:0px;">Windows</code>&ldquo;，但不能匹配&rdquo;<code style="border:0px;margin:0px;padding:0px;">2000Windows</code>&ldquo;中的&rdquo;<code style="border:0px;margin:0px;padding:0px;">Windows</code>&ldquo;。
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                x|y
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配 x 或 y。例如，&rsquo;z|food&rsquo; 能匹配 &ldquo;z&rdquo; 或 &ldquo;food&rdquo;。&rsquo;(z|f)ood&rsquo; 则匹配 &ldquo;zood&rdquo; 或 &ldquo;food&rdquo;。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                [xyz]
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    字符集合。匹配所包含的任意一个字符。例如， &lsquo;[abc]&rsquo; 可以匹配 &ldquo;plain&rdquo; 中的 &lsquo;a&rsquo;。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                [^xyz]
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    负值字符集合。匹配未包含的任意字符。例如， &lsquo;[^abc]&rsquo; 可以匹配 &ldquo;plain&rdquo; 中的&rsquo;p&rsquo;、&rsquo;l&rsquo;、&rsquo;i&rsquo;、&rsquo;n&rsquo;。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                [a-z]
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    字符范围。匹配指定范围内的任意字符。例如，&rsquo;[a-z]&rsquo; 可以匹配 &lsquo;a&rsquo; 到 &lsquo;z&rsquo; 范围内的任意小写字母字符。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                [^a-z]
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    负值字符范围。匹配任何不在指定范围内的任意字符。例如，&rsquo;[^a-z]&rsquo; 可以匹配任何不在 &lsquo;a&rsquo; 到 &lsquo;z&rsquo; 范围内的任意字符。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \b
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配一个单词边界，也就是指单词和空格间的位置。例如， &lsquo;er\b&rsquo; 可以匹配&rdquo;never&rdquo; 中的 &lsquo;er&rsquo;，但不能匹配 &ldquo;verb&rdquo; 中的 &lsquo;er&rsquo;。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \B
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配非单词边界。&rsquo;er\B&rsquo; 能匹配 &ldquo;verb&rdquo; 中的 &lsquo;er&rsquo;，但不能匹配 &ldquo;never&rdquo; 中的 &lsquo;er&rsquo;。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \cx
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配由 x 指明的控制字符。例如， \cM 匹配一个 Control-M 或回车符。x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 &lsquo;c&rsquo; 字符。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \d
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配一个数字字符。等价于 [0-9]。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \D
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配一个非数字字符。等价于 [^0-9]。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \f
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配一个换页符。等价于 \x0c 和 \cL。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \n
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配一个换行符。等价于 \x0a 和 \cJ。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \r
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配一个回车符。等价于 \x0d 和 \cM。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \s
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \S
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \t
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配一个制表符。等价于 \x09 和 \cI。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \v
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配一个垂直制表符。等价于 \x0b 和 \cK。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \w
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配字母、数字、下划线。等价于&rsquo;[A-Za-z0-9<em>]&lsquo;。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \W
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配非字母、数字、下划线。等价于 &lsquo;[^A-Za-z0-9</em>]&lsquo;。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \xn
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配 n，其中 n 为十六进制转义值。十六进制转义值必须为确定的两个数字长。例如，&rsquo;\x41&rsquo; 匹配 &ldquo;A&rdquo;。&rsquo;\x041&rsquo; 则等价于 &lsquo;\x04&rsquo; &amp; &ldquo;1&rdquo;。正则表达式中可以使用 ASCII 编码。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \num
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配 num，其中 num 是一个正整数。对所获取的匹配的引用。例如，&rsquo;(.)\1&rsquo; 匹配两个连续的相同字符。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \n
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    标识一个八进制转义值或一个向后引用。如果 \n 之前至少 n 个获取的子表达式，则 n 为向后引用。否则，如果 n 为八进制数字 (0-7)，则 n 为一个八进制转义值。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \nm
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    标识一个八进制转义值或一个向后引用。如果 \nm 之前至少有 nm 个获得子表达式，则 nm 为向后引用。如果 \nm 之前至少有 n 个获取，则 n 为一个后跟文字 m 的向后引用。如果前面的条件都不满足，若 n 和 m 均为八进制数字 (0-7)，则 \nm 将匹配八进制转义值 nm。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \nml
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    如果 n 为八进制数字 (0-3)，且 m 和 l 均为八进制数字 (0-7)，则匹配八进制转义值 nml。
+                </p>
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \un
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-family:&quot;">
+                    匹配 n，其中 n 是一个用四个十六进制数字表示的 Unicode 字符。例如， \u00A9 匹配版权符号 (?)。
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table></p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/php%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">PHP常用正则表达式</a></li>
+        
+        <li><a href="/posts/%E6%AD%A3%E5%88%99-%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99/">正则 - 匹配规则</a></li>
+        
+        <li><a href="/posts/%E6%AD%A3%E5%88%99-%E8%AF%AD%E6%B3%95/">正则 - 语法</a></li>
+        
+        <li><a href="/posts/%E6%AD%A3%E5%88%99-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/">正则 - 运算符优先级</a></li>
+        
+        <li><a href="/posts/%E5%B8%B8%E7%94%A8-git-%E5%91%BD%E4%BB%A4%E6%B8%85%E5%8D%95/">常用 Git 命令清单</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

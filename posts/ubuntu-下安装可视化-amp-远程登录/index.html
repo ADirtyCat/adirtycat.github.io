@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ubuntu 下安装可视化 &amp;amp; 远程登录 | i-cooltea的博客</title>
+    <meta property="og:title" content="ubuntu 下安装可视化 &amp;amp; 远程登录 - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2019-06-09T07:14:00&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2019-06-09T07:14:00&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="ubuntu 下安装可视化 &amp;amp; 远程登录">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85%E5%8F%AF%E8%A7%86%E5%8C%96-amp-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">ubuntu 下安装可视化 &amp;amp; 远程登录</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2019年6月9日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            <p>参考
+<a href="https://blog.csdn.net/jdzwanghao/article/details/79875536" title="[ 云服务器 ]——桌面安装：腾讯云服务器Gnome桌面安装与配置">腾讯云服务器Gnome桌面安装与配置</a></p>
+
+<pre><code>#!/bin/bash
+# 1.安装图形界面
+sudo apt-get install -y xinit
+sudo apt-get install -y gdm
+sudo apt-get install -y ubuntu-desktop
+
+# 2. 安装VNC
+sudo apt-get install -y xauth xterm x11-common x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
+sudo apt-get install -y xvfb
+sudo apt-get install -y x11vnc
+
+# 3. 安装xrdp,vncserver
+sudo apt-get install xrdp vnc4server xbase-clients
+
+# 4. 配置xrdp 设置
+echo unity&gt;~/.xsession
+sudo service xrdp restart
+
+# shutdown -r now
+</code></pre>
+
+<p>使用<code>https://repo.fdzh.org/</code>作为chrome的源，使用apt安装</p>
+
+<p>1、将下载源加入到系统的源列表（添加依赖）</p>
+
+<pre><code>sudo wget https://repo.fdzh.org/chrome/google-chrome.list -P /etc/apt/sources.list.d/
+</code></pre>
+
+<p>2、导入谷歌软件的公钥，用于对下载软件进行验证。</p>
+
+<pre><code>wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add -
+</code></pre>
+
+<p>3、用于对当前系统的可用更新列表进行更新。（更新依赖）</p>
+
+<pre><code>sudo apt-get update
+</code></pre>
+
+<p>4、谷歌 Chrome 浏览器（稳定版）的安装。（安装软件）</p>
+
+<pre><code>sudo apt-get install google-chrome-stable
+</code></pre>
+
+<p>5、启动谷歌 Chrome 浏览器。</p>
+
+<pre><code>/usr/bin/google-chrome-stable 
+</code></pre>
+
+<p>然后添加到状态栏即可。</p>
+
+<p>在Ubuntu下软件源的文件是/etc/apt/sources.list，sourdces.list.d目录下的文件是第三方软件的源，可以分别存放不同的第三源地址，只需“扩展名”为list即可。</p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/linux%E4%BF%AE%E6%94%B9shell%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6%E5%8F%8A%E9%A2%9C%E8%89%B2/">Linux修改Shell命令提示符及颜色</a></li>
+        
+        <li><a href="/posts/centos-6.x-7.x%E4%B8%8A%E5%AE%89%E8%A3%85git%E5%8F%8A%E6%9C%80%E6%96%B0%E7%89%88/">CentOS 6.x/7.x上安装git及最新版</a></li>
+        
+        <li><a href="/posts/linux-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/">Linux 常见问题汇总</a></li>
+        
+        <li><a href="/posts/linux%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAssh%E5%85%AC%E9%92%A5%E5%AF%86%E9%92%A5/">linux管理多个ssh公钥密钥</a></li>
+        
+        <li><a href="/posts/linux-%E4%B8%8B%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0~/">Linux 下常用命令 持续更新~</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/linux">linux</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

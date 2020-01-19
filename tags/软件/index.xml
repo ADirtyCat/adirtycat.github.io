@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>软件 on i-cooltea的博客</title>
+    <link>http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/</link>
+    <description>Recent content in 软件 on i-cooltea的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 17 Oct 2018 09:31:53 +0000</lastBuildDate>
+    
+	<atom:link href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sublime配置Terminal插件</title>
+      <link>http://i-cooltea.github.io/posts/sublime%E9%85%8D%E7%BD%AEterminal%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Wed, 17 Oct 2018 09:31:53 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/sublime%E9%85%8D%E7%BD%AEterminal%E6%8F%92%E4%BB%B6/</guid>
+      <description>windows环境下： 对未安装package control的sublime:
+ ctrl+shift+p 打开package control 输入 intsall package  输入Terminal  Preferences=&amp;gt;Package setting=&amp;gt;Terminal=&amp;gt;Setting -User
+ 输入：
+{ &amp;quot;terminal&amp;quot;: &amp;quot;C:\\windows\\system32\\cmd.exe&amp;quot;, &amp;quot;parameters&amp;quot;: [&amp;quot;/START&amp;quot;,&amp;quot;%CWD%&amp;quot;] }   在编辑的文件目录打开cmd：ctrl+shift+t 输入任何一个命令均发现不是命令：
+1）首先确认是否在windows环境变量配置了相关路径
+2）配置好terminal后应重启subime，这一步是关键。
+作者：underdogs 来源：CSDN 原文：https://blog.csdn.net/underdogs/article/details/78322639?utm_source=copy 版权声明：本文为博主原创文章，转载请附上博文链接！</description>
+    </item>
+    
+    <item>
+      <title>Windows 下 Chrome 快捷键大全</title>
+      <link>http://i-cooltea.github.io/posts/windows-%E4%B8%8B-chrome-%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%A7%E5%85%A8/</link>
+      <pubDate>Sat, 16 Jun 2018 06:20:41 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/windows-%E4%B8%8B-chrome-%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%A7%E5%85%A8/</guid>
+      <description>##常规 | 序号 | 说明 | | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash; | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash; | | 1 | Ctrl+N 打开新窗口。 | | 2 | Ctrl+T 打开新标签页。 | | 3 | Ctrl+Shift+N 在隐身模式下打开新窗口。 | | 4 | Ctrl+Shift+T 重新打开上次关闭的标签页。GoogleChrome浏览器可记住最近关闭的10个标签页。 | | 5 | Ctrl+9 切换到最后一个标签页。 | | 6 | Ctrl+Tab 切换到下一个标签页。 | | 7 | Ctrl+PgDown 切换到下一个标签页。 | | 8 | Ctrl+Shift+Tab 切换到上一个标签页。 | | 9 | Ctrl+PgUp 切换到上一个标签页。 | | 10 | Alt+F4 关闭当前窗口。 | | 11 | Ctrl+W 关闭当前标签页或弹出窗口。 | | 12 | Ctrl+F4 关闭当前标签页或弹出窗口。 | | 13 | Alt+Home 在当前窗口打开主页。 | | 14 | Ctrl+P 打印当前网页。 | | 15 | Ctrl+S 保存当前网页。 | | 16 | F5 重新载入当前网页。 | | 17 | Ctrl+R 重新载入当前网页。 | | 18 | Esc 停止载入当前网页。 | | 19 | Ctrl+F 打开查找栏。 | | 20 | Ctrl+G 在查找栏中查找下一条与输入内容相匹配的内容 | | 21 | F3 在查找栏中查找下一条与输入内容相匹配的内容。 | | 22 | Ctrl+Shift+G 在查找栏中查找上一条与输入内容相匹配的内容。 | | 23 | Shift+F3 在查找栏中查找上一条与输入内容相匹配的内容。 | | 24 | Shift+Enter 在查找栏中查找上一条与输入内容相匹配的内容。 | | 25 | Ctrl+F5 重新载入当前网页，忽略缓存的内容。 | | 26 | Shift+F5 重新载入当前网页，忽略缓存的内容。 | | 27 | Ctrl+U 打开当前网页的源代码。 | | 28 | Ctrl+D 将当前网页保存为书签。 | | 29 | Ctrl+Shift+D 将所有打开的网页以书签的形式保存在新文件夹中。 | | 30 | F11 在全屏模式下打开网页。再按一次F11可退出全屏模式。 | | 31 | Home 转至网页顶部。 | | 32 | End 转至网页底部。 | | 33 | Ctrl+0 将网页上的所有内容都恢复到正常大小。 | | 34 | Space 向下滚动网页。 | | 35 | Ctrl+C 将突出显示的内容复制到剪贴板中。 | | 36 | Shift+Insert 从剪贴板中粘贴内容。 | | 37 | Ctrl+V 从剪贴板中粘贴内容。 | | 38 | Ctrl+Shift+V 从剪贴板中粘贴内容(不带格式)。 | | 39 | Shift+Delete 删除突出显示的内容并将其复制到剪贴板中。 | | 40 | Ctrl+X 删除突出显示的内容并将其复制到剪贴板中。 | | 41 | Alt+F 打开“工具”菜单，用该菜单可自定义和控制GoogleChrome浏览器中的设置。 | | 42 | Alt+E 打开“工具”菜单，用该菜单可自定义和控制GoogleChrome浏览器中的设置。 | | 43 | Ctrl+Shift+B 打开和关闭书签栏。 | | 44 | Ctrl+H 打开“历史记录”页面。 | | 45 | Ctrl+J 打开“下载内容”页面。 | | 46 | Shift+Esc 打开任务管理器。 | | 47 | Shift+Alt+T 依次打开最近关闭的网页 | | 48 | Shift+F10 可打开相关右键菜单(例如，“后退”按钮关联的浏览历史记录)。 | | 49 | Esc 可将焦点从工具栏移回到网页上。 | | 50 | Ctrl+Shift+J 打开开发人员工具。 | | 51 | Ctrl+Shift+Delete 打开“清除浏览数据”对话框。 | | 52 | F1 在新标签页中打开帮助中心(首选方式)。 | | 53 | F6 将焦点切换到下一个键盘可访问的窗格 | | 54 | Shift+F6 将焦点切换到下一个键盘可访问的窗格 | | 55 | ↓ 导航元素 | | 56 | ↑ 导航元素 | | 57 | ← 展开元素 | | 58 | → 收起元素 | | 59 | Enter 输入属性 | | 60 | H 隐藏属性 | | 61 | F2 | | 62 | TabShift+Tab 下一个属性 | | 63 | ↑ 增加值 | | 64 | ↓ 减少值 | | 65 | PageUp 增加10 | | 66 | PageDown 减少10 | | 67 | Shift+↑ 增加10 | | 68 | Shift+↓ 减少10 | | 69 | Shift+PageUp 增加100 | | 70 | Shift+PageDown 减少100 | | 71 | Alt+↑ 增加0.</description>
+    </item>
+    
+    <item>
+      <title>phpstorm常用快捷键</title>
+      <link>http://i-cooltea.github.io/posts/phpstorm%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Sun, 20 May 2018 14:46:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/phpstorm%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>windows下phpstorm的快捷键
+ctrl+f查找 ctrl+r替换 ctrl+shift+n查找文件 ctrl+shift+f 在一个目录里查找一段代码(ctrl+f的升级版) ctrl+shift+r 在一个目录里查找一段代码并替换(ctrl+r的升级版) CTRL+ALT ←/→ 返回上次编辑的位置 ALT+ ←/→ 切换代码视图，标签切换 ALT+ ↑/↓ 在方法间快速移动定位 ctrl+j插入活动代码提示 ctrl+alt+t当前位置插入环绕代码 alt+insert生成代码菜单 ctrl+q查看代码注释 ctrl+d复制当前行 ctrl+y删除当前行 shift+F6重命名 ctrl+shift+u字母大小写转换 F4查看源码 ctrl+shift+i查看变量或方法定义源 ctrl+g跳转行 ctrl+alt+F12跳转至当前文件在磁盘上的位置 ctrl+alt+l重新格式化代码 ctrl+shift+downstatement向下移动 ctrl+shift+upstatement向上移动 alt+shift+downline向下移动 alt+shift+upline向上移动 ctrl+/行注释 ctrl+shift+/块注释 ctrl+b跳到变量申明处 ctrl+[]匹配 {}[] ctrl+shift+]/[选中块代码 ctrl+x剪切行 ctrl+shift+v复制多个文本 alt+left/right标签切换 ctrl+p显示默认参数 ctrl+F12在当前类文件里快速查找方法  mac电脑phpstorm快捷键
+command + o 按类名查找文件 command + shift + o 按文件名查找文件 command + a 全选 command + c 复制 command + v 粘贴 command + z 撤消 fn+command+f2 查看类结构 command + e 列出最后打开的文件 ctrl + shift + / 块注释 shift + command + x shift + command + r 按文件名搜索对应文件所在路径 shift + command + t 按类名搜索对应文件所在路径 shift + command + c 复制当前文件所在路径 选中左侧的文件名 shift + f6(mac需要同时按住键) 进行文件重命名  </description>
+    </item>
+    
+    <item>
+      <title>sublime text3 的PHP函数追踪定位插件ctags和codeBeautifier</title>
+      <link>http://i-cooltea.github.io/posts/sublime-text3-%E7%9A%84php%E5%87%BD%E6%95%B0%E8%BF%BD%E8%B8%AA%E5%AE%9A%E4%BD%8D%E6%8F%92%E4%BB%B6ctags%E5%92%8Ccodebeautifier/</link>
+      <pubDate>Fri, 09 Mar 2018 02:50:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/sublime-text3-%E7%9A%84php%E5%87%BD%E6%95%B0%E8%BF%BD%E8%B8%AA%E5%AE%9A%E4%BD%8D%E6%8F%92%E4%BB%B6ctags%E5%92%8Ccodebeautifier/</guid>
+      <description>一、下载ctags&amp;nbsp;http://download.csdn.net/detail/xujunabc999/9604934 二、安装ctags和codeBeautifier插件：&amp;nbsp;1）按Ctrl+shift+P，打开Install Package&amp;nbsp;2）搜索ctags进行插件安装；&amp;nbsp;3）搜索Php codeBeautifier进行插件安装。
+三、配置快捷键&amp;nbsp;配置在sublime中使用Ctrl+左键单击函数跳转、Ctrl+右键单击跳回函数调用位置&amp;nbsp;复制以下代码到Preferences-&amp;gt;Package Settings-&amp;gt;Ctags-&amp;gt;Mouse Bindings-User&amp;nbsp;[ { &#34;button&#34;: &#34;button1&#34;, &#34;count&#34;: 1, &#34;press_command&#34;: &#34;drag_select&#34;, &#34;modifiers&#34;: [&#34;ctrl&#34;], &#34;command&#34;: &#34;navigate_to_definition&#34; }, { &#34;button&#34;: &#34;button2&#34;, &#34;count&#34;: 1, &#34;modifiers&#34;: [&#34;ctrl&#34;], &#34;command&#34;: &#34;jump_prev&#34; } ]  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18    四、运行ctags.exe&amp;nbsp;1）拷贝ctags.ext到项目根目录&amp;nbsp;2）在项目根目录打开cmd运行“ctags -R -f .</description>
+    </item>
+    
+    <item>
+      <title>SublimeText3 使用教程</title>
+      <link>http://i-cooltea.github.io/posts/sublimetext3-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sat, 24 Feb 2018 15:28:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/sublimetext3-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid>
+      <description>&amp;mdash;极速操作入门教程 我将Sublime Text各种方便操作。按其类型整理在这里，以便查阅。
+中文官方下载:&amp;nbsp;http://www.sublimetextcn.com/ 破解方法，与汉化http://blog.csdn.net/zxw08611/article/details/65697051 &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; 所谓工欲善其事，必先利其器。 善用快捷键与各种扩展的插件工具 能让你使用sublime相对其他编辑器&amp;nbsp;,操作上节省30%~40%的时间 &amp;nbsp; 将Sublime Text添加至右键菜单 新建一个“右键菜单添加_Edit with Sublime Text3.bat”文件，复制粘贴如下代码:并修改为自己的sublime安装路径 @echo&amp;nbsp;&amp;ldquo;Add toright click panel &amp;ldquo;Edit with Sublime Text3(&amp;amp;T)&amp;rdquo;&amp;rdquo; reg&amp;nbsp;add&amp;ldquo;HKCR*\shell\Sublime Text3(&amp;amp;T)&amp;rdquo;&amp;nbsp;/ve /d&amp;ldquo;Edit with Sublime Text3&amp;rdquo; reg&amp;nbsp;add&amp;ldquo;HKCR*\shell\Sublime Text3(&amp;amp;T)&amp;rdquo;&amp;nbsp;/v Icon /t REG_SZ /d&amp;ldquo;E:\Program Files\Sublime Text3x64\sublime_text.exe,0&amp;rdquo; reg&amp;nbsp;add&amp;ldquo;HKCR*\shell\Sublime Text3(&amp;amp;T)\Command&amp;rdquo;&amp;nbsp;/ve /d&amp;ldquo;E:\Program Files\Sublime Text3x64\sublime_text.exe %%1&amp;rdquo; pause  保存后，右键以管理员运行，提示成功后即可   快捷键列表（ShortcutsCheatsheet） &amp;nbsp;
+编辑（Editing）  Ctrl + Enter：在当前行下面新增一行然后跳至该行   Ctrl + Shift + Enter：在当前行上面增加一行并跳至该行   Ctrl + ←/→：进行逐词移动   Ctrl + Shift + ↑/↓移动当前行   Ctrl+Shift+V：&amp;nbsp;按原格式粘贴   Ctrl+Shift+K：&amp;nbsp;删除当前行   Ctrl +X：&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;剪切当前行   Ctrl+Shift+/:&amp;nbsp;当前位置插入注释   &amp;nbsp;   选择（Selecting）  Ctrl + D：选择当前光标所在的词并高亮该词所有出现的位置，</description>
+    </item>
+    
+  </channel>
+</rss>

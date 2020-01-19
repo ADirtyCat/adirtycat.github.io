@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>正则表达式 on i-cooltea的博客</title>
+    <link>http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+    <description>Recent content in 正则表达式 on i-cooltea的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 24 Feb 2018 14:39:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>常用css样式属性大全（中文注释）</title>
+      <link>http://i-cooltea.github.io/posts/%E5%B8%B8%E7%94%A8css%E6%A0%B7%E5%BC%8F%E5%B1%9E%E6%80%A7%E5%A4%A7%E5%85%A8%E4%B8%AD%E6%96%87%E6%B3%A8%E9%87%8A/</link>
+      <pubDate>Sat, 24 Feb 2018 14:39:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/%E5%B8%B8%E7%94%A8css%E6%A0%B7%E5%BC%8F%E5%B1%9E%E6%80%A7%E5%A4%A7%E5%85%A8%E4%B8%AD%E6%96%87%E6%B3%A8%E9%87%8A/</guid>
+      <description>一 CSS文字属性：
+color : #999999; /*文字颜色*/
+font-family : 宋体,sans-serif; /*文字字体*/
+font-size : 9pt; /*文字大小*/
+font-style:itelic; /*文字斜体*/
+font-variant:small-caps; /*小字体*/
+letter-spacing : 1pt; /*字间距离*/
+line-height : 200%; /*设置行高*/
+font-weight:bold; /*文字粗体*/
+vertical-align:sub; /*下标字*/
+vertical-align:super; /*上标字*/
+text-decoration:line-through; /*加删除线*/
+text-decoration: overline; /*加顶线*/
+text-decoration:underline; /*加下划线*/
+text-decoration:none; /*删除链接下划线*/
+text-transform : capitalize; /*首字大写*/
+text-transform : uppercase; /*英文大写*/
+text-transform : lowercase; /*英文小写*/
+text-align:right; /*文字右对齐*/ text-align:left; /*文字左对齐*/
+text-align:center; /*文字居中对齐*/
+text-align:justify; /*文字分散对齐*/
+vertical-align属性
+vertical-align:top; /*垂直向上对齐*/
+vertical-align:bottom; /*垂直向下对齐*/
+vertical-align:middle; /*垂直居中对齐*/
+vertical-align:text-top; /*文字垂直向上对齐*/</description>
+    </item>
+    
+    <item>
+      <title>PHP常用正则表达式</title>
+      <link>http://i-cooltea.github.io/posts/php%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+      <pubDate>Fri, 05 Jan 2018 08:02:12 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/php%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+      <description>正则表达式   是一大利器,参数验证,数据采集等很多地方都用到. 许多程序设计语言都支持利用正则表达式进行字符串操作。平常写程序经常用到正则表达式,就整理一些常用的正则表达式分享一下!
+ 平时写程序经常要用正则表达式，下面是一些讲解和例子，仅供大家参考和修改使用：  &amp;ldquo;^\d+$&amp;ldquo; //非负整数（正整数 + 0）  &amp;ldquo;1[1-9][0-9]$&amp;ldquo; //正整数  &amp;ldquo;^((-\d+)|(0+))$&amp;ldquo; //非正整数（负整数 + 0）  &amp;ldquo;^-[0-9][1-9][0-9]$&amp;ldquo; //负整数  &amp;ldquo;^-?\d+$&amp;ldquo; //整数  &amp;ldquo;^\d+(.\d+)?$&amp;ldquo; //非负浮点数（正浮点数 + 0）  &amp;ldquo;^(([0-9]+.[0-9][1-9][0-9])|([0-9][1-9][0-9].[0-9]+)|([0-9][1-9][0-9]))$&amp;ldquo; //正浮点数  &amp;ldquo;^((-\d+(.\d+)?)|(0+(.0+)?))$&amp;ldquo; //非正浮点数（负浮点数 + 0）  &amp;ldquo;^(-(([0-9]+.[0-9][1-9][0-9])|([0-9][1-9][0-9].[0-9]+)|([0-9][1-9][0-9])))$&amp;ldquo; //负浮点数  &amp;ldquo;^(-?\d+)(.\d+)?$&amp;ldquo; //浮点数  &amp;ldquo;2+$&amp;ldquo; //由26个英文字母组成的字符串  &amp;ldquo;3+$&amp;ldquo; //由26个英文字母的大写组成的字符串  &amp;ldquo;4+$&amp;ldquo; //由26个英文字母的小写组成的字符串  &amp;ldquo;5+$&amp;ldquo; //由数字和26个英文字母组成的字符串  &amp;ldquo;^\w+$&amp;ldquo; //由数字、26个英文字母或者下划线组成的字符串  &amp;ldquo;6+(.[\w-]+)@[\w-]+(.[\w-]+)+$&amp;ldquo; //email地址  &amp;ldquo;7+://(\w+(-\w+))(.(\w+(-\w+)))(?\S)?$&amp;ldquo; //url  /^(d{2}|d{4})-((0([1-9]{1}))|(1[1|2]))-((0-2)|(3[0|1]))$/ // 年-月-日  /^((0([1-9]{1}))|(1[1|2]))/((0-2)|(3[0|1]))/(d{2}|d{4})$/ // 月/日/年  &amp;ldquo;^([w-.</description>
+    </item>
+    
+    <item>
+      <title>正则 - 元字符</title>
+      <link>http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E5%85%83%E5%AD%97%E7%AC%A6/</link>
+      <pubDate>Fri, 05 Jan 2018 08:02:12 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E5%85%83%E5%AD%97%E7%AC%A6/</guid>
+      <description>下表包含了元字符的完整列表以及它们在正则表达式上下文中的行为： 字符  描述    将下一个字符标记为一个特殊字符、或一个原义字符、或一个 向后引用、或一个八进制转义符。例如，&amp;rsquo;n&amp;rsquo; 匹配字符 &amp;ldquo;n&amp;rdquo;。&amp;rsquo;\n&amp;rsquo; 匹配一个换行符。序列 &amp;lsquo;\&amp;rsquo; 匹配 &amp;ldquo;\&amp;rdquo; 而 &amp;ldquo;(&amp;rdquo; 则匹配 &amp;ldquo;(&amp;ldquo;。   ^  匹配输入字符串的开始位置。如果设置了 RegExp 对象的 Multiline 属性，^ 也匹配 &amp;lsquo;\n&amp;rsquo; 或 &amp;lsquo;\r&amp;rsquo; 之后的位置。   $  匹配输入字符串的结束位置。如果设置了RegExp 对象的 Multiline 属性，$ 也匹配 &amp;lsquo;\n&amp;rsquo; 或 &amp;lsquo;\r&amp;rsquo; 之前的位置。   *  匹配前面的子表达式零次或多次。例如，zo* 能匹配 &amp;ldquo;z&amp;rdquo; 以及 &amp;ldquo;zoo&amp;rdquo;。* 等价于{0,}。   +  匹配前面的子表达式一次或多次。例如，&amp;rsquo;zo+&amp;rsquo; 能匹配 &amp;ldquo;zo&amp;rdquo; 以及 &amp;ldquo;zoo&amp;rdquo;，但不能匹配 &amp;ldquo;z&amp;rdquo;。+ 等价于 {1,}。   ?</description>
+    </item>
+    
+    <item>
+      <title>正则 - 匹配规则</title>
+      <link>http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99/</link>
+      <pubDate>Fri, 05 Jan 2018 08:02:12 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99/</guid>
+      <description>基本模式匹配 一切从最基本的开始。模式，是正则表达式最基本的元素，它们是一组描述字符串特征的字符。模式可以很简单，由普通的字符串组成，也可以非常复杂，往往用特殊的字符表示一个范围内的字符、重复出现，或表示上下文。例如：
+^once 这个模式包含一个特殊的字符^，表示该模式只匹配那些以once开头的字符串。例如该模式与字符串&amp;rdquo;once upon a time&amp;rdquo;匹配，与&amp;rdquo;There once was a man from NewYork&amp;rdquo;不匹配。正如如^符号表示开头一样，$符号用来匹配那些以给定模式结尾的字符串。
+bucket$ 这个模式与&amp;rdquo;Who kept all of this cash in a bucket&amp;rdquo;匹配，与&amp;rdquo;buckets&amp;rdquo;不匹配。字符^和$同时使用时，表示精确匹配（字符串与模式一样）。例如：
+^bucket$ 只匹配字符串&amp;rdquo;bucket&amp;rdquo;。如果一个模式不包括^和$，那么它与任何包含该模式的字符串匹配。例如：模式
+once 与字符串
+Thereonce was a man fromNewYorkWhokept all of his cash ina bucket. 是匹配的。
+在该模式中的字母(o-n-c-e)是字面的字符，也就是说，他们表示该字母本身，数字也是一样的。其他一些稍微复杂的字符，如标点符号和白字符（空格、制表符等），要用到转义序列。所有的转义序列都用反斜杠()打头。制表符的转义序列是：\t。所以如果我们要检测一个字符串是否以制表符开头，可以用这个模式：
+^\t  类似的，用\n表示&amp;rdquo;新行&amp;rdquo;，\r表示回车。其他的特殊符号，可以用在前面加上反斜杠，如反斜杠本身用\表示，句号.用.表示，以此类推。
+字符簇 在INTERNET的程序中，正则表达式通常用来验证用户的输入。当用户提交一个FORM以后，要判断输入的电话号码、地址、EMAIL地址、信用卡号码等是否有效，用普通的基于字面的字符是不够的。
+所以要用一种更自由的描述我们要的模式的办法，它就是字符簇。要建立一个表示所有元音字符的字符簇，就把所有的元音字符放在一个方括号里：
+[AaEeIiOoUu] 这个模式与任何元音字符匹配，但只能表示一个字符。用连字号可以表示一个字符的范围，如：
+[a-z]//匹配所有的小写字母 [A-Z]//匹配所有的大写字母 [a-zA-Z]//匹配所有的字母 [0-9]//匹配所有的数字 [0-9.-]//匹配所有的数字，句号和减号 [\f\r\t\n]//匹配所有的白字符 同样的，这些也只表示一个字符，这是一个非常重要的。如果要匹配一个由一个小写字母和一位数字组成的字符串，比如&amp;rdquo;z2&amp;rdquo;、&amp;rdquo;t6&amp;rdquo;或&amp;rdquo;g7&amp;rdquo;，但不是&amp;rdquo;ab2&amp;rdquo;、&amp;rdquo;r2d3&amp;rdquo; 或&amp;rdquo;b52&amp;rdquo;的话，用这个模式：
+^[a-z][0-9]$ 尽管[a-z]代表26个字母的范围，但在这里它只能与第一个字符是小写字母的字符串匹配。
+前面曾经提到^表示字符串的开头，但它还有另外一个含义。当在一组方括号里使用^是，它表示&amp;rdquo;非&amp;rdquo;或&amp;rdquo;排除&amp;rdquo;的意思，常常用来剔除某个字符。还用前面的例子，我们要求第一个字符不能是数字：
+^[^0-9][0-9]$ 这个模式与&amp;rdquo;&amp;amp;5&amp;rdquo;、&amp;rdquo;g7&amp;rdquo;及&amp;rdquo;-2&amp;rdquo;是匹配的，但与&amp;rdquo;12&amp;rdquo;、&amp;rdquo;66&amp;rdquo;是不匹配的。下面是几个排除特定字符的例子：
+[^a-z]//除了小写字母以外的所有字符 [^\\/\^]//除了()(/)(^)之外的所有字符 [^\&amp;rdquo;\&amp;rsquo;]//除了双引号(&amp;ldquo;)和单引号(&amp;lsquo;)之外的所有字符 特殊字符&amp;rdquo;.&amp;rdquo; (点，句号)在正则表达式中用来表示除了&amp;rdquo;新行&amp;rdquo;之外的所有字符。所以模式&amp;rdquo;^.5$&amp;ldquo;与任何两个字符的、以数字5结尾和以其他非&amp;rdquo;新行&amp;rdquo;字符开头的字符串匹配。模式&amp;rdquo;.&amp;ldquo;可以匹配任何字符串，除了空串和只包括一个&amp;rdquo;新行&amp;rdquo;的字符串。
+PHP的正则表达式有一些内置的通用字符簇，列表如下：
+字符簇  描述   [[:alpha:]]  任何字母   [[:digit:]]  任何数字   [[:alnum:]]  任何字母和数字   [[:space:]]  任何空白字符   [[:upper:]]  任何大写字母   [[:lower:]]  任何小写字母   [[:punct:]]  任何标点符号   [[:xdigit:]]  任何16进制的数字，相当于[0-9a-fA-F]     确定重复出现 到现在为止，你已经知道如何去匹配一个字母或数字，但更多的情况下，可能要匹配一个单词或一组数字。一个单词有若干个字母组成，一组数字有若干个单数组成。跟在字符或字符簇后面的花括号({})用来确定前面的内容的重复出现的次数。</description>
+    </item>
+    
+    <item>
+      <title>正则 - 语法</title>
+      <link>http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Fri, 05 Jan 2018 08:02:12 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E8%AF%AD%E6%B3%95/</guid>
+      <description>正则表达式(regular expression)描述了一种字符串匹配的模式（pattern），可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串等。 例如： runoo+b，可以匹配 runoob、runooob、runoooooob 等，+ 号代表前面的字符必须至少出现一次（1次或多次）。  runoob，可以匹配 runob、runoob、runoooooob 等， 号代表字符可以不出现，也可以出现一次或者多次（0次、或1次、或多次）。  colou?r&amp;nbsp;可以匹配 color 或者 colour，? 问号代表前面的字符最多只可以出现一次（0次、或1次）。   构造正则表达式的方法和创建数学表达式的方法一样。也就是用多种元字符与运算符可以将小的表达式结合在一起来创建更大的表达式。正则表达式的组件可以是单个的字符、字符集合、字符范围、字符间的选择或者所有这些组件的任意组合。 正则表达式是由普通字符（例如字符 a 到 z）以及特殊字符（称为&amp;rdquo;元字符&amp;rdquo;）组成的文字模式。模式描述在搜索文本时要匹配的一个或多个字符串。正则表达式作为一个模板，将某个字符模式与所搜索的字符串进行匹配。  普通字符 普通字符包括没有显式指定为元字符的所有可打印和不可打印字符。这包括所有大写和小写字母、所有数字、所有标点符号和一些其他符号。
+非打印字符 非打印字符也可以是正则表达式的组成部分。下表列出了表示非打印字符的转义序列：
+字符  描述   \cx  匹配由x指明的控制字符。例如， \cM 匹配一个 Control-M 或回车符。x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 &amp;lsquo;c&amp;rsquo; 字符。   \f  匹配一个换页符。等价于 \x0c 和 \cL。   \n  匹配一个换行符。等价于 \x0a 和 \cJ。   \r  匹配一个回车符。等价于 \x0d 和 \cM。   \s  匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。   \S  匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。   \t  匹配一个制表符。等价于 \x09 和 \cI。   \v  匹配一个垂直制表符。等价于 \x0b 和 \cK。     特殊字符 所谓特殊字符，就是一些有特殊含义的字符，如上面说的&amp;nbsp;runoob&amp;nbsp;中的&amp;nbsp;，简单的说就是表示任何字符串的意思。如果要查找字符串中的&amp;nbsp;&amp;nbsp;符号，则需要对&amp;nbsp;&amp;nbsp;进行转义，即在其前加一个&amp;nbsp;&amp;lt;/span&amp;gt;:&amp;nbsp;runo*ob&amp;nbsp;匹配 runo*ob。</description>
+    </item>
+    
+    <item>
+      <title>正则 - 运算符优先级</title>
+      <link>http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/</link>
+      <pubDate>Fri, 05 Jan 2018 08:02:12 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/</guid>
+      <description>正则表达式从左到右进行计算，并遵循优先级顺序，这与算术表达式非常类似。 相同优先级的从左到右进行运算，不同优先级的运算先高后低。下表从最高到最低说明了各种正则表达式运算符的优先级顺序：
+运算符  描述    转义符   (), (?:), (?=), []  圆括号和方括号   *, +, ?, {n}, {n,}, {n,m}  限定符   ^, $, \任何元字符、任何字符  定位点和序列（即：位置和顺序）   |  替换，&amp;rdquo;或&amp;rdquo;操作
+字符具有高于替换运算符的优先级，使得&amp;rdquo;m|food&amp;rdquo;匹配&amp;rdquo;m&amp;rdquo;或&amp;rdquo;food&amp;rdquo;。若要匹配&amp;rdquo;mood&amp;rdquo;或&amp;rdquo;food&amp;rdquo;，请使用括号创建子表达式，从而产生&amp;rdquo;(m|f)ood&amp;rdquo;。</description>
+    </item>
+    
+  </channel>
+</rss>

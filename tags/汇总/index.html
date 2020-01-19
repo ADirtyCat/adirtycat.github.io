@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>汇总 | i-cooltea的博客</title>
+    <meta property="og:title" content="汇总 - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="汇总">
+        
+    <meta name="author" content="i-cooltea">
+    <meta property="og:url" content="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="alternate" type="application/rss+xml+xml" href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/index.xml" title="i-cooltea的博客" />
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    
+                    <h3 class="archive-title">
+                        包含标签
+                        <span class="keyword">汇总</span>
+                        的文章
+                    </h3>
+                    
+
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/mysql-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/">MySQL 常见问题汇总</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2019年7月29日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                [TOC]
+Q1. 忘记 MySQL 的 root 密码  登录到数据库所在的服务器，手工 kill 掉 mysql 进程。   (1) 登录到数据库所在的服务器，手工 kill 掉 MySQL 进程：
+root@bogon:/data/mysql# kill `cat ./mysql.pid`   其中，mysql.pid 指的是 MySQL 数据目录下的 pid 文件，它记录了 MySQL 服务的进程号。
+ (2) 使用 &ndash;skip-grant-tables 选项重启 MySQL 服务：
+zj@bogon:/data/mysql$ sudo /usr/local/mysql/bin/mysqld --skip-grant-tables --user=root &amp;   --skip-grant-tables 选项意思是启动 MySQL 服务时跳过权限表认证。 启动后，连接到 MySQL 的 root 将不需要口令。
+ (3) 用空密码的 root 用户连接到 mysql ，并且更改 root 口令：
+[zj@bogon:/usr/local/mysql/bin$] mysql -uroot Welcome to the MySQL monitor.……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/mysql-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/linux-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/">Linux 常见问题汇总</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年7月24日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                [TOC]
+
+Q1. linux 操作系统语言更改  有时候我们的服务器在安装时安装的默认语言不支持中文 导致程序、文档中的汉子显示乱码， 从而使系统报一些莫名其妙的错误，这是可以更改操作系统的默认语言
+  echo $LANG 查看当前操作系统的语言
+ 临时更改默认语言(关闭当前会话失效) export LANG=en_US.UTF-8
+ 永久生效,编辑文件保存并退出vi /etc/sysconfig/i18n 修改为 LANG=&quot;en_US.UTF-8&quot;
+  使其立即生效 source /etc/sysconfig/i18n
+  注意：centos7的环境对应的配置文件为： /etc/locale.con
+
+Q2. linux centos 系统时区 时间同步  修改时区为中国时区 Asiz/Shanghai 同步当前的的时间  cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+ntpdate us.pool.ntp.org
+
+Q3. linux 计划任务 &amp; crontab 配置不成功  初步排除命令错误 检查命令是否存在问题
+ crontab 规则 命令后面添加 &gt;&gt; xx.log 将执行结果输出到指定文件 可查看语句执行结果
+  0 6 * * * $HOME/for_crontab/createTomorrowTables &gt;&gt; $HOME/for_crontab/mylog.……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/linux-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+
+                    
+
+
+
+
+
+                </div>
+            </div>
+
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>20个CSS高级样式 | i-cooltea的博客</title>
+    <meta property="og:title" content="20个CSS高级样式 - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-03-04T13:08:00&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-03-04T13:08:00&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="20个CSS高级样式">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/20%E4%B8%AAcss%E9%AB%98%E7%BA%A7%E6%A0%B7%E5%BC%8F/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">20个CSS高级样式</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年3月4日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            <p><h4 style="text-indent:2em;">
+</h4>
+<h4 id="1-黑白图像" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    1. 黑白图像</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    这段代码会让你的彩色照片显示为黑白照片，是不是很酷？</p>
+<p>
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;line-height:22px;"><code class="has-numbering" style="box-sizing:border-box;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">img.desaturate {    filter: grayscale(100%);    -webkit-filter: grayscale(100%);    -moz-filter: grayscale(100%);    -ms-filter: grayscale(100%);    -o-filter: grayscale(100%);} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<h4 id="2-使用-not-在菜单上应用取消应用边框" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    2. 使用 :not() 在菜单上应用/取消应用边框</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    先给每一个菜单项添加边框</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">/* add border */.nav li {  border-right: 1px solid #666;} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    ……然后再除去最后一个元素……</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">// remove border /.nav li:last-child {  border-right: none; } </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    ……可以直接使用 :not() 伪类来应用元素：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">.nav li:not(:last-child) {  border-right: 1px solid #666;} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    这样代码就干净，易读，易于理解了。</p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    当然，如果你的新元素有兄弟元素的话，也可以使用通用的兄弟选择符（~）：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">..nav li:first-child ~ li {  border-left: 1px solid #666;} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<h4 id="3-页面顶部阴影" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    3. 页面顶部阴影</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    下面这个简单的 CSS3 代码片段可以给网页加上漂亮的顶部阴影效果：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">body:before {          content: &ldquo;&rdquo;;          position: fixed;          top: -10px;          left: 0;          width: 100%;          height: 10px;          -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);          -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);          box-shadow: 0px 0px 10px rgba(0,0,0,.8);          z-index: 100;} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<h4 id="4-给-body-添加行高" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    4. 给 body 添加行高</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    你不需要分别添加 line-height 到每个p,h标记等。只要添加到 body 即可：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">body {  line-height: 1;} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    这样文本元素就可以很容易地从 body 继承。</p>
+<h4 id="5-所有一切都垂直居中" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    5. 所有一切都垂直居中</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    要将所有元素垂直居中，太简单了：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">html, body {  height: 100%;  margin: 0;}body {  -webkit-align-items: center;    -ms-flex-align: center;    align-items: center;  display: -webkit-flex;  display: flex;} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    看，是不是很简单。</p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    注意：在IE11中要小心flexbox。</p>
+<h4 id="6-逗号分隔的列表" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    6. 逗号分隔的列表</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    让HTML列表项看上去像一个真正的，用逗号分隔的列表：</p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    ul &gt; li:not(:last-child)::after { content: “,”;}&nbsp;<br style="box-sizing:border-box;" />
+对最后一个列表项使用 :not() 伪类。</p>
+<h4 id="7-使用负的-nth-child-选择项目" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    7. 使用负的 nth-child 选择项目</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    在CSS中使用负的 nth-child 选择项目1到项目n。</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">li {  display: none;}/* select items 1 through 3 and display them */li:nth-child(-n+3) {  display: block;} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<h4 id="8-对图标使用-svg" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    8. 对图标使用 SVG</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    我们没有理由不对图标使用SVG：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">.logo {  background: url(&ldquo;logo.svg&rdquo;);} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    SVG对所有的分辨率类型都具有良好的扩展性，并支持所有浏览器都回归到IE9。这样可以避开.png、.jpg或.gif文件了。</p>
+<h4 id="9-优化显示文本" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    9. 优化显示文本</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    有时，字体并不能在所有设备上都达到最佳的显示，所以可以让设备浏览器来帮助你：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">html {  -moz-osx-font-smoothing: grayscale;  -webkit-font-smoothing: antialiased;  text-rendering: optimizeLegibility;} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    注：请负责任地使用 optimizeLegibility。此外，IE /Edge没有 text-rendering 支持。</p>
+<h4 id="10-对纯-css-滑块使用-max-height" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    10. 对纯 CSS 滑块使用 max-height</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    使用 max-height 和溢出隐藏来实现只有CSS的滑块：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">.slider ul {  max-height: 0;  overlow: hidden;}.slider:hover ul {  max-height: 1000px;  transition: .3s ease;} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<h4 id="11-继承-box-sizing" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    11. 继承 box-sizing</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    让 box-sizing 继承 html：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">html {  box-sizing: border-box;}*, *:before, *:after {  box-sizing: inherit;} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    这样在插件或杠杆其他行为的其他组件中就能更容易地改变 box-sizing 了。</p>
+<h4 id="12-表格单元格等宽" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    12. 表格单元格等宽</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    表格工作起来很麻烦，所以务必尽量使用 table-layout: fixed 来保持单元格的等宽：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">.calendar {  table-layout: fixed;} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<h4 id="13-用-flexbox-摆脱外边距的各种-hack" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    13. 用 Flexbox 摆脱外边距的各种 hack</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    当需要用到列分隔符时，通过flexbox的 space-between 属性，你就可以摆脱nth-，first-，和 last-child 的hack了：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">.list {  display: flex;  justify-content: space-between;}.list .person {  flex-basis: 23%;} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    现在，列表分隔符就会在均匀间隔的位置出现。</p>
+<h4 id="14-使用属性选择器用于空链接" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    14. 使用属性选择器用于空链接</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    当a元素没有文本值，但 href 属性有链接的时候显示链接：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">a[href^=&ldquo;http&rdquo;]:empty::before {  content: attr(href);} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    相当方便。</p>
+<h4 id="15-检测鼠标双击" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    15. 检测鼠标双击</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    HTML：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">&lt;div class=&ldquo;test3&rdquo;&gt;  &lt;span&gt;&lt;input type=&ldquo;text&rdquo; value=&rdquo; &ldquo; readonly=&ldquo;true&rdquo; /&gt;  &lt;a href=&ldquo;<a href="http://renpingjun.com&quot;&gt;Double">http://renpingjun.com&quot;&gt;Double</a> click me&lt;/a&gt;&lt;/span&gt;&lt;/div&gt; </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    CSS：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">.test3 span {  position: relative;}.test3 span a {  position: relative;  z-index: 2;}.test3 span a:hover, .test3 span a:active {  z-index: 4;}.test3 span input {  background: transparent;  border: 0;  cursor: pointer;  position: absolute;  top: -1px;  left: 0;  width: 101%;  /* Hacky <em>/  height: 301%; /</em> Hacky */  z-index: 3;}.test3 span input:focus {  background: transparent;  border: 0;  z-index: 1;} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<h4 id="16-css-写出三角形" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    16. CSS 写出三角形</h4>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">/* create an arrow that points up <em>/div.arrow-up {  width:0px;  height:0px;  border-left:5px solid transparent;  /</em> left arrow slant <em>/  border-right:5px solid transparent; /</em> right arrow slant <em>/  border-bottom:5px solid #2f2f2f; /</em> bottom, add background color here <em>/  font-size:0px;  line-height:0px;} /</em> create an arrow that points down <em>/div.arrow-down {  width:0px;  height:0px;  border-left:5px solid transparent;  border-right:5px solid transparent;  border-top:5px solid #2f2f2f;  font-size:0px;  line-height:0px;} /</em> create an arrow that points left <em>/div.arrow-left {  width:0px;  height:0px;  border-bottom:5px solid transparent;  /</em> left arrow slant <em>/  border-top:5px solid transparent; /</em> right arrow slant <em>/  border-right:5px solid #2f2f2f; /</em> bottom, add background color here <em>/  font-size:0px;  line-height:0px;} /</em> create an arrow that points right <em>/div.arrow-right {  width:0px;  height:0px;  border-bottom:5px solid transparent;  /</em> left arrow slant <em>/  border-top:5px solid transparent; /</em> right arrow slant <em>/  border-left:5px solid #2f2f2f; /</em> bottom, add background color here */  font-size:0px;  line-height:0px;} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<h4 id="17-css3-calc-的使用" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    17. CSS3 calc() 的使用</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    calc() 用法类似于函数，能够给元素设置动态的值：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">/* basic calc <em>/.simpleBlock {  width: calc(100% - 100px);} /</em> calc in calc */.complexBlock {  width: calc(100% - 50% / 3);  padding: 5px calc(3% - 2px);  margin-left: calc(10% + 10px);} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<h4 id="18-文本渐变" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    18. 文本渐变</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    文本渐变效果很流行，使用 CSS3 能够很简单就实现：</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">h2[data-text] {   position: relative;}h2[data-text]::after {   content: attr(data-text);   z-index: 10;   color: #e3e3e3;   position: absolute;   top: 0;   left: 0;   -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), color-stop(50%, rgba(0,0,0,1)), to(rgba(0,0,0,0)));} </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<h4 id="19-禁用鼠标事件" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    19. 禁用鼠标事件</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    CSS3 新增的 pointer-events 让你能够禁用元素的鼠标事件，例如，一个连接如果设置了下面的样式就无法点击了。</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">.disabled { pointer-events: none; } </code> <ul class="pre-numbering" style="margin:0px;padding:8px 0px;box-sizing:border-box;list-style:none;position:absolute;width:48px;background-color:#EEF0F4;top:0px;left:0px;text-align:right;"></p>
+
+<pre><code>&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    1
+&lt;/li&gt;
+&lt;li style=&quot;margin:0px;padding:0px 8px;box-sizing:border-box;list-style:none;color:#999999;&quot;&gt;
+    2
+&lt;/li&gt;
+</code></pre>
+
+<p></ul>
+</pre> <p>
+    </p>
+<h4 id="20-模糊文本" style="font-family:&quot;margin:8px 0px 16px;padding:0px;box-sizing:border-box;color:#4F4F4F;font-size:20px;line-height:28px;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    20. 模糊文本</h4>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+    简单但很漂亮的文本模糊效果，简单又好看！</p>
+<p style="text-indent:2em;">
+    </p>
+<pre class="prettyprint" style="margin-top:0px;margin-bottom:24px;padding:8px 16px 4px 56px;box-sizing:border-box;position:relative;overflow-y:hidden;overflow-x:auto;border:none;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;background-color:#F6F8FA;"><code class="has-numbering" style="box-sizing:border-box;font-family:Consolas, Inconsolata, Courier, monospace;line-height:22px;border-radius:4px;display:block;overflow-x:auto;padding:0px;word-wrap:normal;">.blur {   color: transparent;   text-shadow: 0 0 5px rgba(0,0,0,0.5);}</code></pre> <p>
+    </p>
+<p style="text-indent:2em;">
+    </p></p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/html5%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE%E6%B1%87%E9%9B%86/">html5常用标签汇集</a></li>
+        
+        <li><a href="/posts/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux 常用命令</a></li>
+        
+        <li><a href="/posts/linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcurl/">Linux命令之curl</a></li>
+        
+        <li><a href="/posts/%E5%B7%A5%E4%BD%9C%E5%90%8E%E4%BD%A0%E6%82%9F%E5%87%BA%E4%BB%80%E4%B9%88%E8%81%8C%E5%9C%BA%E9%81%93%E7%90%86/">工作后，你悟出什么职场道理？</a></li>
+        
+        <li><a href="/posts/-thinkphp5-model-%E5%8A%9F%E8%83%BD%E6%80%BB%E7%BB%93/"> thinkphp5 Model 功能总结</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/html/css">html/css</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

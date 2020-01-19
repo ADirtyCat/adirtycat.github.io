@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>正则 - 匹配规则 | i-cooltea的博客</title>
+    <meta property="og:title" content="正则 - 匹配规则 - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-01-05T08:02:12&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-01-05T08:02:12&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="正则 - 匹配规则">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">正则 - 匹配规则</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年1月5日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            <p><h2 class="tutheader" style="border-width:1px 0px 0px;border-top-style:solid;border-right-style:initial;border-bottom-style:initial;border-left-style:initial;border-top-color:#D4D4D4;border-right-color:initial;border-bottom-color:initial;border-left-color:initial;border-image:initial;margin:0px;padding:5px 0px 0px;font-size:1.8em;line-height:1.8em;clear:both;color:#333333;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    基本模式匹配</h2>
+<p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    一切从最基本的开始。模式，是正则表达式最基本的元素，它们是一组描述字符串特征的字符。模式可以很简单，由普通的字符串组成，也可以非常复杂，往往用特殊的字符表示一个范围内的字符、重复出现，或表示上下文。例如：</p>
+<pre class="prettyprint prettyprinted" style="border-width:1px 1px 1px 4px;border-style:solid;border-color:#DDDDDD;border-image:initial;margin:15px auto;padding:10px 15px;font-stretch:normal;font-size:12px;line-height:20px;font-family:Menlo, Monaco, Consolas, &quot;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background:url(&quot;color:#333333;"><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">^</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">once</span></pre> <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    这个模式包含一个特殊的字符^，表示该模式只匹配那些以once开头的字符串。例如该模式与字符串&rdquo;once upon a time&rdquo;匹配，与&rdquo;There once was a man from NewYork&rdquo;不匹配。正如如^符号表示开头一样，$符号用来匹配那些以给定模式结尾的字符串。</p>
+<pre class="prettyprint prettyprinted" style="border-width:1px 1px 1px 4px;border-style:solid;border-color:#DDDDDD;border-image:initial;margin:15px auto;padding:10px 15px;font-stretch:normal;font-size:12px;line-height:20px;font-family:Menlo, Monaco, Consolas, &quot;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background:url(&quot;color:#333333;"><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">bucket$</span></pre> <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    这个模式与&rdquo;Who kept all of this cash in a bucket&rdquo;匹配，与&rdquo;buckets&rdquo;不匹配。字符^和$同时使用时，表示精确匹配（字符串与模式一样）。例如：</p>
+<pre class="prettyprint prettyprinted" style="border-width:1px 1px 1px 4px;border-style:solid;border-color:#DDDDDD;border-image:initial;margin:15px auto;padding:10px 15px;font-stretch:normal;font-size:12px;line-height:20px;font-family:Menlo, Monaco, Consolas, &quot;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background:url(&quot;color:#333333;"><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">^</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">bucket$</span></pre> <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    只匹配字符串&rdquo;bucket&rdquo;。如果一个模式不包括^和$，那么它与任何包含该模式的字符串匹配。例如：模式</p>
+<pre class="prettyprint prettyprinted" style="border-width:1px 1px 1px 4px;border-style:solid;border-color:#DDDDDD;border-image:initial;margin:15px auto;padding:10px 15px;font-stretch:normal;font-size:12px;line-height:20px;font-family:Menlo, Monaco, Consolas, &quot;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background:url(&quot;color:#333333;"><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">once</span></pre> <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    与字符串</p>
+<pre class="prettyprint prettyprinted" style="border-width:1px 1px 1px 4px;border-style:solid;border-color:#DDDDDD;border-image:initial;margin:15px auto;padding:10px 15px;font-stretch:normal;font-size:12px;line-height:20px;font-family:Menlo, Monaco, Consolas, &quot;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background:url(&quot;color:#333333;"><span class="typ" style="border:0px;margin:0px;padding:0px;color:#660066;">There</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> once was a man </span><span class="kwd" style="border:0px;margin:0px;padding:0px;color:#000088;">from</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="typ" style="border:0px;margin:0px;padding:0px;color:#660066;">NewYork</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="typ" style="border:0px;margin:0px;padding:0px;color:#660066;">Who</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> kept all of his cash </span><span class="kwd" style="border:0px;margin:0px;padding:0px;color:#000088;">in</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> a bucket</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">.</span></pre> <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    是匹配的。</p>
+<p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    在该模式中的字母(o-n-c-e)是字面的字符，也就是说，他们表示该字母本身，数字也是一样的。其他一些稍微复杂的字符，如标点符号和白字符（空格、制表符等），要用到转义序列。所有的转义序列都用反斜杠()打头。制表符的转义序列是：\t。所以如果我们要检测一个字符串是否以制表符开头，可以用这个模式：</p>
+<pre class="prettyprint prettyprinted" style="border-width:1px 1px 1px 4px;border-style:solid;border-color:#DDDDDD;border-image:initial;margin:15px auto;padding:10px 15px;font-stretch:normal;font-size:12px;line-height:20px;font-family:Menlo, Monaco, Consolas, &quot;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background:url(&quot;color:#333333;"><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">^</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">\t </span></pre> <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    类似的，用\n表示&rdquo;新行&rdquo;，\r表示回车。其他的特殊符号，可以用在前面加上反斜杠，如反斜杠本身用\表示，句号.用.表示，以此类推。</p>
+<h2 class="tutheader" style="border-width:1px 0px 0px;border-top-style:solid;border-right-style:initial;border-bottom-style:initial;border-left-style:initial;border-top-color:#D4D4D4;border-right-color:initial;border-bottom-color:initial;border-left-color:initial;border-image:initial;margin:0px;padding:5px 0px 0px;font-size:1.8em;line-height:1.8em;clear:both;color:#333333;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    字符簇</h2>
+<p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    在INTERNET的程序中，正则表达式通常用来验证用户的输入。当用户提交一个FORM以后，要判断输入的电话号码、地址、EMAIL地址、信用卡号码等是否有效，用普通的基于字面的字符是不够的。</p>
+<p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    所以要用一种更自由的描述我们要的模式的办法，它就是字符簇。要建立一个表示所有元音字符的字符簇，就把所有的元音字符放在一个方括号里：</p>
+<pre class="prettyprint prettyprinted" style="border-width:1px 1px 1px 4px;border-style:solid;border-color:#DDDDDD;border-image:initial;margin:15px auto;padding:10px 15px;font-stretch:normal;font-size:12px;line-height:20px;font-family:Menlo, Monaco, Consolas, &quot;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background:url(&quot;color:#333333;"><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">[</span><span class="typ" style="border:0px;margin:0px;padding:0px;color:#660066;">AaEeIiOoUu</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]</span></pre> <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    这个模式与任何元音字符匹配，但只能表示一个字符。用连字号可以表示一个字符的范围，如：</p>
+<pre class="prettyprint prettyprinted" style="border-width:1px 1px 1px 4px;border-style:solid;border-color:#DDDDDD;border-image:initial;margin:15px auto;padding:10px 15px;font-stretch:normal;font-size:12px;line-height:20px;font-family:Menlo, Monaco, Consolas, &quot;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background:url(&quot;color:#333333;"><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">[</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">a</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">z</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">//匹配所有的小写字母 </span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">[</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">A</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">Z</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">//匹配所有的大写字母 </span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">[</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">a</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">zA</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">Z</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">//匹配所有的字母 </span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">[</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">//匹配所有的数字 </span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">[</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">.-</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">//匹配所有的数字，句号和减号 </span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">[</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> \f\r\t\n</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">//匹配所有的白字符</span></pre> <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    同样的，这些也只表示一个字符，这是一个非常重要的。如果要匹配一个由一个小写字母和一位数字组成的字符串，比如&rdquo;z2&rdquo;、&rdquo;t6&rdquo;或&rdquo;g7&rdquo;，但不是&rdquo;ab2&rdquo;、&rdquo;r2d3&rdquo; 或&rdquo;b52&rdquo;的话，用这个模式：</p>
+<pre class="prettyprint prettyprinted" style="border-width:1px 1px 1px 4px;border-style:solid;border-color:#DDDDDD;border-image:initial;margin:15px auto;padding:10px 15px;font-stretch:normal;font-size:12px;line-height:20px;font-family:Menlo, Monaco, Consolas, &quot;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background:url(&quot;color:#333333;"><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">^[</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">a</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">z</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">][</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">$</span></pre> <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    尽管[a-z]代表26个字母的范围，但在这里它只能与第一个字符是小写字母的字符串匹配。</p>
+<p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    前面曾经提到^表示字符串的开头，但它还有另外一个含义。当在一组方括号里使用^是，它表示&rdquo;非&rdquo;或&rdquo;排除&rdquo;的意思，常常用来剔除某个字符。还用前面的例子，我们要求第一个字符不能是数字：</p>
+<pre class="prettyprint prettyprinted" style="border-width:1px 1px 1px 4px;border-style:solid;border-color:#DDDDDD;border-image:initial;margin:15px auto;padding:10px 15px;font-stretch:normal;font-size:12px;line-height:20px;font-family:Menlo, Monaco, Consolas, &quot;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background:url(&quot;color:#333333;"><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">^[^</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">][</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">$</span></pre> <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    这个模式与&rdquo;&amp;5&rdquo;、&rdquo;g7&rdquo;及&rdquo;-2&rdquo;是匹配的，但与&rdquo;12&rdquo;、&rdquo;66&rdquo;是不匹配的。下面是几个排除特定字符的例子：</p>
+<pre class="prettyprint prettyprinted" style="border-width:1px 1px 1px 4px;border-style:solid;border-color:#DDDDDD;border-image:initial;margin:15px auto;padding:10px 15px;font-stretch:normal;font-size:12px;line-height:20px;font-family:Menlo, Monaco, Consolas, &quot;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background:url(&quot;color:#333333;"><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">[^</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">a</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">z</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">//除了小写字母以外的所有字符 </span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">[^</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">\\/\^</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">//除了()(/)(^)之外的所有字符 </span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">[^</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">\&rdquo;\&rsquo;</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">//除了双引号(&ldquo;)和单引号(&lsquo;)之外的所有字符</span></pre> <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    特殊字符&rdquo;.&rdquo; (点，句号)在正则表达式中用来表示除了&rdquo;新行&rdquo;之外的所有字符。所以模式&rdquo;^.5$&ldquo;与任何两个字符的、以数字5结尾和以其他非&rdquo;新行&rdquo;字符开头的字符串匹配。模式&rdquo;.&ldquo;可以匹配任何字符串，除了空串和只包括一个&rdquo;新行&rdquo;的字符串。</p>
+<p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    PHP的正则表达式有一些内置的通用字符簇，列表如下：</p>
+<table class="reference notranslate ke-zeroborder" style="border:0px;margin:4px 0px;padding:0px;width:729px;color:#333333;font-family:&quot;font-size:12px;background-color:#FFFFFF;">
+    <tbody style="border:0px;margin:0px;padding:0px;">
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <th width="20%" style="border:1px solid #555555;margin:0px;padding:3px;font-size:12px;color:#FFFFFF;background-color:#555555;vertical-align:top;text-align:left;">
+                字符簇
+            </th>
+            <th width="80%" style="border:1px solid #555555;margin:0px;padding:3px;font-size:12px;color:#FFFFFF;background-color:#555555;vertical-align:top;text-align:left;">
+                描述
+            </th>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                [[:alpha:]]
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                任何字母
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                [[:digit:]]
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                任何数字
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                [[:alnum:]]
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                任何字母和数字
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                [[:space:]]
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                任何空白字符
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                [[:upper:]]
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                任何大写字母
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                [[:lower:]]
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                任何小写字母
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                [[:punct:]]
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                任何标点符号
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                [[:xdigit:]]
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                任何16进制的数字，相当于[0-9a-fA-F]
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br style="color:#333333;font-family:&quot;font-size:12px;white-space:normal;background-color:#FFFFFF;" />
+<h2 class="tutheader" style="border-width:1px 0px 0px;border-top-style:solid;border-right-style:initial;border-bottom-style:initial;border-left-style:initial;border-top-color:#D4D4D4;border-right-color:initial;border-bottom-color:initial;border-left-color:initial;border-image:initial;margin:0px;padding:5px 0px 0px;font-size:1.8em;line-height:1.8em;clear:both;color:#333333;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    确定重复出现</h2>
+<p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    到现在为止，你已经知道如何去匹配一个字母或数字，但更多的情况下，可能要匹配一个单词或一组数字。一个单词有若干个字母组成，一组数字有若干个单数组成。跟在字符或字符簇后面的花括号({})用来确定前面的内容的重复出现的次数。</p>
+<table class="reference notranslate ke-zeroborder" style="border:0px;margin:4px 0px;padding:0px;width:729px;color:#333333;font-family:&quot;font-size:12px;background-color:#FFFFFF;">
+    <tbody style="border:0px;margin:0px;padding:0px;">
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <th width="20%" style="border:1px solid #555555;margin:0px;padding:3px;font-size:12px;color:#FFFFFF;background-color:#555555;vertical-align:top;text-align:left;">
+                字符簇
+            </th>
+            <th width="80%" style="border:1px solid #555555;margin:0px;padding:3px;font-size:12px;color:#FFFFFF;background-color:#555555;vertical-align:top;text-align:left;">
+                描述
+            </th>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                <sup class="footnote-ref" id="fnref:a-zA-Z"><a href="#fn:a-zA-Z">1</a></sup>$
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                所有的字母和下划线
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                <sup class="footnote-ref" id="fnref:alpha"><a href="#fn:alpha">2</a></sup>{3}$
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                所有的3个字母的单词
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                ^a$
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                字母a
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                ^a{4}$
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                aaaa
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                ^a{2,4}$
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                aa,aaa或aaaa
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                ^a{1,3}$
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                a,aa或aaa
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                ^a{2,}$
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                包含多于两个a的字符串
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                ^a{2,}
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                如：aardvark和aaab，但apple不行
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                a{2,}
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                如：baad和aaa，但Nantucket不行
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;background-color:#F6F4F0;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                \t{2}
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                两个制表符
+            </td>
+        </tr>
+        <tr style="border:0px;margin:0px;padding:0px;">
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;min-width:24px;line-height:2em;vertical-align:top;">
+                .{2}
+            </td>
+            <td style="border:1px solid #D4D4D4;margin:0px;padding:7px 5px;font-size:13px;line-height:2em;min-width:24px;vertical-align:top;">
+                所有的两个字符
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    这些例子描述了花括号的三种不同的用法。一个数字&nbsp;<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;">{x}&nbsp;</span>的意思是<strong style="border:0px;margin:0px;padding:0px;">前面的字符或字符簇只出现x次</strong>&nbsp;；一个数字加逗号&nbsp;<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;">{x,}</span>&nbsp;的意思是<strong style="border:0px;margin:0px;padding:0px;">前面的内容出现x或更多的次数</strong>&nbsp;；两个数字用逗号分隔的数字&nbsp;<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;">{x,y}</span>&nbsp;表示&nbsp;<strong style="border:0px;margin:0px;padding:0px;">前面的内容至少出现x次，但不超过y次</strong>。我们可以把模式扩展到更多的单词或数字：</p>
+<pre class="prettyprint prettyprinted" style="border-width:1px 1px 1px 4px;border-style:solid;border-color:#DDDDDD;border-image:initial;margin:15px auto;padding:10px 15px;font-stretch:normal;font-size:12px;line-height:20px;font-family:Menlo, Monaco, Consolas, &quot;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background:url(&quot;color:#333333;"><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;"><sup class="footnote-ref" id="fnref:span-span-class"><a href="#fn:span-span-class">3</a></sup>{</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">1</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">,}</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">$ </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">// 所有包含一个以上的字母、数字或下划线的字符串 </span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">^[</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">1</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">][</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]{</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">,}</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">$ </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">// 所有的正整数 </span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">^</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">-</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">{</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">,</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">1</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">}[</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]{</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">1</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">,}</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">$ </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">// 所有的整数 </span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;"><sup class="footnote-ref" id="fnref:-"><a href="#fn:-">4</a></sup>?[</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]+</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">.</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">?[</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]+</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">$ </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">// 所有的浮点数</span></pre> <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    最后一个例子不太好理解，是吗？这么看吧：以一个可选的负号 (<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;">[-]?</span>) 开头 (<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;">^</span>)、跟着1个或更多的数字(<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;">[0-9]+</span>)、和一个小数点(<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;">.</span>)再跟上1个或多个数字<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;">([0-9]+</span>)，并且后面没有其他任何东西(<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;">$</span>)。下面你将知道能够使用的更为简单的方法。</p>
+<p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    特殊字符&nbsp;<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;">?</span>&nbsp;与&nbsp;<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;">{0,1}</span>&nbsp;是相等的，它们都代表着：&nbsp;<strong style="border:0px;margin:0px;padding:0px;">0个或1个前面的内容</strong>&nbsp;或&nbsp;<strong style="border:0px;margin:0px;padding:0px;">前面的内容是可选的</strong>&nbsp;。所以刚才的例子可以简化为：</p>
+<pre class="prettyprint prettyprinted" style="border-width:1px 1px 1px 4px;border-style:solid;border-color:#DDDDDD;border-image:initial;margin:15px auto;padding:10px 15px;font-stretch:normal;font-size:12px;line-height:20px;font-family:Menlo, Monaco, Consolas, &quot;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background:url(&quot;color:#333333;"><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">^</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">-</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">?[</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]{</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">1</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">,}</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">.</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">?[</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]{</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">1</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">,}</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">$</span></pre> <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    特殊字符&nbsp;<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;"><em></span>&nbsp;与&nbsp;<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;">{0,}</span>&nbsp;是相等的，它们都代表着&nbsp;<strong style="border:0px;margin:0px;padding:0px;">0 个或多个前面的内容</strong>&nbsp;。最后，字符&nbsp;<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;">+</span>&nbsp;与&nbsp;<span class="marked" style="border:0px;margin:0px;padding:0.2em;background-color:#ECEAE6;border-radius:3px;font-weight:bold;font-family:SFMono-Regular, Consolas, &quot;">{1,}</span>&nbsp;是相等的，表示&nbsp;<strong style="border:0px;margin:0px;padding:0px;">1 个或多个前面的内容</strong>&nbsp;，所以上面的4个例子可以写成：</p>
+<pre class="prettyprint prettyprinted" style="border-width:1px 1px 1px 4px;border-style:solid;border-color:#DDDDDD;border-image:initial;margin:15px auto;padding:10px 15px;font-stretch:normal;font-size:12px;line-height:20px;font-family:Menlo, Monaco, Consolas, &quot;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;background:url(&quot;color:#333333;"><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;"><sup class="footnote-ref" id="fnref:span-span-class"><a href="#fn:span-span-class">5</a></sup>+</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">$ </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">// 所有包含一个以上的字母、数字或下划线的字符串 </span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">^[</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">1</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">][</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]</em></span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">$ </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">// 所有的正整数 </span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">^</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">-</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">?[</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]+</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">$ </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">// 所有的整数 </span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;"> </span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">^</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">-</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">?[</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]+</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">.</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">?[</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">]*</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">$ </span><span class="com" style="border:0px;margin:0px;padding:0px;color:#880000;">// 所有的浮点数</span></pre> <p style="border:0px;margin-top:0px;margin-bottom:0px;padding:0px;line-height:2em;font-size:13px;font-family:&quot;color:#333333;white-space:normal;background-color:#FFFFFF;">
+    当然这并不能从技术上降低正则表达式的复杂性，但可以使它们更容易阅读。</p></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:a-zA-Z">a-zA-Z_ <a class="footnote-return" href="#fnref:a-zA-Z"><sup>[return]</sup></a></li>
+<li id="fn:alpha">[:alpha:] <a class="footnote-return" href="#fnref:alpha"><sup>[return]</sup></a></li>
+<li id="fn:span-span-class"></span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">a</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">zA</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">Z0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">_</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;"> <a class="footnote-return" href="#fnref:span-span-class"><sup>[return]</sup></a></li>
+<li id="fn:-">- <a class="footnote-return" href="#fnref:-"><sup>[return]</sup></a></li>
+<li id="fn:span-span-class"></span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">a</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">zA</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">Z0</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;">-</span><span class="lit" style="border:0px;margin:0px;padding:0px;color:#006666;">9</span><span class="pln" style="border:0px;margin:0px;padding:0px;color:#000000;">_</span><span class="pun" style="border:0px;margin:0px;padding:0px;color:#666600;"> <a class="footnote-return" href="#fnref:span-span-class"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/php%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">PHP常用正则表达式</a></li>
+        
+        <li><a href="/posts/%E6%AD%A3%E5%88%99-%E5%85%83%E5%AD%97%E7%AC%A6/">正则 - 元字符</a></li>
+        
+        <li><a href="/posts/%E6%AD%A3%E5%88%99-%E8%AF%AD%E6%B3%95/">正则 - 语法</a></li>
+        
+        <li><a href="/posts/%E6%AD%A3%E5%88%99-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/">正则 - 运算符优先级</a></li>
+        
+        <li><a href="/posts/%E5%B8%B8%E7%94%A8-git-%E5%91%BD%E4%BB%A4%E6%B8%85%E5%8D%95/">常用 Git 命令清单</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

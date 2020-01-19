@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Linux 下 centos7 NFS使用与配置 | i-cooltea的博客</title>
+    <meta property="og:title" content="Linux 下 centos7 NFS使用与配置 - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-06-09T14:59:00&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-06-09T14:59:00&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="Linux 下 centos7 NFS使用与配置">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/linux-%E4%B8%8B-centos7-nfs%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">Linux 下 centos7 NFS使用与配置</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年6月9日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            <p>[TOC]</p>
+
+<p>###<strong>简介</strong></p>
+
+<pre><code>NFS是Network File System的缩写，即网络文件系统。
+客户端通过挂载的方式将NFS服务器端共享的数据目录挂载到本地目录下。
+</code></pre>
+
+<p>###1. NFS为什么需要RPC?
+    因为NFS支持的功能很多，不同功能会使用不同程序来启动，
+因此，NFS对应的功能所对应的端口无法固定。
+端口不固定造成客户端与服务端之间的通信障碍，所以需要RPC来从中帮忙。
+NFS启动时会随机取用若干端口，然后主动向RPC服务注册取用相关端口和功能信息，
+RPC使用固定端口111来监听来自NFS客户端的请求，
+并将正确的NFS服务端口信息返回给客户端，这样客户端与服务端就可以进行数据传输了。</p>
+
+<p>###2. NFS的工作流程
+    由程序在NFS客户端发起存取文件的请求，客户端本地的RPC(rpcbind)服务
+    会通过网络向NFS服务端的RPC的111端口发出文件存取功能的请求。
+NFS服务端的RPC找到对应已注册的NFS端口，通知客户端RPC服务。
+客户端获取正确的端口，并与NFS daemon联机存取数据。
+存取数据成功后，返回前端访问程序，完成一次存取操作。</p>
+
+<p>###3. NFS服务安装配置</p>
+
+<pre><code>**安装 : nfs-utils   /   rpcbind**
+</code></pre>
+
+<p>查看是否安装NFS</p>
+
+<pre><code class="language-shell">  &gt; rpm -qa nfs-utils rpcbind
+  &gt; yum install nfs-utils rpcbind 
+</code></pre>
+
+<p>###4. 启动rpcbind服务</p>
+
+<pre><code class="language-shell">    查看服务状态
+    &gt; systemctl status rpcbind.service
+
+    如果不知道rpcbind命令在哪
+    &gt; which rpcbind
+
+    启动rpc服务
+    &gt; systemctl restart rpcbind.service
+
+</code></pre>
+
+<pre><code>查看rpc
+</code></pre>
+
+<pre><code class="language-shell">    &gt; lsof -i :111
+    &gt; netstat -lntup|grep rpcbind
+
+    如果出现-bash未找到命令可执行下面命令
+    &gt; yum install net-tools lsof
+
+    查看nfs服务向rpc注册的端口信息
+    &gt; rpcinfo -p localhost
+
+    检查rpcbind是否开机启动
+    &gt; chkconfig --list rpcbind
+
+    ```
+
+###5. 启动NFS服务
+
+```shell
+    启动NFS服务
+    &gt; systemctl start nfs.service
+
+    查看状态
+    &gt; systemctl status nfs.service
+
+    再次查看rpc注册的端口信息
+    &gt; rpcinfo -p localhost
+</code></pre>
+
+<p>###6. NFS常见进程详解</p>
+
+<pre><code class="language-shell">    &gt; ps -ef|egrep &quot;rpc|nfs&quot;
+
+    rpc      101101      1  0 17:11 ?        00:00:00 /sbin/rpcbind -w
+    rpcuser  101188      1  0 17:22 ?        00:00:00 /usr/sbin/rpc.statd --no-notify
+    root     101190      2  0 17:22 ?        00:00:00 [rpciod]
+    root     101200      1  0 17:22 ?        00:00:00 /usr/sbin/rpc.idmapd
+    root     101201      1  0 17:22 ?        00:00:00 /usr/sbin/rpc.mountd
+    root     101206      2  0 17:22 ?        00:00:00 [nfsd4]
+    root     101207      2  0 17:22 ?        00:00:00 [nfsd4_callbacks]
+    root     101213      2  0 17:22 ?        00:00:00 [nfsd]
+    root     101214      2  0 17:22 ?        00:00:00 [nfsd]
+    root     101215      2  0 17:22 ?        00:00:00 [nfsd]
+    root     101216      2  0 17:22 ?        00:00:00 [nfsd]
+    root     101217      2  0 17:22 ?        00:00:00 [nfsd]
+    root     101218      2  0 17:22 ?        00:00:00 [nfsd]
+    root     101219      2  0 17:22 ?        00:00:00 [nfsd]
+    root     101220      2  0 17:22 ?        00:00:00 [nfsd]
+    root     101243 100830  0 17:28 pts/0    00:00:00 grep -E --color=auto rpc|nfs
+</code></pre>
+
+<pre><code>nfsd(rpc.nfsd)主进程，主要是管理客户端能否登入服务端，登入者ID判别。
+mountd(rpc.mountd)管理NFS文件系统，登入者的权限管理
+rpc.lockd(非必要)用来锁定文件，用于客户端同时写入
+rpc.statd(非必要)检查文件一致性
+rpc.idmapd 名字映射后台进程
+</code></pre>
+
+<p>###7. 配置NFS开机自启动</p>
+
+<pre><code class="language-shell">    &gt; chkconfig rpcbind on
+    &gt; chkconfig nfs on
+    &gt; chkconfig --list rpcbind
+    &gt; chkconfig --list nfs
+</code></pre>
+
+<p>###8. NFS服务端配置</p>
+
+<pre><code class="language-shell">    &gt; vi /etc/exports
+        ```
+
+    exports文件配置格式:
+
+```shell 
+    NFS共享的目录 NFS客户端地址1(参数1,参数2,...) 客户端地址2(参数1,参数2,...)
+    说明：NFS共享目录：
+
+    要用绝对路径，可被nfsnobody读写。
+</code></pre>
+
+<pre><code>NFS客户端地址：
+```shell
+指定IP: 192.168.0.1
+指定子网所有主机: 192.168.0.0/24
+指定域名的主机: test.com
+指定域名所有主机: *.test.com
+所有主机: *
+
+    ```
+参数：
+
+```shell
+ro：目录只读
+rw：目录读写
+sync：将数据同步写入内存缓冲区与磁盘中，效率低，但可以保证数据的一致性
+async：将数据先保存在内存缓冲区中，必要时才写入磁盘
+all_squash：将远程访问的所有普通用户及所属组都映射为匿名用户或用户组(nfsnobody)
+no_all_squash：与all_squash取反(默认设置)
+root_squash：将root用户及所属组都映射为匿名用户或用户组(默认设置)
+no_root_squash：与rootsquash取反
+anonuid=xxx：将远程访问的所有用户都映射为匿名用户，并指定该用户为本地用户(UID=xxx)
+anongid=xxx：将远程访问的所有用户组都映射为匿名用户组账户
+    ```
+例如：
+
+    /data/tmp 192.168.1.0/24(rw,sync,all_squash)
+
+创建需要共享的目录
+</code></pre>
+
+<pre><code class="language-shell">    &gt; mkdir -p /data/tmp
+    &gt; chown nfsnobody.nfsnobody /data/tmp
+    重新加载nfs配置
+
+    &gt; exportfs -rv
+    查看nfs服务器挂载情况
+
+    &gt; showmount -e localhost
+</code></pre>
+
+<p>###9. 挂载测试</p>
+
+<p>```shell
+    &gt; mkdir -p /data/tmp2
+    &gt; mount -t nfs 192.168.1.233:/data/tmp /data/tmp2
+    查看挂载</p>
+
+<pre><code>&gt; df -h
+在tmp下创建文件
+
+&gt; touch /data/tmp/1.txt
+查看tmp2下是否有文件
+
+&gt; ls /data/tmp2
+卸载挂载
+
+&gt; umount /data/tmp2
+        ```
+</code></pre>
+
+<p><a href="https://www.cnblogs.com/jkko123/p/6361476.html" title="参考来源">博客参考来源 : https://www.cnblogs.com/jkko123/p/6361476.html</a></p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux 常用命令</a></li>
+        
+        <li><a href="/posts/linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcurl/">Linux命令之curl</a></li>
+        
+        <li><a href="/posts/%E5%9C%A8windows-%E7%8E%AF%E5%A2%83%E4%B8%AD%E6%90%AD%E5%BB%BAlinux%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E5%AF%B9%E6%96%B0%E6%89%8B%E5%BE%88%E9%87%8D%E8%A6%81/">在windows 环境中搭建linux的学习环境！！！（对新手很重要）</a></li>
+        
+        <li><a href="/posts/-%E4%BD%BF%E7%A8%8B%E5%BA%8F%E5%9C%A8linux%E4%B8%8B%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-%E5%85%B3%E6%8E%89%E7%BB%88%E7%AB%AF%E7%BB%A7%E7%BB%AD%E8%AE%A9%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/"> 使程序在Linux下后台运行 （关掉终端继续让程序运行的方法）</a></li>
+        
+        <li><a href="/posts/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91nginx%E5%81%9A%E5%90%8E%E7%AB%AFapache%E5%81%9A%E5%89%8D%E7%AB%AF/">端口转发：nginx做后端，Apache做前端</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/linux">linux</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Linux命令之curl | i-cooltea的博客</title>
+    <meta property="og:title" content="Linux命令之curl - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-03-04T12:47:00&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-03-04T12:47:00&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="Linux命令之curl">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcurl/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">Linux命令之curl</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年3月4日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            <div class="post-header" style="margin:0px 0px 10px;line-height:32px;font-size:18px;color:#1A1A1A;font-family:&quot;white-space:normal;">
+    <h2 class="post-title" style="color:#555555;">
+        <a href="https://wujunze.com/tag/curl/" target="_blank" title="curl" style="font-family:&quot;font-size:16px;white-space:normal;font-weight:normal;background-image:initial;background-position:initial;background-size:initial;background-repeat:initial;background-attachment:initial;background-origin:initial;background-clip:initial;color:#2EABFD;text-decoration:none;">curl</a><span style="color:#1A1A1A;font-family:&quot;font-size:16px;white-space:normal;font-weight:normal;">命令是一个功能强大的网络工具，它能够通过</span><a href="https://wujunze.com/tag/http/" target="_blank" title="http" style="font-family:&quot;font-size:16px;white-space:normal;font-weight:normal;background-image:initial;background-position:initial;background-size:initial;background-repeat:initial;background-attachment:initial;background-origin:initial;background-clip:initial;color:#2EABFD;text-decoration:none;">http</a><span style="color:#1A1A1A;font-family:&quot;font-size:16px;white-space:normal;font-weight:normal;">、ftp等方式下载文件，也能够上传文件。其实</span><a href="https://wujunze.com/tag/c/" target="_blank" title="c" style="font-family:&quot;font-size:16px;white-space:normal;font-weight:normal;background-image:initial;background-position:initial;background-size:initial;background-repeat:initial;background-attachment:initial;background-origin:initial;background-clip:initial;color:#2EABFD;text-decoration:none;">c</a><span style="color:#1A1A1A;font-family:&quot;font-size:16px;white-space:normal;font-weight:normal;">url远不止前面所说的那些功能，大家可以通过man curl阅读手册页获取更多的信息</span>   </h2>
+</div>
+<div class="post-content markdown-body" style="padding-bottom:10px;line-height:1.6;word-break:break-all;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;">
+        curl命令使用了libcurl库来实现，libcurl库常用在C程序中用来处理HTTP请求，curlpp是libcurl的一个C++封装，这几个东西可以用在抓取网页、网络监控等方面的开发，而curl命令可以帮助来解决开发过程中遇到的问题
+    </p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">-a/--append 上传文件时，附加到目标文件
+ -A/--user-agent &lt;string&gt;&nbsp; 设置用户代理发送给服务器
+ - anyauth&nbsp;&nbsp; 可以使用“任何”身份验证方法
+ -b/--cookie &lt;name=string/file&gt; cookie字符串或文件读取位置
+ - basic 使用HTTP基本验证
+ -B/--use-ascii 使用ASCII /文本传输
+ -c/--cookie-jar &lt;file&gt; 操作结束后把cookie写入到这个文件中
+ -C/--continue-at &lt;offset&gt;&nbsp; 断点续转
+ -d/--data &lt;data&gt;&nbsp;&nbsp; HTTP POST方式传送数据
+ --data-ascii &lt;data&gt;&nbsp; 以ascii的方式post数据
+ --data-binary &lt;data&gt; 以二进制的方式post数据
+ --negotiate&nbsp;&nbsp;&nbsp;&nbsp; 使用HTTP身份验证
+ --digest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 使用数字身份验证
+ --disable-eprt&nbsp; 禁止使用EPRT或LPRT
+ --disable-epsv&nbsp; 禁止使用EPSV
+ -D/--dump-header &lt;file&gt; 把header信息写入到该文件中
+ --egd-file &lt;file&gt; 为随机数据(SSL)设置EGD socket路径
+ --tcp-nodelay&nbsp;&nbsp; 使用TCP_NODELAY选项
+ -e/--referer 来源网址
+ -E/--cert &lt;cert[:passwd]&gt; 客户端证书文件和密码 (SSL)
+ --cert-type &lt;type&gt; 证书文件类型 (DER/PEM/ENG) (SSL)
+ --key &lt;key&gt;&nbsp;&nbsp;&nbsp;&nbsp; 私钥文件名 (SSL)
+ --key-type &lt;type&gt; 私钥文件类型 (DER/PEM/ENG) (SSL)
+ --pass&nbsp; &lt;pass&gt;&nbsp; 私钥密码 (SSL)
+ --engine &lt;eng&gt;&nbsp; 加密引擎使用 (SSL). "--engine list" for list
+ --cacert &lt;file&gt; CA证书 (SSL)
+ --capath &lt;directory&gt; CA目录 (made using c_rehash) to verify peer against (SSL)
+ --ciphers &lt;list&gt;&nbsp; SSL密码
+ --compressed&nbsp;&nbsp;&nbsp; 要求返回是压缩的形势 (using deflate or gzip)
+ --connect-timeout &lt;seconds&gt; 设置最大请求时间
+ --create-dirs&nbsp;&nbsp; 建立本地目录的目录层次结构
+ --crlf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 上传是把LF转变成CRLF
+ -f/--fail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 连接失败时不显示http错误
+ --ftp-create-dirs 如果远程目录不存在，创建远程目录
+ --ftp-method [multicwd/nocwd/singlecwd] 控制CWD的使用
+ --ftp-pasv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 使用 PASV/EPSV 代替端口
+ --ftp-skip-pasv-ip 使用PASV的时候,忽略该IP地址
+ --ftp-ssl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 尝试用 SSL/TLS 来进行ftp数据传输
+ --ftp-ssl-reqd&nbsp; 要求用 SSL/TLS 来进行ftp数据传输
+ -F/--form &lt;name=content&gt; 模拟http表单提交数据
+ -form-string &lt;name=string&gt; 模拟http表单提交数据
+ -g/--globoff 禁用网址序列和范围使用{}和[]
+ -G/--get 以get的方式来发送数据
+ -h/--help 帮助
+ -H/--header &lt;line&gt;自定义头信息传递给服务器
+ --ignore-content-length&nbsp; 忽略的HTTP头信息的长度
+ -i/--include 输出时包括protocol头信息
+ -I/--head&nbsp; 只显示文档信息
+ 从文件中读取-j/--junk-session-cookies忽略会话Cookie
+ - 界面&lt;interface&gt;指定网络接口/地址使用
+ - krb4 &lt;级别&gt;启用与指定的安全级别krb4
+ -j/--junk-session-cookies 读取文件进忽略session cookie
+ --interface &lt;interface&gt; 使用指定网络接口/地址
+ --krb4 &lt;level&gt;&nbsp; 使用指定安全级别的krb4
+ -k/--insecure 允许不使用证书到SSL站点
+ -K/--config&nbsp; 指定的配置文件读取
+ -l/--list-only 列出ftp目录下的文件名称
+ --limit-rate &lt;rate&gt; 设置传输速度
+ --local-port&lt;NUM&gt; 强制使用本地端口号
+ -m/--max-time &lt;seconds&gt; 设置最大传输时间
+ --max-redirs &lt;num&gt; 设置最大读取的目录数
+ --max-filesize &lt;bytes&gt; 设置最大下载的文件总量
+ -M/--manual&nbsp; 显示全手动
+ -n/--netrc 从netrc文件中读取用户名和密码
+ --netrc-optional 使用 .netrc 或者 URL来覆盖-n
+ --ntlm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 使用 HTTP NTLM 身份验证
+ -N/--no-buffer 禁用缓冲输出
+ -o/--output 把输出写到该文件中
+ -O/--remote-name 把输出写到该文件中，保留远程文件的文件名
+ -p/--proxytunnel&nbsp;&nbsp; 使用HTTP代理
+ --proxy-anyauth 选择任一代理身份验证方法
+ --proxy-basic&nbsp;&nbsp; 在代理上使用基本身份验证
+ --proxy-digest&nbsp; 在代理上使用数字身份验证
+ --proxy-ntlm&nbsp;&nbsp;&nbsp; 在代理上使用ntlm身份验证
+ -P/--ftp-port &lt;address&gt; 使用端口地址，而不是使用PASV
+ -Q/--quote &lt;cmd&gt;文件传输前，发送命令到服务器
+ -r/--range &lt;range&gt;检索来自HTTP/1.1或FTP服务器字节范围
+ --range-file 读取（SSL）的随机文件
+ -R/--remote-time&nbsp;&nbsp; 在本地生成文件时，保留远程文件时间
+ --retry &lt;num&gt;&nbsp;&nbsp; 传输出现问题时，重试的次数
+ --retry-delay &lt;seconds&gt;&nbsp; 传输出现问题时，设置重试间隔时间
+ --retry-max-time &lt;seconds&gt; 传输出现问题时，设置最大重试时间
+ -s/--silent静音模式。不输出任何东西
+ -S/--show-error&nbsp;&nbsp; 显示错误
+ --socks4 &lt;host[:port]&gt; 用socks4代理给定主机和端口
+ --socks5 &lt;host[:port]&gt; 用socks5代理给定主机和端口
+ --stderr &lt;file&gt;
+ -t/--telnet-option &lt;OPT=val&gt; Telnet选项设置
+ --trace &lt;file&gt;&nbsp; 对指定文件进行debug
+ --trace-ascii &lt;file&gt; Like --跟踪但没有hex输出
+ --trace-time&nbsp;&nbsp;&nbsp; 跟踪/详细输出时，添加时间戳
+ -T/--upload-file &lt;file&gt; 上传文件
+ --url &lt;URL&gt;&nbsp;&nbsp;&nbsp;&nbsp; Spet URL to work with
+ -u/--user &lt;user[:password]&gt;设置服务器的用户和密码
+ -U/--proxy-user &lt;user[:password]&gt;设置代理用户名和密码
+ -v/--verbose
+ -V/--version 显示版本信息
+ -w/--write-out [format]什么输出完成后
+ -x/--proxy &lt;host[:port]&gt;在给定的端口上使用HTTP代理
+ -X/--request &lt;command&gt;指定什么命令
+ -y/--speed-time 放弃限速所要的时间。默认为30
+ -Y/--speed-limit 停止传输速度的限制，速度时间'秒
+ -z/--time-cond&nbsp; 传送时间设置
+ -0/--http1.0&nbsp; 使用HTTP 1.0
+ -1/--tlsv1&nbsp; 使用TLSv1（SSL）
+ -2/--sslv2 使用SSLv2的（SSL）
+ -3/--sslv3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 使用的SSLv3（SSL）
+ --3p-quote&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; like -Q for the source URL for 3rd party transfer
+ --3p-url&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 使用url，进行第三方传送
+ --3p-user&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 使用用户名和密码，进行第三方传送
+ -4/--ipv4&nbsp;&nbsp; 使用IP4
+ -6/--ipv6&nbsp;&nbsp; 使用IP6
+ -#/--progress-bar 用进度条显示当前的传送状态 </code></pre>  <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;">
+        <span style="font-weight:700;">举几个栗子</span>     </p>
+    <h3 style="margin-top:24px;margin-bottom:16px;line-height:1.25;font-size:1.25em;">
+        curl查看HTTP响应头
+    </h3>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">`curl -I https://wujunze.com` </code></pre>   <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;">
+        <img class="img-responsive" src="https://static.wujunze.com/2016/03/3306385594.jpg" alt="curl_I.jpg" style="max-width:100%;box-sizing:content-box;background-color:#FFFFFF;" />     </p>
+    <h3 style="margin-top:24px;margin-bottom:16px;line-height:1.25;font-size:1.25em;">
+        curl下载文件
+    </h3>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">`curl -O https://wujunze.com/usr/themes/yilia/tx.png` </code></pre>   <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;">
+        <img class="img-responsive" src="https://static.wujunze.com/2016/03/4025414648.jpg" alt="curl_O.jpg" style="max-width:100%;box-sizing:content-box;background-color:#FFFFFF;" />     </p>
+    <h3 style="margin-top:24px;margin-bottom:16px;line-height:1.25;font-size:1.25em;">
+        模拟表单信息，模拟登录，保存cookie信息
+    </h3>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">[root@wujunze_aliyun blog]# curl -c ./cookie_c.txt -F log=aaaa -F pwd=****** http://wp.com/wp-login.php </code></pre>     <h3 style="margin-top:24px;margin-bottom:16px;line-height:1.25;font-size:1.25em;">
+        当我们经常用curl去抓人家<a href="https://wujunze.com/tag/%E7%BD%91%E7%AB%99/" target="_blank" title="网站" style="background-image:initial;background-position:initial;background-size:initial;background-repeat:initial;background-attachment:initial;background-origin:initial;background-clip:initial;color:#2EABFD;text-decoration:none;">网站</a>的时候，人家会把你的IP给屏蔽掉的,这个时候,我们可以用代理
+    </h3>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">[root@wujunze_aliyun blog]# curl -x 24.10.28.84:32779 -o home.html http://blog.aaaa.com </code></pre>     <h3 style="margin-top:24px;margin-bottom:16px;line-height:1.25;font-size:1.25em;">
+        伪造来源地址，有的网站会判断，请求来源地址。
+    </h3>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">[root@wujunze_aliyun blog]# curl -e http://localhost http://blog.wordpress.com/wp-login.php </code></pre>     <h2 style="margin-top:24px;line-height:1.25;padding-bottom:0.3em;border-bottom:1px solid #EEEEEE;margin-bottom:0px !important;">
+        剩下的功能,大家慢慢发现吧
+    </h2>
+</div>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/%E5%9C%A8windows-%E7%8E%AF%E5%A2%83%E4%B8%AD%E6%90%AD%E5%BB%BAlinux%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E5%AF%B9%E6%96%B0%E6%89%8B%E5%BE%88%E9%87%8D%E8%A6%81/">在windows 环境中搭建linux的学习环境！！！（对新手很重要）</a></li>
+        
+        <li><a href="/posts/-%E4%BD%BF%E7%A8%8B%E5%BA%8F%E5%9C%A8linux%E4%B8%8B%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-%E5%85%B3%E6%8E%89%E7%BB%88%E7%AB%AF%E7%BB%A7%E7%BB%AD%E8%AE%A9%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/"> 使程序在Linux下后台运行 （关掉终端继续让程序运行的方法）</a></li>
+        
+        <li><a href="/posts/%E5%B7%A5%E4%BD%9C%E5%90%8E%E4%BD%A0%E6%82%9F%E5%87%BA%E4%BB%80%E4%B9%88%E8%81%8C%E5%9C%BA%E9%81%93%E7%90%86/">工作后，你悟出什么职场道理？</a></li>
+        
+        <li><a href="/posts/-thinkphp5-model-%E5%8A%9F%E8%83%BD%E6%80%BB%E7%BB%93/"> thinkphp5 Model 功能总结</a></li>
+        
+        <li><a href="/posts/composer%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">composer常用知识总结</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/linux">linux</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

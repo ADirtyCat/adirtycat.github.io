@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Git 三大区域的操作分析  | i-cooltea的博客</title>
+    <meta property="og:title" content="Git 三大区域的操作分析  - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-02-24T15:29:00&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-02-24T15:29:00&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="Git 三大区域的操作分析 ">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/git-%E4%B8%89%E5%A4%A7%E5%8C%BA%E5%9F%9F%E7%9A%84%E6%93%8D%E4%BD%9C%E5%88%86%E6%9E%90-/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">Git 三大区域的操作分析 </h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年2月24日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            <p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"=""> <span style="font-family:Helvetica, Tahoma, Arial, sans-serif;font-size:14px;line-height:25.2px;">Git 三大区域的操作分析 <br />
+</span> 
+    </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"=""> <span style="font-family:Helvetica, Tahoma, Arial, sans-serif;font-size:14px;line-height:25.2px;">可以将git简单的分为三个区域 </span> </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"="">
+    1、工作区（working directry） <br />
+2、暂缓区（stage index） <br />
+3、历史记录区（history） <br />
+如图： <br />
+<img class="img-responsive" src="http://img.blog.csdn.net/20171115182932946?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTEzNTkwMzk0NDYy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" style="border-width:initial;border-style:none;max-width:602px;max-height:100%;height:auto;" /><br />
+git add files 把当前工作目录中的文件放入暂存区域 <br />
+其实做了两件事： <br />
+1、将本地文件的时间戳、长度，当前文档对象的id等信息保存到一个树形目录中去（index，即平时说的暂存区） <br />
+2、将本地文件的内容做快照并保存到Git 的对象库 <br />
+（综上：实际上就是一个包含文件索引的目录树，像是一个虚拟的工作区。
+    </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"="">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这个虚拟工作区的目录树中，记录了文件名、文件的状态信息（时间戳、文件长度等），</p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"="">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文件的 内容并不存储其中，而是保存在 Git 对象库（.git/objects）中，文件索引建立了文件和对象库中对象实体之间的对应。） <br />
+如图： <br />
+<img class="img-responsive" src="http://dl.iteye.com/upload/attachment/0080/2440/c0caeb56-9297-32b2-9da7-50059bbc37b3.png" alt="" style="border-width:initial;border-style:none;max-width:602px;max-height:100%;height:auto;" /> <br />
+在这个图中，我们可以看到部分 Git 命令是如何影响工作区和暂存区（stage, index）的： <br />
+图中左侧为工作区，右侧为版本库。在版本库中标记为 "index" 的区域是暂存区（stage, index），标记为 "master" 的是 master 分支所代表的目录树。 <br />
+图中我们可以看出此时 "HEAD" 实际是指向 master 分支的一个“游标”。所以图示的命令中出现 HEAD 的地方可以用 master 来替换。 <br />
+图中的 objects 标识的区域为 Git 的对象库，实际位于 ".git/objects" 目录下 <br />
+当对工作区修改（或新增）的文件执行 "git add" 命令时，暂存区的目录树被更新，同时工作区修改（或新增）的文件内容被写入到对象库中的一个新的对象中，而该对象的ID 被记录在暂存区的文件索引中 <br />
+当执行提交操作（git commit）时，暂存区的目录树写到版本库（对象库）中，master 分支会做相应的更新。即 master 指向的目录树就是提交时暂存区的目录树
+    </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"=""> <br />
+git reset -- files 用来撤销最后一次</p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"="">
+    &nbsp;&nbsp;&nbsp;&nbsp;git add files（因为每git add file一次，暂存区的文件都会被更改一次），你也可以用git reset 撤销所有暂存区域文件。 <br />
+git checkout -- files 把文件从暂存区域复制到工作目录，用来丢弃本地修改。
+    </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"=""></p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"="">
+    &nbsp;&nbsp;&nbsp;&nbsp;当执行 "git rm --cached <file>" 命令时，会直接从暂存区删除文件，工作区则不做出改变 <br />
+当执行 "git checkout ." 或者 "git checkout -- <file>" 命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区的改动 <br />
+当执行 "git checkout HEAD ." 或者 "git checkout HEAD <file>" 命令时，会用 HEAD 指向的 master 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改 动 <br />
+当执行 "git status" 命令扫描工作区改动的时候，先依据 .git/index 文件中记录的（工作区跟踪文件的）时间戳、长度等信息</file></file></file>     </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"="">
+    &nbsp;&nbsp;&nbsp;&nbsp;判断工作区文件是否改变。如果工作区的文件时间戳改变，说明文件的内容 可能 被改变了，需要要打开文件，读取文件内容，和更改前的原始文件相比较</p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"="">
+    &nbsp;&nbsp;&nbsp;&nbsp;（本地文件和与之对应的object库中的文件的内容进行对比），判断文件内容是否被更改。
+    </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"="">
+    &nbsp;&nbsp;&nbsp;&nbsp;如果文件内容没有改变，则将该文件新的时间戳记录到 .git/index 文件中。因为判断文件是否更改，</p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"="">
+    &nbsp;&nbsp;&nbsp;&nbsp;使用时间戳、文件长度等信息进行比较要比通过文件内容比较要快的多，
+    </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"="">
+    &nbsp;&nbsp;&nbsp;&nbsp;所以 Git 这样的实现方式可以让工作区状态扫描更快速的执行，这也是 Git 高效的因素之一。</p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:" font-size:15px;white-space:normal;background-color:#ffffff;text-indent:2em;"=""> <br />
+git diff files 来进行具体文件的变动对比，通常用来进行work directory 与 stage之间的对比，实质上是用 git objects 库中的快照与work directory 文件的内容的对比
+    </p>
+    <p style="text-indent:2em;">
+        <br />
+    </p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/%E5%B8%B8%E7%94%A8-git-%E5%91%BD%E4%BB%A4%E6%B8%85%E5%8D%95/">常用 Git 命令清单</a></li>
+        
+        <li><a href="/posts/sublimetext3-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">SublimeText3 使用教程</a></li>
+        
+        <li><a href="/posts/%E5%B8%B8%E7%94%A8css%E6%A0%B7%E5%BC%8F%E5%B1%9E%E6%80%A7%E5%A4%A7%E5%85%A8%E4%B8%AD%E6%96%87%E6%B3%A8%E9%87%8A/">常用css样式属性大全（中文注释）</a></li>
+        
+        <li><a href="/posts/%E5%AD%A6%E4%B9%A0-python-%E7%BC%96%E7%A8%8B%E7%9A%84-19-%E4%B8%AA%E8%B5%84%E6%BA%90/">学习 Python 编程的 19 个资源</a></li>
+        
+        <li><a href="/posts/%E5%9C%A8windows-%E7%8E%AF%E5%A2%83%E4%B8%AD%E6%90%AD%E5%BB%BAlinux%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E5%AF%B9%E6%96%B0%E6%89%8B%E5%BE%88%E9%87%8D%E8%A6%81/">在windows 环境中搭建linux的学习环境！！！（对新手很重要）</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/git">git</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

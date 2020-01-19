@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Linux 下 NFS 服务权限问题解决  Permission denied | i-cooltea的博客</title>
+    <meta property="og:title" content="Linux 下 NFS 服务权限问题解决  Permission denied - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-06-09T15:09:00&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-06-09T15:09:00&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="Linux 下 NFS 服务权限问题解决  Permission denied">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/linux-%E4%B8%8B-nfs-%E6%9C%8D%E5%8A%A1%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3-permission-denied/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">Linux 下 NFS 服务权限问题解决  Permission denied</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年6月9日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            
+
+<p>[TOC]</p>
+
+<p>##前言
+&gt;NFS 是一种分布式文件系统，允许客户端主机可以像访问本地存储一样通过网络访问服务器端文件。同时，NFS 协议也是开放的，基于 ONC RPC 协议的一个标准 RFC 协议。凡是实现 NFS 标准的软件（客户端或者服务端）都可以互相兼容。
+使用</p>
+
+<p>Linux 内置的 mount 命令就支持 NFS，仅仅运行：</p>
+
+<pre><code class="language-shell">&gt; mount -t nfs ${server_ip}:${server_nfs_dir} ${local_dir}
+</code></pre>
+
+<p>即可将远程的网络目录挂载到本地，就如同操作本地文件一样。并且一般来讲
+应用程序对 NFS 挂载点的访问及使用和本地目录没有区别。</p>
+
+<pre><code class="language-shell">例：
+&gt; mount -t nfs 10.10.2.140:/data/ABC /data/ABC
+</code></pre>
+
+<h3 id="nfs-权限问题">NFS 权限问题</h3>
+
+<pre><code>假如你当前登录在客户端系统上的用户 UID 为 1000，
+那么你对 NFS 文件的操作权限就对应 NFS 服务器的 UID:1000 用户的权限。
+因为客户端用户对应服务端用户，变相的相当于“你在用服务器上你的身份操作NFS服务器的文件”。
+因为这个原因，对于系统管理员和客户端使用人员而言，
+可能对 NFS 的权限配置就省了很大的一笔功夫了。
+那么问题就来了：客户端系统的用户ID和服务器的用户ID不是一一对应的，可能会出现各种异常问题，常见：
+</code></pre>
+
+<pre><code class="language-shell">&gt; echo &quot;abc&quot;&gt;/data/ABC/1.txt
+&gt; bash: 1.txt: Permission denied
+</code></pre>
+
+<p>###NFS 权限问题解决思路
+方案一：</p>
+
+<pre><code>对目录完全授权，各个mount客户端都可以进行读写（存在读写权限问题）
+在NFS服务端执行 chmod 777 -R /data/ABC
+此时对文件的读写用户都是：nobody
+</code></pre>
+
+<p>方案二：</p>
+
+<pre><code>使用all_squash解决权限问题，使客户端无论用什么用户链接，
+都映射到NFS服务器指定用户执行。
+
+在NFS服务端
+&gt; vi /etc/export：
+/opt/data 192.168.2.222(rw,anonuid=0,anongid=0,all_squash,sync)
+
+配置如上，所有客户端用户操作 NFS 目录文件，
+有服务端 uid$gid 为 0 即 root 用户的权限。
+此时对文件的读写都是：root。缺陷：权限控制过于笼统，容易误操作。
+</code></pre>
+
+<p>方案三：</p>
+
+<pre><code>指定nfs挂载目录对应的用户，并要求nfs客户端使用同等用户ID操作，
+可以做到完美的权限控制。
+在NFS服务端执行(以tomcat用户举例)：
+/etc/exports : /data/ABC *(rw,sync)
+useradd tomcat # uid=91(tomcat) gid=91(tomcat) groups=91(tomcat)
+
+chown tomcat:tomcat /data/ABC -R
+chmod 775 -R /data/ABC
+
+在NFS客户端mount后，确保读写mount目录都是 tomcat用户
+【uid=91(tomcat) gid=91(tomcat) groups=91(tomcat)】
+sudo -H -u tomcat vi abc.txt
+
+那么问题来了，客户端的tomcat用户可能uid和gid可能和服务端的不一致，该如何处理？
+修改linux用户名和uid、gid
+比如 1、修改用户tomcat6为tomcat 2、修改用户的uid为102修改为91.
+</code></pre>
+
+<p>###修改用户名</p>
+
+<pre><code class="language-shell">usermod -l tomcat tomcat6
+groupmod -n tomcat tomcat6
+</code></pre>
+
+<p>###修改uid gid</p>
+
+<pre><code class="language-shell">usermod -u 91 tomcat
+groupmod -g 91 tomcat
+</code></pre>
+
+<p>###重新赋权</p>
+
+<pre><code class="language-shell">find / -user 102 -exec chown -h tomcat {} ;
+find / -group 102-exec chgrp -h tomcat {} ;
+</code></pre>
+
+<p><a href="http://baijiahao.baidu.com/s?id=1585584419661217010&amp;wfr=spider&amp;for=pc" title="博客参考来源">参考来源 http://baijiahao.baidu.com</a></p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/linux-%E4%B8%8B-centos7-nfs%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/">Linux 下 centos7 NFS使用与配置</a></li>
+        
+        <li><a href="/posts/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux 常用命令</a></li>
+        
+        <li><a href="/posts/linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcurl/">Linux命令之curl</a></li>
+        
+        <li><a href="/posts/%E5%9C%A8windows-%E7%8E%AF%E5%A2%83%E4%B8%AD%E6%90%AD%E5%BB%BAlinux%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E5%AF%B9%E6%96%B0%E6%89%8B%E5%BE%88%E9%87%8D%E8%A6%81/">在windows 环境中搭建linux的学习环境！！！（对新手很重要）</a></li>
+        
+        <li><a href="/posts/-%E4%BD%BF%E7%A8%8B%E5%BA%8F%E5%9C%A8linux%E4%B8%8B%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-%E5%85%B3%E6%8E%89%E7%BB%88%E7%AB%AF%E7%BB%A7%E7%BB%AD%E8%AE%A9%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/"> 使程序在Linux下后台运行 （关掉终端继续让程序运行的方法）</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/linux">linux</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

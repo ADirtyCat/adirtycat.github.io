@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据库 on i-cooltea的博客</title>
+    <link>http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <description>Recent content in 数据库 on i-cooltea的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 20 Mar 2018 10:41:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mysql 远程连接速度慢的解决方案</title>
+      <link>http://i-cooltea.github.io/posts/mysql-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Tue, 20 Mar 2018 10:41:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/mysql-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <description>2台服务器，一台跑iis+php，一台跑mysql，和以往一样配置好环境，测试页面一切OK
+跑应用的时候发现php访问mysql速度很慢，这种情况在以前从未发现过，虽然2台服务器并非在同一网段中，但是ping数值基本上都在1,2ms之间，tcp连接应该不是问题关健，google以后找到答案，在my.ini文件的[mysqld]部分加入:skip-name-resolve，保存文件，重启mysql，一切OK啦，速度象飞一样了新版本的mysql配置起来不象以前的那个傻瓜化了，这个问题折腾了我一上午的时间，晚上回来总算是解决了，嘿嘿，又学到一些东西。&amp;nbsp;Windows 2003下的MySQL 5服务器，本机连接到MySQL服务非常快，局域网内有两台Linux机器，有一台连接很快，另外一台输入密码后要等好几秒钟才能连上。解决办法：在MySQL服务器的配置中增加一个如下配置后速度飞快。[mysqld]skip-name-resolve
+附录：( How MySQL uses DNS )When a new thread connects to mysqld, mysqld will spawn a new thread to handle the request. This thread will first check if the hostname is in the hostname cache. If not the thread will call gethostbyaddr_r() and gethostbyname_r() to resolve the hostname.If the operating system doesn&#39;t support the above thread-safe calls, the thread will lock a mutex and call gethostbyaddr() and gethostbyname() instead.</description>
+    </item>
+    
+  </channel>
+</rss>

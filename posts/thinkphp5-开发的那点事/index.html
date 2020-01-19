@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>thinkphp5 开发的那点事 | i-cooltea的博客</title>
+    <meta property="og:title" content="thinkphp5 开发的那点事 - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-03-04T13:36:00&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-03-04T13:36:00&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="thinkphp5 开发的那点事">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/thinkphp5-%E5%BC%80%E5%8F%91%E7%9A%84%E9%82%A3%E7%82%B9%E4%BA%8B/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">thinkphp5 开发的那点事</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年3月4日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            <p><p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    知识点1：<em style="box-sizing:border-box;">* 应用程序的流程图。对于一般的框架是这样的。*</em> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <img class="img-responsive" src="http://upload-images.jianshu.io/upload_images/3374698-5b5db9fd66594dd7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="appflowchart.png" title="" style="outline:0px;box-sizing:border-box;max-width:100%;margin:24px 0px;" /> </p>
+<ul style="margin:0px 0px 24px;padding:0px;box-sizing:border-box;list-style:none;color:#454545;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+        index.php文件作为前端控制器，初始化运行CodeIgniter所需的基本资源；
+    </li>
+    <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+        Router检查http请求，以确定如何处理请求；
+    </li>
+    <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+        如果存在缓存文件，将直接输出到浏览器，不用走下面正常的系统流程；
+    </li>
+    <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+        在加载应用程序控制器之前，对http请求以及任何用户提交的数据进行安全检查；
+    </li>
+    <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+        控制器加载模型、核心类库、辅助函数以及其他所有处理请求所需的资源
+    </li>
+    <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+        最后一步，渲染视图并发送至浏览器，如果开启了缓存，视图会先被缓存起来用于后续请求。&nbsp;<br style="box-sizing:border-box;" />
+注释：前端控制器属于设计模式的一种，它用来提供一个集中的请求处理机制，所有的请求都将由一个单一的处理程序处理。该程序可以做认证/授权/记录日志，或者跟踪请求，然后把请求传给相应的处理程序。
+    </li>
+</ul>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    知识点2：<span style="box-sizing:border-box;font-weight:700;">对MVC设计模式的思考</span>&nbsp;<br style="box-sizing:border-box;" />
+MVC 是一种 用于将应用程序的逻辑层和表现层分离出来的软件方法。在实践中，由于这种分离 所以你的页面中只包含很少的 PHP 脚本。&nbsp;<br style="box-sizing:border-box;" />
+* 模型：代表数据结构。通常来说，模型类将包含帮助你对数据库进行增删改查的方法。可以说包含了DOA层和模型层。&nbsp;<br style="box-sizing:border-box;" />
+* 视图：是要展现给用户的信息。一个视图通常就是一个网页，但是在CI中，一个视图也可以是一部分页面(例如页头、页尾)，它也可以是一个RSS页面，或者其他任何类型的页面。(表现层中的模板层)&nbsp;<br style="box-sizing:border-box;" />
+* 控制器：是模型、视图以及其他任何处理http请求所必须的资源的中介，并生成网页。</p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    知识点3：<span style="box-sizing:border-box;font-weight:700;">tp5开发中的错误与调试、日志</span>&nbsp;<br style="box-sizing:border-box;" />
+如果异步ajax访问tp5，不会返回trace信息。&nbsp;<br style="box-sizing:border-box;" />
+项目开发的时候，出现错误在所难免，最大的困惑在于发现问题所在，其次才是如何解决问题。因此懂得如何调试和跟踪问题非常之关键。&nbsp;<br style="box-sizing:border-box;" />
+总的来说有：trace信息（右下角）、错误页面（能解决80%的错误）、断点调试（dump，halt，trace控制台输出）、日志分析</p>
+<hr style="box-sizing:border-box;margin:24px 0px;border-top:none;border-right:none;border-left:none;border-image:initial;border-bottom-style:solid;border-bottom-color:#DDDDDD;color:#454545;font-family:&quot;white-space:normal;background-color:#FFFFFF;" />
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <span style="box-sizing:border-box;font-weight:700;">学习框架需要掌握的一些概念</span>&nbsp;<br style="box-sizing:border-box;" />
+*&nbsp;<span style="box-sizing:border-box;font-weight:700;">LAMP</span>是基于Linux、Apache、Mysql和php的开放资源网络开发平台，也就是web平台，其中的php有时候用Perl或Python去替换。Linux是开发系统，Apache是最通用的网络服务器，mysql是带有网络管理附加工具的关系型数据库，php是流行的对象脚本语言。php包含了多数其他语言的优秀特性来使得它的网络开发更加有效。&nbsp;<br style="box-sizing:border-box;" />
+我喜欢使用WAMPServer作为win7下的集成环境。&nbsp;<br style="box-sizing:border-box;" />
+*&nbsp;<span style="box-sizing:border-box;font-weight:700;">OOP，面向对象编程</span>是一种计算机编程架构，OOP的一条基本原则是计算机程序是由单个能够起到子程序作用的单元或对象组合而成。OOP达到了软件工程的三个主要目标：重用性、灵活性和扩展性。&nbsp;<br style="box-sizing:border-box;" />
+为了实现整体运算，每个对象都能够接收信息、处理数据和向其他对象发送信息。OOP主要有以下的概念和组件：&nbsp;<br style="box-sizing:border-box;" />
+* 组件：数据和功能一起在运行着的计算机程序中形成的单元，也就是多个对象组合在一起，向外提供相同功能的组合体。组件在OOP计算机程序中是模块和结构化的基础。&nbsp;<br style="box-sizing:border-box;" />
+* 抽象性：对信息主要方面关注的能力。&nbsp;<br style="box-sizing:border-box;" />
+* 封装、继承和多态，这三种特性在书本上已经讲的不厌其烦了。[坏笑]&nbsp;<br style="box-sizing:border-box;" />
+* ORM：(object/relation mapping)对象-关系映射，是随着面向对象的软件开发方法发展而产生的。==面向对象的开发方法是当今企业级应用开发环境中的主流开发方法，关系数据库是企业级环境中永久存放数据的主流数据存储系统。对象和关系数据是也为视图的两种表现形式，业务在内存中表现为对象，在数据库中表现为关系数据库。内存中的对象之间存在关联和继承关系，而在数据库中，关系数据无法直接表达多对多关联和继承关系==，也就是代码中的对象和数据库中的数据之间，需要一个转化的桥梁，这个桥梁就是ORM。&nbsp;<br style="box-sizing:border-box;" />
+* CURD：它代表了对数据的基本原子操作：增、删、改、查。</p>
+<ul style="margin:0px 0px 24px;padding:0px;box-sizing:border-box;list-style:none;color:#454545;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+        <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;">
+            <span style="box-sizing:border-box;font-weight:700;">ActivRecord</span>：可以简单理解为ORM层的一种实现方式，它遵循标准的ORM模型：表映射为记录，记录映射到对象，字段映射到对象的属性。它能够很大程度的快速实现模型的操作，而且简单易懂。
+        </p>
+        <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;">
+            ActiveRecord的主要思想是：
+        </p>
+        <ul style="margin:0px 0px 24px;padding:0px;box-sizing:border-box;list-style:none;">
+            <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+                每个数据库表对应创建一个类，类的每一个对象实例对应于数据库中表的一行记录，通常表的每个字段在类中都有对应的field(属性)
+            </li>
+            <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+                ActiveRecord同时负责把自己持久化，在ActiveRecord中封装了对数据库的访问，即CURD
+            </li>
+            <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+                ActiveRecord是一种领域模型(Domain Model),封装了部分业务逻辑
+            </li>
+        </ul>
+        <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;">
+            ActiveRecord比较适用于：
+        </p>
+        <ul style="margin:0px 0px 24px;padding:0px;box-sizing:border-box;list-style:none;">
+            <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+                业务逻辑比较简单，当你的类基本上和数据库中的表一一对应时，ActiveRecord是非常方便的，即你的业务逻辑大多数是对表单操作
+            </li>
+            <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+                当发生跨表的操作时，往往会配合使用事务脚本，把跨表事务提升到事务脚本中
+            </li>
+            <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+                ActiveRecord最大优点是简单、直观。一个类包括数据访问和业务逻辑。如果配合代码生成器使用就更方便了。这些优点是ActiveRecord特别适合WEB快速开发。
+            </li>
+        </ul>
+    </li>
+    <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+        <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;">
+            <span style="box-sizing:border-box;font-weight:700;">CBD架构模式</span>&nbsp;<br style="box-sizing:border-box;" />
+核心+行为+驱动
+        </p>
+        <ul style="margin:0px 0px 24px;padding:0px;box-sizing:border-box;list-style:none;">
+            <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+                核心(Core)：就是框架的核心代码，不可缺少的东西，thinkphp这个框架就是基于MVC的开发框架。
+            </li>
+            <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+                行为(Bahevior)：行为在thinkphp架构中起到了去足轻重的作用，在系统核心之上，设置了很多标签扩展位，而每个标签位置可以依次执行各自的独立行为。行为扩展就此诞生，而且很多系统功能也是通过内置的行为扩展完成的，所有的行为扩展都是可替换和增加的，由此形成了底层框架的可组装的基础。
+            </li>
+            <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+                驱动(Driver)：数据库驱动、缓存驱动、标签库驱动和模板引擎驱动，以及外置的类扩展。
+            </li>
+        </ul>
+    </li>
+    <li style="margin:8px 0px 0px 32px;padding:0px;box-sizing:border-box;list-style:disc;">
+        <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;">
+            <span style="box-sizing:border-box;font-weight:700;">单一入口</span>&nbsp;<br style="box-sizing:border-box;" />
+通常是指一个项目或者应用具有一个统一(但并不一定是唯一)的入口文件，也就是一个项目的所有功能操作都是通过这个入口文件进行的，并且入口文件是执行的第一步。&nbsp;<br style="box-sizing:border-box;" />
+单一入口的好处是控制比较灵活，因为拦截方便，类是如一些权限控制、用户登录方面的判断和操作可以统一处理了。
+        </p>
+        <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;">
+            欢迎转载！！！
+        </p>
+    </li>
+</ul></p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/-thinkphp5-model-%E5%8A%9F%E8%83%BD%E6%80%BB%E7%BB%93/"> thinkphp5 Model 功能总结</a></li>
+        
+        <li><a href="/posts/xdebug%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">Xdebug安装教程</a></li>
+        
+        <li><a href="/posts/php-%E9%9D%A2%E8%AF%95%E9%A2%98-/">php---面试题---</a></li>
+        
+        <li><a href="/posts/php%E7%9B%B8%E5%85%B3%E7%9A%84%E6%9C%89%E5%8F%82%E8%80%83%E4%BB%B7%E5%80%BC%E7%9A%84%E7%A4%BE%E5%8C%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%96%87%E7%AB%A0%E4%B9%A6%E7%B1%8D%E8%A7%86%E9%A2%91%E7%AD%89%E8%B5%84%E6%BA%90/">PHP相关的有参考价值的社区,博客,网站,文章,书籍,视频等资源</a></li>
+        
+        <li><a href="/posts/20%E4%B8%AAcss%E9%AB%98%E7%BA%A7%E6%A0%B7%E5%BC%8F/">20个CSS高级样式</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/thinkphp">thinkphp</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

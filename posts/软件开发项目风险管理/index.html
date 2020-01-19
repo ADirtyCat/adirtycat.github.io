@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>软件开发项目风险管理 | i-cooltea的博客</title>
+    <meta property="og:title" content="软件开发项目风险管理 - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2020-01-15T02:28:00&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2020-01-15T02:28:00&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="软件开发项目风险管理">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">软件开发项目风险管理</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2020年1月15日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            
+
+<blockquote>
+<p>软件开发是一项高风险的活动，在项目开发过程的任何一个阶段都可能存在风险。采取积极的风险管理方式，可以使项目进程更加平稳，可以获得很高的跟踪和控制项目的能力，可以规避、转移风险，或缓解风险带来的不利影响。风险管理是对项目风险进行识别、分析、应对和监控的过程，是项目管理中很重要的管理活动，有效的实施软件风险管理是软件项目开发工作顺利完成的保证。
+风险管理的达成必须包括三个要素：</p>
+
+<pre><code>1 .在项目开发计划中必须制定风险管理计划；
+2 .在项目预算中必须包含解决风险所需的经费；
+3 .评估风险时，风险的影响也必须纳入项目计划中。
+</code></pre>
+
+<p>下面就软件开发过程中经常发生的风险，谈谈我们采取的预防措施。</p>
+</blockquote>
+
+<h2 id="1-需求不明确">1.需求不明确</h2>
+
+<p>需求不明确是软件开发过程中经常可能遇到的问题，这类问题往往表现在需求范围未界定、需求未细化、需求描述不清楚、需求遗漏、需求互相矛盾等多个方面。在软件开发过程的生命周期各阶段中，需求不明确所造成的浪费是最大的，必须尽早尽可能解决。确定用户需求是件非常困难的事情，我们常常从以下几个方面着手处理需求不明确问题：</p>
+
+<h5 id="1-让用户参与开发">(1) 让用户参与开发</h5>
+
+<p>提供一个协作开发环境，让用户参与开发过程。如果条件不允许，至少应该在每次迭代的需求分析和系统测试阶段，让客户能够参与开发。
+在选择参与开发过程的用户时，一方面，要尽可能争取精通业务或计算机技术的用户参与。另一方面，如果开发的产品要在不同规模、不同类型的企业应用，应该选择具有代表性的用户参与。仅仅让用户参与是不够的，应该采取一定的激励措施，提高用户参与的积极性。</p>
+
+<h5 id="2-开发用户界面原型">(2) 开发用户界面原型</h5>
+
+<p>用户通常不善于精确描述自己的业务需求，系统分析员需要借助白板、白纸等沟通方式，帮助用户清楚表述需求。然后，开发一个用户界面原型，以便用户确认需求。用户界面原型的作用仅仅是收集用户需求，不应该再作它用，也不要给用户造成系统快要实现的错觉。</p>
+
+<h5 id="3-需求讨论会议">(3) 需求讨论会议</h5>
+
+<p>对于用户分布广、用户量大的项目，要全面收集用户需求，往往很困难，通常采取需求研计会议方式进行需求确认。通过在会议前几周调查各地、各部门用户需求意见，然后集中各地或各部门的用户代表，举办一次需求研讨会，通过会议方式收集需求。本方法适合于具有一定信息系统使用经验的用户。</p>
+
+<h5 id="4-强化需求分析与评审">(4) 强化需求分析与评审</h5>
+
+<p>首先，需求分析是项目成功的基础，需要引起足够的重视，并分配充足的时间和人力，要让有经验的系统分析员负责，切忌让项目新手或程序员负责。其次，要进行需求评审，尽可能让用户参与需求评审，不要让需求评审流于行式。第三，也是最重要的一点，通过评审的需求规格说明书，要让用户方签字，并作为项目合同的附件，对双方都具有约束力。在公司内部要将通过评审的需求规格说明书，纳入配置管理。</p>
+
+<h2 id="2-项目缺少可见性">2.项目缺少可见性</h2>
+
+<p>当一个项目经理或一名开发者说已经完成了80%的任务，您必须保持审慎的态度。因为剩下的20%可能还需要80%的时间，甚至永远都不能完成。软件开发项目，往往在项目进度和软件质量方面缺少可见性，项目越缺少可见性，项目就越难以控制，项目就越有可能失败。我们可以通过迭代开发、技术评审、持续集成来增强项目的可见性。</p>
+
+<h5 id="1-迭代开发">(1) 迭代开发</h5>
+
+<p>采用迭代的开发模型，将产品的交付过程分为多个阶段，按照功能递增式交付。以下是一些典型的迭代：</p>
+
+<p>一次简短的先期迭代，以建立规模和前景并确定商业理由；</p>
+
+<p>一次精化迭代，其间将为稳定的构架划定基线；</p>
+
+<p>一次构建迭代，其间将实现用例并充实构架；</p>
+
+<p>几次产品化迭代，将产品转移到用户群。</p>
+
+<p>每次迭代，都要充分接收用户的评审意见，以便为自我纠正。渐近式的功能交付，有利于降低开发人员的压力，增加用户的满意度，有利于增强项目的可见性，是最好的进展报告。</p>
+
+<h5 id="2-技术评审">(2) 技术评审</h5>
+
+<p>技术评审是确保软件质量的重要环节，技术评审包括代码走查、会议评审和同行专家评审。代码走审可以是开发人员之间的交叉审查，或者是高级开发人员对普通开发人员的审查；会议评审一般应至少每两周进行一次，每次评审时间不宜太长；同行专家评审包括技术和业务两个方面的专家，经常性地让精通业务的用户专家参与项目评审，是项目成功的重要保证。</p>
+
+<p>另外，充分利用质量审查的工具软件，也有利于提高代码质量。例如：在Eclipse开发环境中，可以集成Findbug、Checkstyle、PMD插件检查代码编写质量。</p>
+
+<h5 id="3-持续集成">(3) 持续集成</h5>
+
+<p>持续集成能够把最终的一次大规模的集成调试过程分散到项目开发时间表的每一周、每一天、甚至每个小时。让项目中的各个人员都能够随时掌握当前的整体进度，并迅速发现集成过程中出现的问题并进行解决。</p>
+
+<p>开发小组应制定持续集成的制度，一般情况下每日构建一次，可以利用Ant等构建工具进行Java应用程序的构建。小组成员应在每个功能开发完成后，及时向版本控制系统（如CVS）提交代码，而且不应该向版本控制系统提交有问题（编译通不过）的代码。</p>
+
+<p>每日构建、持续集成，让项目进度跟踪工作更加容易。当项目小组每天重新编译系统时，已完成与未完成的功能清楚可见，小组成员能够简单地从软件的表现知道距离整体完成还有多远。</p>
+
+<h2 id="3-新技术引入">3.新技术引入</h2>
+
+<p>技术创新是一种具有探索性、创造性的技术经济活动。在开发过程中引入新技术，不可避免地要遇到各种风险。通过T形软件开发、充分论证、多阶段评审、同行经验等措施可降低新技术风险。</p>
+
+<h5 id="1-t形软件开发">(1)T形软件开发</h5>
+
+<p>在项目开发早期，开发小组应该建立系统的架构，解决关键技术难题、开发系统的基础构件，并对系统所需要应用的技术做深度探索。例如：基于JavaEE5构建全国联网售票系统，涉及到分布式事务处理、海量数据存储、异构平台互连等关键问题，应该优先处理这些问题；对开发所涉及到的EJB3、JSF、JBoss Seam、Eclipse RCP等技术，要做深度探索。越是技术复杂度高的项目，就越应该早地处理技术难题。如果在项目开发的中期或后期才发现架构有问题或是关键技术难题不能解决，则为时已晚。</p>
+
+<h5 id="2-充分论证">(2) 充分论证</h5>
+
+<p>新技术开发是探索性很强的工作，潜在着许多失败的风险。在可行性分析阶段，要广泛搜集相关信息，设计多种可行方案，进行充分论证。在制定决策时，情报的数量和质量致关重要。掌握的信息越多、越准确，才能作出正确的的决策，项目失败的风险也就相对减少；反之，承担的风险就会增大。</p>
+
+<h5 id="3-同行经验">(3) 同行经验</h5>
+
+<p>针对新技术，由于没有经验可借鉴，因此在探索过程中要充分利用互联网，通过搜索同行经验，往往事半功倍。要充分利用世界日益平坦化的优势，对于不能尽快解决的问题，可以先放一放，可能过不了几天，网上就有相类似问题的解决方案了。</p>
+
+<h2 id="4-技术兼容性风险">4.技术兼容性风险</h2>
+
+<p>硬件产品之间、系统软件（操作系统、中间件、数据库管理系统）与主机设备之间、系统软件之间、应用软件与系统软件之间以及应用软件之间，都可能存在兼容性问题。往往系统集成的项目越复杂，兼容性问题就越有可能存在。</p>
+
+<h5 id="1-设计先行">(1) 设计先行</h5>
+
+<p>在做系统的总体设计方案时，务必把好相关产品的选型关，确保网络、主机、系统软件与应用软件之间不要存在较大的技术兼容性问题。在网络平台建设方案中，明确相关设备的技术参数和配置要求。</p>
+
+<h5 id="2-售前产品测试">(2) 售前产品测试</h5>
+
+<p>在做项目招投标工作时，要求投标方在售前提供产品兼容性测试，以避免在项目实施过程中才暴露技术兼容性问题。涉及应用软件开发的集成项目，要在开发工作的早期，做技术兼容性测试，以避免在项目开发后期才暴露技术兼容性问题。</p>
+
+<h2 id="5-性能问题">5.性能问题</h2>
+
+<p>由于先期设计不足，性能问题往往在系统切换或新系统使用一段时间后暴露。出现性能问题往往要进行大量的优化工作，甚至局部的或全面的重新设计。无论是用户还是开发者，谁都不希望出现性能问题。</p>
+
+<h5 id="1-性能规划">(1) 性能规划</h5>
+
+<p>在系统设计时，应做好前期做性能规划，对可能出现性能问题的环节做到充足的估计。在做数据库设计时，应争取DBA参与。
+另外，在技术方法方面，尽可能采取一些性能优化模式，如DTO、AJAX、延迟加载等，尽可能在开发过程中解决了性能问题。不至于到了项目后期才解决性能问题，既费钱又费时。</p>
+
+<h5 id="2-性能测试">(2) 性能测试</h5>
+
+<p>在开发过程中，要重视性能测试和压力测试，尽可能模拟现实使用环境，搭建测试平台。另外，由于开发环境的计算机往往比生产环境的计算机配置高，在做测试时应尽量找一些配置低的机器、较小的网络带宽进行测试。</p>
+
+<h5 id="3-充足的调试时间">(3) 充足的调试时间</h5>
+
+<p>在项目开发计划中，为后期性能优化留有余地。在对系统进行性能优化后，要进行性能测试和压力测试，可能还要做几次回归测试。因此，应该留有充足的时间和人力。</p>
+
+<h2 id="6-仓促上线">6.仓促上线</h2>
+
+<p>在项目实施过程中，系统切换上线环节最容易出纰漏。项目好不容易开发完成了，却在最后最后时刻功溃一匮。如果项目小，影响面窄倒不怎么重要；如果是影响面大的项目，则千万不可出现问题。在系统切换前，应充分考虑各种可能出现的问题，做好风险对策。</p>
+
+<h5 id="1-应急预案">(1) 应急预案</h5>
+
+<p>面对各种不可预知的风险，要做好应急预案。正常运行的车站售票系统在春运、旅游黄金周，都会做好应急预案。新系统切换时，更应该做好应急预案。应急预案中应做好最坏的打算，售票系统不能正常工作时，准备手工票就是最坏的打算。</p>
+
+<h5 id="2-分步切换">(2) 分步切换</h5>
+
+<p>为了减少风险的影响，可以做系统分步切换的方案。例如：售票系统在切换时，往往用新系统售预售票，或者是用新系统售长途车站，用旧系统暂时售短程票。待新系统运行稳定后，再全面切换到新系统。针对多个用户单位的系统切换，也可分单位进行。</p>
+
+<h5 id="3-交叉培训">(3) 交叉培训</h5>
+
+<p>新旧系统切换过程中，用户都存在适应过程。除了在切换前做好操作培训外，还要在新旧系统切换过程中做好交叉培训。让用户提前一些时间上班，让早班的用户在交班时培训中班的用户，中班的用户培训晚班的用户。做好交叉培训能够让系统平衡过渡。</p>
+
+<h2 id="7-可用性问题">7.可用性问题</h2>
+
+<p>软件的可用性包括软件的使用是不是高效、是否容易学习、是否容易记忆、是否令人愉快、是否不易出错等诸多因素。往往由于软件的可用性差，导致用户不满意，甚至被市场淘汰。在项目
+开发中应注意可用性问题，避免软件出现可用性方面的风险。</p>
+
+<h5 id="1-了解用户">(1) 了解用户</h5>
+
+<p>到用户工作现场，了解目标用户使用软件的真实目的，从用户的角度、从用户的立场出发，了解如何通过软件系统替代用户的业务处理流程中，最繁琐、最容易出问题、或者是大量重复劳动的环节，让软件提高用户的工作效能和效率。</p>
+
+<h5 id="2-参与型设计">(2) 参与型设计</h5>
+
+<p>与用户协作，让用户参与用户界面的设计、评审与测试，确保用户能够全面地、及早地发现可用性等方面的问题，并及时纠正。让客户参与设计，而不要让客户设计，项目经理或高级设计人员应该主导设计。</p>
+
+<h5 id="3-竞争性分析">(3) 竞争性分析</h5>
+
+<p>通过对市场上同类竞争性产品进行分析，或者对这些产品进行实验性测试，了解这些产品的用户界面问题，从而对新系统的开发提供启发。竞争性分析并不意味着可以剽窃别人的设计，而是
+通过分析竞争产品的优势和弱点，能够比以前的设计做得更好[5]。</p>
+
+<h5 id="4-一致性">(4) 一致性</h5>
+
+<p>如果用户知道同样的命令或同样的操作总会产生同样的效果，那么他们在使用系统时就会更加自信，同时也鼓励他们进行探索性学习，因为他们已经具备了使用系统新部分的基础知识。</p>
+
+<p>开发团队应遵循公司或小组制定的用户界面标准，就可以在很多方面保持一致性，切忌不要一个系统存在多种不同的界面风格。</p>
+
+<h2 id="8-结论">8.结论</h2>
+
+<p>在信息系统集成项目中，风险是多种多样的，是无处不在的。在项目管理活动中，要积极面对风险，要培养。越早识别风险、越早管理风险，就越有可能规避风险，或者在风险发生时能够降低风险带来的影响。特别是在项目参与方多、涉及面广、影响面大、技术含量高的复杂项目，应加强风险管理。如果不主动驾驭风险，就会面临风险。</p>
+
+<p>0人点赞
+项目管理</p>
+
+<p>作者：woshishui1243
+链接：<a href="https://www.jianshu.com/p/9b2ea69bab7c">https://www.jianshu.com/p/9b2ea69bab7c</a>
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a></li>
+        
+        <li><a href="/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/">Linux 下CentOS和Ubuntu使用SSR代理的方法</a></li>
+        
+        <li><a href="/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/">要事第一与角色选择</a></li>
+        
+        <li><a href="/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/">那么努力提高效率，节约下来时间做什么</a></li>
+        
+        <li><a href="/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/">正能量的毒与负能量的药效</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86">项目管理</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

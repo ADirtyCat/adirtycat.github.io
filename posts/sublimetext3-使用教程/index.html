@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SublimeText3 使用教程 | i-cooltea的博客</title>
+    <meta property="og:title" content="SublimeText3 使用教程 - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-02-24T15:28:00&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-02-24T15:28:00&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="SublimeText3 使用教程">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/sublimetext3-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">SublimeText3 使用教程</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年2月24日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            <p><h1 style="margin:0px;padding:0px;color:#555555;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-align:center;">
+    &mdash;极速操作入门教程</h1>
+<p align="right" style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;text-align:justify;">
+    我将Sublime Text各种方便操作。按其类型整理在这里，以便查阅。</p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <strong>中文官方下载:&nbsp;</strong><a target="_blank" href="http://www.sublimetextcn.com/" style="text-decoration:none;color:#0C89CF;"><a href="http://www.sublimetextcn.com/">http://www.sublimetextcn.com/</a></a> </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <strong>破解方法，与汉化<a target="_blank" href="http://blog.csdn.net/zxw08611/article/details/65697051" style="text-decoration:none;color:#0C89CF;"><a href="http://blog.csdn.net/zxw08611/article/details/65697051">http://blog.csdn.net/zxw08611/article/details/65697051</a></a></strong> </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <strong>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</strong> </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <strong><span style="color:gray;">所谓工欲善其事，必先利其器。</span></strong> </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <strong><span style="color:gray;">善用快捷键与各种扩展的插件工具</span></strong> </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <strong><span style="color:gray;">能让你使用</span><span style="color:gray;">sublime</span><span style="color:gray;">相对其他编辑器</span><span style="color:gray;">&nbsp;,</span><span style="color:gray;">操作上节省</span><span style="color:gray;">30%~40%</span><span style="color:gray;">的时间</span></strong> </p>
+<h2 style="margin:0px;padding:0px;color:#555555;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <a name="t1"></a>&nbsp;</h2>
+<h2 style="margin:0px;padding:0px;color:#555555;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <a name="t2"></a>将Sublime Text添加至右键菜单</h2>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <span style="color:#2F2F2F;">新建一个</span><span style="color:#2F2F2F;">“</span><span style="color:#2F2F2F;">右键菜单添加</span><span style="color:#2F2F2F;">_Edit with Sublime Text3.bat”</span><span style="color:#2F2F2F;">文件，</span><span style="color:#2F2F2F;"><br />
+</span><span style="color:#2F2F2F;">复制粘贴如下代码</span><span style="color:#2F2F2F;">:</span><strong><span style="color:#2F2F2F;">并修改为自己的</span><span style="color:#2F2F2F;">sublime</span><span style="color:#2F2F2F;">安装路径</span></strong> </p>
+<div style="color:#555555;font-family:&quot;font-size:15px;white-space:normal;background:#F6F6F6;">
+    <p align="left" style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="color:#657B83;">@echo&nbsp;</span><span style="color:#2AA198;">&ldquo;Add toright click panel &ldquo;</span><span style="color:#657B83;">Edit with Sublime Text3(&amp;T)</span><span style="color:#2AA198;">&rdquo;&rdquo;</span>  </p>
+    <p align="left" style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="color:#657B83;">reg&nbsp;</span><span style="color:#859900;">add</span><span style="color:#2AA198;">&ldquo;HKCR*\shell\Sublime Text3(&amp;T)&rdquo;</span><span style="color:#657B83;">&nbsp;/ve /d</span><span style="color:#2AA198;">&ldquo;Edit with Sublime Text3&rdquo;</span>   </p>
+    <p align="left" style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="color:#657B83;">reg&nbsp;</span><span style="color:#859900;">add</span><span style="color:#2AA198;">&ldquo;HKCR*\shell\Sublime Text3(&amp;T)&rdquo;</span><span style="color:#657B83;">&nbsp;/v Icon /t REG_SZ /d</span><span style="color:#2AA198;">&ldquo;E:\Program Files\Sublime Text3x64\sublime_text.exe,0&rdquo;</span>    </p>
+    <p align="left" style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="color:#657B83;">reg&nbsp;</span><span style="color:#859900;">add</span><span style="color:#2AA198;">&ldquo;HKCR*\shell\Sublime Text3(&amp;T)\Command&rdquo;</span><span style="color:#657B83;">&nbsp;/ve /d</span><span style="color:#2AA198;">&ldquo;E:\Program Files\Sublime Text3x64\sublime_text.exe %%1&rdquo;</span>    </p>
+    <p align="left" style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="color:#657B83;">pause</span>   </p>
+</div>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <span style="color:#2F2F2F;">保存后，右键以管理员运行，提示成功后即可</span> </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <span style="color:#2F2F2F;"><br />
+</span> </p>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <span style="color:#2F2F2F;"><br />
+</span> </p>
+<h2 style="margin:0px;padding:0px;color:#555555;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <a name="t3"></a>快捷键列表（ShortcutsCheatsheet）</h2>
+<p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    &nbsp;</p>
+<h3 style="margin:0px;padding:0px;color:#555555;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <a name="t4"></a>编辑（Editing）</h3>
+<ul type="circle" style="color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + Enter</span></code>：在当前行下面新增一行然后跳至该行
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + Shift + Enter</span></code>：在当前行上面增加一行并跳至该行
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + ←/→</span></code>：进行逐词移动
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + Shift + ↑/↓</span></code>移动当前行
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl+Shift+V</span></code><code><span style="background:#EEEEEE;">：</span></code><code><span style="background:#EEEEEE;">&nbsp;</span></code>按原格式粘贴
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl+Shift+K</span></code><code><span style="background:#EEEEEE;">：</span></code><code><span style="background:#EEEEEE;">&nbsp;</span></code>删除当前行
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl +X</span></code><code><span style="background:#EEEEEE;">：</span></code><code><span style="background:#EEEEEE;">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>剪切当前行
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl+Shift+/:&nbsp;</span></code>当前位置插入注释
+    </li>
+    <li>
+        &nbsp;
+    </li>
+</ul>
+<h3 style="margin:0px;padding:0px;color:#555555;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <a name="t5"></a>选择（Selecting）</h3>
+<ul type="circle" style="color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + D</span></code>：选择当前光标所在的词并高亮该词所有出现的位置，<br />
+<em>&nbsp;再次&nbsp;</em><code><em><span style="background:#EEEEEE;">Ctrl + D</span></em></code><em>&nbsp;选择该词出现的下一个位置，在多重选词的过程中，<br />
+&nbsp;使用&nbsp;</em><code><em><span style="background:#EEEEEE;">Ctrl + K</span></em></code><em>&nbsp;进行跳过，使用&nbsp;</em><code><em><span style="background:#EEEEEE;">Ctrl + U</span></em></code><em>&nbsp;进行回退，使用&nbsp;</em><code><em><span style="background:#EEEEEE;">Esc</span></em></code><em>&nbsp;退出多重编辑</em>    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl&nbsp;<strong>+</strong>&nbsp;Shift + L</span></code>：将多个选中的内容 一起修改(多点编辑)
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + J</span></code>：把当前选中区域合并为一行
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + M</span></code>：在起始括号和结尾括号间切换
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + Shift + M</span></code>：快速选择括号间的内容
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + Shift + J</span></code>：快速选择同缩进的内容
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + Shift + Space</span></code>：快速选择当前作用域（Scope）的内容
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Alt+</span></code><code><span style="background:#EEEEEE;">数字：</span></code>切换打开第N选项卡
+    </li>
+</ul>
+<h3 style="margin:0px;padding:0px;color:#555555;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <a name="t6"></a>查找&amp;替换（Finding&amp;Replacing）</h3>
+<ul type="circle" style="color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <li>
+        <code><span style="background:#EEEEEE;">F3</span></code>：跳至当前关键字下一个位置
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Shift + F3</span></code>：跳到当前关键字上一个位置
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Alt + F3</span></code>：选中当前关键字出现的所有位置
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + F/H</span></code>：进行标准查找/替换，之后：
+        <ul type="circle">
+            <li>
+                <code><span style="background:#EEEEEE;">Alt + C</span></code>：切换大小写敏感（Case-sensitive）模式
+            </li>
+            <li>
+                <code><span style="background:#EEEEEE;">Alt + W</span></code>：切换整字匹配（Whole matching）模式
+            </li>
+            <li>
+                <code><span style="background:#EEEEEE;">Alt + R</span></code>：切换正则匹配（Regex matching）模式
+            </li>
+            <li>
+                <code><span style="background:#EEEEEE;">Ctrl + Shift + H</span></code>：替换当前关键字
+            </li>
+            <li>
+                <code><span style="background:#EEEEEE;">Ctrl + Alt + Enter</span></code>：替换所有关键字匹配
+            </li>
+        </ul>
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + Shift + F</span></code>：多文件搜索&amp;替换
+    </li>
+</ul>
+<h3 style="margin:0px;padding:0px;color:#555555;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <a name="t7"></a>窗口（Window）</h3>
+<ul type="circle" style="color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + Shift + N</span></code>：创建一个新窗口
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + N</span></code>：在当前窗口创建一个新标签
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + W</span></code>：关闭当前标签，当窗口内没有标签时会关闭该窗口
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + Shift + T</span></code>：恢复刚刚关闭的标签
+    </li>
+</ul>
+<h3 style="margin:0px;padding:0px;color:#555555;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <a name="t8"></a>屏幕（Screen）</h3>
+<ul type="circle" style="color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <li>
+        <code><span style="background:#EEEEEE;">F11</span></code>：切换普通全屏
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Shift + F11</span></code>：切换无干扰全屏
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Alt + Shift + 2</span></code>：进行左右分屏
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Alt + Shift + 8</span></code>：进行上下分屏
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Alt + Shift + 5</span></code>：进行上下左右分屏
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Alt + Shift + 1</span></code>：取消分屏
+    </li>
+    <li>
+        分屏之后，使用&nbsp;<code><span style="background:#EEEEEE;">Ctrl +</span></code><code><span style="background:#EEEEEE;">数字键</span></code>&nbsp;跳转到指定屏，使用&nbsp;<code><span style="background:#EEEEEE;">Ctrl + Shift +</span></code><code><span style="background:#EEEEEE;">数字键</span></code>&nbsp;将当前屏移动到指定屏
+    </li>
+</ul>
+<h3 align="left" style="margin:0px;padding:0px;color:#555555;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <a name="t9"></a><span style="background:#D9D9D9;">跳转（Jumping</span>）《《《《《 极速开发操作必备！！</h3>
+<ul type="circle" style="color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + P</span></code>：跳转到指定文件，输入文件名后可以：<br />
+&nbsp;&nbsp;&nbsp; (GoTo Anything) 输入匹配文件字符列出所有的相关文件
+        <ul type="circle">
+            <li>
+                <code><span style="background:#EEEEEE;">@</span></code>&nbsp;符号跳转：输入&nbsp;<code><span style="background:#EEEEEE;">@symbol</span></code>&nbsp;跳转到&nbsp;<code><span style="background:#EEEEEE;">symbol</span></code>&nbsp;符号所在的位置
+            </li>
+            <li>
+                <code><span style="background:#EEEEEE;">#</span></code>&nbsp;关键字跳转：输入&nbsp;<code><span style="background:#EEEEEE;">#keyword</span></code>&nbsp;跳转到&nbsp;<code><span style="background:#EEEEEE;">keyword</span></code>&nbsp;所在的位置
+            </li>
+            <li>
+                <code><span style="background:#EEEEEE;">:</span></code>&nbsp;行号跳转：输入&nbsp;<code><span style="background:#EEEEEE;">:12</span></code>&nbsp;跳转到文件的第12行。
+            </li>
+        </ul>
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + R</span></code>：跳转到指定符号 (跳转到制定方法)
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + G</span></code>：跳转到指定行号
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + :</span></code>：跳转到指定关键字
+    </li>
+    <li>
+        选中文字 按下F12 列出包含该文字内容 相关的文件(可以用来做函数跳转)
+    </li>
+</ul>
+<h3 style="margin:0px;padding:0px;color:#555555;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <a name="t10"></a><span style="background:#D9D9D9;">通用（General</span>）《《《《《常用操作</h3>
+<ul type="circle" style="color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + Shift + P</span></code>：调出命令板（Command Palette）
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + `</span></code><span style="background:#EEEEEE;">&nbsp;</span>：调出控制台
+    </li>
+    <li>
+        <code><span style="background:#EEEEEE;">Ctrl + K &gt; B</span></code><span style="background:#EEEEEE;">&nbsp;</span>：隐藏/显示 侧栏
+    </li>
+</ul>
+<h2 style="margin:0px;padding:0px;color:#555555;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <a name="t11"></a><br />
+    <div style="text-align:center;">
+        <span style="font-family:&quot;font-size:18px;">另外附上一些我认为较为常用的扩展插件</span>   </div>
+</h2>
+<h2 style="margin:0px;padding:0px;color:#555555;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-align:center;">
+    <a name="t12"></a><span style="font-size:12px;">Sublime Text</span><span style="font-size:12px;">的强大就是她拥有强大的课可扩展性。</span> </h2>
+<h2 style="margin:0px;padding:0px;color:#555555;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-align:center;">
+    <a name="t13"></a><span style="font-size:12px;">您可根据自己的需要安装不同的插件；这使得她变的无比强大的同时又不失轻便。</span> </h2>
+<div style="color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="font-size:12px;"><span style="color:#333333;">ClipboardHistory</span><span style="color:#333333;">剪切板历史，可以保存多个复制信息，按下</span><span style="color:#333333;">ctrl+Shift+v</span><span style="color:#333333;">，可以选择历史剪切板。(经测试最多可显示16条历史记录)</span></span>    </p>
+    <p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="font-size:12px;"><span style="color:#333333;"><br />
+</span></span>  </p>
+    <p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="font-size:12px;"><span style="color:#333333;">Emmet</span><span style="color:#333333;">前端开发神器<br />
+</span><span style="color:#333333;">输入的标签简写 与特殊符号并按下Tab键 &nbsp;快速生成</span><span style="color:#333333;">html</span><span style="color:#333333;">代码</span></span>     </p>
+    <p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="font-size:12px;"><span style="color:#333333;">&nbsp;</span></span>     </p>
+    <p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="font-size:12px;"><span style="color:#333333;">LiveStyle &nbsp;&nbsp;</span></span><span style="font-size:12px;color:#333333;">前端工具，改变样式同时刷新页面样式。</span><span style="font-size:12px;color:#333333;">Web</span><span style="font-size:12px;color:#333333;">可视化开发</span>  </p>
+    <p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+            </p>
+    <h1 style="margin:0px;padding:0px;">
+        <a name="t14"></a><span style="color:#333333;font-size:12px;font-weight:normal;">SideBarEnhancements</span><span style="color:#333333;font-weight:normal;font-size:12px;">侧栏右键菜单扩展</span>   </h1>
+<br />
+    <p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="font-size:12px;color:#333333;">对比原来少得可怜的菜单 突然多了这么多的选项让人不知道要选那个。。。<br />
+吐槽一下Sublime官方给出的文件菜单。这是极其不人性的设计啊。</span>    </p>
+    <p style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+            </p>
+    <h1 style="margin:0px;padding:0px;">
+        <a name="t15"></a>  </h1>
+    <h1 style="margin:0px;padding:0px;">
+        <a name="t16"></a><span style="font-size:12px;font-weight:normal;"><span style="color:#333333;">SublimeLinter</span><span style="color:#333333;">提供多种</span><span style="color:#333333;">语言的拼写检查</span></span>  </h1>
+    <div>
+        <span style="font-size:12px;"><span style="color:#333333;">出现语法错误，将在右边行数显示一个红点<br />
+</span></span>  </div>
+    <p align="left" style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="font-size:12px;"><span style="color:#333333;">SublimeCodeIntel</span><span style="color:#333333;">提供代码自动补全</span><span style="color:#333333;">(</span><span style="color:#333333;">编程必备</span><span style="color:#333333;">) 其实自带就有很多的语法补全</span></span>   </p>
+    <p align="left" style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="font-size:12px;"><span style="color:#333333;">这个是能检查到之前所定义的变量。将其列出</span></span>   </p>
+    <p align="left" style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+            </p>
+    <p align="left" style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="font-size:12px;"><span style="color:#333333;">Git&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#333333;">提供</span></span><span style="color:#333333;font-size:12px;">版本控制</span><span style="color:#333333;font-size:12px;">菜单 ,不用再手敲命令了!!</span>    </p>
+    <p align="left" style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="font-size:12px;"><span style="color:#333333;"><br />
+</span></span>  </p>
+    <p align="left" style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+            </p>
+    <p align="left" style="margin-top:0px;margin-bottom:0px;padding:0px;word-break:normal;">
+        <span style="font-size:12px;">&nbsp;</span><span style="font-size:12px;color:#333333;">Sublimerge&nbsp;<span style="white-space:pre;"> </span>Pro</span><span style="font-size:12px;color:#333333;">文件对比 对比两个文件的不同之处。并高亮边框显示出来</span>   </p>
+</div></p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/%E5%B8%B8%E7%94%A8css%E6%A0%B7%E5%BC%8F%E5%B1%9E%E6%80%A7%E5%A4%A7%E5%85%A8%E4%B8%AD%E6%96%87%E6%B3%A8%E9%87%8A/">常用css样式属性大全（中文注释）</a></li>
+        
+        <li><a href="/posts/%E5%AD%A6%E4%B9%A0-python-%E7%BC%96%E7%A8%8B%E7%9A%84-19-%E4%B8%AA%E8%B5%84%E6%BA%90/">学习 Python 编程的 19 个资源</a></li>
+        
+        <li><a href="/posts/%E5%9C%A8windows-%E7%8E%AF%E5%A2%83%E4%B8%AD%E6%90%AD%E5%BB%BAlinux%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E5%AF%B9%E6%96%B0%E6%89%8B%E5%BE%88%E9%87%8D%E8%A6%81/">在windows 环境中搭建linux的学习环境！！！（对新手很重要）</a></li>
+        
+        <li><a href="/posts/php%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">PHP常用正则表达式</a></li>
+        
+        <li><a href="/posts/%E6%AD%A3%E5%88%99-%E5%85%83%E5%AD%97%E7%AC%A6/">正则 - 元字符</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6">软件</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

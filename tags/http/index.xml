@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>http on i-cooltea的博客</title>
+    <link>http://i-cooltea.github.io/tags/http/</link>
+    <description>Recent content in http on i-cooltea的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 07 Mar 2018 11:12:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://i-cooltea.github.io/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用 .htaccess 文件 强制请求 重定向到 https</title>
+      <link>http://i-cooltea.github.io/posts/%E4%BD%BF%E7%94%A8-.htaccess-%E6%96%87%E4%BB%B6-%E5%BC%BA%E5%88%B6%E8%AF%B7%E6%B1%82-%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0-https/</link>
+      <pubDate>Wed, 07 Mar 2018 11:12:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/%E4%BD%BF%E7%94%A8-.htaccess-%E6%96%87%E4%BB%B6-%E5%BC%BA%E5%88%B6%E8%AF%B7%E6%B1%82-%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0-https/</guid>
+      <description>在index.php 的同级目录下新建 .htaccess 文件
+  &amp;lt;IfModule mod_rewrite.c&amp;gt;
+&amp;nbsp;Options +FollowSymlinks -Multiviews
+&amp;nbsp;RewriteEngine On
+&amp;nbsp;RewriteCond %{REQUEST_FILENAME} !-d
+&amp;nbsp;RewriteCond %{REQUEST_FILENAME} !-f
+&amp;nbsp;RewriteRule ^(.)$ index.php [L,E=PATH_INFO:$1]
+&amp;nbsp;RewriteCond %{SERVER_PORT} !^443$
+&amp;nbsp;RewriteRule ^.$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
+&amp;nbsp;
+&amp;lt;/IfModule&amp;gt;
+&amp;nbsp;</description>
+    </item>
+    
+  </channel>
+</rss>

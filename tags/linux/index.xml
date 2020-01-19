@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on i-cooltea的博客</title>
+    <link>http://i-cooltea.github.io/tags/linux/</link>
+    <description>Recent content in linux on i-cooltea的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 30 Dec 2019 02:28:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://i-cooltea.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux 下CentOS和Ubuntu使用SSR代理的方法</title>
+      <link>http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 30 Dec 2019 02:28:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description> ssr链接转换工具
+SSR代理服务： SSR 下载： 需要本地git 环境 yum install -y git  如果有就不需要了 git clone https://github.com/SAMZONG/gfwlist2privoxy.git cd gfwlist2privoxy/ # 脚本文件 mv ssr /usr/local/bin chmod +x /usr/local/bin/ssr  安装配置： 安装命令 ssr install
+# 配置命令【具体参数在里面修改即可】 ssr config # 配置文件路径 /usr/local/share/shadowsocksr/config.json # 启动/关闭 ssr start ssr stop # 卸载SSR： ssr uninstall # 这里操作会删除/usr/local/share/shadowsocksr本地监听服务已经配置完成，在填写的过程中，要注意你的本地监听地址和 监听端口，默认是127.0.0.1:1080，如果你修改了设置，那么在后续配置中也要配合修改。  </description>
+    </item>
+    
+    <item>
+      <title>转载-详解SSH原理</title>
+      <link>http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Wed, 13 Nov 2019 07:32:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/</guid>
+      <description>转载 原文出自果冻想 https://www.jellythink.com/archives/555
+前言 在实际日常运维工作中，肯定是离不开SSH的，每天都在不停的使用SSH登陆这个主机，或者那个主机去处理各种问题。每天用的也很舒服，但是对于SSH后面的原理却不甚了解，最近在看Ansible时，发现自己对SSH还有很多的迷惑点，对于我来说，一般不常用的迷惑点，我也就糊弄糊弄就过去了，毕竟对每个知识点进行放大，那都是一本学不完的天书，有些内容我们了解就好了，但是对于SSH，本想着也糊弄糊弄就过去吧，但是后来发现这样行不通，这里面好多的知识点直接影响着我日后的运维工作。于是乎，觉的有必要整理这样的一篇文章来把SSH的原理好好的学习一下，也好让后续自己的运维工作更得心应手，又或在教小弟时也能有点资本。
+SSH是什么？ 简单一点来说，SSH就是一种网络协议，用于在网络主机之间进行加密的一种协议。结合我们的日常工作来说，如果我从一台服务器使用SSH协议登陆另一台服务器，我们就认为这样的登陆是安全的，即使我们的登陆信息在中间被人截获了，我们的密码也不会被泄露。
+为什么要搞这么个协议呢？其实，很久很久以前，互联网通信都是明文的，一旦在中间环节被某些中间商截获了，我们的通信内容就暴漏无疑。所以呢，芬兰就有这么一位叫做Tatu Ylonen的人设计了SSH协议，将信息加密，这样就像上面说的，即使我们的登陆信息在中间被人截获了，我们的密码也不会被泄露。目前SSH协议已经在全世界广泛被使用，且已经在成为各个Linux发行版的标配。
+原理解析 至于SSH的一些简单用法，我这里就不细说了，先通过一副时序图看看SSH的密码登陆原理。
+![](http://resource.i-can.xyz/image/20191113153619.png) 从上图中，可以看到我们使用SSH进行登陆时，主要分为以下几步：
+ 用户使用ssh user@host命令对远程主机发起登陆； 远程主机将自己的公钥返回给请求主机； 请求主机使用公钥对用户输入的密码进行加密； 请求主机将加密后的密码发送给远程主机； 远程主机使用私钥对密码进行解密； 最后，远程主机判断解密后的密码是否与用户密码一致，一致就同意登陆，否则反之。  这个过程乍一看没有任何问题，但是在实际工作中，却是存在风险漏洞的。由于SSH不像https协议那样，SSH协议的公钥是没有证书中心（CA）公证的，也就是说，都是自己签发的。这就导致如果有人截获了登陆请求，然后冒充远程主机，将伪造的公钥发给用户，那么用户很难辨别真伪，用户再通过伪造的公钥加密密码，再发送给冒充主机，此时冒充的主机就可以获取用户的登陆密码了，那么SSH的安全机制就荡然无存了，这也就是我们常说的中间人攻击。
+既然存在这种问题，SSH就想了一个办法来绕开这个问题，也就是我接下来要总结的known_hosts文件的作用。
+known_hosts文件的作用 我们在使用SSH登陆远程主机的时候，有时会看到这样的提示：
+Theauthenticity of host &#39;192.168.1.4 (192.168.1.4)&#39;can&#39;t be established. ECDSA key fingerprint is SHA256:YMLLk0vyfeoY4rbRTnkMSxY11arS2S4qgVgvnwWpBFw. ECDSA key fingerprint is MD5:82:75:be:8e:e7:26:ea:18:73:aa:fc:10:44:c8:4f:c3. Are you sure you want to continue connecting (yes/no)?  上面这段话的意思是，无法确认192.168.1.4主机的真实性，只知道它的公钥指纹，问你还想继续连接吗？这样我们就可以看到，SSH是将这个问题抛给了SSH使用者，让SSH使用者自己来确定是否相信远程主机。但是这样对于用户来说，就存在一个难题，用户怎么知道远程主机的公钥指纹是多少；这的确是一个问题，此时就需要远程主机必须公开自己的公钥指纹，以便用户自行核对。
+在经过用户的风险衡量以后，用户只需要输入yes来决定接受这个远程主机的公钥。紧接着，系统会出现以下这样的一句提示，表示远程主机已经得到认可：
+Warning:Permanentlyadded &#39;192.168.1.4&#39;(ECDSA)to the list of known hosts. 接下来，用户输入远程主机密码即可完成整个登陆。那这个和我这里要总结的known_hosts文件有什么关系呢？请听我慢慢道来。
+当远程主机的公钥被接受以后，它就会被保存在文件~/.ssh/known_hosts之中。下次再连接这台主机，系统就会认出它的公钥已经保存在本地了，从而跳过警告部分，直接提示输入密码。
+但是由于known_hosts这个机制的存在，也会引起一些问题，比如远程主机的重新装操作系统了，远程主机就会重新生成公钥，如果我们再登陆远程主机时，由于我们本地的known_hosts文件中记录了原来的公钥，此时就会提示指纹认证失败的错误，这个时候我们只需要删除本地的known_hosts文件即可。又比如，我们经常会写一些自动化的脚本，会自动的登陆到远程主机上去，但是这个known_hosts机制却必须要我们手动输入yes才能完成远程登陆，这样整个自动化登陆就无法完成了，但是我们可以通过修改/etc/ssh/ssh_config配置文件，跳过这个known_hosts的询问机制，将# StrictHostKeyChecking ask修改为StrictHostKeyChecking no即可。
+公钥免密登录 在我们日常工作中，总是会挂很多的自动化脚本，比如自动的登陆到一台远程主机上进行一些操作，又比如Ansible就可以配置自动登陆到远程主机，但是上面说到的SSH，都需要密码登陆，那如何让SSH免密登陆，实现我们的自动登陆需求呢？这就是这里要将的公钥免密登陆。</description>
+    </item>
+    
+    <item>
+      <title>ubuntu 下安装可视化 &amp;amp; 远程登录</title>
+      <link>http://i-cooltea.github.io/posts/ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85%E5%8F%AF%E8%A7%86%E5%8C%96-amp-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/</link>
+      <pubDate>Sun, 09 Jun 2019 07:14:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85%E5%8F%AF%E8%A7%86%E5%8C%96-amp-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/</guid>
+      <description>参考 腾讯云服务器Gnome桌面安装与配置
+#!/bin/bash # 1.安装图形界面 sudo apt-get install -y xinit sudo apt-get install -y gdm sudo apt-get install -y ubuntu-desktop # 2. 安装VNC sudo apt-get install -y xauth xterm x11-common x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common sudo apt-get install -y xvfb sudo apt-get install -y x11vnc # 3. 安装xrdp,vncserver sudo apt-get install xrdp vnc4server xbase-clients # 4. 配置xrdp 设置 echo unity&amp;gt;~/.xsession sudo service xrdp restart # shutdown -r now  使用https://repo.fdzh.org/作为chrome的源，使用apt安装</description>
+    </item>
+    
+    <item>
+      <title>Linux修改Shell命令提示符及颜色</title>
+      <link>http://i-cooltea.github.io/posts/linux%E4%BF%AE%E6%94%B9shell%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6%E5%8F%8A%E9%A2%9C%E8%89%B2/</link>
+      <pubDate>Tue, 06 Nov 2018 06:24:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/linux%E4%BF%AE%E6%94%B9shell%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6%E5%8F%8A%E9%A2%9C%E8%89%B2/</guid>
+      <description>###1.Linux登录过程中加载配置文件顺序：
+/etc/profile → /etc/profile.d/*.sh → ~/.bash_profile → ~/.bashrc → [/etc/bashrc] 可查看默认的~/.bashrc文件如下： [root@~/wade/codeReview/redis-2.8.17] cat ~/.bashrc # .bashrc # User specific aliases and functions # Source global definitions if [ -f /etc/bashrc ]; then . /etc/bashrc fi  ###2.Shell命令提示符及颜色是由PS1来配置：
+[root@/etc/init.d] echo $PS1 [\[\e[32;40m\]\u@\w] 其中PS1常用的参数含义如下： \d ：#代表日期，格式为weekday month date，例如：&amp;quot;Mon Aug 1&amp;quot; \H ：#完整的主机名称 \h ：#仅取主机的第一个名字 \t ：#显示时间为24小时格式，如：HH：MM：SS \T ：#显示时间为12小时格式 \A ：#显示时间为24小时格式：HH：MM \u ：#当前用户的账号名称 \v ：#BASH的版本信息 \w ：#完整的工作目录名称 \W ：#利用basename取得工作目录名称，所以只会列出最后一个目录 \# ：#下达的第几个命令 \$ ：#提示字符，如果是root时，提示符为：# ，普通用户则为：$  ###3.</description>
+    </item>
+    
+    <item>
+      <title>CentOS 6.x/7.x上安装git及最新版</title>
+      <link>http://i-cooltea.github.io/posts/centos-6.x-7.x%E4%B8%8A%E5%AE%89%E8%A3%85git%E5%8F%8A%E6%9C%80%E6%96%B0%E7%89%88/</link>
+      <pubDate>Sun, 02 Sep 2018 03:48:25 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/centos-6.x-7.x%E4%B8%8A%E5%AE%89%E8%A3%85git%E5%8F%8A%E6%9C%80%E6%96%B0%E7%89%88/</guid>
+      <description>源码包安装
+步骤1. 安装依赖包 # yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel # yum install gcc perl-ExtUtils-MakeMaker  步骤2. 卸载旧的git版本（如果之前有安装rpm包） # yum remove git  步骤3. 下载&amp;amp;解压 # cd /usr/src # wget https://www.kernel.org/pub/software/scm/git/git-2.5.0.tar.gz # tar -zxvf git-2.5.0.tar.gz 或 # wget https://github.com/git/git/archive/v2.5.0.tar.gz 下载  步骤4. 编译安装 # cd git-2.5.0 # make prefix=/usr/local/git all # make prefix=/usr/local/git install # echo &amp;quot;export PATH=$PATH:/usr/local/git/bin&amp;quot; &amp;gt;&amp;gt; /etc/bashrc # source /etc/bashrc  步骤5. 检查git版本 # git --version git version 2.</description>
+    </item>
+    
+    <item>
+      <title>Linux 常见问题汇总</title>
+      <link>http://i-cooltea.github.io/posts/linux-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Tue, 24 Jul 2018 02:43:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/linux-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</guid>
+      <description>[TOC]
+
+Q1. linux 操作系统语言更改  有时候我们的服务器在安装时安装的默认语言不支持中文 导致程序、文档中的汉子显示乱码， 从而使系统报一些莫名其妙的错误，这是可以更改操作系统的默认语言
+  echo $LANG 查看当前操作系统的语言
+ 临时更改默认语言(关闭当前会话失效) export LANG=en_US.UTF-8
+ 永久生效,编辑文件保存并退出vi /etc/sysconfig/i18n 修改为 LANG=&amp;quot;en_US.UTF-8&amp;quot;
+  使其立即生效 source /etc/sysconfig/i18n
+  注意：centos7的环境对应的配置文件为： /etc/locale.con
+
+Q2. linux centos 系统时区 时间同步  修改时区为中国时区 Asiz/Shanghai 同步当前的的时间  cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+ntpdate us.pool.ntp.org
+
+Q3. linux 计划任务 &amp;amp; crontab 配置不成功  初步排除命令错误 检查命令是否存在问题
+ crontab 规则 命令后面添加 &amp;gt;&amp;gt; xx.log 将执行结果输出到指定文件 可查看语句执行结果
+  0 6 * * * $HOME/for_crontab/createTomorrowTables &amp;gt;&amp;gt; $HOME/for_crontab/mylog.</description>
+    </item>
+    
+    <item>
+      <title>linux管理多个ssh公钥密钥</title>
+      <link>http://i-cooltea.github.io/posts/linux%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAssh%E5%85%AC%E9%92%A5%E5%AF%86%E9%92%A5/</link>
+      <pubDate>Thu, 21 Jun 2018 04:21:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/linux%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAssh%E5%85%AC%E9%92%A5%E5%AF%86%E9%92%A5/</guid>
+      <description>很多网上免ssh密码使用git的命令都没有考虑到多个公钥密钥的情况， 这里搜集并整理一下管理多个ssh公钥密钥的步骤。
+1. ssh 公钥密钥生成 首先生成公钥和密钥，默认情况公钥的文件名比密钥末尾多.pub， 下面以管理coding.net和github.com两个git仓库的ssh公钥密钥为例 （如果是在windows下，请安装git客户端然后使用git bash来键入下面的命令； 如果是在linux下，则直接使用终端即可）
+ssh-keygen -t rsa -f ~/.ssh/id_rsa.coding -C &amp;quot;Key for coding.net&amp;quot; ssh-keygen -t rsa -f ~/.ssh/id_rsa.github -C &amp;quot;Key for GitHub stuff&amp;quot;  这个命令直接通过-f参数指定了密钥和公钥的文件名， 比如-f ~/.ssh/id_rsa.coding，其生产的密钥为~/.ssh/id_rsa.coding， 公钥为~/.ssh/id_rsa.coding.pub，生成好了公钥和密钥后， 把公钥文件中的内容追加到~/.ssh/authorized_keys文件的末尾， 同理github的公钥密钥的生成方式类似。
+注意追加前authorized_keys文件的末尾需要有个换行符。
+2. ssh 公钥密钥内容 ssh-rsa AAAAB3NzaC1yc2EAAaaaaaaupeyE1NMMrb121244DwhwFLsPFiFr Fb1QUwQtX2m/YSi8ELn3Vga/5AhfKKPWG+nOczWZxi0XguiyAslRiiowXaUj BYei5NHHBcAy+GiZWs4u8h3ZU7uGvwmQlqHf8tQ/I0J1RNR6nQ8Ra9882398 akk23h9Hhp63EagSbpkefg7qScroq0+VZ2yfLyjUCLgxhb+Eah+r9EqQ4l%H EF;asd8hLQw449W1SzKz3hCwxFAJFKbj/n+J50vNXB3fLNeTNiq@OOIkn324 n802Do5jIZGFzNrYsIRFbJVbHvIsodyXDmz6Qbqlx87xmEQ== admaaa@163.com ssh-rsa AAAAB3NzaC1yc2EAAAaa2#@8923n(&amp;amp;@hfg2- hg9002nkglsdfPCBUhDN185+jyoJQRwLImRr6IOwh/LS BS1N22pO#NG3434ng90u32n@0)@#NKDLHWO:@_jqtUIB r8UzWzliM5Zcn9U/DjSjuAiP/SFg1JEoXfWSFToWQpYN bGS9VFwU83MH1iGGDUeaeHY5mAMWy57ym/+Jm/hPs1I3 E+OtDT9+K1RyIGr44Ur7aWpKZ/PMgiuPUc6qfGFVP4xvRw== myyyy@gmail.com  **同时把这个公钥添加到git仓库ssh key管理的地方，比如github是在Settings–&amp;gt;SSH Keys里面
+3. 多密钥管理 ~/.ssh/config 当有多个ssh密钥需要管理时，一定要修改config文件的权限，否则你配置后仍然时无效的**
+touch ~/.ssh/config chmod 600 ~/.ssh/config  ~/.</description>
+    </item>
+    
+    <item>
+      <title>Linux 下常用命令 持续更新~</title>
+      <link>http://i-cooltea.github.io/posts/linux-%E4%B8%8B%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0~/</link>
+      <pubDate>Mon, 11 Jun 2018 06:39:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/linux-%E4%B8%8B%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0~/</guid>
+      <description>1.ls [选项] [目录名 | 列出相关目录下的所有目录和文件 -a 列出包括.a开头的隐藏文件的所有文件 -A 通-a，但不列出&amp;rdquo;.&amp;ldquo;和&amp;rdquo;..&amp;rdquo; -l 列出文件的详细信息 -c 根据ctime排序显示 -t 根据文件修改时间排序 &amp;mdash;color[=WHEN] 用色彩辨别文件类型 WHEN 可以是’never’、’always’或’auto’其中之一 白色：表示普通文件 蓝色：表示目录 绿色：表示可执行文件 红色：表示压缩文件 浅蓝色：链接文件 红色闪烁：表示链接的文件有问题 黄色：表示设备文件 灰色：表示其它文件
+2.mv [选项] 源文件或目录 目录或多个源文件 | 移动或重命名文件 -b 覆盖前做备份 -f 如存在不询问而强制覆盖 -i 如存在则询问是否覆盖 -u 较新才覆盖 -t 将多个源文件移动到统一目录下，目录参数在前，文件参数在后 eg: mv a /tmp/ 将文件a移动到 /tmp目录下 mv a b 将a命名为b mv /home/zenghao test### 1.txt test### 2.txt test### 3.txt
+3.cp [选项] 源文件或目录 目录或多个源文件 | 将源文件复制至目标文件，或将多个源文件复制至目标目录。 -r -R 递归复制该目录及其子目录内容 -p 连同档案属性一起复制过去 -f 不询问而强制复制 -s 生成快捷方式 -a 将档案的所有特性都一起复制</description>
+    </item>
+    
+    <item>
+      <title>Linux 下 NFS 服务权限问题解决  Permission denied</title>
+      <link>http://i-cooltea.github.io/posts/linux-%E4%B8%8B-nfs-%E6%9C%8D%E5%8A%A1%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3-permission-denied/</link>
+      <pubDate>Sat, 09 Jun 2018 15:09:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/linux-%E4%B8%8B-nfs-%E6%9C%8D%E5%8A%A1%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3-permission-denied/</guid>
+      <description>[TOC]
+##前言 &amp;gt;NFS 是一种分布式文件系统，允许客户端主机可以像访问本地存储一样通过网络访问服务器端文件。同时，NFS 协议也是开放的，基于 ONC RPC 协议的一个标准 RFC 协议。凡是实现 NFS 标准的软件（客户端或者服务端）都可以互相兼容。 使用
+Linux 内置的 mount 命令就支持 NFS，仅仅运行：
+&amp;gt; mount -t nfs ${server_ip}:${server_nfs_dir} ${local_dir}  即可将远程的网络目录挂载到本地，就如同操作本地文件一样。并且一般来讲 应用程序对 NFS 挂载点的访问及使用和本地目录没有区别。
+例： &amp;gt; mount -t nfs 10.10.2.140:/data/ABC /data/ABC  NFS 权限问题 假如你当前登录在客户端系统上的用户 UID 为 1000， 那么你对 NFS 文件的操作权限就对应 NFS 服务器的 UID:1000 用户的权限。 因为客户端用户对应服务端用户，变相的相当于“你在用服务器上你的身份操作NFS服务器的文件”。 因为这个原因，对于系统管理员和客户端使用人员而言， 可能对 NFS 的权限配置就省了很大的一笔功夫了。 那么问题就来了：客户端系统的用户ID和服务器的用户ID不是一一对应的，可能会出现各种异常问题，常见：  &amp;gt; echo &amp;quot;abc&amp;quot;&amp;gt;/data/ABC/1.txt &amp;gt; bash: 1.txt: Permission denied  ###NFS 权限问题解决思路 方案一：</description>
+    </item>
+    
+    <item>
+      <title>Linux 下 centos7 NFS使用与配置</title>
+      <link>http://i-cooltea.github.io/posts/linux-%E4%B8%8B-centos7-nfs%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sat, 09 Jun 2018 14:59:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/linux-%E4%B8%8B-centos7-nfs%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>[TOC]
+###简介
+NFS是Network File System的缩写，即网络文件系统。 客户端通过挂载的方式将NFS服务器端共享的数据目录挂载到本地目录下。  ###1. NFS为什么需要RPC? 因为NFS支持的功能很多，不同功能会使用不同程序来启动， 因此，NFS对应的功能所对应的端口无法固定。 端口不固定造成客户端与服务端之间的通信障碍，所以需要RPC来从中帮忙。 NFS启动时会随机取用若干端口，然后主动向RPC服务注册取用相关端口和功能信息， RPC使用固定端口111来监听来自NFS客户端的请求， 并将正确的NFS服务端口信息返回给客户端，这样客户端与服务端就可以进行数据传输了。
+###2. NFS的工作流程 由程序在NFS客户端发起存取文件的请求，客户端本地的RPC(rpcbind)服务 会通过网络向NFS服务端的RPC的111端口发出文件存取功能的请求。 NFS服务端的RPC找到对应已注册的NFS端口，通知客户端RPC服务。 客户端获取正确的端口，并与NFS daemon联机存取数据。 存取数据成功后，返回前端访问程序，完成一次存取操作。
+###3. NFS服务安装配置
+**安装 : nfs-utils / rpcbind**  查看是否安装NFS
+&amp;gt; rpm -qa nfs-utils rpcbind &amp;gt; yum install nfs-utils rpcbind  ###4. 启动rpcbind服务
+查看服务状态 &amp;gt; systemctl status rpcbind.service 如果不知道rpcbind命令在哪 &amp;gt; which rpcbind 启动rpc服务 &amp;gt; systemctl restart rpcbind.service  查看rpc  &amp;gt; lsof -i :111 &amp;gt; netstat -lntup|grep rpcbind 如果出现-bash未找到命令可执行下面命令 &amp;gt; yum install net-tools lsof 查看nfs服务向rpc注册的端口信息 &amp;gt; rpcinfo -p localhost 检查rpcbind是否开机启动 &amp;gt; chkconfig --list rpcbind ``` ###5.</description>
+    </item>
+    
+    <item>
+      <title>Linux 常用命令</title>
+      <link>http://i-cooltea.github.io/posts/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sun, 04 Mar 2018 12:59:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>1．echo命令 echo命令用于在终端输出字符串或变量提取后的值，格式为“echo [字符串&amp;nbsp;|&amp;nbsp;$变量]”。
+例如，把指定字符串“Linuxprobe.com”输出到终端屏幕的命令为：
+[root@linuxprobe ~]# echo Linuxprobe.Com 该命令会在终端屏幕上显示如下信息：
+Linuxprobe.Com 下面，我们使用$变量的方式提取变量SHELL的值，并将其输出到屏幕上：
+[root@linuxprobe ~]# echo $SHELL /bin/bash 2．date命令 date命令用于显示及设置系统的时间或日期，格式为“date [选项] [+指定的格式]”。
+只需在强大的date命令中输入以“+”号开头的参数，即可按照指定格式来输出系统的时间或日期，这样在日常工作时便可以把备份数据的命令与指定格式输出的时间信息结合到一起。例如，把打包后的文件自动按照“年-月-日”的格式打包成“backup-2017-9-1.tar.gz”，用户只需要看一眼文件名称就能大概了解到每个文件的备份时间了。date命令中常见的参数格式及作用如表2-4所示。
+表2-4&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; date命令中的参数以及作用
+参数  作用   %t  跳格[Tab键]   %H  小时（00～23）   %I  小时（00～12）   %M  分钟（00～59）   %S  秒（00～59）   %j  今年中的第几天     按照默认格式查看当前系统时间的date命令如下所示：
+[root@linuxprobe ~]# date Mon&amp;nbsp;Aug&amp;nbsp;24&amp;nbsp;16:11:23&amp;nbsp;CST&amp;nbsp;2017 按照“年-月-日 小时:分钟:秒”的格式查看当前系统时间的date命令如下所示：
+[root@linuxprobe ~]# date &amp;ldquo;+%Y-%m-%d %H:%M:%S&amp;rdquo; 2017-08-24 16:29:12 将系统的当前时间设置为2017年9月1日8点30分的date命令如下所示：</description>
+    </item>
+    
+    <item>
+      <title>Linux命令之curl</title>
+      <link>http://i-cooltea.github.io/posts/linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcurl/</link>
+      <pubDate>Sun, 04 Mar 2018 12:47:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcurl/</guid>
+      <description>curl命令是一个功能强大的网络工具，它能够通过http、ftp等方式下载文件，也能够上传文件。其实curl远不止前面所说的那些功能，大家可以通过man curl阅读手册页获取更多的信息   curl命令使用了libcurl库来实现，libcurl库常用在C程序中用来处理HTTP请求，curlpp是libcurl的一个C++封装，这几个东西可以用在抓取网页、网络监控等方面的开发，而curl命令可以帮助来解决开发过程中遇到的问题 -a/--append 上传文件时，附加到目标文件 -A/--user-agent &amp;lt;string&amp;gt;&amp;nbsp; 设置用户代理发送给服务器 - anyauth&amp;nbsp;&amp;nbsp; 可以使用“任何”身份验证方法 -b/--cookie &amp;lt;name=string/file&amp;gt; cookie字符串或文件读取位置 - basic 使用HTTP基本验证 -B/--use-ascii 使用ASCII /文本传输 -c/--cookie-jar &amp;lt;file&amp;gt; 操作结束后把cookie写入到这个文件中 -C/--continue-at &amp;lt;offset&amp;gt;&amp;nbsp; 断点续转 -d/--data &amp;lt;data&amp;gt;&amp;nbsp;&amp;nbsp; HTTP POST方式传送数据 --data-ascii &amp;lt;data&amp;gt;&amp;nbsp; 以ascii的方式post数据 --data-binary &amp;lt;data&amp;gt; 以二进制的方式post数据 --negotiate&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 使用HTTP身份验证 --digest&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 使用数字身份验证 --disable-eprt&amp;nbsp; 禁止使用EPRT或LPRT --disable-epsv&amp;nbsp; 禁止使用EPSV -D/--dump-header &amp;lt;file&amp;gt; 把header信息写入到该文件中 --egd-file &amp;lt;file&amp;gt; 为随机数据(SSL)设置EGD socket路径 --tcp-nodelay&amp;nbsp;&amp;nbsp; 使用TCP_NODELAY选项 -e/--referer 来源网址 -E/--cert &amp;lt;cert[:passwd]&amp;gt; 客户端证书文件和密码 (SSL) --cert-type &amp;lt;type&amp;gt; 证书文件类型 (DER/PEM/ENG) (SSL) --key &amp;lt;key&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 私钥文件名 (SSL) --key-type &amp;lt;type&amp;gt; 私钥文件类型 (DER/PEM/ENG) (SSL) --pass&amp;nbsp; &amp;lt;pass&amp;gt;&amp;nbsp; 私钥密码 (SSL) --engine &amp;lt;eng&amp;gt;&amp;nbsp; 加密引擎使用 (SSL).</description>
+    </item>
+    
+    <item>
+      <title>在windows 环境中搭建linux的学习环境！！！（对新手很重要）</title>
+      <link>http://i-cooltea.github.io/posts/%E5%9C%A8windows-%E7%8E%AF%E5%A2%83%E4%B8%AD%E6%90%AD%E5%BB%BAlinux%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E5%AF%B9%E6%96%B0%E6%89%8B%E5%BE%88%E9%87%8D%E8%A6%81/</link>
+      <pubDate>Sat, 24 Feb 2018 07:08:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/%E5%9C%A8windows-%E7%8E%AF%E5%A2%83%E4%B8%AD%E6%90%AD%E5%BB%BAlinux%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E5%AF%B9%E6%96%B0%E6%89%8B%E5%BE%88%E9%87%8D%E8%A6%81/</guid>
+      <description>首先为什么要用虚拟机来搭建Linux的学习环境？？？ 因为如果在真实机来搭建Linux学习环境，一旦Linux出现了无法解决问题我将要花费大量的时间来解决（对于我们新手来说），而在虚拟机中出现无法解决的问题时，只需简单的重装比在真实机中更容易处理。（这是无数次痛苦的教训让我明白的）。其实虚拟机中学习与真实机中学习Linux是一样，对于我们新手不能将大量的时间来用来解决Linux中一些对新手来说比较难的问题。  比如之前我的真实机Linux出现了这样一个问题：实然Linux无法进入系统了，而且无法进入Linux的恢复模式，命令行模式。开机后光标一直在左上角闪个不停。百度等等两天无果。这样对于我们新手来说，不仅耽误Linux基础的学习，还会打击新手的学习信心。所以对新手来说，还是用虚拟机来学习Linux比较好，一旦遇到无法解决的问题，就放弃解决，重装系统吧！环境的搭建（windows中，毕竟对国人来说这个比较熟悉）1：在windows中安装好virtualbox,然后安装centos(也可以是其它linux)2：在windows中安装SecureCRT，这个软件是一个远程登录程序（具体介绍http://baike.so.com/doc/5411484.html）（对我来说是学习linux shell的神器，用过你就会知道的！）3：网络设置（让真实机与虚拟能同时上网），给虚拟机添加两个网卡。一个为nat网络，一个为仅主机网络（T）（一个用于上网，一个用于SecureCRT的连接） 直接上图。。。 这个用于securecrt的远程连接192.168.x.1（当然也可以是其它的网段） 设置虚拟机的ip地址 记住是设置eth1 （eth0用第一个网卡用的是nat方式连接的，eth1是第二个网卡用的是仅主机方式连接） 把虚拟机设置为192.168.59.x (同一网段59) 查看ip配置 用securecrt 来连接虚拟机中的linux 点击Quick Connect. 输入host name （虚拟机中linux的ip地址）username(用户名) 输入密码就可以登录了 登录后的画面： 如果按上面的设置不能成功登录系统则可能的原因是虚拟机中的Linux没有开启sshd 服务 （sudo service sshd start 即可） 2014年6月6日亲测有效 </description>
+    </item>
+    
+    <item>
+      <title> 使程序在Linux下后台运行 （关掉终端继续让程序运行的方法）</title>
+      <link>http://i-cooltea.github.io/posts/-%E4%BD%BF%E7%A8%8B%E5%BA%8F%E5%9C%A8linux%E4%B8%8B%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-%E5%85%B3%E6%8E%89%E7%BB%88%E7%AB%AF%E7%BB%A7%E7%BB%AD%E8%AE%A9%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Wed, 18 Oct 2017 15:40:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/-%E4%BD%BF%E7%A8%8B%E5%BA%8F%E5%9C%A8linux%E4%B8%8B%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-%E5%85%B3%E6%8E%89%E7%BB%88%E7%AB%AF%E7%BB%A7%E7%BB%AD%E8%AE%A9%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>你是否遇到过这样的情况：从终端软件登录远程的Linux主机，将一堆很大的文件压缩为一个.tar.gz文件，连续压缩了半个小时还没有完成，这时，突然你断网了，你登录不上远程Linux主机了，那么前面的半个小时就会前功尽弃，你非常气愤…… 在Linux下，如果你要执行的shell命令耗时特别长，并且：（1）你的网络不稳定，随时可能断网；或者（2）你在执行了shell命令之后必须要关闭终端软件（例如SecureCRT）。 那么你就需要以脱离终端的方式在后台运行这个shell命令。 方法如下： （1）输入命令： nohup 你的shell命令 &amp;amp; （2）回车，使终端回到shell命令行； （3）输入exit命令退出终端：exit （4）现在可以关闭你的终端软件了，等过足够的时间，让你的shell命令执行完了再上去看结果吧。 其中，nohup命令可以让你的shell命令忽略SIGHUP信号，即可以使之脱离终端运行；“&amp;amp;”可以让你的命令在后台运行。 以脱离终端的方式在后台运行shell命令有这样几个好处：只要你执行过了命令，那么你的网络中断不会对你有任何影响，并且你就可以关闭终端软件了。   一、为什么要使程序在后台执行 我们计算的程序都是周期很长的，通常要几个小时甚至一个星期。我们用的环境是用putty远程连接到日本Linux服务器。所以使程序在后台跑有以下三个好处： 1：我们这边是否关机不影响日本那边的程序运行。（不会像以前那样，我们这网络一断开，或一关机，程序就断掉或找不到数据，跑了几天的程序只能重头再来，很是烦恼） 2：不影响计算效率 2：让程序在后台跑后，不会占据终端，我们可以用终端做别的事情。 二、怎么样使程序在后台执行 方法有很多，这里主要列举两种。假如我们有程序pso.cpp,通过编译后产生可执行文件pso，我们要使pso在linux服务器后台执行。当客户端关机后重新登入服务器后继续查看本来在终端输出的运行结果。（假设操作都在当前目录下） 方法1在终端输入命令： &amp;nbsp;# ./pso &amp;gt; pso.file 2&amp;gt;&amp;amp;1 &amp;amp;&amp;nbsp; 解释：将pso直接放在后台运行，并把终端输出存放在当前目录下的pso.file文件中。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当客户端关机后重新登陆服务器后，直接查看pso.file文件就可看执行结果（命 令：#cat pso.file）。 &amp;nbsp;&amp;nbsp; 方法2在终端输入命令： # nohup&amp;nbsp; ./pso &amp;gt; pso.file 2&amp;gt;&amp;amp;1 &amp;amp; 解释：nohup就是不挂起的意思，将pso直接放在后台运行，并把终端输出存放在当前 目录下的pso.file文件中。当客户端关机后重新登陆服务器后，直接查看pso.file 文件就可看执行结果（命令：#cat pso.file）。 三、常用任务管理命令 # jobs&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; //查看任务，返回任务编号n和进程号 # bg&amp;nbsp; %n&amp;nbsp;&amp;nbsp; //将编号为n的任务转后台运行 # fg&amp;nbsp; %n&amp;nbsp;&amp;nbsp; //将编号为n的任务转前台运行 # ctrl+z&amp;nbsp;&amp;nbsp;&amp;nbsp; //挂起当前任务 # ctrl+c&amp;nbsp;&amp;nbsp;&amp;nbsp; //结束当前任务 &amp;nbsp; 注：如果要使在前天执行任务放到后台运行，则先要用ctrl+z挂起该任务，然后用bg使之后台执行。 &amp;nbsp; 附： &amp;nbsp; 在Linux中，如果要让进程在后台运行，一般情况下，我们在命令后面加上&amp;amp;即可，实际上，这样是将命令放入到一个作业队列中了：</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on i-cooltea的博客</title>
+    <link>http://i-cooltea.github.io/tags/git/</link>
+    <description>Recent content in git on i-cooltea的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 02 Sep 2018 03:48:25 +0000</lastBuildDate>
+    
+	<atom:link href="http://i-cooltea.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CentOS 6.x/7.x上安装git及最新版</title>
+      <link>http://i-cooltea.github.io/posts/centos-6.x-7.x%E4%B8%8A%E5%AE%89%E8%A3%85git%E5%8F%8A%E6%9C%80%E6%96%B0%E7%89%88/</link>
+      <pubDate>Sun, 02 Sep 2018 03:48:25 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/centos-6.x-7.x%E4%B8%8A%E5%AE%89%E8%A3%85git%E5%8F%8A%E6%9C%80%E6%96%B0%E7%89%88/</guid>
+      <description>源码包安装
+步骤1. 安装依赖包 # yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel # yum install gcc perl-ExtUtils-MakeMaker  步骤2. 卸载旧的git版本（如果之前有安装rpm包） # yum remove git  步骤3. 下载&amp;amp;解压 # cd /usr/src # wget https://www.kernel.org/pub/software/scm/git/git-2.5.0.tar.gz # tar -zxvf git-2.5.0.tar.gz 或 # wget https://github.com/git/git/archive/v2.5.0.tar.gz 下载  步骤4. 编译安装 # cd git-2.5.0 # make prefix=/usr/local/git all # make prefix=/usr/local/git install # echo &amp;quot;export PATH=$PATH:/usr/local/git/bin&amp;quot; &amp;gt;&amp;gt; /etc/bashrc # source /etc/bashrc  步骤5. 检查git版本 # git --version git version 2.</description>
+    </item>
+    
+    <item>
+      <title>Git基本命令和GitFlow工作流</title>
+      <link>http://i-cooltea.github.io/posts/git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E5%92%8Cgitflow%E5%B7%A5%E4%BD%9C%E6%B5%81/</link>
+      <pubDate>Wed, 04 Jul 2018 09:52:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E5%92%8Cgitflow%E5%B7%A5%E4%BD%9C%E6%B5%81/</guid>
+      <description>来源 : myqianlan 本篇博客讲解了git的一些基本的团队协作命令，和GitFlow工作流指南 git 团队协作的一些命令
+1.开分支 git branch 新分支名 例如，在master分支下，新开一个开发分支： git branch dev  2.切换到新分支 git checkout 分支名 例如，在master分支下，切换到新开的dev： git checkout dev  3.开分支和切换分支合并到一个命令 git checkout -b 新分支名 例如，新开一个开发分支，并立即切换到该分支： git checkout -b dev  4.切换回原分支 git checkout 原分支名 例如，切换回master git checkout master 注意：当前分支有修改，还未commit的时候，会切换失败，应当先commit，但可以不用push  5.合并分支 git merge 需要合并的分支名 例如，刚刚已经切换回master，现在需要合并dev的内容： git merge dev 建议在GitLab(或者其他git系统)上面创建merge request的形式来进行分支的合并和代码审核。  6.查看本地分支列表 git branch -a 前面带remotes/origin 的，是远程分支  7.查看远程分支列表 git branch -r  8.向远程提交本地新开的分支 git push origin 新分支名 例如，刚刚在master下新开的dev分支： git push origin dev  9.</description>
+    </item>
+    
+    <item>
+      <title>GIT实现自动拉取代码 （实现自动部署）</title>
+      <link>http://i-cooltea.github.io/posts/git%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Wed, 13 Jun 2018 06:54:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/git%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</guid>
+      <description>###一、利用crontab定时任务
+编辑用户的定时任务： crontab -e 在用户定时任务文件里写入定时命令 每过1分钟执行后面的命令 ： */1 * * * * cd /home/wwwroot/default/GIT/autoload;/usr/local/bin/git pull cd /../autoload 表示进入到git项目目录 /../git pull 进入项目目录后拉取代码  ###二、利用PHP脚本拉取（git服务器有提示功能的可以用此方法）
+php文件里的代码内容（前提是需要支持exec函数）： exec(&amp;quot;cd /home/wwwroot/default/GIT/autoload;/usr/local/bin/git pull&amp;quot;);  </description>
+    </item>
+    
+    <item>
+      <title>Git 三大区域的操作分析 </title>
+      <link>http://i-cooltea.github.io/posts/git-%E4%B8%89%E5%A4%A7%E5%8C%BA%E5%9F%9F%E7%9A%84%E6%93%8D%E4%BD%9C%E5%88%86%E6%9E%90-/</link>
+      <pubDate>Sat, 24 Feb 2018 15:29:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/git-%E4%B8%89%E5%A4%A7%E5%8C%BA%E5%9F%9F%E7%9A%84%E6%93%8D%E4%BD%9C%E5%88%86%E6%9E%90-/</guid>
+      <description>Git 三大区域的操作分析  可以将git简单的分为三个区域  1、工作区（working directry） 2、暂缓区（stage index） 3、历史记录区（history） 如图： git add files 把当前工作目录中的文件放入暂存区域 其实做了两件事： 1、将本地文件的时间戳、长度，当前文档对象的id等信息保存到一个树形目录中去（index，即平时说的暂存区） 2、将本地文件的内容做快照并保存到Git 的对象库 （综上：实际上就是一个包含文件索引的目录树，像是一个虚拟的工作区。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在这个虚拟工作区的目录树中，记录了文件名、文件的状态信息（时间戳、文件长度等），
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;文件的 内容并不存储其中，而是保存在 Git 对象库（.git/objects）中，文件索引建立了文件和对象库中对象实体之间的对应。） 如图： 在这个图中，我们可以看到部分 Git 命令是如何影响工作区和暂存区（stage, index）的： 图中左侧为工作区，右侧为版本库。在版本库中标记为 &#34;index&#34; 的区域是暂存区（stage, index），标记为 &#34;master&#34; 的是 master 分支所代表的目录树。 图中我们可以看出此时 &#34;HEAD&#34; 实际是指向 master 分支的一个“游标”。所以图示的命令中出现 HEAD 的地方可以用 master 来替换。 图中的 objects 标识的区域为 Git 的对象库，实际位于 &#34;.git/objects&#34; 目录下 当对工作区修改（或新增）的文件执行 &#34;git add&#34; 命令时，暂存区的目录树被更新，同时工作区修改（或新增）的文件内容被写入到对象库中的一个新的对象中，而该对象的ID 被记录在暂存区的文件索引中 当执行提交操作（git commit）时，暂存区的目录树写到版本库（对象库）中，master 分支会做相应的更新。即 master 指向的目录树就是提交时暂存区的目录树 git reset -- files 用来撤销最后一次
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git add files（因为每git add file一次，暂存区的文件都会被更改一次），你也可以用git reset 撤销所有暂存区域文件。 git checkout -- files 把文件从暂存区域复制到工作目录，用来丢弃本地修改。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当执行 &#34;</description>
+    </item>
+    
+    <item>
+      <title>常用 Git 命令清单</title>
+      <link>http://i-cooltea.github.io/posts/%E5%B8%B8%E7%94%A8-git-%E5%91%BD%E4%BB%A4%E6%B8%85%E5%8D%95/</link>
+      <pubDate>Sat, 28 Oct 2017 04:36:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/%E5%B8%B8%E7%94%A8-git-%E5%91%BD%E4%BB%A4%E6%B8%85%E5%8D%95/</guid>
+      <description>每天使用 Git ，但是很多命令记不住。  一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。  &amp;nbsp;下面是我整理的常用Git 命令清单。几个专用名词的译名如下。
+Workspace：工作区/o:p
+Index / Stage：暂存区/o:p
+Repository：仓库区（或本地仓库）/o:p
+Remote：远程仓库/o:p
+&amp;nbsp;
+一、新建代码库&amp;nbsp;/o:p
+# 在当前目录新建一个Git代码库
+$ git init&amp;nbsp;
+# 新建一个目录，将其初始化为Git代码库
+$ git init [project-name]&amp;nbsp;
+# 下载一个项目和它的整个代码历史
+$ git clone [url]&amp;nbsp;
+ 二、配置
+&amp;nbsp;
+Git的设置文件为.gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
+&amp;nbsp;
+# 显示当前的Git配置
+$ git config --list&amp;nbsp;
+# 编辑Git配置文件
+$ git config -e [--global]&amp;nbsp;
+# 设置提交代码时的用户信息
+$ git config [--global] user.name &#34;[name]&#34;&amp;nbsp;
+&amp;nbsp;
+$ git config [--global] user.email &#34;[email address]&#34;&amp;nbsp;
+ 三、增加/删除文件
+&amp;nbsp;</description>
+    </item>
+    
+  </channel>
+</rss>

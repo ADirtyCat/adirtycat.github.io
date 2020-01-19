@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>i-cooltea的博客 | 后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</title>
+    <meta property="og:title" content="i-cooltea的博客 | 后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构">
+    <meta property="og:type" content="website">
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="专注于IT互联网，包括但不限于PHP、Go语言(golang)、Java、Android、算法分析、软件架构等">
+    <meta property="og:url" content="http://i-cooltea.github.io/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="alternate" type="application/rss+xml+xml" href="http://i-cooltea.github.io/index.xml" title="i-cooltea的博客" />
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <h1>
+                        <a id="logo" href="http://i-cooltea.github.io/">
+                            i-cooltea的博客
+                        </a>
+                    </h1>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/php%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="PHP常用正则表达式" >PHP常用正则表达式</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年1月5日
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                正则表达式   是一大利器,参数验证,数据采集等很多地方都用到. 许多程序设计语言都支持利用正则表达式进行字符串操作。平常写程序经常用到正则表达式,就整理一些常用的正则表达式分享一下!
+ 平时写程序经常要用正则表达式，下面是一些讲解和例子，仅供大家参考和修改使用：  &ldquo;^\d+$&ldquo; //非负整数（正整数 + 0）  &ldquo;1[1-9][0-9]$&ldquo; //正整数  &ldquo;^((-\d+)|(0+))$&ldquo; //非正整数（负整数 + 0）  &ldquo;^-[0-9][1-9][0-9]$&ldquo; //负整数  &ldquo;^-?\d+$&ldquo; //整数  &ldquo;^\d+(.\d+)?$&ldquo; //非负浮点数（正浮点数 + 0）  &ldquo;^(([0-9]+.[0-9][1-9][0-9])|([0-9][1-9][0-9].[0-9]+)|([0-9][1-9][0-9]))$&ldquo; //正浮点数  &ldquo;^((-\d+(.\d+)?)|(0+(.0+)?))$&ldquo; //非正浮点数（负浮点数 + 0）  &ldquo;^(-(([0-9]+.[0-9][1-9][0-9])|([0-9][1-9][0-9].[0-9]+)|([0-9][1-9][0-9])))$&ldquo; //负浮点数  &ldquo;^(-?\d+)(.\d+)?$&ldquo; //浮点数  &ldquo;2+$&ldquo; //由26个英文字母组成的字符串  &ldquo;3+$&ldquo; //由26个英文字母的大写组成的字符串  &ldquo;4+$&ldquo; //由26个英文字母的小写组成的字符串  &ldquo;5+$&ldquo; //由数字和26个英文字母组成的字符串  &ldquo;^\w+$&ldquo; //由数字、26个英文字母或者下划线组成的字符串  &ldquo;6+(.[\w-]+)@[\w-]+(.[\w-]+)+$&ldquo; //email地址  &ldquo;7+://(\w+(-\w+))(.(\w+(-\w+)))(?\S)?$&ldquo; //url  /^(d{2}|d{4})-((0([1-9]{1}))|(1[1|2]))-((0-2)|(3[0|1]))$/ // 年-月-日  /^((0([1-9]{1}))|(1[1|2]))/((0-2)|(3[0|1]))/(d{2}|d{4})$/ // 月/日/年  &ldquo;^([w-.……
+                            </div>
+                            <p class="readmore"><a href="http://i-cooltea.github.io/posts/php%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E5%85%83%E5%AD%97%E7%AC%A6/" title="正则 - 元字符" >正则 - 元字符</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年1月5日
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                下表包含了元字符的完整列表以及它们在正则表达式上下文中的行为： 字符  描述    将下一个字符标记为一个特殊字符、或一个原义字符、或一个 向后引用、或一个八进制转义符。例如，&rsquo;n&rsquo; 匹配字符 &ldquo;n&rdquo;。&rsquo;\n&rsquo; 匹配一个换行符。序列 &lsquo;\&rsquo; 匹配 &ldquo;\&rdquo; 而 &ldquo;(&rdquo; 则匹配 &ldquo;(&ldquo;。   ^  匹配输入字符串的开始位置。如果设置了 RegExp 对象的 Multiline 属性，^ 也匹配 &lsquo;\n&rsquo; 或 &lsquo;\r&rsquo; 之后的位置。   $  匹配输入字符串的结束位置。如果设置了RegExp 对象的 Multiline 属性，$ 也匹配 &lsquo;\n&rsquo; 或 &lsquo;\r&rsquo; 之前的位置。   *  匹配前面的子表达式零次或多次。例如，zo* 能匹配 &ldquo;z&rdquo; 以及 &ldquo;zoo&rdquo;。* 等价于{0,}。   +  匹配前面的子表达式一次或多次。例如，&rsquo;zo+&rsquo; 能匹配 &ldquo;zo&rdquo; 以及 &ldquo;zoo&rdquo;，但不能匹配 &ldquo;z&rdquo;。+ 等价于 {1,}。   ?……
+                            </div>
+                            <p class="readmore"><a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E5%85%83%E5%AD%97%E7%AC%A6/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99/" title="正则 - 匹配规则" >正则 - 匹配规则</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年1月5日
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                基本模式匹配 一切从最基本的开始。模式，是正则表达式最基本的元素，它们是一组描述字符串特征的字符。模式可以很简单，由普通的字符串组成，也可以非常复杂，往往用特殊的字符表示一个范围内的字符、重复出现，或表示上下文。例如：
+^once 这个模式包含一个特殊的字符^，表示该模式只匹配那些以once开头的字符串。例如该模式与字符串&rdquo;once upon a time&rdquo;匹配，与&rdquo;There once was a man from NewYork&rdquo;不匹配。正如如^符号表示开头一样，$符号用来匹配那些以给定模式结尾的字符串。
+bucket$ 这个模式与&rdquo;Who kept all of this cash in a bucket&rdquo;匹配，与&rdquo;buckets&rdquo;不匹配。字符^和$同时使用时，表示精确匹配（字符串与模式一样）。例如：
+^bucket$ 只匹配字符串&rdquo;bucket&rdquo;。如果一个模式不包括^和$，那么它与任何包含该模式的字符串匹配。例如：模式
+once 与字符串
+Thereonce was a man fromNewYorkWhokept all of his cash ina bucket. 是匹配的。
+在该模式中的字母(o-n-c-e)是字面的字符，也就是说，他们表示该字母本身，数字也是一样的。其他一些稍微复杂的字符，如标点符号和白字符（空格、制表符等），要用到转义序列。所有的转义序列都用反斜杠()打头。制表符的转义序列是：\t。所以如果我们要检测一个字符串是否以制表符开头，可以用这个模式：
+^\t  类似的，用\n表示&rdquo;新行&rdquo;，\r表示回车。其他的特殊符号，可以用在前面加上反斜杠，如反斜杠本身用\表示，句号.用.表示，以此类推。
+字符簇 在INTERNET的程序中，正则表达式通常用来验证用户的输入。当用户提交一个FORM以后，要判断输入的电话号码、地址、EMAIL地址、信用卡号码等是否有效，用普通的基于字面的字符是不够的。
+所以要用一种更自由的描述我们要的模式的办法，它就是字符簇。要建立一个表示所有元音字符的字符簇，就把所有的元音字符放在一个方括号里：
+[AaEeIiOoUu] 这个模式与任何元音字符匹配，但只能表示一个字符。用连字号可以表示一个字符的范围，如：
+[a-z]//匹配所有的小写字母 [A-Z]//匹配所有的大写字母 [a-zA-Z]//匹配所有的字母 [0-9]//匹配所有的数字 [0-9.-]//匹配所有的数字，句号和减号 [\f\r\t\n]//匹配所有的白字符 同样的，这些也只表示一个字符，这是一个非常重要的。如果要匹配一个由一个小写字母和一位数字组成的字符串，比如&rdquo;z2&rdquo;、&rdquo;t6&rdquo;或&rdquo;g7&rdquo;，但不是&rdquo;ab2&rdquo;、&rdquo;r2d3&rdquo; 或&rdquo;b52&rdquo;的话，用这个模式：
+^[a-z][0-9]$ 尽管[a-z]代表26个字母的范围，但在这里它只能与第一个字符是小写字母的字符串匹配。
+前面曾经提到^表示字符串的开头，但它还有另外一个含义。当在一组方括号里使用^是，它表示&rdquo;非&rdquo;或&rdquo;排除&rdquo;的意思，常常用来剔除某个字符。还用前面的例子，我们要求第一个字符不能是数字：
+^[^0-9][0-9]$ 这个模式与&rdquo;&amp;5&rdquo;、&rdquo;g7&rdquo;及&rdquo;-2&rdquo;是匹配的，但与&rdquo;12&rdquo;、&rdquo;66&rdquo;是不匹配的。下面是几个排除特定字符的例子：
+[^a-z]//除了小写字母以外的所有字符 [^\\/\^]//除了()(/)(^)之外的所有字符 [^\&rdquo;\&rsquo;]//除了双引号(&ldquo;)和单引号(&lsquo;)之外的所有字符 特殊字符&rdquo;.&rdquo; (点，句号)在正则表达式中用来表示除了&rdquo;新行&rdquo;之外的所有字符。所以模式&rdquo;^.5$&ldquo;与任何两个字符的、以数字5结尾和以其他非&rdquo;新行&rdquo;字符开头的字符串匹配。模式&rdquo;.&ldquo;可以匹配任何字符串，除了空串和只包括一个&rdquo;新行&rdquo;的字符串。
+PHP的正则表达式有一些内置的通用字符簇，列表如下：
+字符簇  描述   [[:alpha:]]  任何字母   [[:digit:]]  任何数字   [[:alnum:]]  任何字母和数字   [[:space:]]  任何空白字符   [[:upper:]]  任何大写字母   [[:lower:]]  任何小写字母   [[:punct:]]  任何标点符号   [[:xdigit:]]  任何16进制的数字，相当于[0-9a-fA-F]     确定重复出现 到现在为止，你已经知道如何去匹配一个字母或数字，但更多的情况下，可能要匹配一个单词或一组数字。一个单词有若干个字母组成，一组数字有若干个单数组成。跟在字符或字符簇后面的花括号({})用来确定前面的内容的重复出现的次数。……
+                            </div>
+                            <p class="readmore"><a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E8%AF%AD%E6%B3%95/" title="正则 - 语法" >正则 - 语法</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年1月5日
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                正则表达式(regular expression)描述了一种字符串匹配的模式（pattern），可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串等。 例如： runoo+b，可以匹配 runoob、runooob、runoooooob 等，+ 号代表前面的字符必须至少出现一次（1次或多次）。  runoob，可以匹配 runob、runoob、runoooooob 等， 号代表字符可以不出现，也可以出现一次或者多次（0次、或1次、或多次）。  colou?r&nbsp;可以匹配 color 或者 colour，? 问号代表前面的字符最多只可以出现一次（0次、或1次）。   构造正则表达式的方法和创建数学表达式的方法一样。也就是用多种元字符与运算符可以将小的表达式结合在一起来创建更大的表达式。正则表达式的组件可以是单个的字符、字符集合、字符范围、字符间的选择或者所有这些组件的任意组合。 正则表达式是由普通字符（例如字符 a 到 z）以及特殊字符（称为&rdquo;元字符&rdquo;）组成的文字模式。模式描述在搜索文本时要匹配的一个或多个字符串。正则表达式作为一个模板，将某个字符模式与所搜索的字符串进行匹配。  普通字符 普通字符包括没有显式指定为元字符的所有可打印和不可打印字符。这包括所有大写和小写字母、所有数字、所有标点符号和一些其他符号。
+非打印字符 非打印字符也可以是正则表达式的组成部分。下表列出了表示非打印字符的转义序列：
+字符  描述   \cx  匹配由x指明的控制字符。例如， \cM 匹配一个 Control-M 或回车符。x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 &lsquo;c&rsquo; 字符。   \f  匹配一个换页符。等价于 \x0c 和 \cL。   \n  匹配一个换行符。等价于 \x0a 和 \cJ。   \r  匹配一个回车符。等价于 \x0d 和 \cM。   \s  匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。   \S  匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。   \t  匹配一个制表符。等价于 \x09 和 \cI。   \v  匹配一个垂直制表符。等价于 \x0b 和 \cK。     特殊字符 所谓特殊字符，就是一些有特殊含义的字符，如上面说的&nbsp;runoob&nbsp;中的&nbsp;，简单的说就是表示任何字符串的意思。如果要查找字符串中的&nbsp;&nbsp;符号，则需要对&nbsp;&nbsp;进行转义，即在其前加一个&nbsp;&lt;/span&gt;:&nbsp;runo*ob&nbsp;匹配 runo*ob。……
+                            </div>
+                            <p class="readmore"><a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E8%AF%AD%E6%B3%95/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" title="正则 - 运算符优先级" >正则 - 运算符优先级</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年1月5日
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                正则表达式从左到右进行计算，并遵循优先级顺序，这与算术表达式非常类似。 相同优先级的从左到右进行运算，不同优先级的运算先高后低。下表从最高到最低说明了各种正则表达式运算符的优先级顺序：
+运算符  描述    转义符   (), (?:), (?=), []  圆括号和方括号   *, +, ?, {n}, {n,}, {n,m}  限定符   ^, $, \任何元字符、任何字符  定位点和序列（即：位置和顺序）   |  替换，&rdquo;或&rdquo;操作
+字符具有高于替换运算符的优先级，使得&rdquo;m|food&rdquo;匹配&rdquo;m&rdquo;或&rdquo;food&rdquo;。若要匹配&rdquo;mood&rdquo;或&rdquo;food&rdquo;，请使用括号创建子表达式，从而产生&rdquo;(m|f)ood&rdquo;。……
+                            </div>
+                            <p class="readmore"><a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E5%88%99-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/%E5%B8%B8%E7%94%A8-git-%E5%91%BD%E4%BB%A4%E6%B8%85%E5%8D%95/" title="常用 Git 命令清单" >常用 Git 命令清单</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2017年10月28日
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                每天使用 Git ，但是很多命令记不住。  一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。  &nbsp;下面是我整理的常用Git 命令清单。几个专用名词的译名如下。
+Workspace：工作区/o:p
+Index / Stage：暂存区/o:p
+Repository：仓库区（或本地仓库）/o:p
+Remote：远程仓库/o:p
+&nbsp;
+一、新建代码库&nbsp;/o:p
+# 在当前目录新建一个Git代码库
+$ git init&nbsp;
+# 新建一个目录，将其初始化为Git代码库
+$ git init [project-name]&nbsp;
+# 下载一个项目和它的整个代码历史
+$ git clone [url]&nbsp;
+ 二、配置
+&nbsp;
+Git的设置文件为.gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
+&nbsp;
+# 显示当前的Git配置
+$ git config --list&nbsp;
+# 编辑Git配置文件
+$ git config -e [--global]&nbsp;
+# 设置提交代码时的用户信息
+$ git config [--global] user.name "[name]"&nbsp;
+&nbsp;
+$ git config [--global] user.email "[email address]"&nbsp;
+ 三、增加/删除文件
+&nbsp;……
+                            </div>
+                            <p class="readmore"><a href="http://i-cooltea.github.io/posts/%E5%B8%B8%E7%94%A8-git-%E5%91%BD%E4%BB%A4%E6%B8%85%E5%8D%95/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/mvc%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/" title="MVC设计思想" >MVC设计思想</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2017年10月24日
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                MVC设计思想   MVC英文即Model-View-Controller，  这样一个应用被分成三个层——模型层、视图层、控制层。  使用这种设计的思想能够将复杂的程序 分解成各个小的模块,实现程序的解耦和提高程序的可扩展性        视图(View)    视图(View)代表用户交互界面，对于Web应用来说， 可以概括为HTML界面。随着应用的复杂性和规模性，  界面的处理也变得具有挑战性。一个应用可能有很多不同的视图，  MVC设计模式对于视图的处理仅限于视图上数据的采集和处理，以及用户的请求，而不包括在视图上的业务流程的处理。  模型(Model)    模型(Model)：就是业务流程/状态的处理以及业务规则的制定。业务流程的处理过程对其它层来  说是黑箱操作，对一个开发者来说，就可以专注于业务模型的设计。    业务模型还有一个很重要的模型那就是数据模型。数据模型主要指实体对象的数据 保存（持续化）。  比如将一张订单保存到数据库，从数据库获取订单。我们可以将这个模型单独列出,  所有有关数据库的操作只限制在该模型中。    控制(Controller)    控制(Controller)可以理解为从View和Model中间的桥梁.  用户接收请求, 将模型与视图匹配在一起，共同完成用户的请求。  划分控制层的作用也很明显，它清楚地告诉你，它就是一个分发器，选择什么样的模型，  选择什么样的视图,可以完成什么样的用户请求。控制层并不做任何的数据处理。    例如，用户点击一个连接，控制层接受请求后, 并不处理业务信息，它只把用户的信息传递给模型，  告诉模型做什么，选择符合要求的视图返回给用户。因此，一个模型可能对应多个视图，一个视图可  能对应多个模型。  模型、视图与控制器的分离，使得一个模型可以具有多个显示视图。如果用户通过某个视图的控制器改变了模型的数据，所有其它依赖于这些数据的视图都应反映到这些变化。因此，无论何时发生了何种数据变化，控制器都会将变化通知所有的视图，导致显示的更新。这实际上是一种模型的变化-传播机制。模型、视图、控制器三者之间的关系和各自的主要功能.      MVC的优点  大部分用过程语言比如ASP、PHP开发出来的Web应用，初始的开发模板就是混合层的数据编程。例如，直接向数据库发送请求并用HTML显示,开发速度往往比较快,但由于数据页面的分离不是很直接,因而很难体现出业务模型的样子或者模型的重用性。产品设计弹性力度很小，很难满足用户的变化性需求。MVC要求对应用分层，虽然要花费额外的工作，但产品的结构清晰，产品的应用通过模型可以得到更好地体现。      首先，最重要的是应该有多个视图对应一个模型的能力。在目前用户需求的快速变化下，可能有多种方式访问应用的要求。例如，订单模型可能有本系统的订单，也有网上订单，或者其他系统的订单，但对于订单的处理都是一样，也就是说订单的处理是一致的。按MVC设计模式，一个订单模型以及多个视图即可解决问题。这样减少了代码的复制，即减少了代码的维护量，一旦模型发生改变，也易于维护。    其次，由于模型返回的数据不带任何显示格式，因而这些模型也可直接应用于接口的使用。    再次，由于一个应用被分离为三层，因此有时改变其中的一层就能满足应用的改变。一个应用的业务流程或者业务规则的改变只需改动MVC的模型层- 控制层的概念也很有效，由于它把不同的模型和不同的视图组合在一起完成不同的请求，因此，控制层可以说是包含了用户请求权限的概念。    最后，它还有利于软件工程化管理。由于不同的层各司其职，每一层不同的应用具有某些相同的特征，有利于通过工程化、工具化产生管理程序代码。    MVC的不足  MVC的不足体现在以下几个方面：  （1）增加了系统结构和实现的复杂性。对于简单的界面，严格遵循MVC，使模型、视图与控制器分离，会增加结构的复杂性，并可能产生过多的更新操作，降低运行效率。  （2）视图与控制器间的过于紧密的连接。视图与控制器是相互分离，但确实联系紧密的部件，视图没有控制器的存在，其应用是很有限的，反之亦然，这样就妨碍了他们的独立重用。  （3）视图对模型数据的低效率访问。依据模型操作接口的不同，视图可能需要多次调用才能获得足够的显示数据。对未变化数据的不必要的频繁访问，也将损害操作性能。  （4） 目前，一般高级的界面工具或构造器不支持MVC架构。改造这些工具以适应MVC需要和建立分离的部件的代价是很高的，从而造成使用MVC的困难。……
+                            </div>
+                            <p class="readmore"><a href="http://i-cooltea.github.io/posts/mvc%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/-%E4%BD%BF%E7%A8%8B%E5%BA%8F%E5%9C%A8linux%E4%B8%8B%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-%E5%85%B3%E6%8E%89%E7%BB%88%E7%AB%AF%E7%BB%A7%E7%BB%AD%E8%AE%A9%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/" title=" 使程序在Linux下后台运行 （关掉终端继续让程序运行的方法）" > 使程序在Linux下后台运行 （关掉终端继续让程序运行的方法）</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2017年10月18日
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                你是否遇到过这样的情况：从终端软件登录远程的Linux主机，将一堆很大的文件压缩为一个.tar.gz文件，连续压缩了半个小时还没有完成，这时，突然你断网了，你登录不上远程Linux主机了，那么前面的半个小时就会前功尽弃，你非常气愤…… 在Linux下，如果你要执行的shell命令耗时特别长，并且：（1）你的网络不稳定，随时可能断网；或者（2）你在执行了shell命令之后必须要关闭终端软件（例如SecureCRT）。 那么你就需要以脱离终端的方式在后台运行这个shell命令。 方法如下： （1）输入命令： nohup 你的shell命令 &amp; （2）回车，使终端回到shell命令行； （3）输入exit命令退出终端：exit （4）现在可以关闭你的终端软件了，等过足够的时间，让你的shell命令执行完了再上去看结果吧。 其中，nohup命令可以让你的shell命令忽略SIGHUP信号，即可以使之脱离终端运行；“&amp;”可以让你的命令在后台运行。 以脱离终端的方式在后台运行shell命令有这样几个好处：只要你执行过了命令，那么你的网络中断不会对你有任何影响，并且你就可以关闭终端软件了。   一、为什么要使程序在后台执行 我们计算的程序都是周期很长的，通常要几个小时甚至一个星期。我们用的环境是用putty远程连接到日本Linux服务器。所以使程序在后台跑有以下三个好处： 1：我们这边是否关机不影响日本那边的程序运行。（不会像以前那样，我们这网络一断开，或一关机，程序就断掉或找不到数据，跑了几天的程序只能重头再来，很是烦恼） 2：不影响计算效率 2：让程序在后台跑后，不会占据终端，我们可以用终端做别的事情。 二、怎么样使程序在后台执行 方法有很多，这里主要列举两种。假如我们有程序pso.cpp,通过编译后产生可执行文件pso，我们要使pso在linux服务器后台执行。当客户端关机后重新登入服务器后继续查看本来在终端输出的运行结果。（假设操作都在当前目录下） 方法1在终端输入命令： &nbsp;# ./pso &gt; pso.file 2&gt;&amp;1 &amp;&nbsp; 解释：将pso直接放在后台运行，并把终端输出存放在当前目录下的pso.file文件中。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当客户端关机后重新登陆服务器后，直接查看pso.file文件就可看执行结果（命 令：#cat pso.file）。 &nbsp;&nbsp; 方法2在终端输入命令： # nohup&nbsp; ./pso &gt; pso.file 2&gt;&amp;1 &amp; 解释：nohup就是不挂起的意思，将pso直接放在后台运行，并把终端输出存放在当前 目录下的pso.file文件中。当客户端关机后重新登陆服务器后，直接查看pso.file 文件就可看执行结果（命令：#cat pso.file）。 三、常用任务管理命令 # jobs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //查看任务，返回任务编号n和进程号 # bg&nbsp; %n&nbsp;&nbsp; //将编号为n的任务转后台运行 # fg&nbsp; %n&nbsp;&nbsp; //将编号为n的任务转前台运行 # ctrl+z&nbsp;&nbsp;&nbsp; //挂起当前任务 # ctrl+c&nbsp;&nbsp;&nbsp; //结束当前任务 &nbsp; 注：如果要使在前天执行任务放到后台运行，则先要用ctrl+z挂起该任务，然后用bg使之后台执行。 &nbsp; 附： &nbsp; 在Linux中，如果要让进程在后台运行，一般情况下，我们在命令后面加上&amp;即可，实际上，这样是将命令放入到一个作业队列中了：……
+                            </div>
+                            <p class="readmore"><a href="http://i-cooltea.github.io/posts/-%E4%BD%BF%E7%A8%8B%E5%BA%8F%E5%9C%A8linux%E4%B8%8B%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-%E5%85%B3%E6%8E%89%E7%BB%88%E7%AB%AF%E7%BB%A7%E7%BB%AD%E8%AE%A9%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/">阅读全文</a></p>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/archives/" title="" ></a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                1年1月1日
+                            </date>
+                            
+                            <div class="post-content">
+                                title: &ldquo;归档&rdquo; description: Android资深工程师 ，Go和Java打杂师，《Android Gradle权威指南》作者，Android官方技术文档译者 type: archives……
+                            </div>
+                            <p class="readmore"><a href="http://i-cooltea.github.io/archives/">阅读全文</a></p>
+                        </article>
+                    
+                    
+
+
+
+<ol class="page-navigator">
+    
+    <li class="prev">
+        <a href="http://i-cooltea.github.io/page/9/">上一页</a>
+    </li>
+    
+
+    
+    <li >
+        <a href="http://i-cooltea.github.io/">1</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/page/2/">2</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/page/3/">3</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/page/4/">4</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/page/5/">5</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/page/6/">6</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/page/7/">7</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/page/8/">8</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/page/9/">9</a>
+    </li>
+    
+    <li  class="current">
+        <a href="http://i-cooltea.github.io/page/10/">10</a>
+    </li>
+    
+
+    
+</ol>
+
+
+
+                </div>
+            </div>
+
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+
+</body>
+</html>

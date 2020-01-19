@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PHP常用正则表达式 | i-cooltea的博客</title>
+    <meta property="og:title" content="PHP常用正则表达式 - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-01-05T08:02:12&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-01-05T08:02:12&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="PHP常用正则表达式">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/php%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">PHP常用正则表达式</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年1月5日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            <p><ol style="margin-bottom:16px;padding-left:2em;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;margin-top:0px !important;">
+    <li>
+        <a href="https://wujunze.com/tag/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank" title="正则表达式" style="background-image:initial;background-position:initial;background-size:initial;background-repeat:initial;background-attachment:initial;background-origin:initial;background-clip:initial;color:#2EABFD;text-decoration:none;">正则表达式</a>     </li>
+</ol>
+<p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    是一大利器,参数验证,数据采集等很多地方都用到. 许多程序设计语言都支持利用正则表达式进行字符串操作。平常写程序经常用到正则表达式,就整理一些常用的正则表达式分享一下!</p>
+<ol style="margin-top:0px;margin-bottom:16px;padding-left:2em;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    <li>
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            平时写程序经常要用正则表达式，下面是一些讲解和例子，仅供大家参考和修改使用：
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;^\d+$&ldquo;  //非负整数（正整数 + 0）
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;<sup class="footnote-ref" id="fnref:0-9"><a href="#fn:0-9">1</a></sup><em>[1-9][0-9]</em>$&ldquo;  //正整数
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;^((-\d+)|(0+))$&ldquo;  //非正整数（负整数 + 0）
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;^-[0-9]<em>[1-9][0-9]</em>$&ldquo;  //负整数
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;^-?\d+$&ldquo;    //整数
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;^\d+(.\d+)?$&ldquo;  //非负浮点数（正浮点数 + 0）
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;^(([0-9]+.[0-9]<em>[1-9][0-9]</em>)|([0-9]<em>[1-9][0-9]</em>.[0-9]+)|([0-9]<em>[1-9][0-9]</em>))$&ldquo;  //正浮点数
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;^((-\d+(.\d+)?)|(0+(.0+)?))$&ldquo;  //非正浮点数（负浮点数 + 0）
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;^(-(([0-9]+.[0-9]<em>[1-9][0-9]</em>)|([0-9]<em>[1-9][0-9]</em>.[0-9]+)|([0-9]<em>[1-9][0-9]</em>)))$&ldquo;  //负浮点数
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;^(-?\d+)(.\d+)?$&ldquo;  //浮点数
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;<sup class="footnote-ref" id="fnref:A-Za-z"><a href="#fn:A-Za-z">2</a></sup>+$&ldquo;  //由26个英文字母组成的字符串
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;<sup class="footnote-ref" id="fnref:A-Z"><a href="#fn:A-Z">3</a></sup>+$&ldquo;  //由26个英文字母的大写组成的字符串
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;<sup class="footnote-ref" id="fnref:a-z"><a href="#fn:a-z">4</a></sup>+$&ldquo;  //由26个英文字母的小写组成的字符串
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;<sup class="footnote-ref" id="fnref:A-Za-z0-9"><a href="#fn:A-Za-z0-9">5</a></sup>+$&ldquo;  //由数字和26个英文字母组成的字符串
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;^\w+$&ldquo;  //由数字、26个英文字母或者下划线组成的字符串
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;<sup class="footnote-ref" id="fnref:w"><a href="#fn:w">6</a></sup>+(.[\w-]+)<em>@[\w-]+(.[\w-]+)+$&ldquo;    //em<a href="https://wujunze.com/tag/ai/" target="_blank" title="ai" style="background-image:initial;background-position:initial;background-size:initial;background-repeat:initial;background-attachment:initial;background-origin:initial;background-clip:initial;color:#2EABFD;text-decoration:none;">ai</a>l地址
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;<sup class="footnote-ref" id="fnref:a-zA-z"><a href="#fn:a-zA-z">7</a></sup>+://(\w+(-\w+)<em>)(.(\w+(-\w+)</em>))<em>(?\S</em>)?$&ldquo;  //url
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            /^(d{2}|d{4})-((0([1-9]{1}))|(1[1|2]))-((<a href="https://wujunze.com/[1-9]%7B1%7D" style="background-image:initial;background-position:initial;background-size:initial;background-repeat:initial;background-attachment:initial;background-origin:initial;background-clip:initial;color:#2EABFD;text-decoration:none;">0-2</a>)|(3[0|1]))$/ // 年-月-日
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            /^((0([1-9]{1}))|(1[1|2]))/((<a href="https://wujunze.com/[1-9]%7B1%7D" style="background-image:initial;background-position:initial;background-size:initial;background-repeat:initial;background-attachment:initial;background-origin:initial;background-clip:initial;color:#2EABFD;text-decoration:none;">0-2</a>)|(3[0|1]))/(d{2}|d{4})$/ // 月/日/年
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;^([w-.]+)@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.)|(([w-]+.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(]?)$&rdquo; //Emil
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            /^((+?[0-9]{2,4}-[0-9]{3,4}-)|([0-9]{3,4}-))?([0-9]{7,8})(-[0-9]+)?$/ //电话号码
+        </p>
+    </li>
+    <li style="margin-top:0.25em;">
+        <p style="word-break:break-all;margin-top:16px;margin-bottom:16px;">
+            &ldquo;^(d{1,2}|1dd|2[0-4]d|25[0-5]).(d{1,2}|1dd|2[0-4]d|25[0-5]).(d{1,2}|1dd|2[0-4]d|25[0-5]).(d{1,2}|1dd|2[0-4]d|25[0-5])$&rdquo; //IP地址
+        </p>
+    </li>
+</ol>
+<ol start="25" style="margin-top:0px;margin-bottom:16px;padding-left:2em;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    <li>
+        匹配中文字符的正则表达式： [\u4e00-\u9fa5]
+    </li>
+    <li style="margin-top:0.25em;">
+        匹配双字节字符(包括汉字在内)：[^\x00-\xff]
+    </li>
+    <li style="margin-top:0.25em;">
+        匹配空行的正则表达式：\n[\s| ]</em>\r
+    </li>
+    <li style="margin-top:0.25em;">
+        匹配HTML标记的正则表达式：/&lt;(.<em>)&gt;.</em>&lt;/\1&gt;|&lt;(.<em>) /&gt;/
+    </li>
+    <li style="margin-top:0.25em;">
+        匹配首尾空格的正则表达式：(^\s<em>)|(\s</em>$)
+    </li>
+    <li style="margin-top:0.25em;">
+        匹配Email地址的正则表达式：\w+([-+.]\w+)<em>@\w+([-.]\w+)</em>.\w+([-.]\w+)</em>
+    </li>
+    <li style="margin-top:0.25em;">
+        匹配网址URL的正则表达式：<sup class="footnote-ref" id="fnref:a-zA-z"><a href="#fn:a-zA-z">8</a></sup>+://(\w+(-\w+)<em>)(.(\w+(-\w+)</em>))<em>(\?\S</em>)?$
+    </li>
+    <li style="margin-top:0.25em;">
+        匹配帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]{4,15}$
+    </li>
+    <li style="margin-top:0.25em;">
+        匹配国内电话号码：(\d{3}-|\d{4}-)?(\d{8}|\d{7})?
+    </li>
+    <li style="margin-top:0.25em;">
+        匹配腾讯QQ号：<sup class="footnote-ref" id="fnref:1-9"><a href="#fn:1-9">9</a></sup><em>[1-9][0-9]</em>$
+    </li>
+</ol>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;"> 元字符及其在正则表达式上下文中的行为：</p>
+
+<p>\ 将下一个字符标记为一个特殊字符、或一个原义字符、或一个后向引用、或一个八进制转义符。</p>
+
+<p>^ 匹配输入字符串的开始位置。如果设置了 RegExp 对象的Multiline 属性，^ 也匹配 ’\n’ 或 ’\r’ 之后的位置。</p>
+
+<p>$ 匹配输入字符串的结束位置。如果设置了 RegExp 对象的Multiline 属性，$ 也匹配 ’\n’ 或 ’\r’ 之前的位置。</p>
+
+<ul>
+<li><p>匹配前面的子表达式零次或多次。</p></li>
+
+<li><p>匹配前面的子表达式一次或多次。+ 等价于 {1,}。</p></li>
+</ul>
+
+<p>? 匹配前面的子表达式零次或一次。? 等价于 {0,1}。</p>
+
+<p>{n} n 是一个非负整数，匹配确定的n 次。</p>
+
+<p>{n,} n 是一个非负整数，至少匹配n 次。 </code></pre> <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    {n,m} m 和 n 均为非负整数，其中n &lt;= m。最少匹配 n 次且最多匹配 m 次。在逗号和两个数之间不能有空格。</p>
+<p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    ? 当该字符紧跟在任何一个其他限制符 (*, +, ?, {n}, {n,}, {n,m}) 后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。</p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">. 匹配除 &ldquo;\n&rdquo; 之外的任何单个字符。要匹配包括 ’\n’ 在内的任何字符，请使用象 ’[.\n]’ 的模式。
+(pattern) 匹配pattern 并获取这一匹配。</p>
+
+<p>(?:pattern) 匹配pattern 但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。</p>
+
+<p>(?=pattern) 正向预查，在任何匹配 pattern 的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。</p>
+
+<p>(?!pattern) 负向预查，与(?=pattern)作用相反</p>
+
+<p>x|y 匹配 x 或 y。</p>
+
+<p>[xyz] 字符集合。</p>
+
+<p>[^xyz] 负值字符集合。</p>
+
+<p>[a-z] 字符范围，匹配指定范围内的任意字符。</p>
+
+<p>[^a-z] 负值字符范围，匹配任何不在指定范围内的任意字符。</p>
+
+<p>\b 匹配一个单词边界，也就是指单词和空格间的位置。</p>
+
+<p>\B 匹配非单词边界。</p>
+
+<p>\cx 匹配由x指明的控制字符。 </code></pre> <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    \d 匹配一个数字字符。等价于 [0-9]。</p>
+<p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    \D 匹配一个非数字字符。等价于 [^0-9]。</p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">\f 匹配一个换页符。等价于 \x0c 和 \cL。 </code></pre> <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    \n 匹配一个换行符。等价于 \x0a 和 &lt;a href=&ldquo;<a href="https://wujunze.com/tag/c/&quot;">https://wujunze.com/tag/c/&quot;</a> target=&rdquo;_blank&rdquo; title=&ldquo;c&rdquo; style=&ldquo;background-image:initial;background-position:initial;background-size:initial;background-repeat:initial;background-attachment:initial;background-origin:initial;background-clip:initial;color:#2EABFD;text-decoration:none;&ldquo;&gt;c</a>J。</p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">\r 匹配一个回车符。等价于 \x0d 和 \cM。</p>
+
+<p>\s 匹配任何空白字符，包括空格、制表符、换页符等等。等价于[ \f\n\r\t\v]。</p>
+
+<p>\S 匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。 </code></pre> <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    \t 匹配一个制表符。等价于 \x09 和 \cI。</p>
+<p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    \v 匹配一个垂直制表符。等价于 \x0b 和 \cK。</p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">\w 匹配包括下划线的任何单词字符。等价于’[A-Za-z0-9<em>]’。 </code></pre> <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    \W 匹配任何非单词字符。等价于 ’[^A-Za-z0-9</em>]’。</p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">\xn 匹配 n，其中 n 为十六进制转义值。十六进制转义值必须为确定的两个数字长。</p>
+
+<p>\num 匹配 num，其中num是一个正整数。对所获取的匹配的引用。 </code></pre> <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    \n 标识一个八进制转义值或一个后向引用。如果 \n 之前至少 n 个获取的子表达式，则 n 为后向引用。否则，如果 n 为八进制数字 (0-7)，则 n 为一个八进制转义值。</p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">\nm 标识一个八进制转义值或一个后向引用。如果 \nm 之前至少有is preceded by at least nm 个获取得子表达式，则 nm 为后向引用。如果 \nm 之前至少有 n 个获取，则 n 为一个后跟文字 m 的后向引用。如果前面的条件都不满足，若 n 和 m 均为八进制数字 (0-7)，则 \nm 将匹配八进制转义值 nm。</p>
+
+<p>\nml 如果 n 为八进制数字 (0-3)，且 m 和 l 均为八进制数字 (0-7)，则匹配八进制转义值 nml。</p>
+
+<p>\un 匹配 n，其中 n 是一个用四个十六进制数字表示的Unicode字符。</p>
+
+<p>匹配中文字符的正则表达式： [u4e00-u9fa5] </code></pre> <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    匹配双字节字符(包括汉字在内)：[^x00-xff]</p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">匹配空行的正则表达式：n[s| ]*r</p>
+
+<p>匹配HTML标记的正则表达式：/&lt;(.<em>)&gt;.</em>&lt;/1&gt;|&lt;(.<em>) /&gt;/ </code></pre> <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    匹配首尾空格的正则表达式：(^s<em>)|(s</em>$)</p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">匹配Email地址的正则表达式：w+([-+.]w+)</em>@w+([-.]w+)<em>.w+([-.]w+)</em></p>
+
+<p>匹配网址URL的正则表达式：http://([w-]+.)+[w-]+(/[w- ./?%&amp;=]*)?</p>
+
+<p>利用正则表达式限制网页表单里的文本框输入内容：</p>
+
+<p>用正则表达式限制只能输入中文：onkeyup=&ldquo;value=value.replace(/[^u4E00-u9FA5]/g,&ldquo;)&rdquo; onbeforepaste=&ldquo;clipboardData.setData(&lsquo;text&rsquo;,clipboardData.getData(&lsquo;text&rsquo;).replace(/[^u4E00-u9FA5]/g,&ldquo;))&rdquo;</p>
+
+<p>用正则表达式限制只能输入全角字符： onkeyup=&ldquo;value=value.replace(/[^uFF00-uFFFF]/g,&ldquo;)&rdquo; onbeforepaste=&ldquo;clipboardData.setData(&lsquo;text&rsquo;,clipboardData.getData(&lsquo;text&rsquo;).replace(/[^uFF00-uFFFF]/g,&ldquo;))&rdquo;</p>
+
+<p>用正则表达式限制只能输入数字：onkeyup=&ldquo;value=value.replace(/[^d]/g,&ldquo;) &ldquo;onbeforepaste=&ldquo;clipboardData.setData(&lsquo;text&rsquo;,clipboardData.getData(&lsquo;text&rsquo;).replace(/[^d]/g,&ldquo;))&rdquo;</p>
+
+<p>用正则表达式限制只能输入数字和英文：onkeyup=&ldquo;value=value.replace(/[W]/g,&ldquo;) &ldquo;onbeforepaste=&ldquo;clipboardData.setData(&lsquo;text&rsquo;,clipboardData.getData(&lsquo;text&rsquo;).replace(/[^d]/g,&ldquo;))&rdquo;</p>
+
+<p>=========常用正则式</p>
+
+<p>匹配中文字符的正则表达式： [\u4e00-\u9fa5]</p>
+
+<p>匹配双字节字符(包括汉字在内)：[^\x00-\xff]</p>
+
+<p>匹配空行的正则表达式：\n[\s| ]*\r</p>
+
+<p>匹配HTML标记的正则表达式：/&lt;(.<em>)&gt;.</em>&lt;\/\1&gt;|&lt;(.*) \/&gt;/</p>
+
+<p>匹配首尾空格的正则表达式：(^\s<em>)|(\s</em>$) </code></pre> <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    匹配IP地址的正则表达式：/(\d+).(\d+).(\d+).(\d+)/g //</p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">匹配Email地址的正则表达式：\w+([-+.]\w+)<em>@\w+([-.]\w+)</em>.\w+([-.]\w+)*</p>
+
+<p>匹配网址URL的正则表达式：http://(/[\w-]+.)+[\w-]+(/[\w- ./?%&amp;=]*)?</p>
+
+<p>sql语句：^(select|drop|delete|create|update|insert).*$</p>
+
+<p>1、非负整数：^\d+$</p>
+
+<p>2、正整数：<sup class="footnote-ref" id="fnref:0-9"><a href="#fn:0-9">10</a></sup><em>[1-9][0-9]</em>$</p>
+
+<p>3、非正整数：^((-\d+)|(0+))$</p>
+
+<p>4、负整数：^-[0-9]<em>[1-9][0-9]</em>$</p>
+
+<p>5、整数：^-?\d+$</p>
+
+<p>6、非负浮点数：^\d+(.\d+)?$ </code></pre> <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    7、正浮点数：^((0-9)+.[0-9]<em>[1-9][0-9]</em>)|([0-9]<em>[1-9][0-9]</em>.[0-9]+)|([0-9]<em>[1-9][0-9]</em>))$</p>
+<p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    8、非正浮点数：^((-\d+.\d+)?)|(0+(.0+)?))$</p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">9、负浮点数：^(-((正浮点数正则式)))$</p>
+
+<p>10、英文字符串：<sup class="footnote-ref" id="fnref:A-Za-z"><a href="#fn:A-Za-z">11</a></sup>+$ </code></pre> <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    11、英文大写串：<sup class="footnote-ref" id="fnref:A-Z"><a href="#fn:A-Z">12</a></sup>+$</p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">12、英文小写串：<sup class="footnote-ref" id="fnref:a-z"><a href="#fn:a-z">13</a></sup>+$ </code></pre> <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    13、英文字符数字串：<sup class="footnote-ref" id="fnref:A-Za-z0-9"><a href="#fn:A-Za-z0-9">14</a></sup>+$</p>
+<p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    14、英数字加下划线串：^\w+$</p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">15、E-mail地址：<sup class="footnote-ref" id="fnref:w"><a href="#fn:w">15</a></sup>+(.[\w-]+)*@[\w-]+(.[\w-]+)+$</p>
+
+<p>16、URL：<sup class="footnote-ref" id="fnref:a-zA-Z"><a href="#fn:a-zA-Z">16</a></sup>+://(\w+(-\w+)<em>)(.(\w+(-\w+)</em>))<em>(\?\s</em>)?$
+或：^http:\/\/[A-Za-z0-9]+.[A-Za-z0-9]+[\/=\?%-&amp;_~`@[]\&rsquo;:+!]<em>([^&lt;&gt;\&rdquo;\&ldquo;])</em>$ </code></pre> <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    17、邮政编码：<sup class="footnote-ref" id="fnref:1-9"><a href="#fn:1-9">17</a></sup>\d{5}$</p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;margin-bottom:16px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">18、中文：<sup class="footnote-ref" id="fnref:u0391-uFFE5"><a href="#fn:u0391-uFFE5">18</a></sup>+$</p>
+
+<p>19、电话号码：^(((\d{2,3}))|(\d{3}-))?((0\d{2,3})|0\d{2,3}-)?[1-9]\d{6,7}(-\d{1,4})?$ </code></pre> <p style="word-break:break-all;margin-top:0px;margin-bottom:16px;color:#1A1A1A;font-family:&quot;font-size:14px;white-space:normal;">
+    20、手机号码：^(((\d{2,3}))|(\d{3}-))?13\d{9}$</p>
+<pre style="font-family:monospace, serif;font-size:12px;white-space:pre-wrap;margin-top:0px;word-wrap:normal;padding:16px;overflow:auto;line-height:1.45;background-color:#F7F7F7;border-radius:3px;color:#1A1A1A;margin-bottom:0px !important;"><code style="font-family:monospace, serif;font-size:12px;padding:0px;margin:0px;background:transparent;border-radius:3px;word-break:normal;white-space:pre;border:0px;display:inline;overflow:visible;line-height:inherit;word-wrap:normal;">21、双字节字符(包括汉字在内)：^\x00-\xff</p>
+
+<p>22、匹配首尾空格：(^\s<em>)|(\s</em>$)（像vbscript那样的trim函数）</p>
+
+<p>23、匹配HTML标记：&lt;(.<em>)&gt;.</em>&lt;\/\1&gt;|&lt;(.*) \/&gt;</p>
+
+<p>24、匹配空行：\n[\s| ]*\r</p>
+
+<p>25、提取信息中的网络链接：(h|H)(r|R)(e|E)(f|F) *= *(&lsquo;|&ldquo;)?(\w|\|\/|.)+(&lsquo;|&ldquo;| *|&gt;)?</p>
+
+<p>26、提取信息中的邮件地址：\w+([-+.]\w+)<em>@\w+([-.]\w+)</em>.\w+([-.]\w+)*</p>
+
+<p>27、提取信息中的图片链接：(s|S)(r|R)(c|C) *= *(&lsquo;|&ldquo;)?(\w|\|\/|.)+(&lsquo;|&ldquo;| *|&gt;)?</p>
+
+<p>28、提取信息中的IP地址：(\d+).(\d+).(\d+).(\d+)</p>
+
+<p>29、提取信息中的中国手机号码：(86)*0*13\d{9}</p>
+
+<p>30、提取信息中的中国固定电话号码：((\d{3,4})|\d{3,4}-|\s)?\d{8}</p>
+
+<p>31、提取信息中的中国电话号码（包括移动和固定电话）：((\d{3,4})|\d{3,4}-|\s)?\d{7,14}</p>
+
+<p>32、提取信息中的中国邮政编码：[1-9]{1}(\d+){5}</p>
+
+<p>33、提取信息中的浮点数（即小数）：(-?\d*).?\d+</p>
+
+<p>34、提取信息中的任何数字 ：(-?\d*)(.\d+)?</p>
+
+<p>35、IP：(\d+).(\d+).(\d+).(\d+)</p>
+
+<p>36、电话区号：/^0\d{2,3}$/</p>
+
+<p>37、腾讯QQ号：<sup class="footnote-ref" id="fnref:1-9"><a href="#fn:1-9">19</a></sup><em>[1-9][0-9]</em>$</p>
+
+<p>38、帐号(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]{4,15}$</p>
+
+<p>39、中文、英文、数字及下划线：<sup class="footnote-ref" id="fnref:u4e00-u9fa5-a-zA"><a href="#fn:u4e00-u9fa5-a-zA">20</a></sup>+$</code></pre></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:0-9">0-9 <a class="footnote-return" href="#fnref:0-9"><sup>[return]</sup></a></li>
+<li id="fn:A-Za-z">A-Za-z <a class="footnote-return" href="#fnref:A-Za-z"><sup>[return]</sup></a></li>
+<li id="fn:A-Z">A-Z <a class="footnote-return" href="#fnref:A-Z"><sup>[return]</sup></a></li>
+<li id="fn:a-z">a-z <a class="footnote-return" href="#fnref:a-z"><sup>[return]</sup></a></li>
+<li id="fn:A-Za-z0-9">A-Za-z0-9 <a class="footnote-return" href="#fnref:A-Za-z0-9"><sup>[return]</sup></a></li>
+<li id="fn:w">\w- <a class="footnote-return" href="#fnref:w"><sup>[return]</sup></a></li>
+<li id="fn:a-zA-z">a-zA-z <a class="footnote-return" href="#fnref:a-zA-z"><sup>[return]</sup></a></li>
+<li id="fn:a-zA-z">a-zA-z <a class="footnote-return" href="#fnref:a-zA-z"><sup>[return]</sup></a></li>
+<li id="fn:1-9">1-9 <a class="footnote-return" href="#fnref:1-9"><sup>[return]</sup></a></li>
+<li id="fn:0-9">0-9 <a class="footnote-return" href="#fnref:0-9"><sup>[return]</sup></a></li>
+<li id="fn:A-Za-z">A-Za-z <a class="footnote-return" href="#fnref:A-Za-z"><sup>[return]</sup></a></li>
+<li id="fn:A-Z">A-Z <a class="footnote-return" href="#fnref:A-Z"><sup>[return]</sup></a></li>
+<li id="fn:a-z">a-z <a class="footnote-return" href="#fnref:a-z"><sup>[return]</sup></a></li>
+<li id="fn:A-Za-z0-9">A-Za-z0-9 <a class="footnote-return" href="#fnref:A-Za-z0-9"><sup>[return]</sup></a></li>
+<li id="fn:w">\w- <a class="footnote-return" href="#fnref:w"><sup>[return]</sup></a></li>
+<li id="fn:a-zA-Z">a-zA-Z <a class="footnote-return" href="#fnref:a-zA-Z"><sup>[return]</sup></a></li>
+<li id="fn:1-9">1-9 <a class="footnote-return" href="#fnref:1-9"><sup>[return]</sup></a></li>
+<li id="fn:u0391-uFFE5">\u0391-\uFFE5 <a class="footnote-return" href="#fnref:u0391-uFFE5"><sup>[return]</sup></a></li>
+<li id="fn:1-9">1-9 <a class="footnote-return" href="#fnref:1-9"><sup>[return]</sup></a></li>
+<li id="fn:u4e00-u9fa5-a-zA">\u4e00-\u9fa5_a-zA-Z0-9 <a class="footnote-return" href="#fnref:u4e00-u9fa5-a-zA"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/%E6%AD%A3%E5%88%99-%E5%85%83%E5%AD%97%E7%AC%A6/">正则 - 元字符</a></li>
+        
+        <li><a href="/posts/%E6%AD%A3%E5%88%99-%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99/">正则 - 匹配规则</a></li>
+        
+        <li><a href="/posts/%E6%AD%A3%E5%88%99-%E8%AF%AD%E6%B3%95/">正则 - 语法</a></li>
+        
+        <li><a href="/posts/%E6%AD%A3%E5%88%99-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/">正则 - 运算符优先级</a></li>
+        
+        <li><a href="/posts/%E5%B8%B8%E7%94%A8-git-%E5%91%BD%E4%BB%A4%E6%B8%85%E5%8D%95/">常用 Git 命令清单</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

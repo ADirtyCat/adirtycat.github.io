@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mysql on i-cooltea的博客</title>
+    <link>http://i-cooltea.github.io/tags/mysql/</link>
+    <description>Recent content in mysql on i-cooltea的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 29 Jul 2019 07:01:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://i-cooltea.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MySQL 常见问题汇总</title>
+      <link>http://i-cooltea.github.io/posts/mysql-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Mon, 29 Jul 2019 07:01:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/mysql-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</guid>
+      <description>[TOC]
+Q1. 忘记 MySQL 的 root 密码  登录到数据库所在的服务器，手工 kill 掉 mysql 进程。   (1) 登录到数据库所在的服务器，手工 kill 掉 MySQL 进程：
+root@bogon:/data/mysql# kill `cat ./mysql.pid`   其中，mysql.pid 指的是 MySQL 数据目录下的 pid 文件，它记录了 MySQL 服务的进程号。
+ (2) 使用 &amp;ndash;skip-grant-tables 选项重启 MySQL 服务：
+zj@bogon:/data/mysql$ sudo /usr/local/mysql/bin/mysqld --skip-grant-tables --user=root &amp;amp;   --skip-grant-tables 选项意思是启动 MySQL 服务时跳过权限表认证。 启动后，连接到 MySQL 的 root 将不需要口令。
+ (3) 用空密码的 root 用户连接到 mysql ，并且更改 root 口令：
+[zj@bogon:/usr/local/mysql/bin$] mysql -uroot Welcome to the MySQL monitor.</description>
+    </item>
+    
+    <item>
+      <title>mysql 语句优化 (30种SQL语句优化)</title>
+      <link>http://i-cooltea.github.io/posts/mysql-%E8%AF%AD%E5%8F%A5%E4%BC%98%E5%8C%96-30%E7%A7%8Dsql%E8%AF%AD%E5%8F%A5%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Tue, 22 May 2018 06:41:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/mysql-%E8%AF%AD%E5%8F%A5%E4%BC%98%E5%8C%96-30%E7%A7%8Dsql%E8%AF%AD%E5%8F%A5%E4%BC%98%E5%8C%96/</guid>
+      <description>1、应尽量避免在 where 子句中使用!=或&amp;lt;&amp;gt;操作符 否则将引擎放弃使用索引而进行全表扫描。  2、对查询进行优化 应尽量避免全表扫描 首先应考虑在 where 及 order by 涉及的列上建立索引。  3、应尽量避免在 where 子句中对字段进行 null 值判断 否则将导致引擎放弃使用索引而进行全表扫描 如： select id from t where num is null 可以在num上设置默认值0 确保表中num列没有null值 然后这样查询： select id from t where num=0  4、尽量避免在 where 子句中使用 or 来连接条件 否则将导致引擎放弃使用索引而进行全表扫描 如： select id from t where num=10 or num=20 可以这样查询： select id from t where num=10 union all select id from t where num=20  5、下面的查询也将导致全表扫描：(不能前置百分号) select id from t where name like ‘�c%’ 若要提高效率 可以考虑全文检索。  6、in 和 not in 也要慎用 否则会导致全表扫描 如： select id from t where num in(1,2,3) 对于连续的数值 能用 between 就不要用 in 了： select id from t where num between 1 and 3  7、如果在 where 子句中使用参数 也会导致全表扫描。因为SQL只有在运行时才会解析局部变量 但优化程序不能将访问计划的选择推迟到运行时；它必须在编译时进行选择。然 而 如果在编译时建立访问计划 变量的值还是未知的 因而无法作为索引选择的输入项。如下面语句将进行全表扫描： select id from t where num=@num 可以改为强制查询使用索引： select id from t with(index(索引名)) where num=@num  8、应尽量避免在 where 子句中对字段进行表达式操作 这将导致引擎放弃使用索引而进行全表扫描。如： select id from t where num/2=100 应改为: select id from t where num=100*2  9、应尽量避免在where子句中对字段进行函数操作 这将导致引擎放弃使用索引而进行全表扫描。如： select id from t where substring(name,1,3)=’abc’–name以abc开头的id select id from t where datediff(day,createdate,’2005-11-30′)=0–’2005-11-30′生成的id 应改为: select id from t where name like ‘abc%’ select id from t where createdate&amp;gt;=’2005-11-30′ and createdate&amp;lt;’2005-12-1′  10、不要在 where 子句中的“=”左边进行函数、算术运算或其他表达式运算 否则系统将可能无法正确使用索引。  11、在使用索引字段作为条件时 如果该索引是复合索引 那么必须使用到该索引中的第一个字段作为条件时才能保证系统使用该索引 否则该索引将不会被使 用 并且应尽可能的让字段顺序与索引顺序相一致。  12、不要写一些没有意义的查询 如需要生成一个空表结构： select col1,col2 into #t from t where 1=0 这类代码不会返回任何结果集 但是会消耗系统资源的 应改成这样： create table #t(…)  13、很多时候用 exists 代替 in 是一个好的选择： select num from a where num in(select num from b) 用下面的语句替换： select num from a where exists(select 1 from b where num=a.</description>
+    </item>
+    
+  </channel>
+</rss>

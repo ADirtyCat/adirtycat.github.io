@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>linux | i-cooltea的博客</title>
+    <meta property="og:title" content="linux - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="linux">
+        
+    <meta name="author" content="i-cooltea">
+    <meta property="og:url" content="http://i-cooltea.github.io/tags/linux/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="alternate" type="application/rss+xml+xml" href="http://i-cooltea.github.io/tags/linux/index.xml" title="i-cooltea的博客" />
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    
+                    <h3 class="archive-title">
+                        包含标签
+                        <span class="keyword">linux</span>
+                        的文章
+                    </h3>
+                    
+
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux 常用命令</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年3月4日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1．echo命令 echo命令用于在终端输出字符串或变量提取后的值，格式为“echo [字符串&nbsp;|&nbsp;$变量]”。
+例如，把指定字符串“Linuxprobe.com”输出到终端屏幕的命令为：
+[root@linuxprobe ~]# echo Linuxprobe.Com 该命令会在终端屏幕上显示如下信息：
+Linuxprobe.Com 下面，我们使用$变量的方式提取变量SHELL的值，并将其输出到屏幕上：
+[root@linuxprobe ~]# echo $SHELL /bin/bash 2．date命令 date命令用于显示及设置系统的时间或日期，格式为“date [选项] [+指定的格式]”。
+只需在强大的date命令中输入以“+”号开头的参数，即可按照指定格式来输出系统的时间或日期，这样在日常工作时便可以把备份数据的命令与指定格式输出的时间信息结合到一起。例如，把打包后的文件自动按照“年-月-日”的格式打包成“backup-2017-9-1.tar.gz”，用户只需要看一眼文件名称就能大概了解到每个文件的备份时间了。date命令中常见的参数格式及作用如表2-4所示。
+表2-4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; date命令中的参数以及作用
+参数  作用   %t  跳格[Tab键]   %H  小时（00～23）   %I  小时（00～12）   %M  分钟（00～59）   %S  秒（00～59）   %j  今年中的第几天     按照默认格式查看当前系统时间的date命令如下所示：
+[root@linuxprobe ~]# date Mon&nbsp;Aug&nbsp;24&nbsp;16:11:23&nbsp;CST&nbsp;2017 按照“年-月-日 小时:分钟:秒”的格式查看当前系统时间的date命令如下所示：
+[root@linuxprobe ~]# date &ldquo;+%Y-%m-%d %H:%M:%S&rdquo; 2017-08-24 16:29:12 将系统的当前时间设置为2017年9月1日8点30分的date命令如下所示：……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcurl/">Linux命令之curl</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年3月4日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                curl命令是一个功能强大的网络工具，它能够通过http、ftp等方式下载文件，也能够上传文件。其实curl远不止前面所说的那些功能，大家可以通过man curl阅读手册页获取更多的信息   curl命令使用了libcurl库来实现，libcurl库常用在C程序中用来处理HTTP请求，curlpp是libcurl的一个C++封装，这几个东西可以用在抓取网页、网络监控等方面的开发，而curl命令可以帮助来解决开发过程中遇到的问题 -a/--append 上传文件时，附加到目标文件 -A/--user-agent &lt;string&gt;&nbsp; 设置用户代理发送给服务器 - anyauth&nbsp;&nbsp; 可以使用“任何”身份验证方法 -b/--cookie &lt;name=string/file&gt; cookie字符串或文件读取位置 - basic 使用HTTP基本验证 -B/--use-ascii 使用ASCII /文本传输 -c/--cookie-jar &lt;file&gt; 操作结束后把cookie写入到这个文件中 -C/--continue-at &lt;offset&gt;&nbsp; 断点续转 -d/--data &lt;data&gt;&nbsp;&nbsp; HTTP POST方式传送数据 --data-ascii &lt;data&gt;&nbsp; 以ascii的方式post数据 --data-binary &lt;data&gt; 以二进制的方式post数据 --negotiate&nbsp;&nbsp;&nbsp;&nbsp; 使用HTTP身份验证 --digest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 使用数字身份验证 --disable-eprt&nbsp; 禁止使用EPRT或LPRT --disable-epsv&nbsp; 禁止使用EPSV -D/--dump-header &lt;file&gt; 把header信息写入到该文件中 --egd-file &lt;file&gt; 为随机数据(SSL)设置EGD socket路径 --tcp-nodelay&nbsp;&nbsp; 使用TCP_NODELAY选项 -e/--referer 来源网址 -E/--cert &lt;cert[:passwd]&gt; 客户端证书文件和密码 (SSL) --cert-type &lt;type&gt; 证书文件类型 (DER/PEM/ENG) (SSL) --key &lt;key&gt;&nbsp;&nbsp;&nbsp;&nbsp; 私钥文件名 (SSL) --key-type &lt;type&gt; 私钥文件类型 (DER/PEM/ENG) (SSL) --pass&nbsp; &lt;pass&gt;&nbsp; 私钥密码 (SSL) --engine &lt;eng&gt;&nbsp; 加密引擎使用 (SSL).……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcurl/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/%E5%9C%A8windows-%E7%8E%AF%E5%A2%83%E4%B8%AD%E6%90%AD%E5%BB%BAlinux%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E5%AF%B9%E6%96%B0%E6%89%8B%E5%BE%88%E9%87%8D%E8%A6%81/">在windows 环境中搭建linux的学习环境！！！（对新手很重要）</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年2月24日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                首先为什么要用虚拟机来搭建Linux的学习环境？？？ 因为如果在真实机来搭建Linux学习环境，一旦Linux出现了无法解决问题我将要花费大量的时间来解决（对于我们新手来说），而在虚拟机中出现无法解决的问题时，只需简单的重装比在真实机中更容易处理。（这是无数次痛苦的教训让我明白的）。其实虚拟机中学习与真实机中学习Linux是一样，对于我们新手不能将大量的时间来用来解决Linux中一些对新手来说比较难的问题。  比如之前我的真实机Linux出现了这样一个问题：实然Linux无法进入系统了，而且无法进入Linux的恢复模式，命令行模式。开机后光标一直在左上角闪个不停。百度等等两天无果。这样对于我们新手来说，不仅耽误Linux基础的学习，还会打击新手的学习信心。所以对新手来说，还是用虚拟机来学习Linux比较好，一旦遇到无法解决的问题，就放弃解决，重装系统吧！环境的搭建（windows中，毕竟对国人来说这个比较熟悉）1：在windows中安装好virtualbox,然后安装centos(也可以是其它linux)2：在windows中安装SecureCRT，这个软件是一个远程登录程序（具体介绍http://baike.so.com/doc/5411484.html）（对我来说是学习linux shell的神器，用过你就会知道的！）3：网络设置（让真实机与虚拟能同时上网），给虚拟机添加两个网卡。一个为nat网络，一个为仅主机网络（T）（一个用于上网，一个用于SecureCRT的连接） 直接上图。。。 这个用于securecrt的远程连接192.168.x.1（当然也可以是其它的网段） 设置虚拟机的ip地址 记住是设置eth1 （eth0用第一个网卡用的是nat方式连接的，eth1是第二个网卡用的是仅主机方式连接） 把虚拟机设置为192.168.59.x (同一网段59) 查看ip配置 用securecrt 来连接虚拟机中的linux 点击Quick Connect. 输入host name （虚拟机中linux的ip地址）username(用户名) 输入密码就可以登录了 登录后的画面： 如果按上面的设置不能成功登录系统则可能的原因是虚拟机中的Linux没有开启sshd 服务 （sudo service sshd start 即可） 2014年6月6日亲测有效 ……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/%E5%9C%A8windows-%E7%8E%AF%E5%A2%83%E4%B8%AD%E6%90%AD%E5%BB%BAlinux%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E5%AF%B9%E6%96%B0%E6%89%8B%E5%BE%88%E9%87%8D%E8%A6%81/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/-%E4%BD%BF%E7%A8%8B%E5%BA%8F%E5%9C%A8linux%E4%B8%8B%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-%E5%85%B3%E6%8E%89%E7%BB%88%E7%AB%AF%E7%BB%A7%E7%BB%AD%E8%AE%A9%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/"> 使程序在Linux下后台运行 （关掉终端继续让程序运行的方法）</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2017年10月18日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                你是否遇到过这样的情况：从终端软件登录远程的Linux主机，将一堆很大的文件压缩为一个.tar.gz文件，连续压缩了半个小时还没有完成，这时，突然你断网了，你登录不上远程Linux主机了，那么前面的半个小时就会前功尽弃，你非常气愤…… 在Linux下，如果你要执行的shell命令耗时特别长，并且：（1）你的网络不稳定，随时可能断网；或者（2）你在执行了shell命令之后必须要关闭终端软件（例如SecureCRT）。 那么你就需要以脱离终端的方式在后台运行这个shell命令。 方法如下： （1）输入命令： nohup 你的shell命令 &amp; （2）回车，使终端回到shell命令行； （3）输入exit命令退出终端：exit （4）现在可以关闭你的终端软件了，等过足够的时间，让你的shell命令执行完了再上去看结果吧。 其中，nohup命令可以让你的shell命令忽略SIGHUP信号，即可以使之脱离终端运行；“&amp;”可以让你的命令在后台运行。 以脱离终端的方式在后台运行shell命令有这样几个好处：只要你执行过了命令，那么你的网络中断不会对你有任何影响，并且你就可以关闭终端软件了。   一、为什么要使程序在后台执行 我们计算的程序都是周期很长的，通常要几个小时甚至一个星期。我们用的环境是用putty远程连接到日本Linux服务器。所以使程序在后台跑有以下三个好处： 1：我们这边是否关机不影响日本那边的程序运行。（不会像以前那样，我们这网络一断开，或一关机，程序就断掉或找不到数据，跑了几天的程序只能重头再来，很是烦恼） 2：不影响计算效率 2：让程序在后台跑后，不会占据终端，我们可以用终端做别的事情。 二、怎么样使程序在后台执行 方法有很多，这里主要列举两种。假如我们有程序pso.cpp,通过编译后产生可执行文件pso，我们要使pso在linux服务器后台执行。当客户端关机后重新登入服务器后继续查看本来在终端输出的运行结果。（假设操作都在当前目录下） 方法1在终端输入命令： &nbsp;# ./pso &gt; pso.file 2&gt;&amp;1 &amp;&nbsp; 解释：将pso直接放在后台运行，并把终端输出存放在当前目录下的pso.file文件中。 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当客户端关机后重新登陆服务器后，直接查看pso.file文件就可看执行结果（命 令：#cat pso.file）。 &nbsp;&nbsp; 方法2在终端输入命令： # nohup&nbsp; ./pso &gt; pso.file 2&gt;&amp;1 &amp; 解释：nohup就是不挂起的意思，将pso直接放在后台运行，并把终端输出存放在当前 目录下的pso.file文件中。当客户端关机后重新登陆服务器后，直接查看pso.file 文件就可看执行结果（命令：#cat pso.file）。 三、常用任务管理命令 # jobs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //查看任务，返回任务编号n和进程号 # bg&nbsp; %n&nbsp;&nbsp; //将编号为n的任务转后台运行 # fg&nbsp; %n&nbsp;&nbsp; //将编号为n的任务转前台运行 # ctrl+z&nbsp;&nbsp;&nbsp; //挂起当前任务 # ctrl+c&nbsp;&nbsp;&nbsp; //结束当前任务 &nbsp; 注：如果要使在前天执行任务放到后台运行，则先要用ctrl+z挂起该任务，然后用bg使之后台执行。 &nbsp; 附： &nbsp; 在Linux中，如果要让进程在后台运行，一般情况下，我们在命令后面加上&amp;即可，实际上，这样是将命令放入到一个作业队列中了：……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/-%E4%BD%BF%E7%A8%8B%E5%BA%8F%E5%9C%A8linux%E4%B8%8B%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-%E5%85%B3%E6%8E%89%E7%BB%88%E7%AB%AF%E7%BB%A7%E7%BB%AD%E8%AE%A9%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+
+                    
+
+
+
+<ol class="page-navigator">
+    
+    <li class="prev">
+        <a href="http://i-cooltea.github.io/tags/linux/">上一页</a>
+    </li>
+    
+
+    
+    <li >
+        <a href="http://i-cooltea.github.io/tags/linux/">1</a>
+    </li>
+    
+    <li  class="current">
+        <a href="http://i-cooltea.github.io/tags/linux/page/2/">2</a>
+    </li>
+    
+
+    
+</ol>
+
+
+
+                </div>
+            </div>
+
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+
+</body>
+</html>

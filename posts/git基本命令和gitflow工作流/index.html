@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Git基本命令和GitFlow工作流 | i-cooltea的博客</title>
+    <meta property="og:title" content="Git基本命令和GitFlow工作流 - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-07-04T09:52:00&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-07-04T09:52:00&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="Git基本命令和GitFlow工作流">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E5%92%8Cgitflow%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">Git基本命令和GitFlow工作流</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年7月4日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            
+
+<p>来源 : <a href="https://www.cnblogs.com/myqianlan/p/4195994.html">myqianlan</a>
+本篇博客讲解了git的一些基本的团队协作命令，和GitFlow工作流指南
+git 团队协作的一些命令</p>
+
+<h5 id="1-开分支">1.开分支</h5>
+
+<pre><code>git branch 新分支名
+例如，在master分支下，新开一个开发分支：
+git branch dev
+</code></pre>
+
+<h5 id="2-切换到新分支">2.切换到新分支</h5>
+
+<pre><code>git checkout 分支名
+例如，在master分支下，切换到新开的dev：
+git checkout dev
+</code></pre>
+
+<h5 id="3-开分支和切换分支合并到一个命令">3.开分支和切换分支合并到一个命令</h5>
+
+<pre><code>git checkout -b 新分支名
+例如，新开一个开发分支，并立即切换到该分支：
+git checkout -b dev
+</code></pre>
+
+<h5 id="4-切换回原分支">4.切换回原分支</h5>
+
+<pre><code>git checkout 原分支名
+例如，切换回master
+git checkout master
+注意：当前分支有修改，还未commit的时候，会切换失败，应当先commit，但可以不用push
+</code></pre>
+
+<h5 id="5-合并分支">5.合并分支</h5>
+
+<pre><code>git merge 需要合并的分支名
+例如，刚刚已经切换回master，现在需要合并dev的内容：
+git merge dev
+建议在GitLab(或者其他git系统)上面创建merge request的形式来进行分支的合并和代码审核。
+</code></pre>
+
+<h5 id="6-查看本地分支列表">6.查看本地分支列表</h5>
+
+<pre><code>git branch -a
+前面带remotes/origin 的，是远程分支
+</code></pre>
+
+<h5 id="7-查看远程分支列表">7.查看远程分支列表</h5>
+
+<pre><code>git branch -r
+</code></pre>
+
+<h5 id="8-向远程提交本地新开的分支">8.向远程提交本地新开的分支</h5>
+
+<pre><code>git push origin 新分支名
+例如，刚刚在master下新开的dev分支：
+git push origin dev
+</code></pre>
+
+<h5 id="9-删除远程分支">9.删除远程分支</h5>
+
+<pre><code>git push origin :远程分支名
+例如，删除刚刚提交到远程的dev分支：
+git push origin :dev
+</code></pre>
+
+<h5 id="10-删除本地分支">10.删除本地分支</h5>
+
+<pre><code>git branch 分支名称 -d
+例如，在master分支下，删除新开的dev分支：
+git branch dev -d
+注意：如果dev的更改，push到远程，在GitLab(或者其他git系统)上面进行了merge操作，但是本地master没有pull最新的代码，会删除不成功，可以先git pull origin master，或者强制删除
+git branch dev -D
+</code></pre>
+
+<h5 id="11-更新分支列表信息">11.更新分支列表信息</h5>
+
+<pre><code>git fetch -p
+</code></pre>
+
+<h5 id="12-tortoisegit-乌龟git">12.TortoiseGit(乌龟git)</h5>
+
+<blockquote>
+<p>不可否认，在windows下，这个是个不错的工具。不管你是命令行新手还是重度使用者，我觉得都可以尝试一下。</p>
+</blockquote>
+
+<h4 id="git工作流指南-gitflow工作流">Git工作流指南：Gitflow工作流</h4>
+
+<p>在你开始阅读之前，请记住：流程应被视作为指导方针，而非“铁律”。我们只是想告诉你可能的做法。因此，如果有必要的话，你可以组合使用不同的流程*</p>
+
+<p>Gitflow工作流定义了一个围绕项目发布的严格分支模型。虽然比功能分支工作流复杂几分，但提供了用于一个健壮的用于管理大型项目的框架。</p>
+
+<p>Gitflow工作流没有用超出功能分支工作流的概念和命令，而是为不同的分支分配一个很明确的角色，并定义分支之间如何和什么时候进行交互。除了使用功能分支，在做准备、维护和记录发布也使用各自的分支。当然你可以用上功能分支工作流所有的好处：Pull Requests、隔离实验性开发和更高效的协作。</p>
+
+<p>###工作方式</p>
+
+<pre><code>Gitflow工作流仍然用中央仓库作为所有开发者的交互中心。和其它的工作流一样，
+开发者在本地工作并push分支到要中央仓库中。
+
+历史分支
+相对使用仅有的一个master分支，Gitflow工作流使用2个分支来记录项目的历史。
+master分支存储了正式发布的历史，而develop分支作为功能的集成分支。
+这样也方便master分支上的所有提交分配一个版本号。
+</code></pre>
+
+<p>剩下要说明的问题围绕着这2个分支的区别展开。</p>
+
+<h4 id="功能分支">功能分支</h4>
+
+<p>每个新功能位于一个自己的分支，这样可以push到中央仓库以备份和协作。但功能分支不是从master分支上拉出新分支，而是使用develop分支作为父分支。当新功能完成时，合并回develop分支。新功能提交应该从不直接与master分支交互。</p>
+
+<p>注意，从各种含义和目的上来看，功能分支加上develop分支就是功能分支工作流的用法。但Gitflow工作流没有在这里止步。</p>
+
+<h4 id="发布分支">发布分支</h4>
+
+<pre><code>一旦develop分支上有了做一次发布（或者说快到了既定的发布日）的足够功能，
+就从develop分支上fork一个发布分支。新建的分支用于开始发布循环，
+所以从这个时间点开始之后新的功能不能再加到这个分支上 —— 这个分支只应该做Bug修复、
+文档生成和其它面向发布任务。一旦对外发布的工作都完成了，
+发布分支合并到master分支并分配一个版本号打好Tag。
+另外，这些从新建发布分支以来的做的修改要合并回develop分支。
+
+使用一个用于发布准备的专门分支，使得一个团队可以在完善当前的发布版本的同时，另一个团队可以继续开发下个版本的功能。
+这也打造定义良好的开发阶段（比如，可以很轻松地说，『这周我们要做准备发布版本4.0』，并且在仓库的目录结构中可以实际看到）。
+</code></pre>
+
+<pre><code>常用的分支约定：
+用于新建发布分支的分支: develop
+
+用于合并的分支: master
+
+分支命名: release-* 或 release/*
+
+</code></pre>
+
+<h3 id="维护分支">维护分支</h3>
+
+<pre><code>维护分支或说是热修复（hotfix）分支用于生成快速给产品发布版本（production releases）打补丁，
+这是唯一可以直接从master分支fork出来的分支。
+修复完成，修改应该马上合并回master分支和develop分支（当前的发布分支），
+master分支应该用新的版本号打好Tag。
+
+为Bug修复使用专门分支，让团队可以处理掉问题而不用打断其它工作或是等待下一个发布循环。
+你可以把维护分支想成是一个直接在master分支上处理的临时发布。
+
+
+示例
+下面的示例演示本工作流如何用于管理单个发布循环。假设你已经创建了一个中央仓库。
+
+</code></pre>
+
+<h4 id="创建开发分支">创建开发分支</h4>
+
+<p>第一步为master分支配套一个develop分支。简单来做可以本地创建一个空的develop分支，push到服务器上：</p>
+
+<pre><code>git branch develop
+git push -u origin develop
+
+
+git clone ssh://user@host/path/to/repo.git
+git checkout -b develop origin/develop
+
+现在每个开发都有了这些历史分支的本地拷贝。
+</code></pre>
+
+<p>以后这个分支将会包含了项目的全部历史，而master分支将只包含了部分历史。其它开发者这时应该克隆中央仓库，建好develop分支的跟踪分支：</p>
+
+<h4 id="工程师a和工程师b开始开发新功能">工程师A和工程师B开始开发新功能</h4>
+
+<pre><code>这个示例中，工程师A和工程师B开始各自的功能开发。他们需要为各自的功能创建相应的分支。新分支不是基于master分支，而是应该基于develop分支：
+git checkout -b some-feature develop
+他们用老套路添加提交到各自功能分支上：编辑、暂存、提交：
+
+git status
+git add
+git commit
+</code></pre>
+
+<h4 id="工程师a完成功能开发">工程师A完成功能开发</h4>
+
+<pre><code>添加了提交后，工程师A觉得她的功能OK了。如果团队使用Pull Requests，这时候可以发起一个用于合并到develop分支。否则她可以直接合并到她本地的develop分支后push到中央仓库：
+
+git pull origin develop
+git checkout develop
+git merge some-feature
+git push
+git branch -d some-feature
+第一条命令在合并功能前确保develop分支是最新的。注意，功能决不应该直接合并到master分支。冲突解决方法和集中式工作流一样。
+
+</code></pre>
+
+<h4 id="工程师a开始准备发布">工程师A开始准备发布</h4>
+
+<p>这个时候工程师B正在实现他的功能，工程师A开始准备她的第一个项目正式发布。像功能开发一样，她用一个新的分支来做发布准备。这一步也确定了发布的版本号：</p>
+
+<pre><code>git checkout -b release-0.1 develop
+</code></pre>
+
+<p>这个分支是清理发布、执行所有测试、更新文档和其它为下个发布做准备操作的地方，像是一个专门用于改善发布的功能分支。</p>
+
+<p>只要工程师A创建这个分支并push到中央仓库，这个发布就是功能冻结的。任何不在develop分支中的新功能都推到下个发布循环中。</p>
+
+<h4 id="工程师a完成发布">工程师A完成发布</h4>
+
+<p>一旦准备好了对外发布，工程师A合并修改到master分支和develop分支上，删除发布分支。合并回develop分支很重要，因为在发布分支中已经提交的更新需要在后面的新功能中也要是可用的。另外，如果工程师A的团队要求Code Review，这是一个发起Pull Request的理想时机。</p>
+
+<pre><code>git checkout master
+git merge release-0.1
+git push
+git checkout develop
+git merge release-0.1
+git push
+git branch -d release-0.1
+发布分支是作为功能开发（develop分支）和对外发布（master分支）间的缓冲。只要有合并到master分支，就应该打好Tag以方便跟踪。
+
+git tag -a 0.1 -m &quot;Initial public release&quot; master
+git push --tags
+</code></pre>
+
+<p><code>
+Git有提供各种勾子（hook），即仓库有事件发生时触发执行的脚本。
+可以配置一个勾子，在你push中央仓库的master分支时，自动构建好对外发布。
+</code></p>
+
+<h4 id="最终用户发现bug">最终用户发现Bug</h4>
+
+<p>对外发布后，工程师A回去和工程师B一起做下个发布的新功能开发，直到有最终用户开了一个Ticket抱怨当前版本的一个Bug。为了处理Bug，工程师A（或工程师B）从master分支上拉出了一个维护分支，提交修改以解决问题，然后直接合并回master分支：</p>
+
+<pre><code>git checkout -b issue-#001 master
+Fix the bug
+
+git checkout master
+git merge issue-#001
+git push
+</code></pre>
+
+<p>就像发布分支，维护分支中新加这些重要修改需要包含到develop分支中，所以工程师A要执行一个合并操作。然后就可以安全地删除这个分支了：</p>
+
+<pre><code>git checkout develop
+git merge issue-#001
+git push
+git branch -d issue-#001
+</code></pre>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/git%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/">GIT实现自动拉取代码 （实现自动部署）</a></li>
+        
+        <li><a href="/posts/git-%E4%B8%89%E5%A4%A7%E5%8C%BA%E5%9F%9F%E7%9A%84%E6%93%8D%E4%BD%9C%E5%88%86%E6%9E%90-/">Git 三大区域的操作分析 </a></li>
+        
+        <li><a href="/posts/%E5%B8%B8%E7%94%A8-git-%E5%91%BD%E4%BB%A4%E6%B8%85%E5%8D%95/">常用 Git 命令清单</a></li>
+        
+        <li><a href="/posts/phpstudy-%E5%8D%87%E7%BA%A7-mysql-%E7%89%88%E6%9C%AC%E5%88%B05.7/">PhpStudy 升级 MySQL 版本到5.7</a></li>
+        
+        <li><a href="/posts/docker-%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/">Docker 操作指南</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/git">git</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

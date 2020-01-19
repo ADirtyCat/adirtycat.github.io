@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>转载-详解SSH原理 | i-cooltea的博客</title>
+    <meta property="og:title" content="转载-详解SSH原理 - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2019-11-13T07:32:00&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2019-11-13T07:32:00&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="转载-详解SSH原理">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">转载-详解SSH原理</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2019年11月13日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            <p>转载 原文出自果冻想 <a href="https://www.jellythink.com/archives/555">https://www.jellythink.com/archives/555</a></p>
+
+<div class="content">
+                <article class="article-content">
+                        <h1>前言</h1>
+<p>在实际日常运维工作中，肯定是离不开SSH的，每天都在不停的使用SSH登陆这个主机，或者那个主机去处理各种问题。每天用的也很舒服，但是对于SSH后面的原理却不甚了解，最近在看Ansible时，发现自己对SSH还有很多的迷惑点，对于我来说，一般不常用的迷惑点，我也就糊弄糊弄就过去了，毕竟对每个知识点进行放大，那都是一本学不完的天书，有些内容我们了解就好了，但是对于SSH，本想着也糊弄糊弄就过去吧，但是后来发现这样行不通，这里面好多的知识点直接影响着我日后的运维工作。于是乎，觉的有必要整理这样的一篇文章来把SSH的原理好好的学习一下，也好让后续自己的运维工作更得心应手，又或在教小弟时也能有点资本。</p>
+<h1>SSH是什么？</h1>
+<p>简单一点来说，SSH就是一种网络协议，用于在网络主机之间进行加密的一种协议。结合我们的日常工作来说，如果我从一台服务器使用SSH协议登陆另一台服务器，我们就认为这样的登陆是安全的，即使我们的登陆信息在中间被人截获了，我们的密码也不会被泄露。</p>
+<p>为什么要搞这么个协议呢？其实，很久很久以前，互联网通信都是明文的，一旦在中间环节被某些中间商截获了，我们的通信内容就暴漏无疑。所以呢，芬兰就有这么一位叫做Tatu Ylonen的人设计了SSH协议，将信息加密，这样就像上面说的，即使我们的登陆信息在中间被人截获了，我们的密码也不会被泄露。目前SSH协议已经在全世界广泛被使用，且已经在成为各个Linux发行版的标配。</p>
+<h1>原理解析</h1>
+<p>至于SSH的一些简单用法，我这里就不细说了，先通过一副时序图看看SSH的密码登陆原理。</p>
+
+![](http://resource.i-can.xyz/image/20191113153619.png)
+
+<p>从上图中，可以看到我们使用SSH进行登陆时，主要分为以下几步：</p>
+<ol>
+<li>用户使用<code>ssh user@host</code>命令对远程主机发起登陆；</li>
+<li>远程主机将自己的公钥返回给请求主机；</li>
+<li>请求主机使用公钥对用户输入的密码进行加密；</li>
+<li>请求主机将加密后的密码发送给远程主机；</li>
+<li>远程主机使用私钥对密码进行解密；</li>
+<li>最后，远程主机判断解密后的密码是否与用户密码一致，一致就同意登陆，否则反之。</li>
+</ol>
+<p>这个过程乍一看没有任何问题，但是在实际工作中，却是存在风险漏洞的。由于SSH不像https协议那样，SSH协议的公钥是没有证书中心（CA）公证的，也就是说，都是自己签发的。这就导致如果有人截获了登陆请求，然后冒充远程主机，将伪造的公钥发给用户，那么用户很难辨别真伪，用户再通过伪造的公钥加密密码，再发送给冒充主机，此时冒充的主机就可以获取用户的登陆密码了，那么SSH的安全机制就荡然无存了，这也就是我们常说的中间人攻击。</p>
+<p>既然存在这种问题，SSH就想了一个办法来绕开这个问题，也就是我接下来要总结的known_hosts文件的作用。</p>
+<h1>known_hosts文件的作用</h1>
+<p>我们在使用SSH登陆远程主机的时候，有时会看到这样的提示：</p>
+<pre class="prettyprint"><code class=""><span class="typ">The</span><span class="pln"> authenticity of host </span><span class="str">'192.168.1.4 (192.168.1.4)'</span><span class="pln"> can</span><span class="str">'t be established.
+ECDSA key fingerprint is SHA256:YMLLk0vyfeoY4rbRTnkMSxY11arS2S4qgVgvnwWpBFw.
+ECDSA key fingerprint is MD5:82:75:be:8e:e7:26:ea:18:73:aa:fc:10:44:c8:4f:c3.
+Are you sure you want to continue connecting (yes/no)? </span></code></pre>
+<p>上面这段话的意思是，无法确认192.168.1.4主机的真实性，只知道它的公钥指纹，问你还想继续连接吗？这样我们就可以看到，SSH是将这个问题抛给了SSH使用者，让SSH使用者自己来确定是否相信远程主机。但是这样对于用户来说，就存在一个难题，用户怎么知道远程主机的公钥指纹是多少；这的确是一个问题，此时就需要远程主机必须公开自己的公钥指纹，以便用户自行核对。</p>
+<p>在经过用户的风险衡量以后，用户只需要输入<code>yes</code>来决定接受这个远程主机的公钥。紧接着，系统会出现以下这样的一句提示，表示远程主机已经得到认可：</p>
+<pre class="prettyprint"><code class=""><span class="typ">Warning</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Permanently</span><span class="pln"> added </span><span class="str">'192.168.1.4'</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ECDSA</span><span class="pun">)</span><span class="pln"> to the list of known hosts</span><span class="pun">.</span></code></pre>
+<p>接下来，用户输入远程主机密码即可完成整个登陆。那这个和我这里要总结的known_hosts文件有什么关系呢？请听我慢慢道来。</p>
+<p>当远程主机的公钥被接受以后，它就会被保存在文件<code>~/.ssh/known_hosts</code>之中。下次再连接这台主机，系统就会认出它的公钥已经保存在本地了，从而跳过警告部分，直接提示输入密码。</p>
+<p>但是由于<code>known_hosts</code>这个机制的存在，也会引起一些问题，比如远程主机的重新装操作系统了，远程主机就会重新生成公钥，如果我们再登陆远程主机时，由于我们本地的<code>known_hosts</code>文件中记录了原来的公钥，此时就会提示指纹认证失败的错误，这个时候我们只需要删除本地的<code>known_hosts</code>文件即可。又比如，我们经常会写一些自动化的脚本，会自动的登陆到远程主机上去，但是这个<code>known_hosts</code>机制却必须要我们手动输入<code>yes</code>才能完成远程登陆，这样整个自动化登陆就无法完成了，但是我们可以通过修改<code>/etc/ssh/ssh_config</code>配置文件，跳过这个<code>known_hosts</code>的询问机制，将<code># StrictHostKeyChecking ask</code>修改为<code>StrictHostKeyChecking no</code>即可。</p>
+<h1>公钥免密登录</h1>
+<p>在我们日常工作中，总是会挂很多的自动化脚本，比如自动的登陆到一台远程主机上进行一些操作，又比如Ansible就可以配置自动登陆到远程主机，但是上面说到的SSH，都需要密码登陆，那如何让SSH免密登陆，实现我们的自动登陆需求呢？这就是这里要将的公钥免密登陆。</p>
+![](http://resource.i-can.xyz/image/20191113153257.png)
+<p>上图就是SSh免密登陆原理图，从上图可以看出，SSH免密登陆的前提是使用<code>ssh-keygen -t RSA</code>生成公私秘钥对，然后通过<code>ssh-copy-id -i ~/.ssh/id_rsa.pub user@host</code>命令将公钥分发至远程主机。接下来的每次免密登陆步骤如下：</p>
+<ol>
+<li>用户使用<code>ssh user@host</code>命令对远程主机发起登陆；</li>
+<li>远程主机对用户返回一个随机串；</li>
+<li>用户所在主机使用私钥对这个随机串进行加密，并将加密的随机串返回至远程主机；</li>
+<li>远程主机使用分发过来的公钥对加密随机串进行解密；</li>
+<li>如果解密成功，就证明用户的登陆信息是正确的，则允许登陆；否则反之。</li>
+</ol>
+<p>通过<code>ssh-copy-id -i ~/.ssh/id_rsa.pub user@host</code>命令分发的公钥都会被保存至远程主机的<code>~/.ssh/authorized_keys</code>文件中。</p>
+<h1>总结</h1>
+<p>虽然我们经常使用SSH，但是对于其中的一些原理性的东西却不是很懂，很多时候就是因为这些简单的原理性的不懂，就让我们的思维受限，让我们的行动受限，因为不懂，所以就怕操作，怕出错。这篇文章就对SSH中的一些原理进行了总结，对于我们经常接触的东西，比如<code>known_hosts</code>啊、SSH免密登陆啊，这些我们平常只知道用，却不知道为什么是这样子，在出现问题时，不知道为什么，只知道谷歌、百度好用；我希望通过我的这篇文章，能让各位有缘的读者明白、熟悉这些简单的原理，让大家在日后的工作中因为懂，所以更放的开。好了，如果觉的还不错，可以点击下方的“打赏”哦。</p>
+<p><a href="https://www.jellythink.com">果冻想</a>，认真玩技术的地方。</p>
+        </article>
+    </div>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85%E5%8F%AF%E8%A7%86%E5%8C%96-amp-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/">ubuntu 下安装可视化 &amp;amp; 远程登录</a></li>
+        
+        <li><a href="/posts/linux%E4%BF%AE%E6%94%B9shell%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6%E5%8F%8A%E9%A2%9C%E8%89%B2/">Linux修改Shell命令提示符及颜色</a></li>
+        
+        <li><a href="/posts/centos-6.x-7.x%E4%B8%8A%E5%AE%89%E8%A3%85git%E5%8F%8A%E6%9C%80%E6%96%B0%E7%89%88/">CentOS 6.x/7.x上安装git及最新版</a></li>
+        
+        <li><a href="/posts/linux-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/">Linux 常见问题汇总</a></li>
+        
+        <li><a href="/posts/linux%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAssh%E5%85%AC%E9%92%A5%E5%AF%86%E9%92%A5/">linux管理多个ssh公钥密钥</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/linux">linux</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

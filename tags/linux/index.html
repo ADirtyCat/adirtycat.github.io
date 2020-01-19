@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>linux | i-cooltea的博客</title>
+    <meta property="og:title" content="linux - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="linux">
+        
+    <meta name="author" content="i-cooltea">
+    <meta property="og:url" content="http://i-cooltea.github.io/tags/linux/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="alternate" type="application/rss+xml+xml" href="http://i-cooltea.github.io/tags/linux/index.xml" title="i-cooltea的博客" />
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    
+                    <h3 class="archive-title">
+                        包含标签
+                        <span class="keyword">linux</span>
+                        的文章
+                    </h3>
+                    
+
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2019年12月30日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                 ssr链接转换工具
+SSR代理服务： SSR 下载： 需要本地git 环境 yum install -y git  如果有就不需要了 git clone https://github.com/SAMZONG/gfwlist2privoxy.git cd gfwlist2privoxy/ # 脚本文件 mv ssr /usr/local/bin chmod +x /usr/local/bin/ssr  安装配置： 安装命令 ssr install
+# 配置命令【具体参数在里面修改即可】 ssr config # 配置文件路径 /usr/local/share/shadowsocksr/config.json # 启动/关闭 ssr start ssr stop # 卸载SSR： ssr uninstall # 这里操作会删除/usr/local/share/shadowsocksr本地监听服务已经配置完成，在填写的过程中，要注意你的本地监听地址和 监听端口，默认是127.0.0.1:1080，如果你修改了设置，那么在后续配置中也要配合修改。  ……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/">转载-详解SSH原理</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2019年11月13日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                转载 原文出自果冻想 https://www.jellythink.com/archives/555
+前言 在实际日常运维工作中，肯定是离不开SSH的，每天都在不停的使用SSH登陆这个主机，或者那个主机去处理各种问题。每天用的也很舒服，但是对于SSH后面的原理却不甚了解，最近在看Ansible时，发现自己对SSH还有很多的迷惑点，对于我来说，一般不常用的迷惑点，我也就糊弄糊弄就过去了，毕竟对每个知识点进行放大，那都是一本学不完的天书，有些内容我们了解就好了，但是对于SSH，本想着也糊弄糊弄就过去吧，但是后来发现这样行不通，这里面好多的知识点直接影响着我日后的运维工作。于是乎，觉的有必要整理这样的一篇文章来把SSH的原理好好的学习一下，也好让后续自己的运维工作更得心应手，又或在教小弟时也能有点资本。
+SSH是什么？ 简单一点来说，SSH就是一种网络协议，用于在网络主机之间进行加密的一种协议。结合我们的日常工作来说，如果我从一台服务器使用SSH协议登陆另一台服务器，我们就认为这样的登陆是安全的，即使我们的登陆信息在中间被人截获了，我们的密码也不会被泄露。
+为什么要搞这么个协议呢？其实，很久很久以前，互联网通信都是明文的，一旦在中间环节被某些中间商截获了，我们的通信内容就暴漏无疑。所以呢，芬兰就有这么一位叫做Tatu Ylonen的人设计了SSH协议，将信息加密，这样就像上面说的，即使我们的登陆信息在中间被人截获了，我们的密码也不会被泄露。目前SSH协议已经在全世界广泛被使用，且已经在成为各个Linux发行版的标配。
+原理解析 至于SSH的一些简单用法，我这里就不细说了，先通过一副时序图看看SSH的密码登陆原理。
+![](http://resource.i-can.xyz/image/20191113153619.png) 从上图中，可以看到我们使用SSH进行登陆时，主要分为以下几步：
+ 用户使用ssh user@host命令对远程主机发起登陆； 远程主机将自己的公钥返回给请求主机； 请求主机使用公钥对用户输入的密码进行加密； 请求主机将加密后的密码发送给远程主机； 远程主机使用私钥对密码进行解密； 最后，远程主机判断解密后的密码是否与用户密码一致，一致就同意登陆，否则反之。  这个过程乍一看没有任何问题，但是在实际工作中，却是存在风险漏洞的。由于SSH不像https协议那样，SSH协议的公钥是没有证书中心（CA）公证的，也就是说，都是自己签发的。这就导致如果有人截获了登陆请求，然后冒充远程主机，将伪造的公钥发给用户，那么用户很难辨别真伪，用户再通过伪造的公钥加密密码，再发送给冒充主机，此时冒充的主机就可以获取用户的登陆密码了，那么SSH的安全机制就荡然无存了，这也就是我们常说的中间人攻击。
+既然存在这种问题，SSH就想了一个办法来绕开这个问题，也就是我接下来要总结的known_hosts文件的作用。
+known_hosts文件的作用 我们在使用SSH登陆远程主机的时候，有时会看到这样的提示：
+Theauthenticity of host '192.168.1.4 (192.168.1.4)'can't be established. ECDSA key fingerprint is SHA256:YMLLk0vyfeoY4rbRTnkMSxY11arS2S4qgVgvnwWpBFw. ECDSA key fingerprint is MD5:82:75:be:8e:e7:26:ea:18:73:aa:fc:10:44:c8:4f:c3. Are you sure you want to continue connecting (yes/no)?  上面这段话的意思是，无法确认192.168.1.4主机的真实性，只知道它的公钥指纹，问你还想继续连接吗？这样我们就可以看到，SSH是将这个问题抛给了SSH使用者，让SSH使用者自己来确定是否相信远程主机。但是这样对于用户来说，就存在一个难题，用户怎么知道远程主机的公钥指纹是多少；这的确是一个问题，此时就需要远程主机必须公开自己的公钥指纹，以便用户自行核对。
+在经过用户的风险衡量以后，用户只需要输入yes来决定接受这个远程主机的公钥。紧接着，系统会出现以下这样的一句提示，表示远程主机已经得到认可：
+Warning:Permanentlyadded '192.168.1.4'(ECDSA)to the list of known hosts. 接下来，用户输入远程主机密码即可完成整个登陆。那这个和我这里要总结的known_hosts文件有什么关系呢？请听我慢慢道来。
+当远程主机的公钥被接受以后，它就会被保存在文件~/.ssh/known_hosts之中。下次再连接这台主机，系统就会认出它的公钥已经保存在本地了，从而跳过警告部分，直接提示输入密码。
+但是由于known_hosts这个机制的存在，也会引起一些问题，比如远程主机的重新装操作系统了，远程主机就会重新生成公钥，如果我们再登陆远程主机时，由于我们本地的known_hosts文件中记录了原来的公钥，此时就会提示指纹认证失败的错误，这个时候我们只需要删除本地的known_hosts文件即可。又比如，我们经常会写一些自动化的脚本，会自动的登陆到远程主机上去，但是这个known_hosts机制却必须要我们手动输入yes才能完成远程登陆，这样整个自动化登陆就无法完成了，但是我们可以通过修改/etc/ssh/ssh_config配置文件，跳过这个known_hosts的询问机制，将# StrictHostKeyChecking ask修改为StrictHostKeyChecking no即可。
+公钥免密登录 在我们日常工作中，总是会挂很多的自动化脚本，比如自动的登陆到一台远程主机上进行一些操作，又比如Ansible就可以配置自动登陆到远程主机，但是上面说到的SSH，都需要密码登陆，那如何让SSH免密登陆，实现我们的自动登陆需求呢？这就是这里要将的公钥免密登陆。……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85%E5%8F%AF%E8%A7%86%E5%8C%96-amp-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/">ubuntu 下安装可视化 &amp;amp; 远程登录</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2019年6月9日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                参考 腾讯云服务器Gnome桌面安装与配置
+#!/bin/bash # 1.安装图形界面 sudo apt-get install -y xinit sudo apt-get install -y gdm sudo apt-get install -y ubuntu-desktop # 2. 安装VNC sudo apt-get install -y xauth xterm x11-common x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common sudo apt-get install -y xvfb sudo apt-get install -y x11vnc # 3. 安装xrdp,vncserver sudo apt-get install xrdp vnc4server xbase-clients # 4. 配置xrdp 设置 echo unity&gt;~/.xsession sudo service xrdp restart # shutdown -r now  使用https://repo.fdzh.org/作为chrome的源，使用apt安装……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85%E5%8F%AF%E8%A7%86%E5%8C%96-amp-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/linux%E4%BF%AE%E6%94%B9shell%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6%E5%8F%8A%E9%A2%9C%E8%89%B2/">Linux修改Shell命令提示符及颜色</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年11月6日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                ###1.Linux登录过程中加载配置文件顺序：
+/etc/profile → /etc/profile.d/*.sh → ~/.bash_profile → ~/.bashrc → [/etc/bashrc] 可查看默认的~/.bashrc文件如下： [root@~/wade/codeReview/redis-2.8.17] cat ~/.bashrc # .bashrc # User specific aliases and functions # Source global definitions if [ -f /etc/bashrc ]; then . /etc/bashrc fi  ###2.Shell命令提示符及颜色是由PS1来配置：
+[root@/etc/init.d] echo $PS1 [\[\e[32;40m\]\u@\w] 其中PS1常用的参数含义如下： \d ：#代表日期，格式为weekday month date，例如：&quot;Mon Aug 1&quot; \H ：#完整的主机名称 \h ：#仅取主机的第一个名字 \t ：#显示时间为24小时格式，如：HH：MM：SS \T ：#显示时间为12小时格式 \A ：#显示时间为24小时格式：HH：MM \u ：#当前用户的账号名称 \v ：#BASH的版本信息 \w ：#完整的工作目录名称 \W ：#利用basename取得工作目录名称，所以只会列出最后一个目录 \# ：#下达的第几个命令 \$ ：#提示字符，如果是root时，提示符为：# ，普通用户则为：$  ###3.……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/linux%E4%BF%AE%E6%94%B9shell%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6%E5%8F%8A%E9%A2%9C%E8%89%B2/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/centos-6.x-7.x%E4%B8%8A%E5%AE%89%E8%A3%85git%E5%8F%8A%E6%9C%80%E6%96%B0%E7%89%88/">CentOS 6.x/7.x上安装git及最新版</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年9月2日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                源码包安装
+步骤1. 安装依赖包 # yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel # yum install gcc perl-ExtUtils-MakeMaker  步骤2. 卸载旧的git版本（如果之前有安装rpm包） # yum remove git  步骤3. 下载&amp;解压 # cd /usr/src # wget https://www.kernel.org/pub/software/scm/git/git-2.5.0.tar.gz # tar -zxvf git-2.5.0.tar.gz 或 # wget https://github.com/git/git/archive/v2.5.0.tar.gz 下载  步骤4. 编译安装 # cd git-2.5.0 # make prefix=/usr/local/git all # make prefix=/usr/local/git install # echo &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/bashrc # source /etc/bashrc  步骤5. 检查git版本 # git --version git version 2.……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/centos-6.x-7.x%E4%B8%8A%E5%AE%89%E8%A3%85git%E5%8F%8A%E6%9C%80%E6%96%B0%E7%89%88/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/linux-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/">Linux 常见问题汇总</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年7月24日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                [TOC]
+
+Q1. linux 操作系统语言更改  有时候我们的服务器在安装时安装的默认语言不支持中文 导致程序、文档中的汉子显示乱码， 从而使系统报一些莫名其妙的错误，这是可以更改操作系统的默认语言
+  echo $LANG 查看当前操作系统的语言
+ 临时更改默认语言(关闭当前会话失效) export LANG=en_US.UTF-8
+ 永久生效,编辑文件保存并退出vi /etc/sysconfig/i18n 修改为 LANG=&quot;en_US.UTF-8&quot;
+  使其立即生效 source /etc/sysconfig/i18n
+  注意：centos7的环境对应的配置文件为： /etc/locale.con
+
+Q2. linux centos 系统时区 时间同步  修改时区为中国时区 Asiz/Shanghai 同步当前的的时间  cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+ntpdate us.pool.ntp.org
+
+Q3. linux 计划任务 &amp; crontab 配置不成功  初步排除命令错误 检查命令是否存在问题
+ crontab 规则 命令后面添加 &gt;&gt; xx.log 将执行结果输出到指定文件 可查看语句执行结果
+  0 6 * * * $HOME/for_crontab/createTomorrowTables &gt;&gt; $HOME/for_crontab/mylog.……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/linux-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/linux%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAssh%E5%85%AC%E9%92%A5%E5%AF%86%E9%92%A5/">linux管理多个ssh公钥密钥</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年6月21日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                很多网上免ssh密码使用git的命令都没有考虑到多个公钥密钥的情况， 这里搜集并整理一下管理多个ssh公钥密钥的步骤。
+1. ssh 公钥密钥生成 首先生成公钥和密钥，默认情况公钥的文件名比密钥末尾多.pub， 下面以管理coding.net和github.com两个git仓库的ssh公钥密钥为例 （如果是在windows下，请安装git客户端然后使用git bash来键入下面的命令； 如果是在linux下，则直接使用终端即可）
+ssh-keygen -t rsa -f ~/.ssh/id_rsa.coding -C &quot;Key for coding.net&quot; ssh-keygen -t rsa -f ~/.ssh/id_rsa.github -C &quot;Key for GitHub stuff&quot;  这个命令直接通过-f参数指定了密钥和公钥的文件名， 比如-f ~/.ssh/id_rsa.coding，其生产的密钥为~/.ssh/id_rsa.coding， 公钥为~/.ssh/id_rsa.coding.pub，生成好了公钥和密钥后， 把公钥文件中的内容追加到~/.ssh/authorized_keys文件的末尾， 同理github的公钥密钥的生成方式类似。
+注意追加前authorized_keys文件的末尾需要有个换行符。
+2. ssh 公钥密钥内容 ssh-rsa AAAAB3NzaC1yc2EAAaaaaaaupeyE1NMMrb121244DwhwFLsPFiFr Fb1QUwQtX2m/YSi8ELn3Vga/5AhfKKPWG+nOczWZxi0XguiyAslRiiowXaUj BYei5NHHBcAy+GiZWs4u8h3ZU7uGvwmQlqHf8tQ/I0J1RNR6nQ8Ra9882398 akk23h9Hhp63EagSbpkefg7qScroq0+VZ2yfLyjUCLgxhb+Eah+r9EqQ4l%H EF;asd8hLQw449W1SzKz3hCwxFAJFKbj/n+J50vNXB3fLNeTNiq@OOIkn324 n802Do5jIZGFzNrYsIRFbJVbHvIsodyXDmz6Qbqlx87xmEQ== admaaa@163.com ssh-rsa AAAAB3NzaC1yc2EAAAaa2#@8923n(&amp;@hfg2- hg9002nkglsdfPCBUhDN185+jyoJQRwLImRr6IOwh/LS BS1N22pO#NG3434ng90u32n@0)@#NKDLHWO:@_jqtUIB r8UzWzliM5Zcn9U/DjSjuAiP/SFg1JEoXfWSFToWQpYN bGS9VFwU83MH1iGGDUeaeHY5mAMWy57ym/+Jm/hPs1I3 E+OtDT9+K1RyIGr44Ur7aWpKZ/PMgiuPUc6qfGFVP4xvRw== myyyy@gmail.com  **同时把这个公钥添加到git仓库ssh key管理的地方，比如github是在Settings–&gt;SSH Keys里面
+3. 多密钥管理 ~/.ssh/config 当有多个ssh密钥需要管理时，一定要修改config文件的权限，否则你配置后仍然时无效的**
+touch ~/.ssh/config chmod 600 ~/.ssh/config  ~/.……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/linux%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAssh%E5%85%AC%E9%92%A5%E5%AF%86%E9%92%A5/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8B%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0~/">Linux 下常用命令 持续更新~</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年6月11日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1.ls [选项] [目录名 | 列出相关目录下的所有目录和文件 -a 列出包括.a开头的隐藏文件的所有文件 -A 通-a，但不列出&rdquo;.&ldquo;和&rdquo;..&rdquo; -l 列出文件的详细信息 -c 根据ctime排序显示 -t 根据文件修改时间排序 &mdash;color[=WHEN] 用色彩辨别文件类型 WHEN 可以是’never’、’always’或’auto’其中之一 白色：表示普通文件 蓝色：表示目录 绿色：表示可执行文件 红色：表示压缩文件 浅蓝色：链接文件 红色闪烁：表示链接的文件有问题 黄色：表示设备文件 灰色：表示其它文件
+2.mv [选项] 源文件或目录 目录或多个源文件 | 移动或重命名文件 -b 覆盖前做备份 -f 如存在不询问而强制覆盖 -i 如存在则询问是否覆盖 -u 较新才覆盖 -t 将多个源文件移动到统一目录下，目录参数在前，文件参数在后 eg: mv a /tmp/ 将文件a移动到 /tmp目录下 mv a b 将a命名为b mv /home/zenghao test### 1.txt test### 2.txt test### 3.txt
+3.cp [选项] 源文件或目录 目录或多个源文件 | 将源文件复制至目标文件，或将多个源文件复制至目标目录。 -r -R 递归复制该目录及其子目录内容 -p 连同档案属性一起复制过去 -f 不询问而强制复制 -s 生成快捷方式 -a 将档案的所有特性都一起复制……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8B%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0~/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8B-nfs-%E6%9C%8D%E5%8A%A1%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3-permission-denied/">Linux 下 NFS 服务权限问题解决  Permission denied</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年6月9日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                [TOC]
+##前言 &gt;NFS 是一种分布式文件系统，允许客户端主机可以像访问本地存储一样通过网络访问服务器端文件。同时，NFS 协议也是开放的，基于 ONC RPC 协议的一个标准 RFC 协议。凡是实现 NFS 标准的软件（客户端或者服务端）都可以互相兼容。 使用
+Linux 内置的 mount 命令就支持 NFS，仅仅运行：
+&gt; mount -t nfs ${server_ip}:${server_nfs_dir} ${local_dir}  即可将远程的网络目录挂载到本地，就如同操作本地文件一样。并且一般来讲 应用程序对 NFS 挂载点的访问及使用和本地目录没有区别。
+例： &gt; mount -t nfs 10.10.2.140:/data/ABC /data/ABC  NFS 权限问题 假如你当前登录在客户端系统上的用户 UID 为 1000， 那么你对 NFS 文件的操作权限就对应 NFS 服务器的 UID:1000 用户的权限。 因为客户端用户对应服务端用户，变相的相当于“你在用服务器上你的身份操作NFS服务器的文件”。 因为这个原因，对于系统管理员和客户端使用人员而言， 可能对 NFS 的权限配置就省了很大的一笔功夫了。 那么问题就来了：客户端系统的用户ID和服务器的用户ID不是一一对应的，可能会出现各种异常问题，常见：  &gt; echo &quot;abc&quot;&gt;/data/ABC/1.txt &gt; bash: 1.txt: Permission denied  ###NFS 权限问题解决思路 方案一：……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8B-nfs-%E6%9C%8D%E5%8A%A1%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3-permission-denied/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8B-centos7-nfs%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/">Linux 下 centos7 NFS使用与配置</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年6月9日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                [TOC]
+###简介
+NFS是Network File System的缩写，即网络文件系统。 客户端通过挂载的方式将NFS服务器端共享的数据目录挂载到本地目录下。  ###1. NFS为什么需要RPC? 因为NFS支持的功能很多，不同功能会使用不同程序来启动， 因此，NFS对应的功能所对应的端口无法固定。 端口不固定造成客户端与服务端之间的通信障碍，所以需要RPC来从中帮忙。 NFS启动时会随机取用若干端口，然后主动向RPC服务注册取用相关端口和功能信息， RPC使用固定端口111来监听来自NFS客户端的请求， 并将正确的NFS服务端口信息返回给客户端，这样客户端与服务端就可以进行数据传输了。
+###2. NFS的工作流程 由程序在NFS客户端发起存取文件的请求，客户端本地的RPC(rpcbind)服务 会通过网络向NFS服务端的RPC的111端口发出文件存取功能的请求。 NFS服务端的RPC找到对应已注册的NFS端口，通知客户端RPC服务。 客户端获取正确的端口，并与NFS daemon联机存取数据。 存取数据成功后，返回前端访问程序，完成一次存取操作。
+###3. NFS服务安装配置
+**安装 : nfs-utils / rpcbind**  查看是否安装NFS
+&gt; rpm -qa nfs-utils rpcbind &gt; yum install nfs-utils rpcbind  ###4. 启动rpcbind服务
+查看服务状态 &gt; systemctl status rpcbind.service 如果不知道rpcbind命令在哪 &gt; which rpcbind 启动rpc服务 &gt; systemctl restart rpcbind.service  查看rpc  &gt; lsof -i :111 &gt; netstat -lntup|grep rpcbind 如果出现-bash未找到命令可执行下面命令 &gt; yum install net-tools lsof 查看nfs服务向rpc注册的端口信息 &gt; rpcinfo -p localhost 检查rpcbind是否开机启动 &gt; chkconfig --list rpcbind ``` ###5.……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8B-centos7-nfs%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+
+                    
+
+
+
+<ol class="page-navigator">
+    
+
+    
+    <li  class="current">
+        <a href="http://i-cooltea.github.io/tags/linux/">1</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/tags/linux/page/2/">2</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="http://i-cooltea.github.io/tags/linux/page/2/">下一页</a>
+    </li>
+    
+</ol>
+
+
+
+                </div>
+            </div>
+
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+
+</body>
+</html>

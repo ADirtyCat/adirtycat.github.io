@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on i-cooltea的博客</title>
+    <link>http://i-cooltea.github.io/tags/docker/</link>
+    <description>Recent content in docker on i-cooltea的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 30 Dec 2019 09:02:50 +0000</lastBuildDate>
+    
+	<atom:link href="http://i-cooltea.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</title>
+      <link>http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 30 Dec 2019 09:02:50 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/</guid>
+      <description> Docker守护程序使用HTTP_PROXY，HTTPS_PROXY以及NO_PROXY环境变量在其启动环境来配置HTTP或HTTPS代理的行为。无法使用daemon.json文件配置这些环境变量。
+此示例将覆盖默认docker.service文件。
+在设置中，需要在Docker systemd服务文件中添加此配置
+如果使用HTTP代理服务器时，将为docker服务创建systemd插件目录：
+mkdir -p /etc/systemd/system/docker.service.d  创建一个名为的文件/etc/systemd/system/docker.service.d/http-proxy.conf，添加HTTP_PROXY环境变量：
+[Service] Environment=&#34;HTTP_PROXY=http://proxy.example.com:80/&#34;  或者，如果使用HTTPS代理服务器，那么再创建一个名为/etc/systemd/system/docker.service.d/https-proxy.conf&amp;nbsp;添加HTTPS_PROXY环境变量&amp;nbsp;：
+[Service] Environment=&#34;HTTPS_PROXY=https://proxy.example.com:443/&#34;  &amp;nbsp;
+为Docker配置不代理的地址时，可以通过NO_PROXY环境变量指定它们，比如HTTP代理服务器的配置：
+[Service] Environment=&#34;HTTP_PROXY=http://proxy.example.com:80/&#34; &#34;NO_PROXY=localhost,127.0.0.1,docker-registry.somecorporation.com&#34;  或者，HTTPS代理服务器的配置：
+[Service] Environment=&#34;HTTPS_PROXY=https://proxy.example.com:443/&#34; &#34;NO_PROXY=localhost,127.0.0.1,docker-registry.somecorporation.com&#34;  &amp;nbsp;
+重新读取服务的配置文件：
+systemctl daemon-reload  &amp;nbsp;
+重启Docker：
+systemctl restart docker  &amp;nbsp;
+验证是否已加载配置：
+systemctl show --property=Environment docker  &amp;nbsp;
+参考：
+https://docs.docker.com/config/daemon/systemd/#httphttps-proxy
+    &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt;  </description>
+    </item>
+    
+    <item>
+      <title>Docker 常用命令</title>
+      <link>http://i-cooltea.github.io/posts/docker-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Fri, 20 Jul 2018 02:26:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/docker-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>查看 docker images # 列出所有镜像(images) docker ps # 列出正在运行的容器(containers) docker ps -a # 列出所有的容器 docker pull centos # 下载centos镜像 docker top &amp;lt;container&amp;gt; # 查看容器内部运行程序  容器 docker stop &amp;lt;container&amp;gt; # 停止一个正在运行的容器，&amp;lt;container&amp;gt;可以是容器ID或名称 docker start &amp;lt;container&amp;gt; # 启动一个已经停止的容器 docker restart &amp;lt;container&amp;gt; # 重启容器 docker rm &amp;lt;container&amp;gt; # 删除容器 docker run -i -t -p :80 LAMP /bin/bash # 运行容器并做http端口转发 docker exec -it &amp;lt;container&amp;gt; /bin/bash # 进入ubuntu类容器的bash docker exec -it &amp;lt;container&amp;gt; /bin/sh # 进入alpine类容器的sh docker rm `docker ps -a -q` # 删除所有已经停止的容器 FOR /f &amp;quot;tokens=*&amp;quot; %i IN (&#39;docker ps -a -q&#39;) DO docker rm %i # windows系统，用上面的命令会出错：unknown shorthand flag: &#39;a&#39; in -a docker kill $(docker ps -a -q) # 杀死所有正在运行的容器，$()功能同``  提交/导出 # 建立映像文件。–rm 选项是告诉Docker， # 在构建完成后删除临时的Container， # Dockerfile的每一行指令都会创建一个临时的Container， # 一般这些临时生成的Container是不需要的 docker build --rm=true -t hjue/lamp # 提交你的变更，并且把容器保存成镜像，命名为mynewimage，3a09b2588478为容器的ID docker commit 3a09b2588478 mynewimage # 把 mynewimage 镜像保存成 tar 文件 docker save mynewimage | bzip2 -9 -c&amp;gt; /home/save.</description>
+    </item>
+    
+    <item>
+      <title>Docker 操作指南</title>
+      <link>http://i-cooltea.github.io/posts/docker-%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 01 Jul 2018 03:40:00 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/docker-%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/</guid>
+      <description>docker &amp;amp; docker-compose 安装 1、安装 Docker
+# 安装依赖 sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 # 添加docker下载仓库 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo # 安装docker-ce sudo yum install docker-ce # 启动docker-ce sudo systemctl start docker # 验证 sudo docker --version sudo docker run hello-world  2、安装 docker-compose
+sudo curl -L &amp;quot;https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)&amp;quot; -o /usr/local/bin/docker-compose sudo chmod +x /usr/local/bin/docker-compose docker-compose --version  *参考： docker CE 阿里云镜像 安装 docker-compose 安装 docker 镜像加速  *</description>
+    </item>
+    
+  </channel>
+</rss>

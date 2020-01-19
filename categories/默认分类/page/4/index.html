@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>默认分类 | i-cooltea的博客</title>
+    <meta property="og:title" content="默认分类 - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="默认分类">
+        
+    <meta name="author" content="i-cooltea">
+    <meta property="og:url" content="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="alternate" type="application/rss+xml+xml" href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/index.xml" title="i-cooltea的博客" />
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    
+                    <h3 class="archive-title">
+                        分类
+                        <span class="keyword">默认分类</span>
+                        中的文章
+                    </h3>
+                    
+
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/vim-%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%BC%8F/">Vim 搜索模式</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2019年5月24日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                本文介绍如何使用Vim的搜索模式。
+&nbsp;
+搜索单词 Vim中使用 &amp;lt; 和 &amp;gt; 分别表示单词的开头和结尾，例如查找单词 i 而不是字母 i ，在正常模式下，按下 / 启动搜索模式，输入 &amp;lt;i&amp;gt; ，敲击回车即可。
+要查找当前光标覆盖的单词，敲击 * ，Vim会自动启动搜索模式，光标移动到该单词下一个现身位置。
+&nbsp;
+搜索当前单词并连续修改 假定当前光标覆盖的单词为 foo，按下 * 键，Vim 会搜索并跳转到下一个 foo 的位置，按下 ciw 组合键，意思是 change inner word ，此时 foo 会被删除，在原位置输入 bar ，然后按下 Escape 键。这就完成了一次搜索并修改，接下来按 n 键继续搜索，如果还需要修改，则按下 . 键表示重复修改动作，如此反复完成连续搜索与修改。
+&nbsp;
+搜索连续重复单词 有时你可能会连续重复输入同一个单词而不自知，例如以下文本：
+1 hello hello 2 world world 3 thank 4 thank 搜索模式：
+\(\&lt;\w\+\&gt;\)\_s*\1  以上搜索模式会匹配文本中的1-4行。在Vim中，使用 ( 和 ) 包括的部分视为一个原子，其中 (&amp;lt;\w+&amp;gt;) 匹配一个单词原子，\s 匹配空格符和tab符， _s 匹配空格符、tab符和换行符， _s* 匹配0次或多次。……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/vim-%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%BC%8F/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/vim-%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%BC%8F/">vim 搜索模式</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2019年5月24日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                本文介绍如何使用Vim的搜索模式。
+&nbsp;
+搜索单词 Vim中使用 &amp;lt; 和 &amp;gt; 分别表示单词的开头和结尾，例如查找单词 i 而不是字母 i ，在正常模式下，按下 / 启动搜索模式，输入 &amp;lt;i&amp;gt; ，敲击回车即可。
+要查找当前光标覆盖的单词，敲击 * ，Vim会自动启动搜索模式，光标移动到该单词下一个现身位置。
+&nbsp;
+搜索当前单词并连续修改 假定当前光标覆盖的单词为 foo，按下 * 键，Vim 会搜索并跳转到下一个 foo 的位置，按下 ciw 组合键，意思是 change inner word ，此时 foo 会被删除，在原位置输入 bar ，然后按下 Escape 键。这就完成了一次搜索并修改，接下来按 n 键继续搜索，如果还需要修改，则按下 . 键表示重复修改动作，如此反复完成连续搜索与修改。
+&nbsp;
+搜索连续重复单词 有时你可能会连续重复输入同一个单词而不自知，例如以下文本：
+1 hello hello 2 world world 3 thank 4 thank 搜索模式：
+\(\&lt;\w\+\&gt;\)\_s*\1  以上搜索模式会匹配文本中的1-4行。在Vim中，使用 ( 和 ) 包括的部分视为一个原子，其中 (&amp;lt;\w+&amp;gt;) 匹配一个单词原子，\s 匹配空格符和tab符， _s 匹配空格符、tab符和换行符， _s* 匹配0次或多次。……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/vim-%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%BC%8F/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/%E6%88%91%E7%9A%84%E8%BD%AF%E8%80%83%E4%B9%8B%E8%B7%AF/">我的软考之路</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2019年5月16日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                 耦合类型  一般模块之间可能的连接方式有七种，构成耦合性的七种类型。它们之间的关系为（耦合性性由强到弱）： 内容 &gt; 公共 &gt; 外部 &gt; 控制 印记 &gt; 数据 &gt; 非直接
+  内容耦合(Content Coupling)
+如果发生下列情形，两个模块之间就发生了内容耦合。
+ 一个模块直接访问另一个模块的内部数据； 一个模块不通过正常入口转到另一模块内部； 两个模块有一部分程序代码重叠(只可能出现在汇编语言中)； 一个模块有多个入口。  公共耦合(Common Coupling) 若一组模块都访问同一个公共数据环境，则它们之间的耦合就称为公共耦合。 公共的数据环境可以是全局数据结构、共享的通信区、内存的公共覆盖区等。
+ **外部耦合(External Coupling) ** 一组模块都访问同一全局简单变量而不是同一全局数据结构， 而且不是通过参数表传递该全局变量的信息，则称之为外部耦合。
+ **控制耦合(Control Coupling) ** 如果一个模块通过传送开关、标志、名字等控制信息， 明显地控制选择另一模块的功能，就是控制耦合。
+ **印记耦合(Stamp Coupling) ** 如果一组模块通过参数表传递记录信息，就是标记耦合。 它是某一数据结构的子结构，而不是简单变量。
+ **数据耦合(Data Coupling) ** 如果一个模块访问另一个模块时，彼此之间是通过数据参数(不是控制参数、 公共数据结构或外部变量)来交换输入、输出信息的，则称这种耦合为数据耦合。
+ **非直接耦合(Nondirect Coupling) ** 如果两个模块之间没有直接关系，它们之间的联系完全是通过主模块的控制和调用来实现的，
+这就是非直接耦合。这种耦合的模块独立性最强。 
+  ……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/%E6%88%91%E7%9A%84%E8%BD%AF%E8%80%83%E4%B9%8B%E8%B7%AF/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/php-yum-%E5%AE%89%E8%A3%85/">php yum 安装</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2019年3月18日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                 yum install http://rpms.remirepo.net/enterprise/remi-release-6.rpm yum install php71-php.x86_64 php71-php-cli.x86_64 php71-php-common.x86_64 php71-php-devel.x86_64 php71-php-fpm.x86_64 php71-php-gd.x86_64 php71-php-ldap.x86_64 php71-php-mbstring.x86_64 php71-php-mcrypt.x86_64 php71-php-mysqlnd.x86_64 php71-php-opcache.x86_64 php71-php-pdo.x86_64 php71-php-pear.noarch php71-php-pecl-igbinary.x86_64 php71-php-pecl-jsond.x86_64 php71-php-pecl-memcache.x86_64 php71-php-pecl-zip.x86_64 php71-php-pecl-xdebug.x86_64 php71-php-pecl-redis.x86_64 php71-php-soap.x86_64 php71-php-mysqlnd.x86_64 php71-php-pecl-imagick.x86_64 php71-php-pecl-rdkafka.x86_64 php71-php-pecl-mongodb.x86_64 php71-php-pecl-rdkafka.x86_64 php71-php-pecl-memcached.x86_64 php71-php-pgsql.x86_64  ……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/php-yum-%E5%AE%89%E8%A3%85/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/supervisor-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/">Supervisor 使用说明</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年11月9日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                  一个进程管理工具，通过fork/exec的方式将这些被管理的进程当作supervisor的子进程来启动，只需要将要管理进程路径添加到配置文件中。被管理进程视为supervisor的子进程，若子进程异常中断，则父进程可以准确获取子进程中断的信息，自动对其进行重启 。
+ 安装  # pip 安装 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py python get-pip.py pip install supervisor  配置  mkdir /etc/supervisor/conf.d # 复制配置文件 echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf vim /etc/supervisor/supervisord.conf [inet_http_server] port=*:9011 username=user password=123Yk [include] files = /etc/supervisord/conf.d/*.ini  常见操作 启动 supervisord -c /etc/supervisor/supervisord.conf  重启 pkill supervisord supervisord -c /etc/supervisor/supervisord.conf  更新 supervisorctl update  ……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/supervisor-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/linux%E4%BF%AE%E6%94%B9shell%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6%E5%8F%8A%E9%A2%9C%E8%89%B2/">Linux修改Shell命令提示符及颜色</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年11月6日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                ###1.Linux登录过程中加载配置文件顺序：
+/etc/profile → /etc/profile.d/*.sh → ~/.bash_profile → ~/.bashrc → [/etc/bashrc] 可查看默认的~/.bashrc文件如下： [root@~/wade/codeReview/redis-2.8.17] cat ~/.bashrc # .bashrc # User specific aliases and functions # Source global definitions if [ -f /etc/bashrc ]; then . /etc/bashrc fi  ###2.Shell命令提示符及颜色是由PS1来配置：
+[root@/etc/init.d] echo $PS1 [\[\e[32;40m\]\u@\w] 其中PS1常用的参数含义如下： \d ：#代表日期，格式为weekday month date，例如：&quot;Mon Aug 1&quot; \H ：#完整的主机名称 \h ：#仅取主机的第一个名字 \t ：#显示时间为24小时格式，如：HH：MM：SS \T ：#显示时间为12小时格式 \A ：#显示时间为24小时格式：HH：MM \u ：#当前用户的账号名称 \v ：#BASH的版本信息 \w ：#完整的工作目录名称 \W ：#利用basename取得工作目录名称，所以只会列出最后一个目录 \# ：#下达的第几个命令 \$ ：#提示字符，如果是root时，提示符为：# ，普通用户则为：$  ###3.……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/linux%E4%BF%AE%E6%94%B9shell%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6%E5%8F%8A%E9%A2%9C%E8%89%B2/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/sublime%E9%85%8D%E7%BD%AEterminal%E6%8F%92%E4%BB%B6/">Sublime配置Terminal插件</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年10月17日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                windows环境下： 对未安装package control的sublime:
+ ctrl+shift+p 打开package control 输入 intsall package  输入Terminal  Preferences=&gt;Package setting=&gt;Terminal=&gt;Setting -User
+ 输入：
+{ &quot;terminal&quot;: &quot;C:\\windows\\system32\\cmd.exe&quot;, &quot;parameters&quot;: [&quot;/START&quot;,&quot;%CWD%&quot;] }   在编辑的文件目录打开cmd：ctrl+shift+t 输入任何一个命令均发现不是命令：
+1）首先确认是否在windows环境变量配置了相关路径
+2）配置好terminal后应重启subime，这一步是关键。
+作者：underdogs 来源：CSDN 原文：https://blog.csdn.net/underdogs/article/details/78322639?utm_source=copy 版权声明：本文为博主原创文章，转载请附上博文链接！……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/sublime%E9%85%8D%E7%BD%AEterminal%E6%8F%92%E4%BB%B6/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/2nf-%E5%92%8C-3nf-%E7%9A%84%E5%8C%BA%E5%88%AB/">2NF 和 3NF 的区别</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年10月12日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                 2NF 完全函数依赖 (非部分函数依赖) 设有一个勤工俭学的记录 的关系模式如下 R(学号,工作类别,班级,学生名,收入) R(sid,type,class,name,money) 其中 (sid,type) 是唯一标识 (sid,type) -&gt; money (即主码 ,主属性集合 : 用户定义的可以唯一区分每一条记录) 如果存可以直接用这个集合里的一部分推导出来的属性 就是 部分函数依赖 即 sid -&gt; name  3NF (非传递函数依赖) 设有一个学生信息表如下 R(学号,学生名,班级ID,班级名称) R(sid,name,classId,className) 其中 (sid) 是唯一标识 (即主码 ,主属性集合 : 用户定义的可以唯一区分每一条记录) 如果存可以用非该个集合里 推导出来的属性 就是 传递函数依赖 即 classId -&gt; className  ……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/2nf-%E5%92%8C-3nf-%E7%9A%84%E5%8C%BA%E5%88%AB/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/node.js-%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/">Node.js 知识点汇总</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年9月3日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                安装包下载(国内)
+安装 Linux 上安装 Node.js 直接使用已编译好的包 Node 官网已经把 linux 下载版本更改为已编译好的版本了，我们可以直接下载解压后使用：
+# wget https://nodejs.org/dist/v10.9.0/node-v10.9.0-linux-x64.tar.xz // 下载 # tar xf node-v10.9.0-linux-x64.tar.xz // 解压 # cd node-v10.9.0-linux-x64/ // 进入解压目录 # ./bin/node -v // 执行node命令 查看版本 v10.9.0  解压文件的 bin 目录底下包含了 node、npm 等命令，我们可以使用 ln 命令来设置软连接：
+ln -s /usr/software/nodejs/bin/npm /usr/local/bin/ ln -s /usr/software/nodejs/bin/node /usr/local/bin/  NPM国内镜像 http://npm.hacknodejs.com/ http://registry.npmjs.vitecho.com/ https://registry.npm.taobao.org/ 永久使用镜像命令： npm config set registry https://registry.npm.taobao.org 临时使用镜像命令： npm --registry &quot;http://npm.hacknodejs.com/&quot; install underscore  Webpack 常用命令总结 // 全局安装webpack npm install webpack -g // 初始化默认的package.……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/node.js-%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://i-cooltea.github.io/posts/centos-6.x-7.x%E4%B8%8A%E5%AE%89%E8%A3%85git%E5%8F%8A%E6%9C%80%E6%96%B0%E7%89%88/">CentOS 6.x/7.x上安装git及最新版</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年9月2日
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                源码包安装
+步骤1. 安装依赖包 # yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel # yum install gcc perl-ExtUtils-MakeMaker  步骤2. 卸载旧的git版本（如果之前有安装rpm包） # yum remove git  步骤3. 下载&amp;解压 # cd /usr/src # wget https://www.kernel.org/pub/software/scm/git/git-2.5.0.tar.gz # tar -zxvf git-2.5.0.tar.gz 或 # wget https://github.com/git/git/archive/v2.5.0.tar.gz 下载  步骤4. 编译安装 # cd git-2.5.0 # make prefix=/usr/local/git all # make prefix=/usr/local/git install # echo &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/bashrc # source /etc/bashrc  步骤5. 检查git版本 # git --version git version 2.……
+                                <p class="readmore"><a href="http://i-cooltea.github.io/posts/centos-6.x-7.x%E4%B8%8A%E5%AE%89%E8%A3%85git%E5%8F%8A%E6%9C%80%E6%96%B0%E7%89%88/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+
+                    
+
+
+
+<ol class="page-navigator">
+    
+    <li class="prev">
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/3/">上一页</a>
+    </li>
+    
+
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">1</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/2/">2</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/3/">3</a>
+    </li>
+    
+    <li  class="current">
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/4/">4</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/5/">5</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/6/">6</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/7/">7</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/8/">8</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/9/">9</a>
+    </li>
+    
+    <li >
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/10/">10</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/page/5/">下一页</a>
+    </li>
+    
+</ol>
+
+
+
+                </div>
+            </div>
+
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+
+</body>
+</html>

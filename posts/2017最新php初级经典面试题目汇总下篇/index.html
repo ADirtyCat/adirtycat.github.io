@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>2017最新PHP初级经典面试题目汇总（下篇） | i-cooltea的博客</title>
+    <meta property="og:title" content="2017最新PHP初级经典面试题目汇总（下篇） - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-02-26T11:58:00&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-02-26T11:58:00&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content="2017最新PHP初级经典面试题目汇总（下篇）">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/2017%E6%9C%80%E6%96%B0php%E5%88%9D%E7%BA%A7%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB%E4%B8%8B%E7%AF%87/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">2017最新PHP初级经典面试题目汇总（下篇）</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年2月26日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            <p>17、isset、empty、is_null的区别<div>
+    <br />
+</div>
+<div>
+    isset 判断变量是否定义或者是否为空</div>
+<div>
+    <br />
+</div>
+<div>
+    &nbsp; 变量存在返回ture，否则返回false</div>
+<div>
+    &nbsp; 变量定义不赋值返回false</div>
+<div>
+    &nbsp; unset一个变量，返回false</div>
+<div>
+    &nbsp; 变量赋值为null，返回false</div>
+<div>
+    &nbsp;&nbsp;</div>
+<div>
+    empty：判断变量的值是否为空，能转换为false的都是空，为空返回true，反之返回false。</div>
+<div>
+    <br />
+</div>
+<div>
+    &nbsp; &nbsp; &ldquo;&rdquo;,0,&ldquo;0&rdquo;,NULL，FALSE都认为为空，返回true</div>
+<div>
+    &nbsp; &nbsp; 没有任何属性的对象都认为是空</div>
+<div>
+    &nbsp; &nbsp;&nbsp;</div>
+<div>
+    is_null：检测传入的值(值、变量、表达式)是否为null</div>
+<div>
+    <br />
+</div>
+<div>
+    &nbsp; &nbsp; 定义了，但是赋值为Null</div>
+<div>
+    &nbsp; &nbsp; 定义了，但是没有赋值</div>
+<div>
+    &nbsp; &nbsp; unset一个变量</div>
+<div>
+    18、前端调试的工具</div>
+<div>
+    <br />
+</div>
+<div>
+    Firefox的firebug</div>
+<div>
+    Chrome的开发工具</div>
+<div>
+    Emmet</div>
+<div>
+    JSON格式校验工具</div>
+<div>
+    19. 简单描述mysql中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响（从读写两方面）（新浪网技术部）</div>
+<div>
+    <br />
+</div>
+<div>
+    索引是一种特殊的文件(InnoDB数据表上的索引是表空间的一个组成部分)，它们包含着对数据表里所有记录的引用指针。</div>
+<div>
+    普通索引(由关键字KEY或INDEX定义的索引)的唯一任务是加快对数据的访问速度。</div>
+<div>
+    普通索引允许被索引的数据列包含重复的值。如果能确定某个数据列将只包含彼此各不相同的值，在为这个数据列创建索引的时候就应该用关键字UNIQUE把它定义为一个唯一索引。也就是说，唯一索引可以保证数据记录的唯一性。</div>
+<div>
+    主键，是一种特殊的唯一索引，在一张表中只能定义一个主键索引，主键用于唯一标识一条记录，使用关键字 PRIMARY KEY 来创建。</div>
+<div>
+    索引可以覆盖多个数据列，如像INDEX(columnA, columnB)索引，这就是联合索引。</div>
+<div>
+    索引可以极大的提高数据的查询速度，但是会降低插入、删除、更新表的速度，因为在执行这些写操作时，还要操作索引文件。</div>
+<div>
+    <br />
+</div>
+<div>
+    20.数据库中的事务是什么?</div>
+<div>
+    <br />
+</div>
+<div>
+    事务（transaction）是作为一个单元的一组有序的数据库操作。如果组中的所有操作都成功，则认为事务成功，即使只有一个操作失败，事务也不成功。如果所有操作完成，事务则提交，其修改将作用于所有其他数据库进程。如果一个操作失败，则事务将回滚，该事务所有操作的影响都将取消。ACID 四大特性,原子性、隔离性、一致性、持久性。</div>
+<div>
+    <br />
+</div>
+<div>
+    21.了解XSS攻击吗？如何防止？</div>
+<div>
+    <br />
+</div>
+<div>
+    XSS是跨站脚本攻击，首先是利用跨站脚本漏洞以一个特权模式去执行攻击者构造的脚本，然后利用不安全的Activex控件执行恶意的行为。</div>
+<div>
+    使用htmlspecialchars()函数对提交的内容进行过滤，使字符串里面的特殊符号实体化。</div>
+<div>
+    <br />
+</div>
+<div>
+    22.SQL注入漏洞产生的原因？如何防止？</div>
+<div>
+    <br />
+</div>
+<div>
+    SQL注入产生的原因：程序开发过程中不注意规范书写sql语句和对特殊字符进行过滤，导致客户端可以通过全局变量POST和GET提交一些sql语句正常执行。</div>
+<div>
+    <br />
+</div>
+<div>
+    防止SQL注入的方式：</div>
+<div>
+    <br />
+</div>
+<div>
+    开启配置文件中的magic_quotes_gpc 和 magic_quotes_runtime设置</div>
+<div>
+    执行sql语句时使用addslashes进行sql语句转换</div>
+<div>
+    Sql语句书写尽量不要省略双引号和单引号。</div>
+<div>
+    过滤掉sql语句中的一些关键词：update、insert、delete、select、 * 。</div>
+<div>
+    提高数据库表和字段的命名技巧，对一些重要的字段根据程序的特点命名，取不易被猜到的。</div>
+<div>
+    Php配置文件中设置register_globals为off,关闭全局变量注册</div>
+<div>
+    控制错误信息，不要在浏览器上输出错误信息，将错误信息写到日志文件中。</div>
+<div>
+    23.PHP网站的主要攻击方式有哪些？</div>
+<div>
+    <br />
+</div>
+<div>
+    命令注入(Command Injection)</div>
+<div>
+    eval 注入(Eval Injection)</div>
+<div>
+    客户端脚本攻击(Script Insertion)</div>
+<div>
+    跨网站脚本攻击(Cross Site Scripting, XSS)</div>
+<div>
+    SQL 注入攻击(SQL injection)</div>
+<div>
+    跨网站请求伪造攻击(Cross Site Request</div>
+<div>
+    Forgeries, CSRF)</div>
+<div>
+    Session 会话劫持(Session Hijacking)</div>
+<div>
+    Session 固定攻击(Session Fixation)</div>
+<div>
+    HTTP 响应拆分攻击(HTTP Response Splitting)</div>
+<div>
+    文件上传漏洞(File Upload Attack)</div>
+<div>
+    目录穿越漏洞(Directory Traversal)</div>
+<div>
+    远程文件包含攻击(Remote Inclusion)</div>
+<div>
+    动态函数注入攻击(Dynamic Variable</div>
+<div>
+    Evaluation)</div>
+<div>
+    URL 攻击(URL attack)</div>
+<div>
+    表单提交欺骗攻击(Spoofed Form</div>
+<div>
+    Submissions)</div>
+<div>
+    HTTP 请求欺骗攻击(Spoofed HTTP Requests)</div>
+<div>
+    24、框架中什么是单一入口和多入口 ， 单一入口的优缺点？</div>
+<div>
+    <br />
+</div>
+<div>
+    多口就是通过访问不同的文件来完成用户请求。单一入口只 web 程序所有的请求都指向一个脚本文件的。</div>
+<div>
+    单一入口更容易控制权限，方便对 http 请求可以进行安全性检查。</div>
+<div>
+    缺点：URL 看起来不那么美观，特别是对搜索引擎来说不友好。</div>
+<div>
+    25、 对于关系型数据库而言，索引是相当重要的概念，请回答有关索引的几个问题：</div>
+<div>
+    <br />
+</div>
+<div>
+    a)、索引的目的是什么？</div>
+<div>
+    <br />
+</div>
+<div>
+    快速访问数据表中的特定信息，提高检索速度</div>
+<div>
+    创建唯一性索引，保证数据库表中每一行数据的唯一性。</div>
+<div>
+    加速表和表之间的连接</div>
+<div>
+    使用分组和排序子句进行数据检索时，可以显著减少查询中分组和排序的时间</div>
+<div>
+    b)、索引对数据库系统的负面影响是什么？</div>
+<div>
+    <br />
+</div>
+<div>
+    负面影响：</div>
+<div>
+    创建索引和维护索引需要耗费时间，这个时间随着数据量的增加而增加；索引需要占用物理空间，不光是表需要占用数据空间，每个索引也需要占用物理空间；当对表进行增、删、改、的时候索引也要动态维护，这样就降低了数据的维护速度。</div>
+<div>
+    <br />
+</div>
+<div>
+    c)、为数据表建立索引的原则有哪些？</div>
+<div>
+    <br />
+</div>
+<div>
+    在最频繁使用的、用以缩小查询范围的字段上建立索引。</div>
+<div>
+    在频繁使用的、需要排序的字段上建立索引</div>
+<div>
+    d)、 什么情况下不宜建立索引？</div>
+<div>
+    <br />
+</div>
+<div>
+    对于查询中很少涉及的列或者重复值比较多的列，不宜建立索引。</div>
+<div>
+    对于一些特殊的数据类型，不宜建立索引，比如文本字段（text）等。</div>
+<div>
+    26、 简述在MySQL数据库中MyISAM和InnoDB的区别</div>
+<div>
+    <br />
+</div>
+<div>
+    区别于其他数据库的最重要的特点就是其插件式的表存储引擎。切记：存储引擎是基于表的，而不是数据库。</div>
+<div>
+    <br />
+</div>
+<div>
+    InnoDB与MyISAM的区别：</div>
+<div>
+    <br />
+</div>
+<div>
+    InnoDB存储引擎: 主要面向OLTP(Online Transaction Processing，在线事务处理)方面的应用，是第一个完整支持ACID事务的存储引擎(BDB第一个支持事务的存储引擎，已经停止开发)。</div>
+<div>
+    <br />
+</div>
+<div>
+    特点：</div>
+<div>
+    <br />
+</div>
+<div>
+    行锁设计、支持外键；</div>
+<div>
+    支持类似于Oracle风格的一致性非锁定读(即：默认情况下读取操作不会产生锁)；</div>
+<div>
+    InnoDB将数据放在一个逻辑的表空间中，由InnoDB自身进行管理。从MySQL4.1版本开始，可以将每个InnoDB存储引擎的表单独存放到一个独立的ibd文件中；</div>
+<div>
+    InnoDB通过使用MVCC(多版本并发控制：读不会阻塞写，写也不会阻塞读)来获得高并发性，并且实现了SQL标准的4种隔离级别(默认为REPEATABLE级别)；</div>
+<div>
+    InnoDB还提供了插入缓冲(insert buffer)、二次写(double write)、自适应哈希索引(adaptive hash index)、预读(read ahead)等高性能和高可用的功能；</div>
+<div>
+    InnoDB采用了聚集(clustered)的方式来存储表中的数据，每张标的存储都按主键的顺序存放(如果没有显式的在建表时指定主键，InnoDB会为每一行生成一个6字节的ROWID，并以此作为主键)；</div>
+<div>
+    InnoDB表会有三个隐藏字段：除了上面提到了6字节的DB_ROW_ID外，还有6字节的DB_TX_ID(事务ID)和7字节的DB_ROLL_PTR(指向对应回滚段的地址)。这个可以通过innodb monitor看到；</div>
+<div>
+    MyISAM存储引擎: 是MySQL官方提供的存储引擎，主要面向OLAP(Online Analytical Processing,在线分析处理)方面的应用。</div>
+<div>
+    特点：</div>
+<div>
+    <br />
+</div>
+<div>
+    不支持事务，支持表所和全文索引。操作速度快；</div>
+<div>
+    MyISAM存储引擎表由MYD和MYI组成，MYD用来存放数据文件，MYI用来存放索引文件。MySQL数据库只缓存其索引文件，数据文件的缓存交给操作系统本身来完成；</div>
+<div>
+    MySQL5.0版本开始，MyISAM默认支持256T的单表数据；</div>
+<div>
+    27、 解释MySQL外连接、内连接与自连接的区别</div>
+<div>
+    <br />
+</div>
+<div>
+    先说什么是交叉连接: 交叉连接又叫笛卡尔积，它是指不使用任何条件，直接将一个表的所有记录和另一个表中的所有记录一一匹配。</div>
+<div>
+    <br />
+</div>
+<div>
+    内连接 则是只有条件的交叉连接，根据某个条件筛选出符合条件的记录，不符合条件的记录不会出现在结果集中，即内连接只连接匹配的行。</div>
+<div>
+    外连接 其结果集中不仅包含符合连接条件的行，而且还会包括左表、右表或两个表中</div>
+<div>
+    的所有数据行，这三种情况依次称之为左外连接，右外连接，和全外连接。</div>
+<div>
+    <br />
+</div>
+<div>
+    左外连接，也称左连接，左表为主表，左表中的所有记录都会出现在结果集中，对于那些在右表中并没有匹配的记录，仍然要显示，右边对应的那些字段值以NULL来填充。右外连接，也称右连接，右表为主表，右表中的所有记录都会出现在结果集中。左连接和右连接可以互换，MySQL目前还不支持全外连接。</div>
+<div>
+    <br />
+</div>
+<div>
+    28、 写出三种以上MySQL数据库存储引擎的名称（提示：不区分大小写）</div>
+<div>
+    <br />
+</div>
+<div>
+    MyISAM、InnoDB、BDB（BerkeleyDB）、Merge、Memory（Heap）、Example、Federated、</div>
+<div>
+    Archive、CSV、Blackhole、MaxDB 等等十几个引擎</div>
+<div>
+    <br />
+</div>
+<div>
+    29、 什么是面向对象？主要特征是什么？几大原则是什么？</div>
+<div>
+    <br />
+</div>
+<div>
+    面向对象是程序的一种设计模式，它利于提高程序的重用性，使程序机构更加清晰。 主要特征是：封装、继承、多态。</div>
+<div>
+    五大基本原则： 单一职责原则；开放封闭原则；替换原则； 依赖原则； 接口分离原则。</div>
+<div>
+    <br />
+</div>
+<div>
+    30、什么是静态路由，其特点是什么?什么是动态路由，其特点是什么?</div>
+<div>
+    <br />
+</div>
+<div>
+     参考答案：</div>
+<div>
+      静态路由是由系统管理员设计与构建的路由表规定的路由。适用于网关数量有限的场 合，且网络拓朴结构不经常变化的网络。其缺点是不能动态地适用网络状况的变化，当 网络状况变化后必须由网络管理员修改路由表。</div>
+<div>
+    动态路由是由路由选择协议而动态构建的，路由协议之间通过交换各自所拥有的路由信 息实时更新路由表的内容。动态路由可以自动学习网络的拓朴结构，并更新路由表。其 缺点是路由广播更新信息将占据大量的网络带宽。</div>
+<div>
+    <br />
+</div>
+<div>
+    31、使用过 Memcache 缓存吗，如果使用过，能够简单的描述一下它的工作原理吗？</div>
+<div>
+    <br />
+</div>
+<div>
+    Memcahce 是把所有的数据保存在内存当中，采用 hash 表的方式，每条数据由 key 和 value 组成，每个 key 是独一无二的，当要访问某个值的时候先按照找到值，然后返回结果。</div>
+<div>
+    Memcahce 采用 LRU 算法来逐渐把过期数据清除掉。</div>
+<div>
+    <br />
+</div>
+<div>
+    32. 列举流行的 Ajax 框架？说明 Ajax 实现原理是什么及 json 在 Ajax 中起什么作用？</div>
+<div>
+    <br />
+</div>
+<div>
+    流行的 Ajax 框架有 jQuery，Prototype，Dojo，MooTools。</div>
+<div>
+    <br />
+</div>
+<div>
+    Ajax 的工作原理是一个页面的指定位置可以加载另一个页面所有的输出内容，这样就实现了一个静态页面也能获取到数据库中的返回数据信息了。所以 Ajax 技术实现了一个静态网页在不刷新整个页面的情况下与服务器通信，减少了用户等待时间，同时也从而降低了网络流量，增强了客户体验的友好程度。</div>
+<div>
+    在使用 Ajax 时，涉及到数据传输，即将数据从服务器返回到客户端，服务器端和客户端分别使用不同的脚步语言来处理数据，这就需要一种通用的数据格式，XML 和 json 就是最常用的两种，而 json 比 XML 更简单。</div>
+<div>
+    <br />
+</div>
+<div>
+    33、Myql中的事务回滚机制概述</div>
+<div>
+    <br />
+</div>
+<div>
+    事务是用户定义的一个数据库操作序列，这些操作要么全做要么全不做，是一个不可分割的工作单位，事务回滚是指将该事务已经完成的对数据库的更新操作撤销。</div>
+<div>
+    <br />
+</div>
+<div>
+      要同时修改数据库中两个不同表时，如果它们不是一个事务的话，当第一个表修改完，可能第二个表修改过程中出现了异常而没能修改，此时就只有第二个表依旧是未修改之前的状态，而第一个表已经被修改完毕。而当你把它们设定为一个事务的时候，当第一个表修改完，第二表修改出现异常而没能修改，第一个表和第二个表都要回到未修改的状态，这就是所谓的事务回滚。</div>
+<div>
+    <br />
+</div>
+<div>
+    ……</div></p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/2017%E6%9C%80%E6%96%B0php%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB%E4%B8%8A%E7%AF%87/">2017最新PHP经典面试题目汇总（上篇）</a></li>
+        
+        <li><a href="/posts/apache-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE/">apache-如何解决跨域资源访问</a></li>
+        
+        <li><a href="/posts/git-%E4%B8%89%E5%A4%A7%E5%8C%BA%E5%9F%9F%E7%9A%84%E6%93%8D%E4%BD%9C%E5%88%86%E6%9E%90-/">Git 三大区域的操作分析 </a></li>
+        
+        <li><a href="/posts/sublimetext3-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">SublimeText3 使用教程</a></li>
+        
+        <li><a href="/posts/%E5%B8%B8%E7%94%A8css%E6%A0%B7%E5%BC%8F%E5%B1%9E%E6%80%A7%E5%A4%A7%E5%85%A8%E4%B8%AD%E6%96%87%E6%B3%A8%E9%87%8A/">常用css样式属性大全（中文注释）</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/php">php</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> 使程序在Linux下后台运行 （关掉终端继续让程序运行的方法） | i-cooltea的博客</title>
+    <meta property="og:title" content=" 使程序在Linux下后台运行 （关掉终端继续让程序运行的方法） - i-cooltea的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2017-10-18T15:40:00&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2017-10-18T15:40:00&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,清凉Tea,java,android,博客,软件架构,公众号,小程序">
+    <meta name="description" content=" 使程序在Linux下后台运行 （关掉终端继续让程序运行的方法）">
+        <meta name="author" content="&lt;a href=&#34;https://blog.i-can.xyz&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;i-cooltea 清凉&lt;/a&gt;">
+        
+    <meta property="og:url" content="http://i-cooltea.github.io/posts/-%E4%BD%BF%E7%A8%8B%E5%BA%8F%E5%9C%A8linux%E4%B8%8B%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-%E5%85%B3%E6%8E%89%E7%BB%88%E7%AB%AF%E7%BB%A7%E7%BB%AD%E8%AE%A9%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://i-cooltea.github.io/">
+                        i-cooltea的博客
+                    </a>
+                
+                <p class="description">后端工程师 专注于PHP、Android、Java、Go语言(golang)、移动互联网、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://i-cooltea.github.io/">首页</a>
+                    
+                    <a  href="http://i-cooltea.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="http://i-cooltea.github.io/posts/%E5%85%B3%E4%BA%8E%E6%88%91" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title"> 使程序在Linux下后台运行 （关掉终端继续让程序运行的方法）</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2017年10月18日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB">默认分类</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            <p><div style="box-sizing:border-box;color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+    <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;font-size:16px;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;">
+        你是否遇到过这样的情况：从终端软件登录远程的Linux主机，将一堆很大的文件压缩为一个.tar.gz文件，连续压缩了半个小时还没有完成，这时，突然你断网了，你登录不上远程Linux主机了，那么前面的半个小时就会前功尽弃，你非常气愤……
+    </p>
+    <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;font-size:16px;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;">
+        在Linux下，如果你要执行的shell命令耗时特别长，并且：（1）你的网络不稳定，随时可能断网；或者（2）你在执行了shell命令之后必须要关闭终端软件（例如SecureCRT）。
+    </p>
+    <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;font-size:16px;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;">
+        <br style="box-sizing:border-box;" />
+那么你就需要以脱离终端的方式在后台运行这个shell命令。
+    </p>
+    <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;font-size:16px;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;">
+        方法如下：
+    </p>
+    <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;font-size:16px;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;">
+        （1）输入命令：
+    </p>
+    <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;font-size:16px;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;">
+        <span style="box-sizing:border-box;font-weight:700;"><span style="box-sizing:border-box;color:#FF0000;">nohup 你的shell命令 &amp;</span></span>     </p>
+    <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;font-size:16px;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;">
+        （2）回车，使终端回到shell命令行；
+    </p>
+    <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;font-size:16px;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;">
+        （3）输入exit命令退出终端：exit
+    </p>
+    <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;font-size:16px;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;">
+        （4）现在可以关闭你的终端软件了，等过足够的时间，让你的shell命令执行完了再上去看结果吧。
+    </p>
+    <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;font-size:16px;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;">
+        其中，nohup命令可以让你的shell命令忽略SIGHUP信号，即可以使之脱离终端运行；“&amp;”可以让你的命令在后台运行。
+    </p>
+    <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;font-size:16px;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;">
+        以脱离终端的方式在后台运行shell命令有这样几个好处：只要你执行过了命令，那么你的网络中断不会对你有任何影响，并且你就可以关闭终端软件了。
+    </p>
+</div>
+<div style="box-sizing:border-box;color:#555555;font-family:&quot;font-size:15px;white-space:normal;background-color:#FFFFFF;">
+</div>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <span style="box-sizing:border-box;font-weight:700;"><span style="box-sizing:border-box;font-family:宋体;">一、为什么要使程序在后台执行</span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21.75pt;">
+    <span style="box-sizing:border-box;font-family:宋体;">我们计算的程序都是周期很长的，通常要几个小时甚至一个星期。我们用的环境是用<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">putty<span style="box-sizing:border-box;">远程连接到日本<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">Linux<span style="box-sizing:border-box;">服务器。所以使程序在后台跑有以下三个好处：</span></span></span></span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21.75pt;">
+    <span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">1<span style="box-sizing:border-box;font-family:宋体;">：我们这边是否关机不影响日本那边的程序运行。（不会像以前那样，我们这网络一断开，或一关机，程序就断掉或找不到数据，跑了几天的程序只能重头再来，很是烦恼）</span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21.75pt;">
+    <span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">2<span style="box-sizing:border-box;font-family:宋体;">：不影响计算效率</span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21.75pt;">
+    <span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">2<span style="box-sizing:border-box;font-family:宋体;">：让程序在后台跑后，不会占据终端，我们可以用终端做别的事情。</span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <span style="box-sizing:border-box;font-weight:700;"><span style="box-sizing:border-box;font-family:宋体;">二、怎么样使程序在后台执行</span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21.75pt;">
+    <span style="box-sizing:border-box;font-family:宋体;">方法有很多，这里主要列举两种。假如我们有程序<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">pso.cpp,<span style="box-sizing:border-box;">通过编译后产生可执行文件<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">pso<span style="box-sizing:border-box;">，我们要使<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">pso<span style="box-sizing:border-box;">在<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">linux<span style="box-sizing:border-box;">服务器后台执行。当客户端关机后重新登入服务器后继续查看本来在终端输出的运行结果。（假设操作都在当前目录下）</span></span></span></span></span></span></span></span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <span style="box-sizing:border-box;font-weight:700;"><span style="box-sizing:border-box;font-family:宋体;">方法<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">1</span></span><span style="box-sizing:border-box;font-family:宋体;">在终端输入命令：</span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21pt;">
+    <span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">&nbsp;# ./pso &gt; pso.file 2&gt;&amp;1 &amp;&nbsp;</span> </p>
+<p style="margin-top:0px;margin-bottom:16px;margin-left:138.3pt;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:-115.5pt;">
+    <span style="box-sizing:border-box;font-family:宋体;">解释：将<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">pso<span style="box-sizing:border-box;">直接放在后台运行，并把终端输出存放在当前目录下的<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">pso.file<span style="box-sizing:border-box;">文件中。</span></span></span></span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;margin-left:138.3pt;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:-115.5pt;">
+    <span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="box-sizing:border-box;font-family:宋体;">当客户端关机后重新登陆服务器后，直接查看<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">pso.file<span style="box-sizing:border-box;">文件就可看执行结果（命</span></span></span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;margin-left:138.3pt;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:-84pt;">
+    <span style="box-sizing:border-box;font-family:宋体;">令：<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">#cat pso.file<span style="box-sizing:border-box;">）。</span></span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;margin-left:138.3pt;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:-115.5pt;">
+    <span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">&nbsp;&nbsp;</span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <span style="box-sizing:border-box;font-weight:700;"><span style="box-sizing:border-box;font-family:宋体;">方法<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">2</span></span><span style="box-sizing:border-box;font-family:宋体;">在终端输入命令：</span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;margin-left:138.3pt;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:-115.5pt;">
+    <span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;"># nohup&nbsp; ./pso &gt; pso.file 2&gt;&amp;1 &amp;</span> </p>
+<p style="margin-top:0px;margin-bottom:16px;margin-left:138.3pt;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:-115.5pt;">
+    <span style="box-sizing:border-box;font-family:宋体;">解释：<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">nohup<span style="box-sizing:border-box;">就是不挂起的意思，将<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">pso<span style="box-sizing:border-box;">直接放在后台运行，并把终端输出存放在当前</span></span></span></span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;margin-left:138.3pt;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:-84pt;">
+    <span style="box-sizing:border-box;font-family:宋体;">目录下的<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">pso.file<span style="box-sizing:border-box;">文件中。当客户端关机后重新登陆服务器后，直接查看<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">pso.file</span></span></span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;margin-left:138.3pt;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:-84pt;">
+    <span style="box-sizing:border-box;font-family:宋体;">文件就可看执行结果（命令：<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">#cat pso.file<span style="box-sizing:border-box;">）。</span></span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    <span style="box-sizing:border-box;font-weight:700;"><span style="box-sizing:border-box;font-family:宋体;">三、常用任务管理命令</span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21pt;">
+    <span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;"># jobs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //<span style="box-sizing:border-box;font-family:宋体;">查看任务，返回任务编号<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">n<span style="box-sizing:border-box;">和进程号</span></span></span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21pt;">
+    <span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;"># bg&nbsp; %n&nbsp;&nbsp; //<span style="box-sizing:border-box;font-family:宋体;">将编号为<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">n<span style="box-sizing:border-box;">的任务转后台运行</span></span></span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21pt;">
+    <span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;"># fg&nbsp; %n&nbsp;&nbsp; //<span style="box-sizing:border-box;font-family:宋体;">将编号为<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">n<span style="box-sizing:border-box;">的任务转前台运行</span></span></span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21pt;">
+    <span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;"># ctrl+z&nbsp;&nbsp;&nbsp; //<span style="box-sizing:border-box;font-family:宋体;">挂起当前任务</span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21pt;">
+    <span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;"># ctrl+c&nbsp;&nbsp;&nbsp; //<span style="box-sizing:border-box;font-family:宋体;">结束当前任务</span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21pt;">
+    <span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">&nbsp;</span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21pt;">
+    <span style="box-sizing:border-box;font-family:宋体;">注：如果要使在前天执行任务放到后台运行，则先要用<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">ctrl+z<span style="box-sizing:border-box;">挂起该任务，然后用<span lang="en-us" xml:lang="en-us" style="box-sizing:border-box;">bg<span style="box-sizing:border-box;">使之后台执行。</span></span></span></span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21pt;">
+    <span style="box-sizing:border-box;font-family:宋体;">&nbsp;</span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21pt;">
+    <span style="box-sizing:border-box;font-family:宋体;">附：</span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;text-indent:21pt;">
+    <span style="box-sizing:border-box;font-family:宋体;">&nbsp;<span style="box-sizing:border-box;"><br style="box-sizing:border-box;" />
+</span></span> </p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    在Linux中，如果要让进程在后台运行，一般情况下，我们在命令后面加上&amp;即可，实际上，这样是将命令放入到一个作业队列中了：</p>
+<pre style="white-space:pre-wrap;word-wrap:break-word;box-sizing:border-box;margin-top:0px;margin-bottom:24px;background-color:#F0F0F0;overflow-x:auto;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;">$ ./test.sh &amp;
+[1] 17208<br />
+$ jobs -l
+[1]+ 17208 Running                 ./test.sh &amp; </pre> <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    对于已经在前台执行的命令，也可以重新放到后台执行，首先按<span style="box-sizing:border-box;font-weight:700;">ctrl+z</span>暂停已经运行的进程，然后使用<span style="box-sizing:border-box;font-weight:700;">bg</span>命令将停止的作业放到后台运行：</p>
+<pre style="white-space:pre-wrap;word-wrap:break-word;box-sizing:border-box;margin-top:0px;margin-bottom:24px;background-color:#F0F0F0;overflow-x:auto;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;">$ ./test.sh
+[1]+  Stopped                 ./test.sh<br />
+$ bg %1 [1]+ ./test.sh &amp;<br />
+$ jobs -l
+[1]+ 22794 Running                 ./test.sh &amp; </pre> <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    &nbsp;</p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    但是如上方到后台执行的进程，其父进程还是当前终端shell的进程，而一旦父进程退出，则会发送hangup信号给所有子进程，子进程收到hangup以后也会退出。如果我们要在退出shell的时候继续运行进程，则需要使用<span style="box-sizing:border-box;font-weight:700;">nohup</span>忽略hangup信号，或者<span style="box-sizing:border-box;font-weight:700;">setsid</span>将将父进程设为init进程(进程号为1)</p>
+<pre style="white-space:pre-wrap;word-wrap:break-word;box-sizing:border-box;margin-top:0px;margin-bottom:24px;background-color:#F0F0F0;overflow-x:auto;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;">$ echo $$
+21734<br />
+$ nohup ./test.sh &amp;
+[1] 29016<br />
+$ ps -ef | grep test
+515      29710 21734  0 11:47 pts/12   00:00:00 /bin/sh ./test.sh
+515      29713 21734  0 11:47 pts/12   00:00:00 grep test </pre> <pre style="white-space:pre-wrap;word-wrap:break-word;box-sizing:border-box;margin-top:0px;margin-bottom:24px;background-color:#F0F0F0;overflow-x:auto;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;">$ setsid ./test.sh &amp;
+[1] 409<br />
+$ ps -ef | grep test
+515        410     1  0 11:49 ?        00:00:00 /bin/sh ./test.sh
+515        413 21734  0 11:49 pts/12   00:00:00 grep test </pre> <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    上面的试验演示了使用nohup/setsid加上&amp;使进程在后台运行，同时不受当前shell退出的影响。那么对于已经在后台运行的进程，该怎么办呢？可以使用<span style="box-sizing:border-box;font-weight:700;">disown</span>命令：</p>
+<pre style="white-space:pre-wrap;word-wrap:break-word;box-sizing:border-box;margin-top:0px;margin-bottom:24px;background-color:#F0F0F0;overflow-x:auto;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;">$ ./test.sh &amp;
+[1] 2539<br />
+$ jobs -l
+[1]+  2539 Running                 ./test.sh &amp;<br />
+$ disown -h %1<br />
+$ ps -ef | grep test
+515        410     1  0 11:49 ?        00:00:00 /bin/sh ./test.sh
+515       2542 21734  0 11:52 pts/12   00:00:00 grep test </pre> <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    另外还有一种方法，即使将进程在一个subshell中执行，其实这和setsid异曲同工。方法很简单，将命令用括号() 括起来即可：</p>
+<pre style="white-space:pre-wrap;word-wrap:break-word;box-sizing:border-box;margin-top:0px;margin-bottom:24px;background-color:#F0F0F0;overflow-x:auto;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;">$ (./test.sh &amp;)<br />
+$ ps -ef | grep test
+515        410     1  0 11:49 ?        00:00:00 /bin/sh ./test.sh
+515      12483 21734  0 11:59 pts/12   00:00:00 grep test </pre> <p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    注：本文试验环境为Red Hat Enterprise Linux AS release 4 (Nahant Update 5),shell为/bin/bash，不同的OS和shell可能命令有些不一样。例如AIX的ksh，没有disown，但是可以使用<span style="box-sizing:border-box;font-weight:700;">nohup -p<em style="box-sizing:border-box;">PID</em></span>来获得disown同样的效果。</p>
+<p style="margin-top:0px;margin-bottom:16px;padding:0px;box-sizing:border-box;color:#4F4F4F;line-height:26px;text-align:justify;word-break:normal;font-family:&quot;white-space:normal;background-color:#FFFFFF;">
+    还有一种更加强大的方式是使用<span style="box-sizing:border-box;font-weight:700;">screen</span>，首先创建一个断开模式的虚拟终端，然后用-r选项重新连接这个虚拟终端，在其中执行的任何命令，都能达到nohup的效果，这在有多个命令需要在后台连续执行的时候比较方便：</p>
+<pre style="white-space:pre-wrap;word-wrap:break-word;box-sizing:border-box;margin-top:0px;margin-bottom:24px;background-color:#F0F0F0;overflow-x:auto;font-family:Consolas, Inconsolata, Courier, monospace;font-size:14px;line-height:22px;">$ screen -dmS screen_test<br />
+$ screen -list There is a screen on:
+&nbsp;             27963.screen_test       (Detached) 1 Socket in /tmp/uscreens/S-jiangfeng.<br />
+$ screen -r screen_test </pre></p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/archives/"></a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://i-cooltea.github.io/tags/linux">linux</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://i-cooltea.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="软件开发项目风险管理">软件开发项目风险管理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/centos-7%E4%B8%8B%E8%AE%BE%E7%BD%AEdocker%E4%BB%A3%E7%90%86linux%E4%B8%8Bsystemd%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/" title="CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）">CentOS 7下设置Docker代理（Linux下Systemd服务的环境变量配置）</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/linux-%E4%B8%8Bcentos%E5%92%8Cubuntu%E4%BD%BF%E7%94%A8ssr%E4%BB%A3%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95/" title="Linux 下CentOS和Ubuntu使用SSR代理的方法">Linux 下CentOS和Ubuntu使用SSR代理的方法</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%A6%81%E4%BA%8B%E7%AC%AC%E4%B8%80%E4%B8%8E%E8%A7%92%E8%89%B2%E9%80%89%E6%8B%A9/" title="要事第一与角色选择">要事第一与角色选择</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E9%82%A3%E4%B9%88%E5%8A%AA%E5%8A%9B%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E8%8A%82%E7%BA%A6%E4%B8%8B%E6%9D%A5%E6%97%B6%E9%97%B4%E5%81%9A%E4%BB%80%E4%B9%88/" title="那么努力提高效率，节约下来时间做什么">那么努力提高效率，节约下来时间做什么</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E6%AD%A3%E8%83%BD%E9%87%8F%E7%9A%84%E6%AF%92%E4%B8%8E%E8%B4%9F%E8%83%BD%E9%87%8F%E7%9A%84%E8%8D%AF%E6%95%88/" title="正能量的毒与负能量的药效">正能量的毒与负能量的药效</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%80%E5%9B%A2%E6%B7%B7%E4%B9%B1%E9%82%A3%E5%B0%B1%E5%BC%80%E5%A7%8B%E5%88%86%E7%B1%BB%E5%90%A7/" title="一团混乱？那就开始分类吧！">一团混乱？那就开始分类吧！</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E5%85%88%E8%A7%A3%E5%86%B3%E6%9C%89%E6%B2%A1%E6%9C%89%E5%86%8D%E7%9C%8B%E5%A5%BD%E4%B8%8D%E5%A5%BD%E6%AF%8F%E6%97%A5%E8%AE%A1%E5%88%92/" title="先解决有没有，再看好不好——每日计划">先解决有没有，再看好不好——每日计划</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E8%BD%AC%E8%BD%BD-%E8%AF%A6%E8%A7%A3ssh%E5%8E%9F%E7%90%86/" title="转载-详解SSH原理">转载-详解SSH原理</a>
+    </li>
+    
+    <li>
+        <a href="http://i-cooltea.github.io/posts/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AFno.7-%E6%88%91%E4%BB%8E%E9%AB%98%E7%BA%A7%E6%80%BB%E7%9B%91%E8%BA%AB%E4%B8%8A%E5%AD%A6%E7%9A%84%E8%81%8C%E5%9C%BA%E7%B4%A0%E8%B4%A8/" title="个人成长之路No.7 我从高级总监身上学的职场素质">个人成长之路No.7 我从高级总监身上学的职场素质</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://i-cooltea.github.io/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/">默认分类(98)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://i-cooltea.github.io/tags/chrome/">chrome</a>
+    
+    <a href="http://i-cooltea.github.io/tags/composer/">composer</a>
+    
+    <a href="http://i-cooltea.github.io/tags/docker/">docker</a>
+    
+    <a href="http://i-cooltea.github.io/tags/git/">git</a>
+    
+    <a href="http://i-cooltea.github.io/tags/html/css/">html/css</a>
+    
+    <a href="http://i-cooltea.github.io/tags/http/">http</a>
+    
+    <a href="http://i-cooltea.github.io/tags/linux/">linux</a>
+    
+    <a href="http://i-cooltea.github.io/tags/mysql/">mysql</a>
+    
+    <a href="http://i-cooltea.github.io/tags/nginx/">nginx</a>
+    
+    <a href="http://i-cooltea.github.io/tags/php/">php</a>
+    
+    <a href="http://i-cooltea.github.io/tags/python/">python</a>
+    
+    <a href="http://i-cooltea.github.io/tags/ssr/">ssr</a>
+    
+    <a href="http://i-cooltea.github.io/tags/thinkphp/">thinkphp</a>
+    
+    <a href="http://i-cooltea.github.io/tags/vim/">vim</a>
+    
+    <a href="http://i-cooltea.github.io/tags/yii2/">yii2</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E6%B1%87%E6%80%BB/">汇总</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/">软件设计</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+    
+    <a href="http://i-cooltea.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://blog.i-can.xyz" title="i-cooltea-清凉Tea">i-cooltea-清凉Tea</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://i-cooltea.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="http://i-cooltea.github.io/">i-cooltea的博客 By i-cooltea</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

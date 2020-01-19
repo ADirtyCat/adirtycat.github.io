@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nginx on i-cooltea的博客</title>
+    <link>http://i-cooltea.github.io/tags/nginx/</link>
+    <description>Recent content in nginx on i-cooltea的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 01 Jun 2018 14:51:38 +0000</lastBuildDate>
+    
+	<atom:link href="http://i-cooltea.github.io/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>端口转发：nginx做后端，Apache做前端</title>
+      <link>http://i-cooltea.github.io/posts/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91nginx%E5%81%9A%E5%90%8E%E7%AB%AFapache%E5%81%9A%E5%89%8D%E7%AB%AF/</link>
+      <pubDate>Fri, 01 Jun 2018 14:51:38 +0000</pubDate>
+      
+      <guid>http://i-cooltea.github.io/posts/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91nginx%E5%81%9A%E5%90%8E%E7%AB%AFapache%E5%81%9A%E5%89%8D%E7%AB%AF/</guid>
+      <description>最近使用nginx做前端，apache后端，就是让nginx处理静态文件，把动态的转交给apache处理，现在把配置方式整理如下
+1.1、反向代理过程 Nginx前端，Apache后端过程其实很简单，首先用户访问的是80端口的nginx，然后nginx将静态内容留给自己， 其余的转发给非80端口的apache，apache处理完毕后再回传给nginx。
+二、编辑 Nginx 配置文件 2.1、添加”proxy_set_header”指令 proxy_redirect off; proxy_set_header Host $host;# 向后端服务器发起请求时添加指定的header头信息 proxy_set_header X-Real-IP $remote_addr;# 向后端服务器发送真实 IP proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;#让后端如php能直接通过变量获取真实IP
+2.2、添加”proxy_pass”指令 方法一： 将所有请求都转发给后端 apache 处理，但由于 “~” 优先级高于 “/” ，所以图片、JS、CSS例外，”expires” 用于设置缓存时间。 location / { proxy_pass http://127.0.0.1:8080; } location ~ /.(jpg|jpeg|gif|png)$ { access_log off; expires 30d; } location ~* /.(js|css)$ { access_log off; expires 1d; }
+方法二： 只将.php后缀的文件，交由后端 apache 处理 location ~ /.php$ { proxy_pass http://127.0.0.1:8080; }
+方法三： 首先nginx判断是否存在文件，如果不存在都转交给apache处理 location / { proxy_redirect off; proxy_set_header Host $host; proxy_set_header X-Forwarded-For $remote_addr; if (!</description>
+    </item>
+    
+  </channel>
+</rss>
